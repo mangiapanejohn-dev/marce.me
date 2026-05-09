@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
-type Props = MarkdownLayoutProps<{ title: string }>;
+type Props = MarkdownLayoutProps<{ title: string; profileImage?: string }>;
 
 const { frontmatter } = Astro.props;
 ---
