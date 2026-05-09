@@ -1,9 +1,9 @@
 export const SITE = {
   website: "https://marce.me/",
-  author: "MarkEllington",
+  author: "@marcE",
   profile: "https://marce.me/",
   desc: "A personal blog about technology and thoughts.",
-  title: "MarkEllington - me",
+  title: "@marcE",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
