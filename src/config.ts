@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://marce.me/",
   author: "@marcE",
   profile: "https://marce.me/",
-  desc: "A personal blog about technology and thoughts.",
+  desc: "Vibe Coder. Building AI tools that actually remember you. Resonix-AG and RE CODE — every commit lands on GitHub for you to fork & remix.",
   title: "@marcE",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
