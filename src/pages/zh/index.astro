@@ -48,21 +48,17 @@ const recentPosts = sortedPosts;
               <span class="sr-only">RSS 订阅</span>
             </a>
           </div>
-          <p class="opacity-80">
-            Yoo!!! 我叫 Mark Ellington。你可以叫我 Marc 或 BUG～。我们这类人可以叫 Vibe Coder ✌️，也就是硅基生物营养师 👾。
-            <br/><br/>
-            我不喜欢那些繁琐的规则；我喜欢按自己的方式安排想做的事，保持独立（我觉得这样效率很高）。
-            <br/><br/>
-            大家都说我不会说话，是个直男，我也这么认为 😁。不管了，我不在意。我经常到处跑，去过很多地方（多到数不清），但每个地方都有美好的回忆 🤠。
-            <br/><br/>
-            因为我的穿搭是简单 Geek 风格，有人说我穿得 GAY。我："WTFREAK！？我穿得很正常啊！？咋就 GAY 了 🤣"（我真不是 GAY，别误会 🫥）。
-            <br/><br/>
-            哦对了！我开发的大部分东西都会上传到 GitHub 给你 fork 和 remix ☝️。
-            <br/><br/>
-            要用一句话形容自己，我觉得应该是：阳光快乐的小伙哈哈哈 ✌️
-            <br/><br/>
+          <p class="opacity-80 line-clamp-5" id="bio-text-zh">
+            Yoo!!! 我叫 Mark Ellington。你可以叫我 Marc 或 BUG～。<br/><br/>
+            我们这类人可以叫 Vibe Coder ✌️，也就是硅基生物营养师 👾。<br/><br/>
+            我不喜欢那些繁琐的规则；我喜欢按自己的方式安排想做的事，保持独立（我觉得这样效率很高）。<br/><br/>
+            大家都说我不会说话，是个直男，我也这么认为 😁。不管了，我不在意。我经常到处跑，去过很多地方（多到数不清），但每个地方都有美好的回忆 🤠。<br/><br/>
+            因为我的穿搭是简单 Geek 风格，有人说我穿得 GAY。我："WTFREAK！？我穿得很正常啊！？咋就 GAY 了 🤣"（我真不是 GAY，别误会 🫥）。<br/><br/>
+            哦对了！我开发的大部分东西都会上传到 GitHub 给你 fork 和 remix ☝️。<br/><br/>
+            要用一句话形容自己，我觉得应该是：阳光快乐的小伙哈哈哈 ✌️<br/><br/>
             #SBTI:OJBK #MBTI:INTJ #"Loser" #Humorous #Good Guy #Marc #......
           </p>
+          <button id="read-more-zh" class="text-sm text-accent hover:underline mt-1">Read more</button>
           <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
             <div class="flex-wrap justify-center gap-1">
               <Socials />
@@ -99,3 +95,27 @@ const recentPosts = sortedPosts;
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const bioText = document.getElementById("bio-text-zh");
+    const readMoreBtn = document.getElementById("read-more-zh");
+
+    if (bioText && readMoreBtn) {
+      readMoreBtn.addEventListener("click", () => {
+        const isClamped = bioText.classList.contains("line-clamp-5");
+        bioText.classList.toggle("line-clamp-5", !isClamped);
+        readMoreBtn.textContent = isClamped ? "Read more" : "Show less";
+      });
+    }
+  });
+</script>
