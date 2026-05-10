@@ -6,17 +6,43 @@
   class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:max-w-sm bg-background border border-border rounded-lg shadow-lg p-4 z-50 hidden"
 >
   <p class="text-sm mb-3">
-    选择你的语言 / Choose your language:
+    We use cookies to remember your language preference. Do you agree?
+  </p>
+  <p class="text-sm mb-3 text-muted">
+    我们使用 Cookie 来记住您的语言偏好。是否同意？
   </p>
   <div class="flex gap-2">
     <button
-      id="consent-en"
+      id="consent-yes"
+      class="flex-1 px-3 py-2 bg-accent text-white rounded hover:opacity-90 transition-colors text-sm font-medium"
+    >
+      Agree / 同意
+    </button>
+    <button
+      id="consent-no"
+      class="flex-1 px-3 py-2 bg-muted text-white rounded hover:opacity-90 transition-colors text-sm font-medium"
+    >
+      No / 拒绝
+    </button>
+  </div>
+</div>
+
+<div
+  id="lang-modal"
+  class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:max-w-sm bg-background border border-border rounded-lg shadow-lg p-4 z-50 hidden"
+>
+  <p class="text-sm mb-3 font-medium">
+    Choose your language / 选择您的语言：
+  </p>
+  <div class="flex gap-2">
+    <button
+      id="lang-en"
       class="flex-1 px-3 py-2 bg-accent text-white rounded hover:opacity-90 transition-colors text-sm font-medium"
     >
       English
     </button>
     <button
-      id="consent-zh"
+      id="lang-zh"
       class="flex-1 px-3 py-2 bg-accent text-white rounded hover:opacity-90 transition-colors text-sm font-medium"
     >
       中文
@@ -27,8 +53,11 @@
 <script is:inline>
   (function() {
     const cookieConsent = document.getElementById('cookie-consent');
-    const consentEn = document.getElementById('consent-en');
-    const consentZh = document.getElementById('consent-zh');
+    const langModal = document.getElementById('lang-modal');
+    const consentYes = document.getElementById('consent-yes');
+    const consentNo = document.getElementById('consent-no');
+    const langEn = document.getElementById('lang-en');
+    const langZh = document.getElementById('lang-zh');
 
     function setCookie(name, value, days) {
       const expires = new Date();
@@ -47,14 +76,14 @@
       return null;
     }
 
-    // Check if language preference is already set
     const langPref = getCookie('preferred-lang');
+    const cookieAgreed = getCookie('cookie-agreed');
 
-    if (!langPref) {
-      // Show consent modal if no preference
+    // If no cookie agreement yet, show consent
+    if (!cookieAgreed) {
       cookieConsent?.classList.remove('hidden');
-    } else {
-      // Redirect to preferred language if exists
+    } else if (cookieAgreed === 'yes') {
+      // If already agreed, redirect to preferred language
       if (langPref === 'zh' && !window.location.pathname.startsWith('/zh')) {
         window.location.href = '/zh' + window.location.pathname;
       } else if (langPref === 'en' && window.location.pathname.startsWith('/zh')) {
@@ -62,17 +91,31 @@
       }
     }
 
-    consentEn?.addEventListener('click', function() {
-      setCookie('preferred-lang', 'en', 365);
+    // Handle Agree button
+    consentYes?.addEventListener('click', function() {
+      setCookie('cookie-agreed', 'yes', 365);
       cookieConsent?.classList.add('hidden');
+      langModal?.classList.remove('hidden');
+    });
+
+    // Handle No button - just hide and stay on current language
+    consentNo?.addEventListener('click', function() {
+      setCookie('cookie-agreed', 'no', 365);
+      cookieConsent?.classList.add('hidden');
+    });
+
+    // Handle language selection
+    langEn?.addEventListener('click', function() {
+      setCookie('preferred-lang', 'en', 365);
+      langModal?.classList.add('hidden');
       if (window.location.pathname.startsWith('/zh')) {
         window.location.href = window.location.pathname.replace('/zh', '') || '/';
       }
     });
 
-    consentZh?.addEventListener('click', function() {
+    langZh?.addEventListener('click', function() {
       setCookie('preferred-lang', 'zh', 365);
-      cookieConsent?.classList.add('hidden');
+      langModal?.classList.add('hidden');
       if (!window.location.pathname.startsWith('/zh')) {
         window.location.href = '/zh' + window.location.pathname;
       }
