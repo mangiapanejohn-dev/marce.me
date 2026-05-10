@@ -41,10 +41,17 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
               <span class="sr-only">RSS Feed</span>
             </a>
           </div>
-          <p class="opacity-80">
-            Vibe Coder. Building AI tools that actually remember you.
-            Resonix-AG and RE CODE — every commit lands on GitHub for you to fork & remix.
+          <p class="opacity-80 line-clamp-5" id="bio-text">
+            Yoo!!! My name is Mark Ellington. You can call me Marc or BUG～.<br/><br/>
+            We creatures can be collectively called Vibe Coder ✌️, which can be understood as Silicon-Based Biological Nutritionist 👾.<br/><br/>
+            I don't like those tedious rules; I prefer to arrange what I want to do by myself and stay alone (I think this way is very efficient).<br/><br/>
+            They all say I'm bad at talking and a straight guy, and I think so too 😁. Whatever, I don't care about that. I often travel around and have been to many places (too many to count), but each place has great memories 🤠.<br/><br/>
+            Because my outfit is simple geek style, someone actually said I dress like a GAY. Me: "WTFREAK!? Isn't my outfit normal?! How am I a GAY 🤣" (I'm really not GAY, don't have this misunderstanding about me 🫥).<br/><br/>
+            Oh right! Most of the things I develop will be uploaded to GitHub for you to fork and remix ☝️.<br/><br/>
+            If I had to describe myself in one sentence, I think it would be: a sunny and cheerful guy哈哈哈 ✌️<br/><br/>
+            #SBTI:OJBK #MBTI:INTJ #"Loser" #Humorous #Good Guy #Marc #......
           </p>
+          <button id="read-more-btn" class="text-sm text-accent hover:underline mt-1">Read more</button>
           <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
             <div class="flex-wrap justify-center gap-1">
               <Socials />
@@ -81,8 +88,28 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Footer />
 </Layout>
 
+<style>
+  .line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
 <script>
   document.addEventListener("astro:page-load", () => {
+    const bioText = document.getElementById("bio-text");
+    const readMoreBtn = document.getElementById("read-more-btn");
+
+    if (bioText && readMoreBtn) {
+      readMoreBtn.addEventListener("click", () => {
+        const isClamped = bioText.classList.contains("line-clamp-5");
+        bioText.classList.toggle("line-clamp-5", !isClamped);
+        readMoreBtn.textContent = isClamped ? "Read more" : "Show less";
+      });
+    }
+
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;
     if (indexLayout) {

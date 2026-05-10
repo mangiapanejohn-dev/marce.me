@@ -5,7 +5,7 @@ title: "About"
 
 <div class="flex flex-col md:flex-row gap-8 items-start">
   <div class="w-full md:w-auto md:flex-shrink-0 md:max-w-[281px]">
-    <img src="/marce.jpg" alt="Mark Ellington" class="w-full h-auto rounded-lg" />
+    <img src="/about-profile.jpg" alt="Mark Ellington" class="w-full h-auto rounded-lg" />
   </div>
   <div class="flex-1 min-w-0">
     <p>Yoo! I'm Mark</p>

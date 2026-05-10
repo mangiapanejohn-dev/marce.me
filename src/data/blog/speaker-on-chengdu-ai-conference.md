@@ -1,11 +1,11 @@
 ---
 title: "🤠 Speaker On WAGI Offline Party"
-description: "14-year-old sneaked into Chengdu AI Conference, shared the stage with experts — youngest presenter, biggest vibes, full on comedy and hype!"
+description: "A young tech enthusiast sneaked into Chengdu AI Conference, shared the stage with experts — youngest presenter, biggest vibes, full on comedy and hype!"
 pubDatetime: 2026-03-27T12:00:00Z
-tags: ["AI", "Chengdu AI Conference", "OpenClaw", "14yr Tech"]
+tags: ["AI", "Chengdu AI Conference", "OpenClaw", "Young Tech"]
 ---
 
-Yo! I'm a 14-year-old who spends every day jumping between homework and code — and I somehow snuck into the Chengdu AI Conference as a guest speaker, sharing the stage with a bunch of tech pros. Looking down from that stage at all the adults looking up at me... I still crack up thinking about it (okay, also kinda nervous 😓 lol).
+Yo! I'm just a young tech enthusiast who spends every day jumping between homework and code — and I somehow snuck into the Chengdu AI Conference as a guest speaker, sharing the stage with a bunch of tech pros. Looking down from that stage at all the adults looking up at me... I still crack up thinking about it (okay, also kinda nervous 😓 lol).
 
 Here's the backstory: The conference theme was "OpenClaw" — not the actual crayfish, but the fire AI tool that's been blowing up lately. I was just casually experimenting at home when the organizers hit me up and invited me to speak as the youngest presenter. Age smallest, boldest energy.
 
@@ -25,11 +25,11 @@ My topic was simple: Using OpenClaw to build stuff, specifically letting it help
 
 I also dropped a little teaser: I'm planning to build a system using Transformer architecture to dodge the "hallucination" problem in regular RAG — cause AI making stuff up ain't it, we need a reliable assistant.
 
-Best part? The host dropped: "If you feel like a 14-year-old just blew past you — that's today's best win." The whole crowd went 🤯, I was holding back my laugh so hard, internal vibes: hhhh, being young means you can just go wild!
+Best part? The host dropped: "If you feel like a young kid just blew past you — that's today's best win." The whole crowd went 🤯, I was holding back my laugh so hard, internal vibes: hhhh, being young means you can just go wild!
 
 I don't think I'm all that (maybe lol 😛) — I just like experimenting and not afraid to fail. Setting up OpenClaw hit me with errors, crashes, dependency hell — same stuff all the uncles and aunts deal with. But the perk of being young: no fear of falling, just get back up and keep grinding.
 
-My biggest takeaway from Chengdu AI Conference? AI isn't just for grown-ups or pro coders. 14? Underage? As long as you have an idea, you can make it happen!
+My biggest takeaway from Chengdu AI Conference? AI isn't just for grown-ups or pro coders. Young? Old? As long as you have an idea, you can make it happen!
 
 Tons of people came up to chat — some asking about tech, some saying I was brave, even saying I inspired them — honestly, I'm the one who got inspired. Turns out you can earn everyone's respect with skills, not age.
 
