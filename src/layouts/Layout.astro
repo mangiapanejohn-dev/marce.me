@@ -4,7 +4,10 @@ import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import Analytics from '@vercel/analytics/astro';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import "@/styles/global.css";
+
+injectSpeedInsights();
 
 type Props = {
   title?: string;
