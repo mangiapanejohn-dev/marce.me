@@ -14,15 +14,8 @@ import { SOCIALS } from "@/constants";
 import { getCollection as getCollectionZh } from "astro:content";
 import { getEntry } from "astro:content";
 
-const postsEn = await getCollection("blog");
 const postsZh = await getCollection("zh");
-
-const allPosts = [
-  ...postsEn.map(p => ({ ...p, lang: "en" })),
-  ...postsZh.map(p => ({ ...p, lang: "zh" }))
-];
-
-const sortedPosts = getSortedPosts(allPosts);
+const sortedPosts = getSortedPosts(postsZh);
 const recentPosts = sortedPosts;
 ---
 
