@@ -11,7 +11,9 @@ import { SITE } from "@/config";
 
 const { pathname } = Astro.url;
 
-// Remove trailing slash from current pathname if exists
+// 判断当前语言
+const isZh = pathname.startsWith("/zh");
+
 const currentPath =
   pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
@@ -21,6 +23,26 @@ const isActive = (path: string) => {
 
   return currentPath === path || currentPathArray[0] === pathArray[0];
 };
+
+// 双语导航文本
+const navTexts = {
+  en: {
+    posts: "Posts",
+    tags: "Tags",
+    about: "About",
+    archives: "Archives",
+    search: "Search"
+  },
+  zh: {
+    posts: "文章",
+    tags: "标签",
+    about: "关于",
+    archives: "归档",
+    search: "搜索"
+  }
+};
+
+const t = isZh ? navTexts.zh : navTexts.en;
 ---
 
 <a
@@ -44,7 +66,7 @@ const isActive = (path: string) => {
     ]}
   >
     <a
-      href="/"
+      href={isZh ? "/zh" : "/"}
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       {SITE.title}
@@ -73,52 +95,52 @@ const isActive = (path: string) => {
         ]}
       >
         <li class="col-span-2">
-          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-            Posts
+          <a href={isZh ? "/zh/posts" : "/posts"} class:list={{ "active-nav": isActive(isZh ? "/zh/posts" : "/posts") }}>
+            {t.posts}
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-            Tags
+          <a href={isZh ? "/zh/tags" : "/tags"} class:list={{ "active-nav": isActive(isZh ? "/zh/tags" : "/tags") }}>
+            {t.tags}
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-            About
+          <a href={isZh ? "/zh/about" : "/about"} class:list={{ "active-nav": isActive(isZh ? "/zh/about" : "/about") }}>
+            {t.about}
           </a>
         </li>
         {
           SITE.showArchives && (
             <li class="col-span-2">
               <LinkButton
-                href="/archives"
+                href={isZh ? "/zh/archives" : "/archives"}
                 class:list={[
                   "focus-outline flex justify-center p-3 sm:p-1",
                   {
-                    "active-nav [&>svg]:stroke-accent": isActive("/archives"),
+                    "active-nav [&>svg]:stroke-accent": isActive(isZh ? "/zh/archives" : "/archives"),
                   },
                 ]}
-                title="Archives"
-                aria-label="archives"
+                title={t.archives}
+                aria-label={t.archives}
               >
                 <IconArchive class="hidden sm:inline-block" />
-                <span class="sm:sr-only">Archives</span>
+                <span class="sm:sr-only">{t.archives}</span>
               </LinkButton>
             </li>
           )
         }
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
-            href="/search"
+            href={isZh ? "/zh/search" : "/search"}
             class:list={[
               "focus-outline flex p-3 sm:p-1",
-              { "[&>svg]:stroke-accent": isActive("/search") },
+              { "[&>svg]:stroke-accent": isActive(isZh ? "/zh/search" : "/search") },
             ]}
-            title="Search"
-            aria-label="search"
+            title={t.search}
+            aria-label={t.search}
           >
             <IconSearch />
-            <span class="sr-only">Search</span>
+            <span class="sr-only">{t.search}</span>
           </LinkButton>
         </li>
         {
@@ -168,6 +190,5 @@ const isActive = (path: string) => {
 
   toggleNav();
 
-  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>
