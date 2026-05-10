@@ -4,7 +4,6 @@ import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import Analytics from '@vercel/analytics/astro';
-import LanguageConsent from "@/components/LanguageConsent.astro";
 import "@/styles/global.css";
 
 type Props = {
@@ -170,7 +169,6 @@ const structuredData = {
     </script>
   </head>
   <body>
-    <LanguageConsent />
     <Analytics />
     <slot />
 

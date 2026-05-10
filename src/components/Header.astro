@@ -6,14 +6,11 @@ import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
-import LanguageSwitcher from "./LanguageSwitcher.astro";
 import { SITE } from "@/config";
 
 const { pathname } = Astro.url;
 
-// 判断当前语言
-const isZh = pathname.startsWith("/zh");
-
+// Remove trailing slash from current pathname if exists
 const currentPath =
   pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
@@ -23,26 +20,6 @@ const isActive = (path: string) => {
 
   return currentPath === path || currentPathArray[0] === pathArray[0];
 };
-
-// 双语导航文本
-const navTexts = {
-  en: {
-    posts: "Posts",
-    tags: "Tags",
-    about: "About",
-    archives: "Archives",
-    search: "Search"
-  },
-  zh: {
-    posts: "文章",
-    tags: "标签",
-    about: "关于",
-    archives: "归档",
-    search: "搜索"
-  }
-};
-
-const t = isZh ? navTexts.zh : navTexts.en;
 ---
 
 <a
@@ -66,7 +43,7 @@ const t = isZh ? navTexts.zh : navTexts.en;
     ]}
   >
     <a
-      href={isZh ? "/zh" : "/"}
+      href="/"
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       {SITE.title}
@@ -95,52 +72,52 @@ const t = isZh ? navTexts.zh : navTexts.en;
         ]}
       >
         <li class="col-span-2">
-          <a href={isZh ? "/zh/posts" : "/posts"} class:list={{ "active-nav": isActive(isZh ? "/zh/posts" : "/posts") }}>
-            {t.posts}
+          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
+            Posts
           </a>
         </li>
         <li class="col-span-2">
-          <a href={isZh ? "/zh/tags" : "/tags"} class:list={{ "active-nav": isActive(isZh ? "/zh/tags" : "/tags") }}>
-            {t.tags}
+          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
+            Tags
           </a>
         </li>
         <li class="col-span-2">
-          <a href={isZh ? "/zh/about" : "/about"} class:list={{ "active-nav": isActive(isZh ? "/zh/about" : "/about") }}>
-            {t.about}
+          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+            About
           </a>
         </li>
         {
           SITE.showArchives && (
             <li class="col-span-2">
               <LinkButton
-                href={isZh ? "/zh/archives" : "/archives"}
+                href="/archives"
                 class:list={[
                   "focus-outline flex justify-center p-3 sm:p-1",
                   {
-                    "active-nav [&>svg]:stroke-accent": isActive(isZh ? "/zh/archives" : "/archives"),
+                    "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                   },
                 ]}
-                title={t.archives}
-                aria-label={t.archives}
+                title="Archives"
+                aria-label="archives"
               >
                 <IconArchive class="hidden sm:inline-block" />
-                <span class="sm:sr-only">{t.archives}</span>
+                <span class="sm:sr-only">Archives</span>
               </LinkButton>
             </li>
           )
         }
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
-            href={isZh ? "/zh/search" : "/search"}
+            href="/search"
             class:list={[
               "focus-outline flex p-3 sm:p-1",
-              { "[&>svg]:stroke-accent": isActive(isZh ? "/zh/search" : "/search") },
+              { "[&>svg]:stroke-accent": isActive("/search") },
             ]}
-            title={t.search}
-            aria-label={t.search}
+            title="Search"
+            aria-label="search"
           >
             <IconSearch />
-            <span class="sr-only">{t.search}</span>
+            <span class="sr-only">Search</span>
           </LinkButton>
         </li>
         {
@@ -159,9 +136,6 @@ const t = isZh ? navTexts.zh : navTexts.en;
             </li>
           )
         }
-        <li class="col-span-1 flex items-center justify-center">
-          <LanguageSwitcher />
-        </li>
       </ul>
     </nav>
   </div>
@@ -190,5 +164,6 @@ const t = isZh ? navTexts.zh : navTexts.en;
 
   toggleNav();
 
+  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>

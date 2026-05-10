@@ -33,8 +33,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         </a>
         <div class="flex-1 text-center sm:text-left">
           <div class="flex items-center gap-2 justify-center sm:justify-start">
-            <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl">
-              {SITE.author}
+            <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl typing-effect">
+              <span class="typing-text">{SITE.author}</span>
+              <span class="typing-cursor">|</span>
             </h1>
             <a target="_blank" href="/rss.xml" class="inline-block" aria-label="rss feed" title="RSS Feed">
               <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
@@ -94,6 +95,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .typing-cursor {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
   }
 </style>
 
