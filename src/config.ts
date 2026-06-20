@@ -1,7 +1,7 @@
 export const SITE = {
-  website: "https://marce.me/",
+  website: "https://marcyy.me/",
   author: "@marcE",
-  profile: "https://marce.me/",
+  profile: "https://marcyy.me/",
   desc: "Vibe Coder. Building AI tools that actually remember you. Resonix-AG and RE CODE — every commit lands on GitHub for you to fork & remix.",
   title: "MarkEllington.me",
   ogImage: "", // empty → falls back to dynamic /og.png (branded with site title)

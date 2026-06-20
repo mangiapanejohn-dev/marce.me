@@ -2,7 +2,7 @@
 
 Personal site & dev diary of **Mark Ellington** (Marc / BUG) — Vibe Coder, building AI tools that actually remember you.
 
-🌐 Live at **[marce.me](https://marce.me)**
+🌐 Live at **[marcyy.me](https://marcyy.me)**
 
 Most of what I build ends up on GitHub for you to fork & remix. This site is where I write the dev diaries behind them — DiscorverX, Pawly, MarcStar, RE CODE, Resonix-AG, and more.
 
