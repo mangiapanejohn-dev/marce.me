@@ -2,7 +2,8 @@
 title: "👾 Am I Crazy? Built a Personal AI Agent in Two Weeks"
 description: "A rogue developer's funny journey of building Resonix-AG, an autonomous AI agent with permanent memory and self-learning capabilities, to fix the frustration of 'goldfish-memory' traditional AIs."
 pubDatetime: 2026-02-06T01:00:00Z
-tags: ["AI Agent", "Resonix-AG", "Web Development", "Self-Learning AI"]
+tags: ["Dev Diary", "AI"]
+cover: "/IMG_3375.jpg"
 ---
 
 Yoo! Hey fellow coders and slacker buddies, I'm Marc, a rogue developer who got so fed up with traditional AI that I decided to build my own 😂. Today, no fancy tech jargon, no pretending to be a guru—just gonna chat about why I went nuts and spent two months hacking together the Resonix-AG repo, and how weirdly "in tune" it is with me.

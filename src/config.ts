@@ -4,11 +4,11 @@ export const SITE = {
   profile: "https://marce.me/",
   desc: "Vibe Coder. Building AI tools that actually remember you. Resonix-AG and RE CODE — every commit lands on GitHub for you to fork & remix.",
   title: "MarkEllington.me",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "", // empty → falls back to dynamic /og.png (branded with site title)
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  scheduledPostMargin: 0,
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {

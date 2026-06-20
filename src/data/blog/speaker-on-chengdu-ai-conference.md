@@ -2,7 +2,8 @@
 title: "🤠 Speaker On WAGI Offline Party"
 description: "A young tech enthusiast sneaked into Chengdu AI Conference, shared the stage with experts — youngest presenter, biggest vibes, full on comedy and hype!"
 pubDatetime: 2026-03-27T12:00:00Z
-tags: ["AI", "Chengdu AI Conference", "OpenClaw", "Young Tech"]
+tags: ["Career", "AI"]
+cover: "/IMG_3369.JPG"
 ---
 
 Yo! I'm just a young tech enthusiast who spends every day jumping between homework and code — and I somehow snuck into the Chengdu AI Conference as a guest speaker, sharing the stage with a bunch of tech pros. Looking down from that stage at all the adults looking up at me... I still crack up thinking about it (okay, also kinda nervous 😓 lol).

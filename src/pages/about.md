@@ -22,18 +22,18 @@ title: "About"
 
 ## Stay Connected
 
-<div class="bg-gray-50 dark:bg-gray-800/50 border border-orange-500 rounded-lg p-6 my-8">
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+<div class="bg-muted/30 border border-accent rounded-lg p-6 my-8">
+  <p class="text-sm text-foreground/70 mb-4">
     New posts, shipping stories, and nerdy links straight to your inbox.
   </p>
   <form action="mailto:mangiapanejohn@icloud.com?subject=Subscribe to Newsletter" method="post" enctype="text/plain" class="flex flex-col sm:flex-row gap-3">
-    <input type="text" name="name" placeholder="Your Name" class="flex-1 px-4 py-2 border border-orange-500 rounded-md bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" />
-    <input type="email" name="email" placeholder="Your Email" required class="flex-1 px-4 py-2 border border-orange-500 rounded-md bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" />
-    <button type="submit" class="px-6 py-2 bg-orange-500 hover:bg-orange-600 rounded-md transition-colors font-medium whitespace-nowrap text-white">
+    <input type="text" name="name" placeholder="Your Name" class="flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <input type="email" name="email" placeholder="Your Email" required class="flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <button type="submit" class="px-6 py-2 bg-accent hover:bg-accent/90 rounded-md transition-colors font-medium whitespace-nowrap text-background">
       Subscribe
     </button>
   </form>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">
+  <p class="text-xs text-foreground/50 mt-3">
     2× per month, pure signal, zero fluff.
   </p>
 </div>

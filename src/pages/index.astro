@@ -15,8 +15,28 @@ import { SOCIALS } from "@/constants";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const featuredProjects = [
+  {
+    name: "DiscorverX",
+    tagline: "Campus social — like Discord and your school had a baby.",
+    img: "/discorverx-landing.png",
+    href: "/posts/built-discorverx-campus-social",
+  },
+  {
+    name: "Pawly",
+    tagline: "A desktop pet that watches your coding agent for you.",
+    img: "/pawly-landing.png",
+    href: "/posts/pawly-desktop-pet-for-coding",
+  },
+  {
+    name: "Horizon-Ai",
+    tagline: "Joined as CTO — building AI that actually helps.",
+    img: "/horizon-ai-logo.jpg",
+    href: "/posts/joined-horizon-ai-as-cto",
+  },
+];
 ---
 
 <Layout>
@@ -28,30 +48,29 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           <img
             src="/marce.jpg"
             alt={SITE.author}
+            width="160"
+            height="160"
             class="w-40 h-40 rounded-full object-cover flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
           />
         </a>
         <div class="flex-1 text-center sm:text-left">
           <div class="flex items-center gap-2 justify-center sm:justify-start">
-            <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl typing-effect">
-              <span class="typing-text">{SITE.author}</span>
-              <span class="typing-cursor">|</span>
-            </h1>
+            <h1 class="typing-effect my-2 text-2xl font-bold sm:my-4 sm:text-3xl">@marcE</h1>
             <a target="_blank" href="/rss.xml" class="inline-block" aria-label="rss feed" title="RSS Feed">
               <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
               <span class="sr-only">RSS Feed</span>
             </a>
           </div>
-          <p class="opacity-80 line-clamp-5" id="bio-text">
-            Yoo!!! My name is Mark Ellington. You can call me Marc or BUG～.<br/><br/>
-            We creatures can be collectively called Vibe Coder ✌️, which can be understood as Silicon-Based Biological Nutritionist 👾.<br/><br/>
-            I don't like those tedious rules; I prefer to arrange what I want to do by myself and stay alone (I think this way is very efficient).<br/><br/>
-            They all say I'm bad at talking and a straight guy, and I think so too 😁. Whatever, I don't care about that. I often travel around and have been to many places (too many to count), but each place has great memories 🤠.<br/><br/>
-            Because my outfit is simple geek style, someone actually said I dress like a GAY. Me: "WTFREAK!? Isn't my outfit normal?! How am I a GAY 🤣" (I'm really not GAY, don't have this misunderstanding about me 🫥).<br/><br/>
-            Oh right! Most of the things I develop will be uploaded to GitHub for you to fork and remix ☝️.<br/><br/>
-            If I had to describe myself in one sentence, I think it would be: a sunny and cheerful guy哈哈哈 ✌️<br/><br/>
-            #SBTI:OJBK #MBTI:INTJ #"Loser" #Humorous #Good Guy #Marc #......
-          </p>
+          <div class="bio-collapsed space-y-3 opacity-80" id="bio-text">
+            <p>Yoo!!! My name is Mark Ellington. You can call me Marc or BUG～.</p>
+            <p>We creatures can be collectively called Vibe Coder ✌️, which can be understood as Silicon-Based Biological Nutritionist 👾.</p>
+            <p>I don't like those tedious rules; I prefer to arrange what I want to do by myself and stay alone (I think this way is very efficient).</p>
+            <p>They all say I'm bad at talking and a straight guy, and I think so too 😁. Whatever, I don't care about that. I often travel around and have been to many places (too many to count), but each place has great memories 🤠.</p>
+            <p>Because my outfit is simple geek style, someone actually said I dress like a GAY. Me: "WTFREAK!? Isn't my outfit normal?! How am I a GAY 🤣" (I'm really not GAY, don't have this misunderstanding about me 🫥).</p>
+            <p>Oh right! Most of the things I develop will be uploaded to GitHub for you to fork and remix ☝️.</p>
+            <p>If I had to describe myself in one sentence, I think it would be: a sunny and cheerful guy哈哈哈 ✌️</p>
+            <p>#SBTI:OJBK #MBTI:INTJ #"Loser" #Humorous #Good Guy #Marc #......</p>
+          </div>
           <button id="read-more-btn" class="text-sm text-accent hover:underline mt-1">Read more</button>
           <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
             <div class="flex-wrap justify-center gap-1">
@@ -66,9 +85,39 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       <hr class="border-border" aria-hidden="true" />
     </div>
 
+    <section id="featured-projects" class="pt-12">
+      <h2 class="text-2xl font-semibold tracking-wide">Featured Projects</h2>
+      <div class="mt-5 grid gap-4 sm:grid-cols-3">
+        {
+          featuredProjects.map(project => (
+            <a
+              href={project.href}
+              class="group block overflow-hidden rounded-xl border border-border bg-muted/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={project.img}
+                  alt={project.name}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="font-semibold text-accent group-hover:underline">
+                  {project.name}
+                </h3>
+                <p class="mt-1 text-sm opacity-80">{project.tagline}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="mb-2 text-2xl font-semibold tracking-wide">Recent Posts</h2>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -90,18 +139,35 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 </Layout>
 
 <style>
-  .line-clamp-5 {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
+  .bio-collapsed {
+    max-height: 7.5rem;
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
   }
-  .typing-cursor {
-    animation: blink 1s infinite;
+  .typing-effect {
+    display: inline-block;
+    width: 6ch;
+    overflow: hidden;
+    white-space: nowrap;
+    border-inline-end: 2px solid currentColor;
+    animation:
+      typing 2.5s steps(6) infinite alternate,
+      caret 0.7s step-end infinite;
   }
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+  @keyframes typing {
+    0%, 15% { width: 0; }
+    60%, 100% { width: 6ch; }
+  }
+  @keyframes caret {
+    50% { border-color: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .typing-effect {
+      width: 6ch;
+      animation: none;
+      border-inline-end: none;
+    }
   }
 </style>
 
@@ -112,8 +178,8 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     if (bioText && readMoreBtn) {
       readMoreBtn.addEventListener("click", () => {
-        const isClamped = bioText.classList.contains("line-clamp-5");
-        bioText.classList.toggle("line-clamp-5", !isClamped);
+        const isClamped = bioText.classList.contains("bio-collapsed");
+        bioText.classList.toggle("bio-collapsed", !isClamped);
         readMoreBtn.textContent = isClamped ? "Read more" : "Show less";
       });
     }

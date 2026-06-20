@@ -2,7 +2,8 @@
 title: "🤫 RE CODE: My Second Project to Save Claude from Bans"
 description: "Fed up with random Claude bans? Built RE CODE - an open-source Claude API client that outsmarts Claude's Tango Tengu monitoring system."
 pubDatetime: 2026-04-15T01:00:00Z
-tags: ["RE CODE", "Claude", "Bypass", "API Client"]
+tags: ["Dev Diary", "AI", "Open Source"]
+cover: "/IMG_2052.jpg"
 ---
 
 Yoo again, fellow coders and ban-victim buddies! It's Marc, your go-to rogue developer who's still riding the high of building Resonix-AG—and now I'm back with round two: RE CODE, my second "I'm tired of this garbage, so I'll build it myself" project 😂. If you've ever had your Claude account banned for no reason (we've all been there), this one's for you.
