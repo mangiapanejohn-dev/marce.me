@@ -1,22 +1,22 @@
 ---
 title: "When a Name Stops Fitting"
-description: "Why I retired Discorver and renamed our product. Not a rebrand — a late-night founder's note on outgrowing a name, the cost of waiting, and earning a new one."
+description: "Why I retired DiscorverX and renamed our product. Not a rebrand — a late-night founder's note on outgrowing a name, the cost of waiting, and earning a new one."
 pubDatetime: 2026-06-27T01:00:00Z
 cover: "/cover-when-a-name-stops-fitting.svg"
 tags: ["Building", "Branding", "Founder Notes"]
 ---
 
-Yesterday I retired the name Discorver.
+Yesterday I retired the name DiscorverX.
 
 Not the logo. Not a domain redirect with a thread attached. The name itself.
 
 It's late and I'm writing this mostly for myself, so it's clearer in the morning.
 
-The old name wasn't bad. I want to say that first. I still like Discorver. It got us through the part where nothing was certain and the name was the most certain thing we had. People got attached to it. I got attached to it.
+The old name wasn't bad. I want to say that first. I still like DiscorverX. It got us through the part where nothing was certain and the name was the most certain thing we had. People got attached to it. I got attached to it.
 
 It just stopped fitting.
 
-![The name discorver, dissolving into open space](/wnsf-dissolve.svg)
+![The name DiscorverX, dissolving into open space](/wnsf-dissolve.svg)
 
 ---
 

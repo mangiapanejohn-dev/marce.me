@@ -11,8 +11,8 @@
   <circle cx="240" cy="94" r="7" fill="#27C93F"/>
 
   <g font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="26">
-    <text x="200" y="186" fill="#8A8A8A">$ <tspan fill="#D6D6D6">cd ~/discorver</tspan></text>
-    <text x="200" y="232" fill="#E06C75">cd: no such file or directory: ~/discorver</text>
+    <text x="200" y="186" fill="#8A8A8A">$ <tspan fill="#D6D6D6">cd ~/discorverx</tspan></text>
+    <text x="200" y="232" fill="#E06C75">cd: no such file or directory: ~/discorverx</text>
 
     <text x="200" y="300" fill="#8A8A8A">$ <tspan fill="#D6D6D6">git status</tspan></text>
     <text x="200" y="346" fill="#E06C75">fatal: not a git repository</text>
