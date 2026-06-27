@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="The name discorver dissolving into open space">
+  <defs>
+    <linearGradient id="fade2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.40" stop-color="#ffffff"/>
+      <stop offset="0.72" stop-color="#000000"/>
+    </linearGradient>
+    <mask id="dissolve2">
+      <rect width="1200" height="420" fill="url(#fade2)"/>
+    </mask>
+  </defs>
+
+  <rect width="1200" height="420" fill="#FAF8F4"/>
+
+  <text x="120" y="245" font-family="'Helvetica Neue', 'Inter', Arial, sans-serif"
+        font-size="132" font-weight="600" letter-spacing="-5" fill="#1A1A1A"
+        mask="url(#dissolve2)">discorver</text>
+
+  <g fill="#1A1A1A">
+    <circle cx="612" cy="205" r="5" opacity="0.50"/>
+    <circle cx="648" cy="172" r="3.5" opacity="0.42"/>
+    <circle cx="672" cy="236" r="4" opacity="0.36"/>
+    <circle cx="706" cy="198" r="2.5" opacity="0.32"/>
+    <circle cx="740" cy="158" r="3" opacity="0.26"/>
+    <circle cx="760" cy="244" r="2.5" opacity="0.24"/>
+    <circle cx="800" cy="212" r="4" opacity="0.20"/>
+    <circle cx="846" cy="182" r="2" opacity="0.16"/>
+    <circle cx="892" cy="232" r="2.5" opacity="0.13"/>
+    <circle cx="946" cy="200" r="2" opacity="0.10"/>
+  </g>
+  <g fill="#6B7A8F">
+    <circle cx="636" cy="222" r="3.5" opacity="0.5"/>
+    <circle cx="694" cy="162" r="2.5" opacity="0.4"/>
+    <circle cx="752" cy="222" r="3" opacity="0.32"/>
+    <circle cx="822" cy="250" r="2.5" opacity="0.24"/>
+    <circle cx="884" cy="180" r="2.5" opacity="0.20"/>
+    <circle cx="952" cy="232" r="2" opacity="0.14"/>
+    <circle cx="1016" cy="198" r="2" opacity="0.10"/>
+  </g>
+</svg>

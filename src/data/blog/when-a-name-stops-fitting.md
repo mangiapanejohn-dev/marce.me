@@ -16,6 +16,8 @@ The old name wasn't bad. I want to say that first. I still like Discorver. It go
 
 It just stopped fitting.
 
+![The name discorver, dissolving into open space](/wnsf-dissolve.svg)
+
 ---
 
 When you start something, you name what you can see. And at the beginning you can only see a few feet ahead.
@@ -53,6 +55,8 @@ I didn't understand how many places a name lives until I tried to remove one.
 I spent an afternoon just finding them. The repo. The folder on my desktop I'd opened every day for two years. The env files. The Stripe product description. The OAuth app names. The favicon. The footer. A TestFlight build. The name in my own git history, which I couldn't change and didn't try to.
 
 I renamed the repository and the local folder broke in three tools at once. I sat there looking at a `fatal: not a git repository` error for a stupid old path for longer than I needed to. I'd typed that path more times than I've typed my own address.
+
+![A renamed repo, and an old path that no longer resolves](/wnsf-terminal.svg)
 
 Then I deleted the old logo files. That was the one that got me — dragging them to the trash, emptying it, then sitting there a second before going back to work.
 
