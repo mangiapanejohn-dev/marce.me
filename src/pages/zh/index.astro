@@ -10,7 +10,6 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
 
@@ -20,21 +19,21 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const featuredProjects = [
   {
     name: "DiscorverX",
-    tagline: "Campus social — like Discord and your school had a baby.",
+    tagline: "校园社交 —— 像是 Discord 和你的学校生了个孩子。",
     img: "/discorverx-landing.png",
-    href: "/posts/built-discorverx-campus-social",
+    href: "/zh/posts/built-discorverx-campus-social",
   },
   {
     name: "Pawly",
-    tagline: "A desktop pet that watches your coding agent for you.",
+    tagline: "一只帮你盯着 coding agent 的桌面宠物。",
     img: "/pawly-landing.png",
-    href: "/posts/pawly-desktop-pet-for-coding",
+    href: "/zh/posts/pawly-desktop-pet-for-coding",
   },
   {
     name: "Horizon-Ai",
-    tagline: "Joined as CTO — building AI that actually helps.",
+    tagline: "以 CTO 身份加入 —— 做真正有用的 AI。",
     img: "/horizon-ai-logo.jpg",
-    href: "/posts/joined-horizon-ai-as-cto",
+    href: "/zh/posts/joined-horizon-ai-as-cto",
   },
 ];
 ---
@@ -44,7 +43,7 @@ const featuredProjects = [
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class="pt-6 pb-4">
       <div class="flex flex-col sm:flex-row items-start gap-4">
-        <a href="/about" class="block mx-auto sm:mx-0 group">
+        <a href="/zh/about" class="block mx-auto sm:mx-0 group">
           <img
             src="/marce.jpg"
             alt={SITE.author}
@@ -56,22 +55,22 @@ const featuredProjects = [
         <div class="flex-1 text-center sm:text-left">
           <div class="flex items-center gap-2 justify-center sm:justify-start">
             <h1 class="typing-effect my-2 text-2xl font-bold sm:my-4 sm:text-3xl">@marcE</h1>
-            <a target="_blank" href="/rss.xml" class="inline-block" aria-label="rss feed" title="RSS Feed">
+            <a target="_blank" href="/rss.xml" class="inline-block" aria-label="RSS 订阅" title="RSS 订阅">
               <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
-              <span class="sr-only">RSS Feed</span>
+              <span class="sr-only">RSS 订阅</span>
             </a>
           </div>
           <div class="bio-collapsed space-y-3 opacity-80" id="bio-text">
-            <p>Yoo!!! My name is Mark Ellington. You can call me Marc or BUG～.</p>
-            <p>We creatures can be collectively called Vibe Coder ✌️, which can be understood as Silicon-Based Biological Nutritionist 👾.</p>
-            <p>I don't like those tedious rules; I prefer to arrange what I want to do by myself and stay alone (I think this way is very efficient).</p>
-            <p>They all say I'm bad at talking and a straight guy, and I think so too 😁. Whatever, I don't care about that. I often travel around and have been to many places (too many to count), but each place has great memories 🤠.</p>
-            <p>Because my outfit is simple geek style, someone actually said I dress like a GAY. Me: "WTFREAK!? Isn't my outfit normal?! How am I a GAY 🤣" (I'm really not GAY, don't have this misunderstanding about me 🫥).</p>
-            <p>Oh right! Most of the things I develop will be uploaded to GitHub for you to fork and remix ☝️.</p>
-            <p>If I had to describe myself in one sentence, I think it would be: a sunny and cheerful guy哈哈哈 ✌️</p>
-            <p>#SBTI:OJBK #MBTI:INTJ #"Loser" #Humorous #Good Guy #Marc #......</p>
+            <p>哟!!!我叫 Mark Ellington。你可以叫我 Marc,或者 BUG～。</p>
+            <p>我们这种生物可以统称为 Vibe Coder ✌️,也可以理解成「硅基生命营养师」👾。</p>
+            <p>我不喜欢那些繁琐的规矩,更愿意自己安排想做的事,一个人待着(我觉得这样效率很高)。</p>
+            <p>大家都说我不太会聊天、是个直男,我也这么觉得 😁。无所谓,我不在意这些。我经常到处跑,去过很多地方(多到数不清),但每个地方都有很棒的回忆 🤠。</p>
+            <p>因为我穿得就是简单的极客风,居然有人说我穿得像 GAY。我:「WTFREAK!? 我这穿搭不正常吗?!我怎么就 GAY 了 🤣」(我真不是 GAY,别对我有这种误会 🫥)。</p>
+            <p>对了!我做的大部分东西都会传到 GitHub 上,供你 fork 和 remix ☝️。</p>
+            <p>如果非要用一句话形容自己,我觉得是:一个阳光开朗的家伙,哈哈哈 ✌️</p>
+            <p>#SBTI:OJBK #MBTI:INTJ #「Loser」#幽默 #好人 #Marc #……</p>
           </div>
-          <button id="read-more-btn" class="text-sm text-accent hover:underline mt-1">Read more</button>
+          <button id="read-more-btn" class="text-sm text-accent hover:underline mt-1">阅读更多</button>
           <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
             <div class="flex-wrap justify-center gap-1">
               <Socials />
@@ -86,7 +85,7 @@ const featuredProjects = [
     </div>
 
     <section id="featured-projects" class="pt-12">
-      <h2 class="text-2xl font-semibold tracking-wide">Featured Projects</h2>
+      <h2 class="text-2xl font-semibold tracking-wide">精选项目</h2>
       <div class="mt-5 grid gap-4 sm:grid-cols-3">
         {
           featuredProjects.map(project => (
@@ -117,7 +116,7 @@ const featuredProjects = [
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="mb-2 text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <h2 class="mb-2 text-2xl font-semibold tracking-wide">最近文章</h2>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -129,8 +128,8 @@ const featuredProjects = [
     }
 
     <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
+      <LinkButton href="/zh/posts/">
+        全部文章
         <IconArrowRight class="inline-block rtl:-rotate-180" />
       </LinkButton>
     </div>
@@ -180,14 +179,14 @@ const featuredProjects = [
       readMoreBtn.addEventListener("click", () => {
         const isClamped = bioText.classList.contains("bio-collapsed");
         bioText.classList.toggle("bio-collapsed", !isClamped);
-        readMoreBtn.textContent = isClamped ? "Read more" : "Show less";
+        readMoreBtn.textContent = isClamped ? "阅读更多" : "收起";
       });
     }
 
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;
     if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
+      sessionStorage.setItem("backUrl", "/zh");
     }
   });
 </script>

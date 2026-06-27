@@ -6,7 +6,12 @@ import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
+import LanguagePicker from "./LanguagePicker.astro";
 import { SITE } from "@/config";
+import { getLangFromUrl, useTranslations, localizePath } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { pathname } = Astro.url;
 
@@ -14,12 +19,18 @@ const { pathname } = Astro.url;
 const currentPath =
   pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
+// Compare against English-rooted paths regardless of the active locale.
+const basePath =
+  lang === "zh" ? currentPath.replace(/^\/zh/, "") || "/" : currentPath;
+
 const isActive = (path: string) => {
-  const currentPathArray = currentPath.split("/").filter(p => p.trim());
+  const currentPathArray = basePath.split("/").filter(p => p.trim());
   const pathArray = path.split("/").filter(p => p.trim());
 
-  return currentPath === path || currentPathArray[0] === pathArray[0];
+  return basePath === path || currentPathArray[0] === pathArray[0];
 };
+
+const l = (path: string) => localizePath(path, lang);
 ---
 
 <a
@@ -27,7 +38,7 @@ const isActive = (path: string) => {
   href="#main-content"
   class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
 >
-  Skip to content
+  {t("skip")}
 </a>
 
 <header
@@ -43,7 +54,7 @@ const isActive = (path: string) => {
     ]}
   >
     <a
-      href="/"
+      href={l("/")}
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       {SITE.title}
@@ -55,7 +66,7 @@ const isActive = (path: string) => {
       <button
         id="menu-btn"
         class="focus-outline self-end p-2 sm:hidden"
-        aria-label="Open Menu"
+        aria-label={t("menu.open")}
         aria-expanded="false"
         aria-controls="menu-items"
       >
@@ -72,52 +83,52 @@ const isActive = (path: string) => {
         ]}
       >
         <li class="col-span-2">
-          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-            Posts
+          <a href={l("/posts")} class:list={{ "active-nav": isActive("/posts") }}>
+            {t("nav.posts")}
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-            Tags
+          <a href={l("/tags")} class:list={{ "active-nav": isActive("/tags") }}>
+            {t("nav.tags")}
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-            About
+          <a href={l("/about")} class:list={{ "active-nav": isActive("/about") }}>
+            {t("nav.about")}
           </a>
         </li>
         {
           SITE.showArchives && (
             <li class="col-span-2">
               <LinkButton
-                href="/archives"
+                href={l("/archives")}
                 class:list={[
                   "focus-outline flex justify-center p-3 sm:p-1",
                   {
                     "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                   },
                 ]}
-                title="Archives"
-                aria-label="archives"
+                title={t("nav.archives")}
+                aria-label={t("nav.archives")}
               >
                 <IconArchive class="hidden sm:inline-block" />
-                <span class="sm:sr-only">Archives</span>
+                <span class="sm:sr-only">{t("nav.archives")}</span>
               </LinkButton>
             </li>
           )
         }
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
-            href="/search"
+            href={l("/search")}
             class:list={[
               "focus-outline flex p-3 sm:p-1",
               { "[&>svg]:stroke-accent": isActive("/search") },
             ]}
-            title="Search"
-            aria-label="search"
+            title={t("nav.search")}
+            aria-label={t("nav.search")}
           >
             <IconSearch />
-            <span class="sr-only">Search</span>
+            <span class="sr-only">{t("nav.search")}</span>
           </LinkButton>
         </li>
         {
@@ -136,6 +147,9 @@ const isActive = (path: string) => {
             </li>
           )
         }
+        <li class="col-span-1 flex items-center justify-center">
+          <LanguagePicker />
+        </li>
       </ul>
     </nav>
   </div>

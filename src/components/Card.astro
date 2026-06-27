@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@/utils/slugify";
 import { getPath } from "@/utils/getPath";
+import { getLangFromUrl, localizePath } from "@/i18n/utils";
 import Datetime from "./Datetime.astro";
 
 type Props = {
@@ -12,7 +13,8 @@ const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
 const { title, description, cover, ...props } = data;
 
-const href = getPath(id, filePath);
+const lang = getLangFromUrl(Astro.url);
+const href = localizePath(getPath(id, filePath), lang);
 ---
 
 <li class="my-6 flex flex-col gap-4 sm:flex-row">

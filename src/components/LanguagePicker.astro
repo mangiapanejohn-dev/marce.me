@@ -1,0 +1,63 @@
+---
+import { languages } from "@/i18n/ui";
+import { getLangFromUrl, useTranslations, localizePath } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Show the *other* language and link to the mirror of the current page.
+const target = lang === "en" ? "zh" : "en";
+const href = localizePath(Astro.url.pathname, target);
+const label = languages[target];
+---
+
+<a
+  href={href}
+  data-lang-link
+  data-target-lang={target}
+  class="lang-link focus-outline relative px-1 py-1 text-sm font-medium whitespace-nowrap hover:text-accent"
+  aria-label={t("lang.toggle")}
+  title={t("lang.toggle")}
+>
+  {label}
+</a>
+
+<style>
+  .lang-link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0.25rem;
+    bottom: 0.15rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0;
+    transform: translateY(2px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+  .lang-link:hover::after,
+  .lang-link:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lang-link::after {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Remember the explicit choice so returning visitors land in their language.
+  function bindLangPicker() {
+    document.querySelectorAll<HTMLAnchorElement>("[data-lang-link]").forEach(el => {
+      el.addEventListener("click", () => {
+        const target = el.dataset.targetLang;
+        if (target) localStorage.setItem("lang", target);
+      });
+    });
+  }
+  bindLangPicker();
+  document.addEventListener("astro:after-swap", bindLangPicker);
+</script>
