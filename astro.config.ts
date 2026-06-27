@@ -52,6 +52,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{css,js,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}"],
+        // Raise the precache limit so large images (e.g. 8.7 MB pawly-install.png)
+        // are precached too. Default is 2 MiB, which was failing the build.
+        maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
         navigateFallback: null,
         runtimeCaching: [
           {
