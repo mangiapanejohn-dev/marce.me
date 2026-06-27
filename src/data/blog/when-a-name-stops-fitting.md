@@ -2,6 +2,7 @@
 title: "When a Name Stops Fitting"
 description: "Why I retired Discorver and renamed our product. Not a rebrand — a late-night founder's note on outgrowing a name, the cost of waiting, and earning a new one."
 pubDatetime: 2026-06-27T01:00:00Z
+cover: "/cover-when-a-name-stops-fitting.svg"
 tags: ["Building", "Branding", "Founder Notes"]
 ---
 
