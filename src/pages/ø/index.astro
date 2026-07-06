@@ -13,6 +13,12 @@ const version = fs
 ---
 
 <Layout title={`ø / Omega | ${SITE.title}`} noindex={true}>
+  <script is:inline>
+    // 地址栏净化：无论从 /omega 重定向还是编码链接 /%C3%B8 进来，落地后都显示 marcyy.me/ø
+    if (location.pathname !== "/ø") {
+      history.replaceState(null, "", "/ø" + location.search + location.hash);
+    }
+  </script>
   <Header />
   <Main
     pageTitle="ø / Omega"
