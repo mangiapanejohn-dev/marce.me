@@ -15,11 +15,18 @@ import AstroPWA from "@vite-pwa/astro";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  redirects: {
+    "/omega": "/ø",
+    "/zh/omega": "/ø",
+    "/zh/ø": "/ø",
+  },
   integrations: [
     sitemap({
       filter: page =>
         (SITE.showArchives || !page.endsWith("/archives")) &&
-        !page.includes("/omega"),
+        !page.includes("/omega") &&
+        !page.includes("ø") &&
+        !page.includes("%C3%B8"),
     }),
     AstroPWA({
       registerType: "autoUpdate",
