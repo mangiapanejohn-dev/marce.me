@@ -1,0 +1,116 @@
+---
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+import fs from "node:fs";
+import path from "node:path";
+
+const version = fs
+  .readFileSync(path.resolve(process.cwd(), "public/omega/VERSION"), "utf-8")
+  .trim();
+---
+
+<Layout title={`ø / Omega | ${SITE.title}`} noindex={true}>
+  <Header />
+  <Main
+    pageTitle="ø / Omega"
+    pageDesc="A symbiotic meta-cognition layer for Claude Code."
+  >
+    <div class="mx-auto max-w-2xl">
+      <img
+        src="/omega/omega-logo.png"
+        alt="ø"
+        width="140"
+        height="140"
+        class="mx-auto my-6 rounded-2xl"
+      />
+
+      <p class="text-center italic opacity-80">
+        /omega thinks with Marc. /omega-update grows the Brain. Friday keeps ø
+        alive.
+      </p>
+
+      <h2 class="mt-10 text-xl font-semibold">What is ø?</h2>
+      <p class="mt-2">
+        ø is the meta-cognition layer of my personal knowledge base — not a
+        summarizer, not a decision proxy. It reads the current and historical
+        state of my second brain, simulates multiple worldlines, and evolves
+        together with me through dialogue.
+      </p>
+      <ul class="mt-3 list-disc space-y-1 pl-6">
+        <li>
+          <code>/omega</code> — runs a 7-subagent council (Historian, Marc
+          Simulator, Builder, Critic, Trend, Knowledge Architect, Judge) to
+          generate Best / Safe / High-Upside / Failure paths, then aligns with
+          you through dialogue.
+        </li>
+        <li>
+          <code>/omega-update</code> — merges the agreed consensus into the
+          knowledge base with an explicit merge plan. Old knowledge is
+          compressed and archived, never deleted.
+        </li>
+        <li>
+          Every Friday 21:30 a background scan generates a Weekly Brief and
+          sends a persistent macOS notification.
+        </li>
+        <li>
+          ø keeps its own memory: four models (marc / omega / knowledge /
+          world), a knowledge-graph view, and an error book of its own
+          misjudgments.
+        </li>
+      </ul>
+
+      <h2 class="mt-10 text-xl font-semibold">Install</h2>
+      <p class="mt-2 text-sm opacity-80">
+        version {version} · macOS full · Linux best-effort (untested) · Windows
+        core only
+      </p>
+
+      <p class="mt-4 mb-1 font-medium">macOS / Linux</p>
+      <pre
+        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>curl -fsSL https://marcyy.me/omega/install.sh | bash</code></pre>
+
+      <p class="mt-4 mb-1 font-medium">Windows (PowerShell, skills only)</p>
+      <pre
+        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>irm https://marcyy.me/omega/install.ps1 | iex</code></pre>
+
+      <p class="mt-3 text-sm">
+        Prefer to inspect first? Download
+        <a class="text-accent underline" href="/omega/omega.tar.gz">omega.tar.gz</a>
+        /
+        <a class="text-accent underline" href="/omega/omega.zip">omega.zip</a>
+        or read
+        <a class="text-accent underline" href="/omega/install.sh">install.sh</a>.
+      </p>
+
+      <h2 class="mt-10 text-xl font-semibold">What gets installed</h2>
+      <ul class="mt-2 list-disc space-y-1 pl-6 text-sm">
+        <li><code>~/.claude/skills/omega</code> + <code>omega-update</code> — the two entry skills</li>
+        <li><code>~/.claude/agents/omega-*.md</code> — the 7 council subagents</li>
+        <li><code>~/omega/</code> — scripts (weekly scan, notifications, status), launchd template, README</li>
+        <li>Optional (macOS, asked during install): Friday 21:30 launchd agent, ø-branded notifier</li>
+      </ul>
+
+      <h2 class="mt-10 text-xl font-semibold">Uninstall</h2>
+      <pre
+        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>bash ~/omega/scripts/uninstall-omega-launchd.sh
+rm -rf ~/.claude/skills/omega ~/.claude/skills/omega-update ~/.claude/agents/omega-*.md ~/omega</code></pre>
+
+      <div class="mt-10 rounded border border-border p-4 text-sm opacity-90">
+        <p class="font-medium">Shared as-is</p>
+        <p class="mt-1">
+          This is my personal meta-cognition system, published as a reference —
+          the <code>/omega</code> skill assumes my knowledge-base layout (an
+          Obsidian vault called “Marc Brain” with its own index pages and sync
+          conventions). It will install cleanly anywhere, but to make it truly
+          yours, read <code>README-OMEGA.md</code> and adapt the paths, models
+          and navigation to your own brain. No support, no warranty — feedback
+          welcome.
+        </p>
+      </div>
+    </div>
+  </Main>
+  <Footer />
+</Layout>

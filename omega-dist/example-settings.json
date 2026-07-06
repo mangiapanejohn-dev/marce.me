@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Task",
+      "Agent",
+      "WebSearch",
+      "WebFetch",
+      "Read(//Users/t-bug/Desktop/🧠 Marc Brain 2/**)",
+      "Edit(/🧠 Marc Brain 2/_omega/**)",
+      "Write(/🧠 Marc Brain 2/_omega/**)",
+      "Edit(/.omega/**)",
+      "Write(/.omega/**)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(date:*)",
+      "Bash(ls:*)",
+      "Bash(bash scripts/omega-notify.sh:*)",
+      "Bash(bash scripts/omega-status.sh:*)",
+      "Bash(bash scripts/omega-remind.sh:*)"
+    ],
+    "deny": [
+      "Edit(/🧠 Marc Brain 2/thoughts/**)",
+      "Write(/🧠 Marc Brain 2/thoughts/**)",
+      "Edit(/🧠 Marc Brain 2/evolution/**)",
+      "Write(/🧠 Marc Brain 2/evolution/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/omega-remind.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
