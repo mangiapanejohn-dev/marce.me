@@ -1,7 +1,7 @@
 ---
 title: "🧠 I Built Myself a Second Brain — A Personal Knowledge OS That an AI Agent Keeps Alive"
 description: "Dev diary about Marc Brain, a personal knowledge operating system: an Obsidian vault of everything I've built and decided, maintained by Claude Code agents under strict guardrails — fact sync pipelines, confidence labels, git-reviewed self-evolution, the works."
-pubDatetime: 2026-07-06T12:00:00Z
+pubDatetime: 2026-07-06T08:00:00Z
 tags: ["Dev Diary", "AI", "Knowledge"]
 cover: "/brain-mindmap.png"
 ---
