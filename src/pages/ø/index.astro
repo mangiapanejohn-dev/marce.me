@@ -44,7 +44,7 @@ const loop = [
     <!-- HERO — the co-evolution card -->
     <section class="hero" aria-label="ø / Omega — the co-evolution layer">
       <figure class="card">
-        <picture>
+        <picture class="card-light">
           <source srcset="/ø/co-evolution-card.webp" type="image/webp" />
           <img
             src="/ø/co-evolution-card.png"
@@ -53,6 +53,10 @@ const loop = [
             fetchpriority="high"
             alt="ø — CO-EVOLUTION LAYER. Where memory folds into evolution, no answer remains final. Memory → Folds → Evolves → Next Version. Evolve · Reflect · Update. V01 → ∞"
           />
+        </picture>
+        <picture class="card-dark" aria-hidden="true">
+          <source srcset="/ø/co-evolution-card-dark.webp" type="image/webp" />
+          <img src="/ø/co-evolution-card-dark.png" width="1536" height="1024" alt="" />
         </picture>
       </figure>
     </section>
@@ -306,6 +310,16 @@ const loop = [
     display: block;
     width: 100%;
     height: auto;
+  }
+  /* theme-swapped hero card: light card in light theme, dark card in dark theme */
+  .card-dark {
+    display: none;
+  }
+  :global(html[data-theme="dark"]) .card-light {
+    display: none;
+  }
+  :global(html[data-theme="dark"]) .card-dark {
+    display: block;
   }
   :global(html[data-theme="dark"]) .card {
     border-color: color-mix(in srgb, var(--foreground) 14%, transparent);

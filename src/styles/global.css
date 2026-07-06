@@ -3,21 +3,22 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* Claude / Anthropic warm palette — cream paper + terracotta coral */
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --background: #faf9f5;
+  --foreground: #262521;
+  --accent: #c15f3c;
+  --muted: #ecebe2;
+  --border: #e4e1d6;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  --background: #262624;
+  --foreground: #edebe3;
+  --accent: #e08a6b;
+  --muted: #35342f;
+  --border: #454340;
 }
 
 @theme inline {
