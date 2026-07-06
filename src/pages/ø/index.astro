@@ -204,6 +204,9 @@ const loop = [
 </Layout>
 
 <script is:inline>
+  // Runs on initial load AND after every Astro view transition (ClientRouter),
+  // so the reveal/lightbox/copy wiring never goes missing on soft navigation.
+  function setupOmega() {
   // Copy buttons
   document.querySelectorAll(".copy").forEach(btn => {
     btn.addEventListener("click", async () => {
@@ -249,7 +252,7 @@ const loop = [
 
   // Scroll-reveal — each section fades up once
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const reveals = document.querySelectorAll(".reveal");
+  const reveals = document.querySelectorAll(".reveal:not(.in)");
   if (reduce || !("IntersectionObserver" in window)) {
     reveals.forEach(el => el.classList.add("in"));
   } else {
@@ -262,10 +265,16 @@ const loop = [
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
     );
     reveals.forEach(el => io.observe(el));
+    // Failsafe: never leave a section stuck hidden if a fast scroll outran the observer
+    setTimeout(() => {
+      document.querySelectorAll(".reveal:not(.in)").forEach(el => el.classList.add("in"));
+    }, 2000);
   }
+  }
+  document.addEventListener("astro:page-load", setupOmega);
 </script>
 
 <style>

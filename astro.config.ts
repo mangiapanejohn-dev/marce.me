@@ -30,8 +30,8 @@ export default defineConfig({
         name: SITE.title,
         short_name: "marc.me",
         description: SITE.desc,
-        theme_color: "#faf9f5",
-        background_color: "#faf9f5",
+        theme_color: "#f0eee6",
+        background_color: "#f0eee6",
         display: "standalone",
         start_url: "/",
         icons: [

@@ -3,22 +3,22 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-/* Claude / Anthropic warm palette — cream paper + terracotta coral */
+/* Claude / Anthropic warm palette — ivory paper + Claude coral */
 :root,
 html[data-theme="light"] {
-  --background: #faf9f5;
+  --background: #f0eee6;
   --foreground: #262521;
-  --accent: #c15f3c;
-  --muted: #ecebe2;
-  --border: #e4e1d6;
+  --accent: #d97757;
+  --muted: #e7e3d7;
+  --border: #e0dcce;
 }
 
 html[data-theme="dark"] {
-  --background: #262624;
+  --background: #30302b;
   --foreground: #edebe3;
   --accent: #e08a6b;
-  --muted: #35342f;
-  --border: #454340;
+  --muted: #3b3a34;
+  --border: #47463f;
 }
 
 @theme inline {
