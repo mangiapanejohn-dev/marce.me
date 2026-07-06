@@ -17,7 +17,7 @@ const cmdUninstall =
 
 const council = [
   ["historian", "Historian", "Surfaces past decisions and failure patterns — so ø never forgets history."],
-  ["marc-simulator", "Marc Simulator", "Projects what I'd do on inertia, and flags when my model is out of date."],
+  ["marc-simulator", "Simulation Model", "Projects what I'd do on inertia, and flags when my model is out of date."],
   ["builder", "Builder", "Cuts any vision down to a v0.1 with real steps, files and costs."],
   ["critic", "Critic", "Hunts failure paths and kills over-complexity, vagueness and fake automation."],
   ["trend", "Trend", "Reads the outside world; gives Conservative / Expected / Disruptive scenarios."],
@@ -42,44 +42,23 @@ const loop = [
 
   <main id="omega" class="mx-auto w-full max-w-3xl px-4 pb-24">
     <!-- HERO — the co-evolution card -->
-    <section class="hero" aria-label="ø / Omega">
-      <div class="hero-top">
-        <div class="corner">
-          <span class="corner-mark">ø&nbsp;&nbsp;CO-EVOLUTION LAYER</span>
-          <span class="corner-rule"></span>
-        </div>
-        <div class="corner corner-right">
-          <span class="corner-mark">Not the answer.<br />The evolving process.</span>
-          <span class="corner-rule"></span>
-        </div>
-      </div>
-
-      <svg class="hero-glyph" viewBox="0 0 100 116" aria-hidden="true">
-        <ellipse cx="50" cy="58" rx="31" ry="38" fill="none" stroke="currentColor" stroke-width="3.5"></ellipse>
-        <line x1="22" y1="94" x2="78" y2="22" stroke="currentColor" stroke-width="3.5"></line>
-      </svg>
-      <div class="hero-slash">/</div>
-
-      <p class="hero-tagline">
-        Where memory folds into evolution,<br />no answer remains final.
-      </p>
-
-      <div class="leader" aria-hidden="true">
-        <span>Memory</span><i class="dots"></i><span class="arw">→</span>
-        <span>Folds</span><i class="dots"></i>
-        <span>Evolves</span><i class="dots"></i>
-        <span>Next&nbsp;Version</span>
-      </div>
-
-      <div class="hero-foot">
-        <span>ø · CO-EVOLUTION LAYER</span>
-        <span class="hero-foot-mid">EVOLVE · REFLECT · UPDATE</span>
-        <span>V01 → ∞</span>
-      </div>
+    <section class="hero" aria-label="ø / Omega — the co-evolution layer">
+      <figure class="card">
+        <picture>
+          <source srcset="/ø/co-evolution-card.webp" type="image/webp" />
+          <img
+            src="/ø/co-evolution-card.png"
+            width="1400"
+            height="933"
+            fetchpriority="high"
+            alt="ø — CO-EVOLUTION LAYER. Where memory folds into evolution, no answer remains final. Memory → Folds → Evolves → Next Version. Evolve · Reflect · Update. V01 → ∞"
+          />
+        </picture>
+      </figure>
     </section>
 
     <!-- INSTALL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">Install · v{version} · macOS full · Linux best-effort · Windows core</p>
       <div class="cmd">
         <span class="cmd-os">macOS / Linux</span>
@@ -104,7 +83,7 @@ const loop = [
     </section>
 
     <!-- WHAT IS ø -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">What is ø</p>
       <p class="lede">
         ø is the meta-cognition layer of my personal knowledge base — not a
@@ -116,7 +95,7 @@ const loop = [
     </section>
 
     <!-- HOW IT WORKS — the loop -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">How it works · the co-evolution loop</p>
       <ol class="loop">
         {loop.map(([n, name, desc]) => (
@@ -141,7 +120,7 @@ const loop = [
     </section>
 
     <!-- THE COUNCIL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">The council · six reason in parallel, one judges</p>
       <div class="council">
         {council.map(([handle, name, desc]) => (
@@ -164,7 +143,7 @@ const loop = [
     </section>
 
     <!-- FRIDAY -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">Friday keeps ø alive</p>
       <p class="lede">
         Every Friday 21:30 a background scan runs on its own, writes a Weekly
@@ -176,7 +155,7 @@ const loop = [
     </section>
 
     <!-- WHAT GETS INSTALLED -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">What gets installed</p>
       <ul class="files">
         <li><code>~/.claude/skills/omega</code> + <code>omega-update</code><i class="dots"></i><span>the two entry skills</span></li>
@@ -187,7 +166,7 @@ const loop = [
     </section>
 
     <!-- UNINSTALL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">Uninstall</p>
       <div class="cmd">
         <div class="cmd-row">
@@ -198,7 +177,7 @@ const loop = [
     </section>
 
     <!-- SHARED AS-IS -->
-    <section class="asis">
+    <section class="asis reveal">
       <p class="eyebrow">Shared as-is</p>
       <p>
         This is my personal meta-cognition system, published as a reference. The
@@ -212,7 +191,7 @@ const loop = [
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox" hidden>
+  <div id="lightbox" class="lightbox">
     <button class="lightbox-close" aria-label="Close">✕&nbsp; close</button>
     <img id="lightbox-img" src="" alt="ø architecture diagram, full size" />
   </div>
@@ -244,13 +223,15 @@ const loop = [
   const lbImg = document.getElementById("lightbox-img");
   const openLb = src => {
     lbImg.src = src;
-    lb.hidden = false;
+    lb.classList.add("is-open");
     document.body.style.overflow = "hidden";
   };
   const closeLb = () => {
-    lb.hidden = true;
-    lbImg.src = "";
+    lb.classList.remove("is-open");
     document.body.style.overflow = "";
+    setTimeout(() => {
+      if (!lb.classList.contains("is-open")) lbImg.src = "";
+    }, 300);
   };
   document.querySelectorAll("[data-lightbox]").forEach(el => {
     el.addEventListener("click", () => openLb(el.getAttribute("data-lightbox")));
@@ -259,8 +240,28 @@ const loop = [
     if (e.target === lb || e.target.classList.contains("lightbox-close")) closeLb();
   });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && !lb.hidden) closeLb();
+    if (e.key === "Escape" && lb.classList.contains("is-open")) closeLb();
   });
+
+  // Scroll-reveal — each section fades up once
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveals = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    reveals.forEach(el => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    reveals.forEach(el => io.observe(el));
+  }
 </script>
 
 <style>
@@ -271,69 +272,46 @@ const loop = [
     font-variant-ligatures: none;
   }
 
-  /* ---------- HERO ---------- */
+  /* ---------- MOTION ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  .is-hero {
+    transition-duration: 0.9s;
+  }
+
+  /* ---------- HERO — framed print ---------- */
   .hero {
-    margin: 2.5rem 0 1rem;
-    padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3.5rem);
+    margin: 2.25rem 0 1rem;
+  }
+  .card {
+    margin: 0;
+    border-radius: clamp(0.75rem, 2.5vw, 1.25rem);
+    overflow: hidden;
     border: 1px solid var(--line);
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--muted) 16%, var(--background));
-    text-align: center;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 18px 50px -24px rgba(0, 0, 0, 0.35);
   }
-  .hero-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    text-align: left;
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    color: var(--faint);
-    line-height: 1.5;
-  }
-  .corner-right {
-    text-align: right;
-  }
-  .corner {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .corner-rule {
-    width: 2.2rem;
-    height: 1px;
-    background: var(--faint);
-  }
-  .corner-right .corner-rule {
-    align-self: flex-end;
-  }
-  .hero-glyph {
-    width: clamp(3.5rem, 12vw, 5.5rem);
-    height: auto;
-    color: var(--ink);
-    margin: clamp(1.5rem, 5vw, 2.75rem) auto 0;
+  .card img {
     display: block;
+    width: 100%;
+    height: auto;
   }
-  .hero-slash {
-    color: var(--faint);
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
+  :global(html[data-theme="dark"]) .card {
+    border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
+    box-shadow: 0 24px 70px -28px rgba(0, 0, 0, 0.7);
   }
-  .hero-tagline {
-    margin: 1.1rem auto 0;
-    font-size: clamp(1.05rem, 3.6vw, 1.7rem);
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-  }
-  .leader {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: clamp(1.5rem, 5vw, 2.5rem);
-    font-size: clamp(0.6rem, 2.2vw, 0.78rem);
-    letter-spacing: 0.05em;
-    color: var(--faint);
-    white-space: nowrap;
-  }
+
   .dots {
     flex: 1;
     align-self: center;
@@ -347,20 +325,6 @@ const loop = [
   }
   .arw {
     color: var(--ink);
-  }
-  .hero-foot {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-top: clamp(1.5rem, 5vw, 2.5rem);
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    color: var(--faint);
-  }
-  .hero-foot-mid {
-    display: none;
   }
 
   /* ---------- SECTIONS ---------- */
@@ -404,6 +368,11 @@ const loop = [
     border: 1px solid var(--line);
     border-radius: 0.5rem;
     overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .cmd-row:hover,
+  .cmd-row:focus-within {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
   }
   .cmd-row code {
     flex: 1;
@@ -424,10 +393,14 @@ const loop = [
     letter-spacing: 0.08em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: color 0.15s, background 0.15s;
+    transition: color 0.15s, background 0.15s, transform 0.1s ease;
   }
   .copy:hover {
     color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--background));
+  }
+  .copy:active {
+    transform: scale(0.94);
   }
   .copy.is-copied {
     color: var(--accent);
@@ -503,6 +476,11 @@ const loop = [
     object-position: top center;
     display: block;
     opacity: 0.92;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+  }
+  .arch-thumb:hover img {
+    transform: scale(1.035);
+    opacity: 1;
   }
   .arch-hint {
     position: absolute;
@@ -536,6 +514,10 @@ const loop = [
   .agent {
     padding: 1.1rem 1.15rem;
     background: var(--background);
+    transition: background 0.2s ease;
+  }
+  .agent:hover {
+    background: color-mix(in srgb, var(--muted) 20%, var(--background));
   }
   .agent-handle {
     font-size: 0.66rem;
@@ -609,15 +591,32 @@ const loop = [
     overflow: auto;
     padding: 3.5rem 1rem 3rem;
     text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
   }
-  .lightbox[hidden] {
-    display: none;
+  .lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   .lightbox img {
     max-width: min(920px, 100%);
     height: auto;
     margin: 0 auto;
     border-radius: 0.5rem;
+    transform: scale(0.985);
+    transition: transform 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .lightbox.is-open img {
+    transform: none;
+  }
+  .lightbox-close {
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.22);
   }
   .lightbox-close {
     position: fixed;
@@ -636,9 +635,6 @@ const loop = [
 
   /* ---------- RESPONSIVE ---------- */
   @media (min-width: 640px) {
-    .hero-foot-mid {
-      display: inline;
-    }
     .arch-thumb img {
       height: 320px;
     }
@@ -655,8 +651,23 @@ const loop = [
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .copy {
-      transition: none;
+    .reveal,
+    .is-hero,
+    .card img,
+    .arch-thumb img,
+    .copy,
+    .cmd-row,
+    .agent,
+    .lightbox,
+    .lightbox img {
+      transition: none !important;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .arch-thumb:hover img {
+      transform: none;
     }
   }
 </style>

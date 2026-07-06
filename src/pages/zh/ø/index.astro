@@ -17,7 +17,7 @@ const cmdUninstall =
 
 const council = [
   ["historian", "史官", "翻出过去的决策与成败模式——让 ø 永远不忘历史。"],
-  ["marc-simulator", "Marc 模拟器", "推演我按惯性会怎么做，并在模型过时时报警。"],
+  ["marc-simulator", "推演模型", "推演我按惯性会怎么做，并在模型过时时报警。"],
   ["builder", "工程师", "把任何愿景砍到一个能落地的 v0.1：步骤、文件、成本。"],
   ["critic", "批判者", "找失败路径，打碎过度复杂、空泛和伪自动化。"],
   ["trend", "趋势观察者", "看外部世界，给出保守 / 预期 / 颠覆三种情景。"],
@@ -41,45 +41,24 @@ const loop = [
   <Header />
 
   <main id="omega" class="mx-auto w-full max-w-3xl px-4 pb-24">
-    <!-- HERO -->
-    <section class="hero" aria-label="ø / Omega">
-      <div class="hero-top">
-        <div class="corner">
-          <span class="corner-mark">ø&nbsp;&nbsp;CO-EVOLUTION LAYER</span>
-          <span class="corner-rule"></span>
-        </div>
-        <div class="corner corner-right">
-          <span class="corner-mark">Not the answer.<br />The evolving process.</span>
-          <span class="corner-rule"></span>
-        </div>
-      </div>
-
-      <svg class="hero-glyph" viewBox="0 0 100 116" aria-hidden="true">
-        <ellipse cx="50" cy="58" rx="31" ry="38" fill="none" stroke="currentColor" stroke-width="3.5"></ellipse>
-        <line x1="22" y1="94" x2="78" y2="22" stroke="currentColor" stroke-width="3.5"></line>
-      </svg>
-      <div class="hero-slash">/</div>
-
-      <p class="hero-tagline">
-        Where memory folds into evolution,<br />no answer remains final.
-      </p>
-
-      <div class="leader" aria-hidden="true">
-        <span>Memory</span><i class="dots"></i><span class="arw">→</span>
-        <span>Folds</span><i class="dots"></i>
-        <span>Evolves</span><i class="dots"></i>
-        <span>Next&nbsp;Version</span>
-      </div>
-
-      <div class="hero-foot">
-        <span>ø · CO-EVOLUTION LAYER</span>
-        <span class="hero-foot-mid">EVOLVE · REFLECT · UPDATE</span>
-        <span>V01 → ∞</span>
-      </div>
+    <!-- HERO — framed print -->
+    <section class="hero" aria-label="ø / Omega — 共生进化层">
+      <figure class="card">
+        <picture>
+          <source srcset="/ø/co-evolution-card.webp" type="image/webp" />
+          <img
+            src="/ø/co-evolution-card.png"
+            width="1400"
+            height="933"
+            fetchpriority="high"
+            alt="ø — CO-EVOLUTION LAYER. Where memory folds into evolution, no answer remains final. Memory → Folds → Evolves → Next Version. Evolve · Reflect · Update. V01 → ∞"
+          />
+        </picture>
+      </figure>
     </section>
 
     <!-- INSTALL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">安装 · v{version} · macOS 全量 · Linux 尽力 · Windows 核心</p>
       <div class="cmd">
         <span class="cmd-os">macOS / Linux</span>
@@ -104,7 +83,7 @@ const loop = [
     </section>
 
     <!-- WHAT IS ø -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">ø 是什么</p>
       <p class="lede">
         ø 是我个人知识库的元认知层——不是总结器，也不是替我做决策的代理。它读取我第二大脑的当前与历史状态，派出一组 subagent
@@ -113,7 +92,7 @@ const loop = [
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">它怎么运作 · 共生进化闭环</p>
       <ol class="loop">
         {loop.map(([n, name, desc]) => (
@@ -138,7 +117,7 @@ const loop = [
     </section>
 
     <!-- COUNCIL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">Council · 六个并行推演，一个裁判</p>
       <div class="council">
         {council.map(([handle, name, desc]) => (
@@ -159,7 +138,7 @@ const loop = [
     </section>
 
     <!-- FRIDAY -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">Friday keeps ø alive</p>
       <p class="lede">
         每周五 21:30，后台扫描自己跑起来，写一份 Weekly Brief，发一条常驻通知。它不碰稳定知识库——只是等着。等我准备好，运行
@@ -168,7 +147,7 @@ const loop = [
     </section>
 
     <!-- WHAT GETS INSTALLED -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">会装什么</p>
       <ul class="files">
         <li><code>~/.claude/skills/omega</code> + <code>omega-update</code><i class="dots"></i><span>两个入口 skill</span></li>
@@ -179,7 +158,7 @@ const loop = [
     </section>
 
     <!-- UNINSTALL -->
-    <section class="block">
+    <section class="block reveal">
       <p class="eyebrow">卸载</p>
       <div class="cmd">
         <div class="cmd-row">
@@ -190,7 +169,7 @@ const loop = [
     </section>
 
     <!-- AS-IS -->
-    <section class="asis">
+    <section class="asis reveal">
       <p class="eyebrow">原样分享</p>
       <p>
         这是我个人的元认知系统，作为参考发布。<code class="inline">/omega</code> skill 默认我的知识库结构——一个叫
@@ -200,7 +179,7 @@ const loop = [
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox" hidden>
+  <div id="lightbox" class="lightbox">
     <button class="lightbox-close" aria-label="关闭">✕&nbsp; 关闭</button>
     <img id="lightbox-img" src="" alt="ø 架构图，完整尺寸" />
   </div>
@@ -209,6 +188,7 @@ const loop = [
 </Layout>
 
 <script is:inline>
+  // Copy buttons
   document.querySelectorAll(".copy").forEach(btn => {
     btn.addEventListener("click", async () => {
       try {
@@ -220,21 +200,26 @@ const loop = [
           btn.textContent = prev;
           btn.classList.remove("is-copied");
         }, 1500);
-      } catch (e) {}
+      } catch (e) {
+        /* clipboard blocked — no-op */
+      }
     });
   });
 
+  // Lightbox for the architecture diagram
   const lb = document.getElementById("lightbox");
   const lbImg = document.getElementById("lightbox-img");
   const openLb = src => {
     lbImg.src = src;
-    lb.hidden = false;
+    lb.classList.add("is-open");
     document.body.style.overflow = "hidden";
   };
   const closeLb = () => {
-    lb.hidden = true;
-    lbImg.src = "";
+    lb.classList.remove("is-open");
     document.body.style.overflow = "";
+    setTimeout(() => {
+      if (!lb.classList.contains("is-open")) lbImg.src = "";
+    }, 300);
   };
   document.querySelectorAll("[data-lightbox]").forEach(el => {
     el.addEventListener("click", () => openLb(el.getAttribute("data-lightbox")));
@@ -243,8 +228,28 @@ const loop = [
     if (e.target === lb || e.target.classList.contains("lightbox-close")) closeLb();
   });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && !lb.hidden) closeLb();
+    if (e.key === "Escape" && lb.classList.contains("is-open")) closeLb();
   });
+
+  // Scroll-reveal — each section fades up once
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveals = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    reveals.forEach(el => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    reveals.forEach(el => io.observe(el));
+  }
 </script>
 
 <style>
@@ -254,52 +259,47 @@ const loop = [
     --faint: color-mix(in srgb, var(--foreground) 55%, transparent);
     font-variant-ligatures: none;
   }
+
+  /* ---------- MOTION ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  .is-hero {
+    transition-duration: 0.9s;
+  }
+
+  /* ---------- HERO — framed print ---------- */
   .hero {
-    margin: 2.5rem 0 1rem;
-    padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3.5rem);
+    margin: 2.25rem 0 1rem;
+  }
+  .card {
+    margin: 0;
+    border-radius: clamp(0.75rem, 2.5vw, 1.25rem);
+    overflow: hidden;
     border: 1px solid var(--line);
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--muted) 16%, var(--background));
-    text-align: center;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 18px 50px -24px rgba(0, 0, 0, 0.35);
   }
-  .hero-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    text-align: left;
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    color: var(--faint);
-    line-height: 1.5;
-  }
-  .corner-right { text-align: right; }
-  .corner { display: flex; flex-direction: column; gap: 0.4rem; }
-  .corner-rule { width: 2.2rem; height: 1px; background: var(--faint); }
-  .corner-right .corner-rule { align-self: flex-end; }
-  .hero-glyph {
-    width: clamp(3.5rem, 12vw, 5.5rem);
-    height: auto;
-    color: var(--ink);
-    margin: clamp(1.5rem, 5vw, 2.75rem) auto 0;
+  .card img {
     display: block;
+    width: 100%;
+    height: auto;
   }
-  .hero-slash { color: var(--faint); margin-top: 0.25rem; font-size: 0.9rem; }
-  .hero-tagline {
-    margin: 1.1rem auto 0;
-    font-size: clamp(1.05rem, 3.6vw, 1.7rem);
-    line-height: 1.45;
-    letter-spacing: -0.01em;
+  :global(html[data-theme="dark"]) .card {
+    border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
+    box-shadow: 0 24px 70px -28px rgba(0, 0, 0, 0.7);
   }
-  .leader {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: clamp(1.5rem, 5vw, 2.5rem);
-    font-size: clamp(0.6rem, 2.2vw, 0.78rem);
-    letter-spacing: 0.05em;
-    color: var(--faint);
-    white-space: nowrap;
-  }
+
   .dots {
     flex: 1;
     align-self: center;
@@ -311,20 +311,14 @@ const loop = [
     background-position: center;
     opacity: 0.7;
   }
-  .arw { color: var(--ink); }
-  .hero-foot {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-top: clamp(1.5rem, 5vw, 2.5rem);
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    color: var(--faint);
+  .arw {
+    color: var(--ink);
   }
-  .hero-foot-mid { display: none; }
-  .block { margin-top: clamp(2.5rem, 8vw, 4.5rem); }
+
+  /* ---------- SECTIONS ---------- */
+  .block {
+    margin-top: clamp(2.5rem, 8vw, 4.5rem);
+  }
   .eyebrow {
     font-size: 0.68rem;
     letter-spacing: 0.16em;
@@ -334,7 +328,7 @@ const loop = [
   }
   .lede {
     font-size: 0.95rem;
-    line-height: 1.9;
+    line-height: 1.75;
     color: color-mix(in srgb, var(--foreground) 90%, transparent);
   }
   code.inline {
@@ -343,7 +337,11 @@ const loop = [
     border: 1px solid var(--line);
     border-radius: 0.3rem;
   }
-  .cmd { margin-bottom: 0.9rem; }
+
+  /* ---------- COMMAND BLOCKS ---------- */
+  .cmd {
+    margin-bottom: 0.9rem;
+  }
   .cmd-os {
     display: block;
     font-size: 0.62rem;
@@ -358,6 +356,11 @@ const loop = [
     border: 1px solid var(--line);
     border-radius: 0.5rem;
     overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .cmd-row:hover,
+  .cmd-row:focus-within {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
   }
   .cmd-row code {
     flex: 1;
@@ -374,32 +377,75 @@ const loop = [
     border-left: 1px solid var(--line);
     background: color-mix(in srgb, var(--muted) 22%, var(--background));
     color: var(--faint);
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: color 0.15s, background 0.15s;
-    white-space: nowrap;
+    transition: color 0.15s, background 0.15s, transform 0.1s ease;
   }
-  .copy:hover { color: var(--accent); }
+  .copy:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--background));
+  }
+  .copy:active {
+    transform: scale(0.94);
+  }
   .copy.is-copied {
     color: var(--accent);
     background: color-mix(in srgb, var(--accent) 12%, var(--background));
   }
-  .fineprint { margin-top: 0.9rem; font-size: 0.78rem; color: var(--faint); }
-  .fineprint a { color: var(--accent); text-underline-offset: 3px; }
-  .loop { list-style: none; padding: 0; display: grid; gap: 0; }
+  .fineprint {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+  .fineprint a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- LOOP ---------- */
+  .loop {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
   .loop-step {
     display: flex;
     gap: 1.1rem;
     padding: 1.1rem 0;
     border-top: 1px solid var(--line);
   }
-  .loop-step:last-child { border-bottom: 1px solid var(--line); }
-  .loop-n { font-size: 0.7rem; color: var(--faint); padding-top: 0.2rem; letter-spacing: 0.05em; }
-  .loop-name { font-size: 0.95rem; font-weight: 500; }
-  .loop-desc { margin-top: 0.25rem; font-size: 0.85rem; line-height: 1.7; color: var(--faint); }
-  .loop-close { margin-top: 1rem; font-size: 0.82rem; color: var(--faint); }
-  .arch { margin: 1.75rem 0 0; }
+  .loop-step:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .loop-n {
+    font-size: 0.7rem;
+    color: var(--faint);
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+  .loop-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .loop-desc {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+  .loop-close {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--faint);
+  }
+
+  /* ---------- ARCHITECTURE ---------- */
+  .arch {
+    margin: 1.75rem 0 0;
+  }
   .arch-thumb {
     display: block;
     width: 100%;
@@ -418,6 +464,11 @@ const loop = [
     object-position: top center;
     display: block;
     opacity: 0.92;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+  }
+  .arch-thumb:hover img {
+    transform: scale(1.035);
+    opacity: 1;
   }
   .arch-hint {
     position: absolute;
@@ -426,11 +477,19 @@ const loop = [
     padding: 2.5rem 1rem 0.9rem;
     font-size: 0.68rem;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: #cfd3dc;
     background: linear-gradient(to top, rgba(15, 17, 22, 0.95), transparent);
     text-align: center;
   }
-  .arch figcaption { margin-top: 0.7rem; font-size: 0.75rem; color: var(--faint); text-align: center; }
+  .arch figcaption {
+    margin-top: 0.7rem;
+    font-size: 0.75rem;
+    color: var(--faint);
+    text-align: center;
+  }
+
+  /* ---------- COUNCIL ---------- */
   .council {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -440,10 +499,30 @@ const loop = [
     border-radius: 0.75rem;
     overflow: hidden;
   }
-  .agent { padding: 1.1rem 1.15rem; background: var(--background); }
-  .agent-handle { font-size: 0.66rem; letter-spacing: 0.05em; color: var(--accent); }
-  .agent-name { margin-top: 0.3rem; font-size: 0.92rem; font-weight: 500; }
-  .agent-desc { margin-top: 0.35rem; font-size: 0.8rem; line-height: 1.7; color: var(--faint); }
+  .agent {
+    padding: 1.1rem 1.15rem;
+    background: var(--background);
+    transition: background 0.2s ease;
+  }
+  .agent:hover {
+    background: color-mix(in srgb, var(--muted) 20%, var(--background));
+  }
+  .agent-handle {
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .agent-name {
+    margin-top: 0.3rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .agent-desc {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--faint);
+  }
   .judge {
     margin-top: 1px;
     padding: 1.2rem 1.15rem;
@@ -451,10 +530,32 @@ const loop = [
     border-radius: 0.75rem;
     background: color-mix(in srgb, var(--muted) 16%, var(--background));
   }
-  .files { list-style: none; padding: 0; display: grid; gap: 0.65rem; }
-  .files li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; }
-  .files code { font-size: 0.8rem; }
-  .files span { color: var(--faint); white-space: nowrap; }
+  .judge .agent-desc {
+    max-width: 46ch;
+  }
+
+  /* ---------- FILES ---------- */
+  .files {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .files li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+  }
+  .files code {
+    font-size: 0.8rem;
+  }
+  .files span {
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- AS-IS ---------- */
   .asis {
     margin-top: clamp(2.5rem, 8vw, 4.5rem);
     padding: 1.5rem;
@@ -462,10 +563,14 @@ const loop = [
     border-radius: 0.75rem;
     background: color-mix(in srgb, var(--muted) 12%, var(--background));
     font-size: 0.85rem;
-    line-height: 1.9;
+    line-height: 1.7;
     color: var(--faint);
   }
-  .asis .eyebrow { margin-bottom: 0.7rem; }
+  .asis .eyebrow {
+    margin-bottom: 0.7rem;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
   .lightbox {
     position: fixed;
     inset: 0;
@@ -474,9 +579,33 @@ const loop = [
     overflow: auto;
     padding: 3.5rem 1rem 3rem;
     text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
   }
-  .lightbox[hidden] { display: none; }
-  .lightbox img { max-width: min(920px, 100%); height: auto; margin: 0 auto; border-radius: 0.5rem; }
+  .lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .lightbox img {
+    max-width: min(920px, 100%);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    transform: scale(0.985);
+    transition: transform 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .lightbox.is-open img {
+    transform: none;
+  }
+  .lightbox-close {
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
   .lightbox-close {
     position: fixed;
     top: 1rem;
@@ -488,18 +617,45 @@ const loop = [
     border-radius: 0.4rem;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
     cursor: pointer;
   }
+
+  /* ---------- RESPONSIVE ---------- */
   @media (min-width: 640px) {
-    .hero-foot-mid { display: inline; }
-    .arch-thumb img { height: 320px; }
+    .arch-thumb img {
+      height: 320px;
+    }
   }
   @media (max-width: 560px) {
-    .council { grid-template-columns: 1fr; }
-    .files li { flex-wrap: wrap; }
-    .files span { white-space: normal; }
+    .council {
+      grid-template-columns: 1fr;
+    }
+    .files li {
+      flex-wrap: wrap;
+    }
+    .files span {
+      white-space: normal;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .copy { transition: none; }
+    .reveal,
+    .is-hero,
+    .card img,
+    .arch-thumb img,
+    .copy,
+    .cmd-row,
+    .agent,
+    .lightbox,
+    .lightbox img {
+      transition: none !important;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .arch-thumb:hover img {
+      transform: none;
+    }
   }
 </style>
