@@ -1,5 +1,4 @@
 ---
-import Main from "@/layouts/Main.astro";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -8,115 +7,656 @@ import fs from "node:fs";
 import path from "node:path";
 
 const version = fs
-  .readFileSync(path.resolve(process.cwd(), "public/omega/VERSION"), "utf-8")
+  .readFileSync(path.resolve(process.cwd(), "public/ø/VERSION"), "utf-8")
   .trim();
+
+const cmdMac = "curl -fsSL https://marcyy.me/ø/install.sh | bash";
+const cmdWin = "irm https://marcyy.me/ø/install.ps1 | iex";
+const cmdUninstall =
+  "rm -rf ~/.claude/skills/omega ~/.claude/skills/omega-update ~/.claude/agents/omega-*.md ~/omega";
+
+const council = [
+  ["historian", "Historian", "Surfaces past decisions and failure patterns — so ø never forgets history."],
+  ["marc-simulator", "Marc Simulator", "Projects what I'd do on inertia, and flags when my model is out of date."],
+  ["builder", "Builder", "Cuts any vision down to a v0.1 with real steps, files and costs."],
+  ["critic", "Critic", "Hunts failure paths and kills over-complexity, vagueness and fake automation."],
+  ["trend", "Trend", "Reads the outside world; gives Conservative / Expected / Disruptive scenarios."],
+  ["knowledge-architect", "Knowledge Architect", "Decides how new understanding should be structured back into the brain."],
+];
+
+const loop = [
+  ["01", "/omega", "The council reasons and generates Best / Safe / High-Upside / Failure worldlines."],
+  ["02", "dialogue", "It aligns my current thinking against the reference path — and I push back."],
+  ["03", "/omega-update", "The agreed consensus is merged into the brain. Old knowledge is compressed, never deleted."],
+  ["04", "grow", "The knowledge base evolves; next cycle recalibrates on the updated state."],
+];
 ---
 
 <Layout title={`ø / Omega | ${SITE.title}`} noindex={true}>
   <script is:inline>
-    // 地址栏净化：无论从 /omega 重定向还是编码链接 /%C3%B8 进来，落地后都显示 marcyy.me/ø
     if (location.pathname !== "/ø") {
       history.replaceState(null, "", "/ø" + location.search + location.hash);
     }
   </script>
   <Header />
-  <Main
-    pageTitle="ø / Omega"
-    pageDesc="A symbiotic meta-cognition layer for Claude Code."
-  >
-    <div class="mx-auto max-w-2xl">
-      <img
-        src="/omega/omega-logo.png"
-        alt="ø"
-        width="140"
-        height="140"
-        class="mx-auto my-6 rounded-2xl"
-      />
 
-      <p class="text-center italic opacity-80">
-        /omega thinks with Marc. /omega-update grows the Brain. Friday keeps ø
-        alive.
+  <main id="omega" class="mx-auto w-full max-w-3xl px-4 pb-24">
+    <!-- HERO — the co-evolution card -->
+    <section class="hero" aria-label="ø / Omega">
+      <div class="hero-top">
+        <div class="corner">
+          <span class="corner-mark">ø&nbsp;&nbsp;CO-EVOLUTION LAYER</span>
+          <span class="corner-rule"></span>
+        </div>
+        <div class="corner corner-right">
+          <span class="corner-mark">Not the answer.<br />The evolving process.</span>
+          <span class="corner-rule"></span>
+        </div>
+      </div>
+
+      <svg class="hero-glyph" viewBox="0 0 100 116" aria-hidden="true">
+        <ellipse cx="50" cy="58" rx="31" ry="38" fill="none" stroke="currentColor" stroke-width="3.5"></ellipse>
+        <line x1="22" y1="94" x2="78" y2="22" stroke="currentColor" stroke-width="3.5"></line>
+      </svg>
+      <div class="hero-slash">/</div>
+
+      <p class="hero-tagline">
+        Where memory folds into evolution,<br />no answer remains final.
       </p>
 
-      <h2 class="mt-10 text-xl font-semibold">What is ø?</h2>
-      <p class="mt-2">
+      <div class="leader" aria-hidden="true">
+        <span>Memory</span><i class="dots"></i><span class="arw">→</span>
+        <span>Folds</span><i class="dots"></i>
+        <span>Evolves</span><i class="dots"></i>
+        <span>Next&nbsp;Version</span>
+      </div>
+
+      <div class="hero-foot">
+        <span>ø · CO-EVOLUTION LAYER</span>
+        <span class="hero-foot-mid">EVOLVE · REFLECT · UPDATE</span>
+        <span>V01 → ∞</span>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="block">
+      <p class="eyebrow">Install · v{version} · macOS full · Linux best-effort · Windows core</p>
+      <div class="cmd">
+        <span class="cmd-os">macOS / Linux</span>
+        <div class="cmd-row">
+          <code>{cmdMac}</code>
+          <button class="copy" data-copy={cmdMac} aria-label="Copy install command">copy</button>
+        </div>
+      </div>
+      <div class="cmd">
+        <span class="cmd-os">Windows · PowerShell · skills only</span>
+        <div class="cmd-row">
+          <code>{cmdWin}</code>
+          <button class="copy" data-copy={cmdWin} aria-label="Copy install command">copy</button>
+        </div>
+      </div>
+      <p class="fineprint">
+        Prefer to inspect first? Read
+        <a href="/ø/install.sh">install.sh</a> ·
+        <a href="/ø/omega.tar.gz">omega.tar.gz</a> ·
+        <a href="/ø/omega.zip">omega.zip</a>
+      </p>
+    </section>
+
+    <!-- WHAT IS ø -->
+    <section class="block">
+      <p class="eyebrow">What is ø</p>
+      <p class="lede">
         ø is the meta-cognition layer of my personal knowledge base — not a
         summarizer, not a decision proxy. It reads the current and historical
-        state of my second brain, simulates multiple worldlines, and evolves
-        together with me through dialogue.
+        state of my second brain, runs a council of sub-agents to simulate
+        multiple worldlines, and evolves together with me through dialogue.
+        I stay the one who decides.
       </p>
-      <ul class="mt-3 list-disc space-y-1 pl-6">
-        <li>
-          <code>/omega</code> — runs a 7-subagent council (Historian, Marc
-          Simulator, Builder, Critic, Trend, Knowledge Architect, Judge) to
-          generate Best / Safe / High-Upside / Failure paths, then aligns with
-          you through dialogue.
-        </li>
-        <li>
-          <code>/omega-update</code> — merges the agreed consensus into the
-          knowledge base with an explicit merge plan. Old knowledge is
-          compressed and archived, never deleted.
-        </li>
-        <li>
-          Every Friday 21:30 a background scan generates a Weekly Brief and
-          sends a persistent macOS notification.
-        </li>
-        <li>
-          ø keeps its own memory: four models (marc / omega / knowledge /
-          world), a knowledge-graph view, and an error book of its own
-          misjudgments.
-        </li>
-      </ul>
+    </section>
 
-      <h2 class="mt-10 text-xl font-semibold">Install</h2>
-      <p class="mt-2 text-sm opacity-80">
-        version {version} · macOS full · Linux best-effort (untested) · Windows
-        core only
-      </p>
+    <!-- HOW IT WORKS — the loop -->
+    <section class="block">
+      <p class="eyebrow">How it works · the co-evolution loop</p>
+      <ol class="loop">
+        {loop.map(([n, name, desc]) => (
+          <li class="loop-step">
+            <span class="loop-n">{n}</span>
+            <div>
+              <p class="loop-name">{name}</p>
+              <p class="loop-desc">{desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="loop-close"><span class="arw">↺</span>&nbsp; and every Friday it starts again on its own.</p>
 
-      <p class="mt-4 mb-1 font-medium">macOS / Linux</p>
-      <pre
-        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>curl -fsSL https://marcyy.me/omega/install.sh | bash</code></pre>
+      <figure class="arch">
+        <button class="arch-thumb" data-lightbox="/ø/architecture.png" aria-label="Enlarge the full architecture diagram">
+          <img src="/ø/architecture.png" alt="ø state machine: trigger router, weekly scan, council reasoning, dialogue, update gate, knowledge growth" loading="lazy" />
+          <span class="arch-hint">click to enlarge — the full state machine</span>
+        </button>
+        <figcaption>Trigger → council → dialogue → update gate → knowledge growth → recalibrate.</figcaption>
+      </figure>
+    </section>
 
-      <p class="mt-4 mb-1 font-medium">Windows (PowerShell, skills only)</p>
-      <pre
-        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>irm https://marcyy.me/omega/install.ps1 | iex</code></pre>
-
-      <p class="mt-3 text-sm">
-        Prefer to inspect first? Download
-        <a class="text-accent underline" href="/omega/omega.tar.gz">omega.tar.gz</a>
-        /
-        <a class="text-accent underline" href="/omega/omega.zip">omega.zip</a>
-        or read
-        <a class="text-accent underline" href="/omega/install.sh">install.sh</a>.
-      </p>
-
-      <h2 class="mt-10 text-xl font-semibold">What gets installed</h2>
-      <ul class="mt-2 list-disc space-y-1 pl-6 text-sm">
-        <li><code>~/.claude/skills/omega</code> + <code>omega-update</code> — the two entry skills</li>
-        <li><code>~/.claude/agents/omega-*.md</code> — the 7 council subagents</li>
-        <li><code>~/omega/</code> — scripts (weekly scan, notifications, status), launchd template, README</li>
-        <li>Optional (macOS, asked during install): Friday 21:30 launchd agent, ø-branded notifier</li>
-      </ul>
-
-      <h2 class="mt-10 text-xl font-semibold">Uninstall</h2>
-      <pre
-        class="overflow-x-auto rounded border border-border bg-muted/30 p-3 text-sm"><code>bash ~/omega/scripts/uninstall-omega-launchd.sh
-rm -rf ~/.claude/skills/omega ~/.claude/skills/omega-update ~/.claude/agents/omega-*.md ~/omega</code></pre>
-
-      <div class="mt-10 rounded border border-border p-4 text-sm opacity-90">
-        <p class="font-medium">Shared as-is</p>
-        <p class="mt-1">
-          This is my personal meta-cognition system, published as a reference —
-          the <code>/omega</code> skill assumes my knowledge-base layout (an
-          Obsidian vault called “Marc Brain” with its own index pages and sync
-          conventions). It will install cleanly anywhere, but to make it truly
-          yours, read <code>README-OMEGA.md</code> and adapt the paths, models
-          and navigation to your own brain. No support, no warranty — feedback
-          welcome.
+    <!-- THE COUNCIL -->
+    <section class="block">
+      <p class="eyebrow">The council · six reason in parallel, one judges</p>
+      <div class="council">
+        {council.map(([handle, name, desc]) => (
+          <div class="agent">
+            <span class="agent-handle">{handle}</span>
+            <p class="agent-name">{name}</p>
+            <p class="agent-desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="judge">
+        <span class="agent-handle">judge</span>
+        <p class="agent-name">Judge</p>
+        <p class="agent-desc">
+          Waits for all six, then scores their worldlines and returns the verdict
+          — Best Overall / Safe / High-Upside / Do-Not-Choose. It never invents a
+          path of its own; it only arbitrates the others.
         </p>
       </div>
-    </div>
-  </Main>
+    </section>
+
+    <!-- FRIDAY -->
+    <section class="block">
+      <p class="eyebrow">Friday keeps ø alive</p>
+      <p class="lede">
+        Every Friday 21:30 a background scan runs on its own, writes a Weekly
+        Brief, and sends a persistent notification. Nothing touches the stable
+        knowledge base — it just waits. When I'm ready I run
+        <code class="inline">/omega resume weekly</code> and the dialogue picks up
+        where the scan left off.
+      </p>
+    </section>
+
+    <!-- WHAT GETS INSTALLED -->
+    <section class="block">
+      <p class="eyebrow">What gets installed</p>
+      <ul class="files">
+        <li><code>~/.claude/skills/omega</code> + <code>omega-update</code><i class="dots"></i><span>the two entry skills</span></li>
+        <li><code>~/.claude/agents/omega-*.md</code><i class="dots"></i><span>the 7 council sub-agents</span></li>
+        <li><code>~/omega/</code><i class="dots"></i><span>scripts, launchd template, README</span></li>
+        <li>Optional · macOS<i class="dots"></i><span>Friday launchd job, ø-branded notifier</span></li>
+      </ul>
+    </section>
+
+    <!-- UNINSTALL -->
+    <section class="block">
+      <p class="eyebrow">Uninstall</p>
+      <div class="cmd">
+        <div class="cmd-row">
+          <code>{cmdUninstall}</code>
+          <button class="copy" data-copy={cmdUninstall} aria-label="Copy uninstall command">copy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARED AS-IS -->
+    <section class="asis">
+      <p class="eyebrow">Shared as-is</p>
+      <p>
+        This is my personal meta-cognition system, published as a reference. The
+        <code class="inline">/omega</code> skill assumes my knowledge-base layout
+        — an Obsidian vault called “Marc Brain” with its own index pages and sync
+        conventions. It installs cleanly anywhere, but to make it truly yours,
+        read <code class="inline">README-OMEGA.md</code> and adapt the paths,
+        models and navigation to your own brain. No support, no warranty —
+        feedback welcome.
+      </p>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">✕&nbsp; close</button>
+    <img id="lightbox-img" src="" alt="ø architecture diagram, full size" />
+  </div>
+
   <Footer />
 </Layout>
+
+<script is:inline>
+  // Copy buttons
+  document.querySelectorAll(".copy").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.getAttribute("data-copy"));
+        const prev = btn.textContent;
+        btn.textContent = "copied";
+        btn.classList.add("is-copied");
+        setTimeout(() => {
+          btn.textContent = prev;
+          btn.classList.remove("is-copied");
+        }, 1500);
+      } catch (e) {
+        /* clipboard blocked — no-op */
+      }
+    });
+  });
+
+  // Lightbox for the architecture diagram
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightbox-img");
+  const openLb = src => {
+    lbImg.src = src;
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+  const closeLb = () => {
+    lb.hidden = true;
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  };
+  document.querySelectorAll("[data-lightbox]").forEach(el => {
+    el.addEventListener("click", () => openLb(el.getAttribute("data-lightbox")));
+  });
+  lb.addEventListener("click", e => {
+    if (e.target === lb || e.target.classList.contains("lightbox-close")) closeLb();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !lb.hidden) closeLb();
+  });
+</script>
+
+<style>
+  #omega {
+    --ink: var(--foreground);
+    --line: color-mix(in srgb, var(--foreground) 22%, transparent);
+    --faint: color-mix(in srgb, var(--foreground) 55%, transparent);
+    font-variant-ligatures: none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    margin: 2.5rem 0 1rem;
+    padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3.5rem);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--muted) 16%, var(--background));
+    text-align: center;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+    line-height: 1.5;
+  }
+  .corner-right {
+    text-align: right;
+  }
+  .corner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .corner-rule {
+    width: 2.2rem;
+    height: 1px;
+    background: var(--faint);
+  }
+  .corner-right .corner-rule {
+    align-self: flex-end;
+  }
+  .hero-glyph {
+    width: clamp(3.5rem, 12vw, 5.5rem);
+    height: auto;
+    color: var(--ink);
+    margin: clamp(1.5rem, 5vw, 2.75rem) auto 0;
+    display: block;
+  }
+  .hero-slash {
+    color: var(--faint);
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+  }
+  .hero-tagline {
+    margin: 1.1rem auto 0;
+    font-size: clamp(1.05rem, 3.6vw, 1.7rem);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+  }
+  .leader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(0.6rem, 2.2vw, 0.78rem);
+    letter-spacing: 0.05em;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .dots {
+    flex: 1;
+    align-self: center;
+    height: 3px;
+    min-width: 1rem;
+    background-image: radial-gradient(circle at center, var(--faint) 0.9px, transparent 1.1px);
+    background-size: 5px 3px;
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.7;
+  }
+  .arw {
+    color: var(--ink);
+  }
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: clamp(1.5rem, 5vw, 2.5rem);
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+  }
+  .hero-foot-mid {
+    display: none;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .block {
+    margin-top: clamp(2.5rem, 8vw, 4.5rem);
+  }
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 1.1rem;
+  }
+  .lede {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--foreground) 90%, transparent);
+  }
+  code.inline {
+    font-size: 0.85em;
+    padding: 0.05em 0.35em;
+    border: 1px solid var(--line);
+    border-radius: 0.3rem;
+  }
+
+  /* ---------- COMMAND BLOCKS ---------- */
+  .cmd {
+    margin-bottom: 0.9rem;
+  }
+  .cmd-os {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 0.4rem;
+  }
+  .cmd-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .cmd-row code {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  .copy {
+    flex-shrink: 0;
+    padding: 0 1.1rem;
+    border-left: 1px solid var(--line);
+    background: color-mix(in srgb, var(--muted) 22%, var(--background));
+    color: var(--faint);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+  }
+  .copy:hover {
+    color: var(--accent);
+  }
+  .copy.is-copied {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--background));
+  }
+  .fineprint {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+  .fineprint a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- LOOP ---------- */
+  .loop {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .loop-step {
+    display: flex;
+    gap: 1.1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .loop-step:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .loop-n {
+    font-size: 0.7rem;
+    color: var(--faint);
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+  .loop-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .loop-desc {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+  .loop-close {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--faint);
+  }
+
+  /* ---------- ARCHITECTURE ---------- */
+  .arch {
+    margin: 1.75rem 0 0;
+  }
+  .arch-thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: zoom-in;
+    position: relative;
+    background: #0f1116;
+  }
+  .arch-thumb img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    opacity: 0.92;
+  }
+  .arch-hint {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 2.5rem 1rem 0.9rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #cfd3dc;
+    background: linear-gradient(to top, rgba(15, 17, 22, 0.95), transparent);
+    text-align: center;
+  }
+  .arch figcaption {
+    margin-top: 0.7rem;
+    font-size: 0.75rem;
+    color: var(--faint);
+    text-align: center;
+  }
+
+  /* ---------- COUNCIL ---------- */
+  .council {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  .agent {
+    padding: 1.1rem 1.15rem;
+    background: var(--background);
+  }
+  .agent-handle {
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .agent-name {
+    margin-top: 0.3rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .agent-desc {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--faint);
+  }
+  .judge {
+    margin-top: 1px;
+    padding: 1.2rem 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--muted) 16%, var(--background));
+  }
+  .judge .agent-desc {
+    max-width: 46ch;
+  }
+
+  /* ---------- FILES ---------- */
+  .files {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .files li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+  }
+  .files code {
+    font-size: 0.8rem;
+  }
+  .files span {
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- AS-IS ---------- */
+  .asis {
+    margin-top: clamp(2.5rem, 8vw, 4.5rem);
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--muted) 12%, var(--background));
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--faint);
+  }
+  .asis .eyebrow {
+    margin-bottom: 0.7rem;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(10, 11, 15, 0.94);
+    overflow: auto;
+    padding: 3.5rem 1rem 3rem;
+    text-align: center;
+  }
+  .lightbox[hidden] {
+    display: none;
+  }
+  .lightbox img {
+    max-width: min(920px, 100%);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (min-width: 640px) {
+    .hero-foot-mid {
+      display: inline;
+    }
+    .arch-thumb img {
+      height: 320px;
+    }
+  }
+  @media (max-width: 560px) {
+    .council {
+      grid-template-columns: 1fr;
+    }
+    .files li {
+      flex-wrap: wrap;
+    }
+    .files span {
+      white-space: normal;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .copy {
+      transition: none;
+    }
+  }
+</style>

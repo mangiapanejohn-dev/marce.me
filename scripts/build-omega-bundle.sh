@@ -7,7 +7,7 @@ set -eu
 SITE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BRAIN_ROOT="$HOME/Desktop/🧠 Marc Brain 2"
 DIST="$SITE_ROOT/omega-dist"
-PUB="$SITE_ROOT/public/omega"
+PUB="$SITE_ROOT/public/ø"
 VERSION="$(date +%Y.%m.%d)"
 
 [ -d "$BRAIN_ROOT/scripts" ] || { echo "❌ 找不到 Marc-Brain-2: $BRAIN_ROOT"; exit 1; }

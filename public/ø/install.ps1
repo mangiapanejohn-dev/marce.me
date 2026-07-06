@@ -3,7 +3,7 @@
 # Status: untested — feedback welcome. Automation (Friday scan/notifications) is macOS/Linux only; see README-OMEGA.md.
 $ErrorActionPreference = "Stop"
 
-$BaseUrl  = if ($env:OMEGA_BASE_URL) { $env:OMEGA_BASE_URL } else { "https://marcyy.me/omega" }
+$BaseUrl  = if ($env:OMEGA_BASE_URL) { $env:OMEGA_BASE_URL } else { "https://marcyy.me/ø" }
 $Tmp      = Join-Path $env:TEMP ("omega-" + [guid]::NewGuid().ToString("N"))
 $Claude   = Join-Path $HOME ".claude"
 $OmegaDir = if ($env:OMEGA_DIR) { $env:OMEGA_DIR } else { Join-Path $HOME "omega" }

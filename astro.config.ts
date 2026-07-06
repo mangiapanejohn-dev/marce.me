@@ -15,10 +15,6 @@ import AstroPWA from "@vite-pwa/astro";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  redirects: {
-    "/omega": "/ø",
-    "/zh/omega": "/zh/ø",
-  },
   integrations: [
     sitemap({
       filter: page =>

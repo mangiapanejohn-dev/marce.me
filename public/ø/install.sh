@@ -7,7 +7,7 @@
 # Env  :  OMEGA_DIR=<where scripts land, default ~/omega>   OMEGA_BASE_URL=<override download host>
 set -eu
 
-BASE_URL="${OMEGA_BASE_URL:-https://marcyy.me/omega}"
+BASE_URL="${OMEGA_BASE_URL:-https://marcyy.me/ø}"
 OMEGA_DIR="${OMEGA_DIR:-$HOME/omega}"
 CLAUDE_DIR="$HOME/.claude"
 OS="$(uname -s)"
@@ -28,7 +28,7 @@ say ""
 case "$OS" in
   Darwin) say "  Detected macOS — full install available." ;;
   Linux)  say "  Detected Linux — best-effort install [untested — feedback welcome]." ;;
-  *)      say "  Unsupported OS: $OS (on Windows, use: irm ${BASE_URL}/install.ps1 | iex)"; exit 1 ;;
+  *)      say "  Unsupported OS: $OS (on Windows, use: irm https://marcyy.me/ø/install.ps1 | iex)"; exit 1 ;;
 esac
 
 say ""
