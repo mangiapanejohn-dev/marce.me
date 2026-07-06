@@ -17,8 +17,7 @@ export default defineConfig({
   site: SITE.website,
   redirects: {
     "/omega": "/ø",
-    "/zh/omega": "/ø",
-    "/zh/ø": "/ø",
+    "/zh/omega": "/zh/ø",
   },
   integrations: [
     sitemap({
