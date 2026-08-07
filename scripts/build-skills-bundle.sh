@@ -8,6 +8,10 @@ SITE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC_ROOT="$HOME/.claude/skills"
 DIST="$SITE_ROOT/skills-dist"
 PUB="$SITE_ROOT/public/ƒ"
+# ASCII mirror. Windows consoles on a legacy code page mangle a pasted "ƒ", and
+# PowerShell 5.1 latin-1-decodes any non-ASCII byte in a fetched script, so the
+# whole Windows path (typed URL, script body, downloads) must stay ASCII-only.
+PUB_ASCII="$SITE_ROOT/public/f"
 VERSION="$(date +%Y.%m.%d)"
 
 # 显式白名单 —— 绝不扫目录，否则以后新建的个人 skill 会被自动打进公开包
@@ -59,5 +63,18 @@ tar -czf "$PUB/skills.tar.gz" -C "$SITE_ROOT" skills-dist
 ( cd "$SITE_ROOT" && rm -f "$PUB/skills.zip" && zip -qr "$PUB/skills.zip" skills-dist )
 echo "$VERSION" > "$PUB/VERSION"
 
+echo "── ④ 同步 ASCII 镜像 public/f/（Windows 用）──"
+mkdir -p "$PUB_ASCII"
+for F in skills.tar.gz skills.zip VERSION install.ps1 install.sh; do
+  cp "$PUB/$F" "$PUB_ASCII/$F"
+done
+# 安装器必须是纯 ASCII，否则 PowerShell 会把 BaseUrl 解码成乱码
+for F in "$PUB/install.ps1" "$PUB_ASCII/install.ps1"; do
+  if LC_ALL=C grep -q '[^ -~	]' "$F"; then
+    echo "❌ $F 含非 ASCII 字符，Windows 上会被 latin-1 解码搞坏"; exit 1
+  fi
+done
+echo "ASCII 镜像同步完成 ✅"
+
 echo "✅ VERSION=$VERSION"
-ls -la "$PUB"
+ls -la "$PUB" "$PUB_ASCII"

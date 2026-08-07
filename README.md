@@ -65,6 +65,23 @@ Both pages are `noindex`, excluded from the sitemap ([`astro.config.ts`](astro.c
 and disallowed in [`robots.txt`](src/pages/robots.txt.ts) — under both the literal
 glyph and its percent-encoded form. They're shared by link, not by search.
 
+### Windows must stay ASCII
+
+`public/f/` and `public/omega/` are byte-identical ASCII mirrors of the glyph
+directories, and the build scripts keep them in sync. The Windows install command
+points at those, not at `/ƒ` or `/ø`, because three separate things break otherwise:
+
+1. A Windows console on a legacy code page mangles a pasted `ƒ`/`ø` before .NET
+   ever sees the URL.
+2. Vercel serves an unknown extension as `application/octet-stream`, so
+   `Invoke-RestMethod` hands `iex` a byte array instead of a string.
+   [`vercel.json`](vercel.json) forces `text/plain; charset=utf-8` on `.ps1`/`.sh`.
+3. Without that charset, PowerShell 5.1 latin-1-decodes the response, corrupting
+   any non-ASCII byte in the script — including a glyph inside `$BaseUrl`.
+
+So every `install.ps1` is pure ASCII and every installer's base URL is the ASCII
+path. Both build scripts fail hard if a non-ASCII byte creeps into an `install.ps1`.
+
 ## License
 
 Content © Mark Ellington. Theme under MIT (see [LICENSE](LICENSE)).
