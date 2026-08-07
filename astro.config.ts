@@ -21,7 +21,9 @@ export default defineConfig({
         (SITE.showArchives || !page.endsWith("/archives")) &&
         !page.includes("/omega") &&
         !page.includes("ø") &&
-        !page.includes("%C3%B8"),
+        !page.includes("%C3%B8") &&
+        !page.includes("ƒ") &&
+        !page.includes("%C6%92"),
     }),
     AstroPWA({
       registerType: "autoUpdate",

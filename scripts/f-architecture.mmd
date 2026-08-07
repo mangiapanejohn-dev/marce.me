@@ -1,0 +1,236 @@
+%%{init: {
+  "theme": "base",
+  "flowchart": {
+    "curve": "basis",
+    "nodeSpacing": 42,
+    "rankSpacing": 56,
+    "padding": 20,
+    "htmlLabels": true
+  },
+  "themeVariables": {
+    "background": "#F5F1EA",
+    "primaryColor": "#FCF9F4",
+    "primaryTextColor": "#302A26",
+    "primaryBorderColor": "#B7A79A",
+    "secondaryColor": "#EFE4DA",
+    "tertiaryColor": "#FFFDF9",
+    "lineColor": "#8D796C",
+    "clusterBkg": "#F9F5EF",
+    "clusterBorder": "#C8B8AA",
+    "fontFamily": "Inter, Arial, sans-serif",
+    "fontSize": "15px"
+  }
+}}%%
+
+flowchart TB
+
+    TITLE("ƒ — 14 style modes<br/>for Claude Code<br/><small>14 个套在输出上的函数 · 纯提示词 · 零依赖</small>")
+
+    SUMMARY("~/.claude/skills = 生效层 · marcyy.me/ƒ = 分发层<br/><small>Taxonomy + Convention + Runtime + Distribution</small>")
+
+    TITLE --> SUMMARY
+
+    %% =========================================================
+    %% 01 · TAXONOMY
+    %% =========================================================
+
+    subgraph PERSIST["01A · 持续模式 Persistent · 9"]
+        direction TB
+        GODMODE("/godmode<br/><small>火力全开 · 不省力不藏拙</small>") ~~~ ARTIFACTS("/artifacts<br/><small>可视化优先 · 不用文字块</small>") ~~~ ELI5("/eli5<br/><small>讲给 5 岁小孩 · 零术语</small>")
+        GHOST("/ghost<br/><small>去 AI 味 · 像真人写的</small>") ~~~ BRIEF("/brief<br/><small>三行讲清重点</small>") ~~~ NOCODE("/nocode<br/><small>去技术化 · 零代码块</small>")
+        SILENT("/silent<br/><small>直接干活 · 只给结果</small>") ~~~ OODA("/ooda<br/><small>先推演再回答</small>") ~~~ STEP("/step<br/><small>手把手 · 每步可见</small>")
+    end
+
+    subgraph ONCE["01B · 一次性分析 One-shot · 5"]
+        direction TB
+        DEVIL("/devil<br/><small>唱反调 · 找思路漏洞</small>") ~~~ ROAST("/roast<br/><small>毒舌点评 · 零客套</small>") ~~~ MATRIX("/matrix<br/><small>对比矩阵 + 明确立场</small>")
+        WHY("/why<br/><small>只找根因 · 不给方案</small>") ~~~ STEAL("/steal<br/><small>扒可迁移的底层原理</small>")
+    end
+
+    SUMMARY ==> PERSIST
+    SUMMARY ==> ONCE
+
+    %% =========================================================
+    %% 02 · CONVENTIONS
+    %% =========================================================
+
+    subgraph CONVENTION["02 · SKILL.md 约定 Conventions"]
+        direction LR
+
+        FM("Frontmatter<br/><small>name + description 必需 · name 与目录名一致</small>")
+
+        DMI("disable-model-invocation<br/><small>14 个全开 · 不注入系统提示 · 不调用零开销</small>")
+
+        ARG("argument-hint<br/><small>8 个带参模式的参数提示</small>")
+
+        BODY("正文骨架<br/><small>触发与参数 · 规则 · 输出结构 · 硬规则</small>")
+
+        FM --> DMI
+        FM --> ARG
+        FM --> BODY
+    end
+
+    SUMMARY --> FM
+
+    %% =========================================================
+    %% 03 · RUNTIME
+    %% =========================================================
+
+    subgraph RUNTIME["03 · 加载与触发 Runtime"]
+        direction TB
+
+        LOCALDIR("~/.claude/skills/<br/><small>放入即自动加载 · 无需注册</small>")
+
+        SESSION("Claude Code 会话")
+
+        MANUAL("手动斜杠触发 /xxx<br/><small>14 个全部手动 · 零上下文成本</small>")
+
+        LIFEP("持续生命周期<br/><small>/xxx 开启 → 可叠加 → 说「关闭」解除</small>")
+
+        LIFEO("一次性动作<br/><small>/xxx [内容] · 执行一次即结束</small>")
+
+        LOCALDIR --> SESSION
+        SESSION --> MANUAL
+        MANUAL --> LIFEP
+        MANUAL --> LIFEO
+    end
+
+    PERSIST -. "生命周期" .-> LIFEP
+    ONCE -. "生命周期" .-> LIFEO
+    DMI -. "触发方式约束" .-> MANUAL
+
+    %% =========================================================
+    %% 04 · DISTRIBUTION
+    %% =========================================================
+
+    subgraph DISTRIB["04 · 分发回路 Distribution"]
+        direction LR
+
+        EDIT("活体源<br/><small>直接在 ~/.claude/skills 编辑</small>")
+
+        BUILD("build-skills-bundle.sh<br/><small>显式白名单 14 个 · 不扫目录</small>")
+
+        PURE("纯净检查<br/><small>无个人路径 · 无密钥 · name 校验 · 不过即中止</small>")
+
+        SNAP("skills-dist/ 快照<br/><small>入库 · 可审计</small>")
+
+        PACK("skills.tar.gz · skills.zip<br/><small>public/ƒ/ · VERSION 按日期</small>")
+
+        SITE("marcyy.me/ƒ<br/><small>install.sh · install.ps1 一行安装</small>")
+
+        USER("别人的 ~/.claude/skills<br/><small>同名目录先备份成 .bak</small>")
+
+        EDIT --> BUILD
+        BUILD --> PURE
+        PURE --> SNAP
+        SNAP --> PACK
+        PACK --> SITE
+        SITE --> USER
+    end
+
+    LOCALDIR --> EDIT
+
+    %% =========================================================
+    %% 05 · BOUNDARIES
+    %% =========================================================
+
+    subgraph BOUNDARY["05 · 边界与纪律 Boundaries"]
+        direction LR
+
+        WHITELIST("显式白名单<br/><small>以后新建的个人 skill 不会被自动打包</small>")
+
+        NOPRIV("零个人信息<br/><small>Brain 系列与个人路径不进公开包</small>")
+
+        NOSECRET("零密钥<br/><small>纯提示词 · 无脚本 · 无 API 调用</small>")
+
+        PRIVREPO("仓库保持 private<br/><small>分发靠站点自托管，不靠 clone</small>")
+
+        WHITELIST ~~~ NOPRIV ~~~ NOSECRET ~~~ PRIVREPO
+    end
+
+    BUILD -.-> WHITELIST
+    PURE -.-> NOPRIV
+    PURE -.-> NOSECRET
+    SITE -.-> PRIVREPO
+
+    %% =========================================================
+    %% NODE STYLES
+    %% =========================================================
+
+    classDef title fill:#C76543,stroke:#98472F,color:#FFFDF9,stroke-width:2.8px;
+    classDef dark fill:#332C27,stroke:#332C27,color:#FFFDF9,stroke-width:1.9px;
+    classDef card fill:#FCF9F4,stroke:#B7A79A,color:#302A26,stroke-width:1.5px;
+    classDef clay fill:#F0DED2,stroke:#C26D4A,color:#302A26,stroke-width:1.9px;
+    classDef clayStrong fill:#E7BFA9,stroke:#AD583A,color:#302A26,stroke-width:2.2px;
+    classDef brown fill:#E9DDD3,stroke:#94715D,color:#302A26,stroke-width:1.8px;
+    classDef soft fill:#EEEAE4,stroke:#A9A096,color:#302A26,stroke-width:1.5px;
+    classDef olive fill:#E7E3D7,stroke:#88816B,color:#302A26,stroke-width:1.8px;
+    classDef warning fill:#F1E2D8,stroke:#A9654B,color:#3A2C25,stroke-width:1.8px;
+
+    class TITLE title;
+    class SUMMARY,LOCALDIR,SITE dark;
+
+    class GODMODE,ARTIFACTS,ELI5,GHOST,BRIEF,NOCODE,SILENT,OODA,STEP clay;
+    class DEVIL,ROAST,MATRIX,WHY,STEAL brown;
+
+    class FM,DMI,ARG,BODY soft;
+    class SESSION,MANUAL card;
+    class LIFEP,LIFEO olive;
+
+    class EDIT,SNAP,PACK,USER card;
+    class BUILD clayStrong;
+    class PURE clayStrong;
+
+    class WHITELIST,NOPRIV,NOSECRET,PRIVREPO warning;
+
+    %% =========================================================
+    %% SUBGRAPH STYLES
+    %% =========================================================
+
+    style PERSIST fill:#F6EAE2,stroke:#C26D4A,stroke-width:1.9px,rx:24px,ry:24px
+    style ONCE fill:#F5EDE5,stroke:#A47C65,stroke-width:1.7px,rx:24px,ry:24px
+    style CONVENTION fill:#F2EFE8,stroke:#AAA399,stroke-width:1.5px,rx:24px,ry:24px
+    style RUNTIME fill:#F5EDE6,stroke:#A98470,stroke-width:1.7px,rx:24px,ry:24px
+    style DISTRIB fill:#F8F4EE,stroke:#B49E8F,stroke-width:1.6px,rx:24px,ry:24px
+    style BOUNDARY fill:#F4E9E1,stroke:#AF755B,stroke-width:1.7px,rx:24px,ry:24px
+
+    %% =========================================================
+    %% LINK STYLES
+    %% =========================================================
+    %% 边序号按声明顺序，~~~ 不可见排版链也占号（1–9、30–32），必须算进去。
+    %% linkStyle default 会把 ~~~ 的隐形属性覆盖掉画成实线，所以必须显式清零。
+
+    linkStyle default stroke:#8D796C,stroke-width:2px;
+
+    %% 0 · 顶层
+    linkStyle 0 stroke:#C76543,stroke-width:3px;
+
+    %% 1–9 · 分类网格的不可见排版链
+    linkStyle 1,2,3,4,5,6,7,8,9 stroke:transparent,stroke-width:0px;
+
+    %% 10–11 · 分类扇出
+    linkStyle 10,11 stroke:#C26D4A,stroke-width:2.8px;
+
+    %% 12–14 · 约定层
+    linkStyle 12,13,14 stroke:#A9A096,stroke-width:2.1px;
+
+    %% 15 · 总览 → 约定
+    linkStyle 15 stroke:#9A715B,stroke-width:2.2px;
+
+    %% 16–19 · 运行时链路
+    linkStyle 16,17,18,19 stroke:#5F5148,stroke-width:2.4px;
+
+    %% 20–22 · 跨层语义（虚线）
+    linkStyle 20,21,22 stroke:#A95E49,stroke-width:2.2px,stroke-dasharray:7 5;
+
+    %% 23–28 · 分发主链路
+    linkStyle 23,24,25,26,27,28 stroke:#B85F40,stroke-width:2.6px;
+
+    %% 29 · 生效层 → 分发入口
+    linkStyle 29 stroke:#85816C,stroke-width:2.2px;
+
+    %% 30–32 · 边界集群的不可见排版链
+    linkStyle 30,31,32 stroke:transparent,stroke-width:0px;
+
+    %% 33–36 · 边界纪律（虚线）
+    linkStyle 33,34,35,36 stroke:#A3624A,stroke-width:2px,stroke-dasharray:6 4;

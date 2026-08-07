@@ -1,0 +1,117 @@
+---
+// ƒ hero card — typographic, theme-aware. Drawn as inline SVG rather than a
+// generated image so the palette follows --background/--accent/--foreground in
+// both themes, the 14 command names stay real (selectable, crisp) text, and the
+// whole card costs ~3 KB instead of two 1 MB PNGs.
+// The card stays English in both locales — it's a wordmark, not body copy.
+const copy = {
+  title: "STYLE MODES",
+  subtitle: "FOR CLAUDE CODE",
+  foot: "PURE PROMPTS · NO DEPENDENCIES",
+};
+
+// Rows are balanced by rendered width, not by count — at .names size the widest
+// a row can get before it runs past the x=1304 margin is ~45 monospace cells.
+// Rows 1–2 are the nine persistent modes, row 3 the five one-shot analyses.
+const rows = [
+  ["godmode", "artifacts", "eli5", "ghost"],
+  ["brief", "nocode", "silent", "ooda", "step"],
+  ["devil", "roast", "matrix", "why", "steal"],
+];
+---
+
+<svg
+  class="fhero"
+  viewBox="0 0 1400 933"
+  role="img"
+  aria-label="ƒ — 14 style modes for Claude Code. godmode, artifacts, eli5, ghost, brief, nocode, silent, ooda, step, devil, roast, matrix, why, steal."
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect class="bg" x="0" y="0" width="1400" height="933" />
+
+  <!-- eyebrow row -->
+  <text class="micro" x="96" y="118">MARCYY.ME/ƒ</text>
+  <text class="micro ta-end" x="1304" y="118">14 MODES</text>
+  <line class="rule" x1="96" y1="152" x2="1304" y2="152" />
+
+  <!-- the mark -->
+  <text class="glyph" x="96" y="470">ƒ</text>
+
+  <!-- wordmark -->
+  <text class="display" x="392" y="392">{copy.title}</text>
+  <text class="display muted" x="392" y="474">{copy.subtitle}</text>
+
+  <!-- the fourteen -->
+  <line class="rule" x1="96" y1="596" x2="1304" y2="596" />
+  {
+    rows.map((row, i) => (
+      <text class="names" x="96" y={664 + i * 62}>
+        {row.map((n, j) => (
+          <>
+            {j > 0 && <tspan class="sep">&#160;&#160;·&#160;&#160;</tspan>}
+            <tspan>{n}</tspan>
+          </>
+        ))}
+      </text>
+    ))
+  }
+
+  <!-- footer -->
+  <line class="rule" x1="96" y1="826" x2="1304" y2="826" />
+  <text class="micro accent" x="96" y="880">ƒ(output) → output′</text>
+  <text class="micro ta-end" x="1304" y="880">{copy.foot}</text>
+</svg>
+
+<style>
+  .fhero {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .fhero .bg {
+    fill: color-mix(in srgb, var(--accent) 5%, var(--background));
+  }
+  .fhero text {
+    font-family: var(--font-google-sans-code), ui-monospace, monospace;
+    fill: var(--foreground);
+  }
+  .fhero .rule {
+    stroke: color-mix(in srgb, var(--foreground) 20%, transparent);
+    stroke-width: 1.5;
+  }
+  .fhero .micro {
+    font-size: 26px;
+    letter-spacing: 4px;
+    fill: color-mix(in srgb, var(--foreground) 52%, transparent);
+  }
+  .fhero .accent {
+    fill: var(--accent);
+    letter-spacing: 2px;
+  }
+  .fhero .ta-end {
+    text-anchor: end;
+  }
+  .fhero .glyph {
+    font-size: 400px;
+    font-weight: 300;
+    font-style: italic;
+    fill: var(--accent);
+  }
+  .fhero .display {
+    font-size: 86px;
+    font-weight: 500;
+    letter-spacing: 6px;
+  }
+  .fhero .display.muted {
+    fill: color-mix(in srgb, var(--foreground) 42%, transparent);
+    font-weight: 400;
+  }
+  .fhero .names {
+    font-size: 36px;
+    letter-spacing: 1px;
+    fill: color-mix(in srgb, var(--foreground) 82%, transparent);
+  }
+  .fhero .sep {
+    fill: var(--accent);
+  }
+</style>

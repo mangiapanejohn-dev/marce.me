@@ -1,0 +1,687 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import HeroCard from "@/components/FModesHero.astro";
+import { SITE } from "@/config";
+import fs from "node:fs";
+import path from "node:path";
+
+const version = fs
+  .readFileSync(path.resolve(process.cwd(), "public/ƒ/VERSION"), "utf-8")
+  .trim();
+
+const cmdMac = "curl -fsSL https://marcyy.me/ƒ/install.sh | bash";
+const cmdWin = "irm https://marcyy.me/ƒ/install.ps1 | iex";
+const cmdUninstall =
+  "rm -rf ~/.claude/skills/{godmode,artifacts,eli5,ghost,brief,nocode,silent,ooda,step,devil,roast,matrix,why,steal}";
+
+const persistent = [
+  ["godmode", "Full power", "Every answer written as a portfolio piece — no coasting, no hedging."],
+  ["artifacts", "Visual first", "Answers come as diagrams and interfaces instead of walls of text."],
+  ["eli5", "Explain like I'm five", "Everyday analogies for hard concepts. Zero jargon."],
+  ["ghost", "No AI smell", "Reads like a person with an actual opinion wrote it — in English or Chinese."],
+  ["brief", "Three lines", "Conclusion in the first sentence. Details only if you ask."],
+  ["nocode", "No code blocks", "Technical answers in plain concepts, not syntax."],
+  ["silent", "Just do it", "No restating the task, no pleasantries. Results only."],
+  ["ooda", "Reason first", "Observe → Orient → Decide → Act, so it can't wing the answer."],
+  ["step", "Show every step", "Numbered steps, each one a judgment plus the basis for it."],
+];
+
+const oneshot = [
+  ["devil", "Argue the other side", "Steelmans your position, then gives you the strongest case against it."],
+  ["roast", "Brutal review", "The most unflattering honest feedback — but every line carries a fix."],
+  ["matrix", "Decision table", "Pros and cons across the options you're stuck between, plus a clear stance."],
+  ["why", "Root cause only", "The causal chain behind what happened. Deliberately no solutions."],
+  ["steal", "Reverse-engineer it", "Pulls the transferable principle out from under a success story."],
+];
+
+const loop = [
+  ["01", "/xxx", "Turns the mode on. Every answer for the rest of the session runs through it."],
+  ["02", "/xxx [thing]", "Applies it once to one thing, without entering the mode."],
+  ["03", "stack them", "Modes compose — /ghost + /brief gives you three lines that sound human."],
+  ["04", "turn it off", "Say “turn off ghost” and that one drops. One-shot analyses end on their own."],
+];
+---
+
+<Layout title={`ƒ / style modes | ${SITE.title}`} noindex={true}>
+  <script is:inline>
+    if (location.pathname !== "/ƒ") {
+      history.replaceState(null, "", "/ƒ" + location.search + location.hash);
+    }
+  </script>
+  <Header />
+
+  <main id="fmodes" class="mx-auto w-full max-w-3xl px-4 pb-24">
+    <!-- HERO -->
+    <section class="hero" aria-label="ƒ — 14 style modes for Claude Code">
+      <figure class="card">
+        <HeroCard />
+      </figure>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="block reveal">
+      <p class="eyebrow">Install · v{version} · macOS · Linux · Windows</p>
+      <div class="cmd">
+        <span class="cmd-os">macOS / Linux</span>
+        <div class="cmd-row">
+          <code>{cmdMac}</code>
+          <button class="copy" data-copy={cmdMac} aria-label="Copy install command">copy</button>
+        </div>
+      </div>
+      <div class="cmd">
+        <span class="cmd-os">Windows · PowerShell</span>
+        <div class="cmd-row">
+          <code>{cmdWin}</code>
+          <button class="copy" data-copy={cmdWin} aria-label="Copy install command">copy</button>
+        </div>
+      </div>
+      <p class="fineprint">
+        Prefer to inspect first? Read
+        <a href="/ƒ/install.sh">install.sh</a> ·
+        <a href="/ƒ/skills.tar.gz">skills.tar.gz</a> ·
+        <a href="/ƒ/skills.zip">skills.zip</a>
+      </p>
+    </section>
+
+    <!-- WHAT IS ƒ -->
+    <section class="block reveal">
+      <p class="eyebrow">What is ƒ</p>
+      <p class="lede">
+        Fourteen functions you can wrap around Claude Code's output. Each one is a
+        single <code class="inline">SKILL.md</code> — pure prompt, no scripts, no
+        dependencies, nothing to configure. All fourteen carry
+        <code class="inline">disable-model-invocation: true</code>, so they never
+        enter the system prompt: until you type the slash, they cost you exactly
+        zero context.
+      </p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="block reveal">
+      <p class="eyebrow">How it works · the lifecycle</p>
+      <ol class="loop">
+        {loop.map(([n, name, desc]) => (
+          <li class="loop-step">
+            <span class="loop-n">{n}</span>
+            <div>
+              <p class="loop-name">{name}</p>
+              <p class="loop-desc">{desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="loop-close">
+        <span class="arw">↺</span>&nbsp; Nothing is loaded until you ask for it.
+      </p>
+
+      <figure class="arch">
+        <button
+          class="arch-thumb"
+          data-lightbox="/ƒ/architecture.png"
+          aria-label="Enlarge the full architecture diagram"
+        >
+          <img
+            src="/ƒ/architecture.png"
+            alt="ƒ architecture: mode taxonomy, SKILL.md conventions, runtime loading and triggering, the distribution loop from live source to installed skills, and the packaging boundaries"
+            loading="lazy"
+          />
+          <span class="arch-hint">click to enlarge — the full architecture</span>
+        </button>
+        <figcaption>
+          Taxonomy → conventions → runtime → distribution loop → boundaries.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- THE 14 -->
+    <section class="block reveal">
+      <p class="eyebrow">Persistent modes · nine · stay on until you drop them</p>
+      <div class="modes">
+        {persistent.map(([handle, name, desc]) => (
+          <div class="mode">
+            <span class="mode-handle">/{handle}</span>
+            <p class="mode-name">{name}</p>
+            <p class="mode-desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block reveal">
+      <p class="eyebrow">One-shot analyses · five · run once and end</p>
+      <div class="modes">
+        {oneshot.map(([handle, name, desc]) => (
+          <div class="mode">
+            <span class="mode-handle">/{handle}</span>
+            <p class="mode-name">{name}</p>
+            <p class="mode-desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="loop-close">
+        Call any of these five with no argument and it acts on whatever the
+        conversation is already about.
+      </p>
+    </section>
+
+    <!-- WHAT GETS INSTALLED -->
+    <section class="block reveal">
+      <p class="eyebrow">What gets installed</p>
+      <ul class="files">
+        <li><code>~/.claude/skills/&lt;14 dirs&gt;</code><i class="dots"></i><span>one SKILL.md each</span></li>
+        <li><code>~/.claude/skills/README-SKILLS.md</code><i class="dots"></i><span>the cheat sheet</span></li>
+        <li>Existing same-name skills<i class="dots"></i><span>backed up to <code>&lt;name&gt;.bak</code></span></li>
+        <li>Nothing else<i class="dots"></i><span>no agents, no scripts, no background jobs</span></li>
+      </ul>
+    </section>
+
+    <!-- UNINSTALL -->
+    <section class="block reveal">
+      <p class="eyebrow">Uninstall</p>
+      <div class="cmd">
+        <div class="cmd-row">
+          <code>{cmdUninstall}</code>
+          <button class="copy" data-copy={cmdUninstall} aria-label="Copy uninstall command">copy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARED AS-IS -->
+    <section class="asis reveal">
+      <p class="eyebrow">Shared as-is</p>
+      <p>
+        These are the modes I actually use every day, published as a reference.
+        They're pure prompts and they're short — open any
+        <code class="inline">SKILL.md</code> in the bundle and read it before you
+        install. Nothing here reads your files, calls an API or phones home. No
+        support, no warranty — feedback welcome.
+      </p>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕&nbsp; close</button>
+    <img id="lightbox-img" src="" alt="ƒ architecture diagram, full size" />
+  </div>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  // Runs on initial load AND after every Astro view transition (ClientRouter),
+  // so the reveal/lightbox/copy wiring never goes missing on soft navigation.
+  function setupFModes() {
+    const copyLabel = document.documentElement.lang === "zh" ? "已复制" : "copied";
+
+    document.querySelectorAll(".copy").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(btn.getAttribute("data-copy"));
+          const prev = btn.textContent;
+          btn.textContent = copyLabel;
+          btn.classList.add("is-copied");
+          setTimeout(() => {
+            btn.textContent = prev;
+            btn.classList.remove("is-copied");
+          }, 1500);
+        } catch (e) {
+          /* clipboard blocked — no-op */
+        }
+      });
+    });
+
+    // Lightbox for the architecture diagram
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const openLb = src => {
+      lbImg.src = src;
+      lb.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    };
+    const closeLb = () => {
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+      setTimeout(() => {
+        if (!lb.classList.contains("is-open")) lbImg.src = "";
+      }, 300);
+    };
+    document.querySelectorAll("[data-lightbox]").forEach(el => {
+      el.addEventListener("click", () => openLb(el.getAttribute("data-lightbox")));
+    });
+    lb.addEventListener("click", e => {
+      if (e.target === lb || e.target.classList.contains("lightbox-close")) closeLb();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && lb.classList.contains("is-open")) closeLb();
+    });
+
+    // Scroll-reveal — each section fades up once
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reveals = document.querySelectorAll(".reveal:not(.in)");
+    if (reduce || !("IntersectionObserver" in window)) {
+      reveals.forEach(el => el.classList.add("in"));
+    } else {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
+      );
+      reveals.forEach(el => io.observe(el));
+      // Failsafe: never leave a section stuck hidden if a fast scroll outran the observer
+      setTimeout(() => {
+        document.querySelectorAll(".reveal:not(.in)").forEach(el => el.classList.add("in"));
+      }, 2000);
+    }
+  }
+  document.addEventListener("astro:page-load", setupFModes);
+</script>
+
+<style>
+  #fmodes {
+    --ink: var(--foreground);
+    --line: color-mix(in srgb, var(--foreground) 22%, transparent);
+    --faint: color-mix(in srgb, var(--foreground) 55%, transparent);
+    font-variant-ligatures: none;
+  }
+
+  /* ---------- MOTION ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---------- HERO — framed print ---------- */
+  .hero {
+    margin: 2.25rem 0 1rem;
+  }
+  .card {
+    margin: 0;
+    border-radius: clamp(0.75rem, 2.5vw, 1.25rem);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 18px 50px -24px rgba(0, 0, 0, 0.35);
+  }
+  :global(html[data-theme="dark"]) .card {
+    border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
+    box-shadow: 0 24px 70px -28px rgba(0, 0, 0, 0.7);
+  }
+
+  .dots {
+    flex: 1;
+    align-self: center;
+    height: 3px;
+    min-width: 1rem;
+    background-image: radial-gradient(circle at center, var(--faint) 0.9px, transparent 1.1px);
+    background-size: 5px 3px;
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.7;
+  }
+  .arw {
+    color: var(--ink);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .block {
+    margin-top: clamp(2.5rem, 8vw, 4.5rem);
+  }
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 1.1rem;
+  }
+  .lede {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--foreground) 90%, transparent);
+  }
+  code.inline {
+    font-size: 0.85em;
+    padding: 0.05em 0.35em;
+    border: 1px solid var(--line);
+    border-radius: 0.3rem;
+  }
+
+  /* ---------- COMMAND BLOCKS ---------- */
+  .cmd {
+    margin-bottom: 0.9rem;
+  }
+  .cmd-os {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 0.4rem;
+  }
+  .cmd-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .cmd-row:hover,
+  .cmd-row:focus-within {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  }
+  .cmd-row code {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  .copy {
+    flex-shrink: 0;
+    padding: 0 1.1rem;
+    border-left: 1px solid var(--line);
+    background: color-mix(in srgb, var(--muted) 22%, var(--background));
+    color: var(--faint);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      color 0.15s,
+      background 0.15s,
+      transform 0.1s ease;
+  }
+  .copy:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--background));
+  }
+  .copy:active {
+    transform: scale(0.94);
+  }
+  .copy.is-copied {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--background));
+  }
+  .fineprint {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+  .fineprint a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- LOOP ---------- */
+  .loop {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .loop-step {
+    display: flex;
+    gap: 1.1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .loop-step:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .loop-n {
+    font-size: 0.7rem;
+    color: var(--faint);
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+  .loop-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .loop-desc {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+  .loop-close {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+
+  /* ---------- ARCHITECTURE ---------- */
+  .arch {
+    margin: 1.75rem 0 0;
+  }
+  .arch-thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: zoom-in;
+    position: relative;
+    background: #f5f1ea;
+  }
+  .arch-thumb img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    opacity: 0.92;
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 0.3s ease;
+  }
+  .arch-thumb:hover img {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+  .arch-hint {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 2.5rem 1rem 0.9rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b5a4e;
+    background: linear-gradient(to top, rgba(245, 241, 234, 0.96), transparent);
+    text-align: center;
+  }
+  .arch figcaption {
+    margin-top: 0.7rem;
+    font-size: 0.75rem;
+    color: var(--faint);
+    text-align: center;
+  }
+
+  /* ---------- MODE GRID ---------- */
+  .modes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  .mode {
+    padding: 1.1rem 1.15rem;
+    background: var(--background);
+    transition: background 0.2s ease;
+  }
+  .mode:hover {
+    background: color-mix(in srgb, var(--muted) 20%, var(--background));
+  }
+  /* Both grids hold an odd count (9 and 5). Without this the trailing cell is
+     left empty and the container's line colour shows through as a grey block. */
+  .mode:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+  .mode-handle {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+  }
+  .mode-name {
+    margin-top: 0.3rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .mode-desc {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--faint);
+  }
+
+  /* ---------- FILES ---------- */
+  .files {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .files li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+  }
+  .files code {
+    font-size: 0.8rem;
+  }
+  .files span {
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- AS-IS ---------- */
+  .asis {
+    margin-top: clamp(2.5rem, 8vw, 4.5rem);
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--muted) 12%, var(--background));
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--faint);
+  }
+  .asis .eyebrow {
+    margin-bottom: 0.7rem;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(10, 11, 15, 0.94);
+    overflow: auto;
+    padding: 3.5rem 1rem 3rem;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.28s ease,
+      visibility 0.28s ease;
+  }
+  .lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .lightbox img {
+    max-width: min(1100px, 100%);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    transform: scale(0.985);
+    transition: transform 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .lightbox.is-open img {
+    transform: none;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (min-width: 640px) {
+    .arch-thumb img {
+      height: 320px;
+    }
+  }
+  @media (max-width: 560px) {
+    .modes {
+      grid-template-columns: 1fr;
+    }
+    .mode:last-child:nth-child(odd) {
+      grid-column: auto;
+    }
+    .files li {
+      flex-wrap: wrap;
+    }
+    .files span {
+      white-space: normal;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .arch-thumb img,
+    .copy,
+    .cmd-row,
+    .mode,
+    .lightbox,
+    .lightbox img {
+      transition: none !important;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .arch-thumb:hover img {
+      transform: none;
+    }
+  }
+</style>
