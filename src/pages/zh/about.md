@@ -3,10 +3,9 @@ layout: ../../layouts/AboutLayout.astro
 title: "关于"
 ---
 
-<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="flex flex-col md:flex-row gap-8 items-start md:items-stretch">
   <div class="w-full md:w-auto md:flex-shrink-0 md:max-w-[281px]">
-    <img src="/about-profile.jpg" alt="Mark Ellington" class="w-full h-auto rounded-lg" />
-    <img src="/about-profile-2.jpg" alt="两个人窝在懒人沙发上" class="w-full h-auto rounded-lg mt-4" />
+    <img src="/about-profile.jpg" alt="Mark Ellington" class="w-full h-auto md:h-full object-cover rounded-lg" />
   </div>
   <div class="flex-1 min-w-0">
     <p>嗨!我是 Mark。</p>
