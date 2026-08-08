@@ -1,0 +1,209 @@
+---
+import { SOCIALS } from "@/constants";
+
+interface Props {
+  lang?: "en" | "zh";
+}
+const { lang = "en" }: Props = Astro.props;
+
+const copy =
+  lang === "zh"
+    ? {
+        role: "Vibe Coder",
+        tagline: "做真的记得住你的 AI 工具。",
+        meta: ["长沙", "CTO @ Horizon-Ai"],
+        foot: "每个 commit 都会上 GitHub，随便你 fork",
+      }
+    : {
+        role: "Vibe Coder",
+        tagline: "Building AI tools that actually remember you.",
+        meta: ["Changsha", "CTO @ Horizon-Ai"],
+        foot: "Every commit lands on GitHub for you to fork & remix",
+      };
+---
+
+<article class="pcard">
+  <div class="pcard-inner">
+    <picture class="avatar">
+      <source srcset="/marce-card-avatar.webp" type="image/webp" />
+      <img
+        src="/marce-card-avatar.png"
+        width="320"
+        height="320"
+        alt="Mark Ellington"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="info">
+      <p class="role">{copy.role}</p>
+      <h1 class="name">Mark Ellington</h1>
+      <p class="handle">@marcE</p>
+      <p class="tagline">{copy.tagline}</p>
+
+      <ul class="meta">
+        {copy.meta.map(m => <li>{m}</li>)}
+      </ul>
+
+      <div class="socials">
+        {
+          SOCIALS.map(social => (
+            <a href={social.href} title={social.linkTitle} target="_blank" rel="me noopener">
+              <social.icon class="icon" />
+              <span class="sr-only">{social.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">{copy.foot}</p>
+</article>
+
+<style>
+  .pcard {
+    --line: color-mix(in srgb, var(--foreground) 20%, transparent);
+    --faint: color-mix(in srgb, var(--foreground) 55%, transparent);
+    width: 100%;
+    max-width: 34rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--accent) 4%, var(--background));
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 18px 50px -24px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    font-variant-ligatures: none;
+  }
+  :global(html[data-theme="dark"]) .pcard {
+    border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
+    box-shadow: 0 24px 70px -28px rgba(0, 0, 0, 0.7);
+  }
+
+  /* avatar left, info right — the whole point of the card */
+  .pcard-inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 1.6rem);
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .avatar {
+    flex-shrink: 0;
+    display: block;
+  }
+  .avatar img {
+    display: block;
+    width: clamp(5rem, 22vw, 7rem);
+    height: clamp(5rem, 22vw, 7rem);
+    border-radius: 0.75rem;
+    object-fit: cover;
+    border: 1px solid var(--line);
+  }
+
+  .info {
+    min-width: 0;
+    flex: 1;
+  }
+  .role {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .name {
+    margin-top: 0.3rem;
+    font-size: clamp(1.05rem, 4.4vw, 1.3rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .handle {
+    margin-top: 0.1rem;
+    font-size: 0.82rem;
+    color: var(--faint);
+  }
+  .tagline {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--foreground) 88%, transparent);
+    text-wrap: pretty;
+  }
+
+  .meta {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.74rem;
+    color: var(--faint);
+  }
+  /* dot separator between meta items, never a trailing one */
+  .meta li + li::before {
+    content: "·";
+    margin-right: 0.5rem;
+    color: var(--accent);
+  }
+
+  .socials {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-left: -0.35rem;
+  }
+  .socials a {
+    padding: 0.35rem;
+    border-radius: 0.4rem;
+    /* deliberately stronger than --faint: at 55% the stroked icons read as
+       disabled rather than secondary */
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+    line-height: 0;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease,
+      transform 0.15s ease;
+  }
+  .socials a:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    transform: translateY(-1px);
+  }
+  .socials :global(.icon) {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+
+  .foot {
+    padding: 0.7rem clamp(1.25rem, 4vw, 1.75rem);
+    border-top: 1px solid var(--line);
+    background: color-mix(in srgb, var(--muted) 18%, transparent);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+  }
+
+  /* Below ~420px the two columns stop being a rectangle worth keeping */
+  @media (max-width: 26rem) {
+    .pcard-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .socials a {
+      transition: none;
+    }
+    .socials a:hover {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProfileCard from "@/components/ProfileCard.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`Card | ${SITE.title}`}
+  description="Mark Ellington — Vibe Coder. Building AI tools that actually remember you."
+>
+  <main id="card-page">
+    <ProfileCard lang="en" />
+  </main>
+</Layout>
+
+<style>
+  /* Deliberately chrome-free: no Header, no Footer — the card is the whole page. */
+  #card-page {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+</style>
