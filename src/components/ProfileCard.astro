@@ -18,7 +18,7 @@ const copy =
         role: "Vibe Coder",
         tagline: "Building AI tools that actually remember you.",
         meta: ["Changsha", "CTO @ Horizon-Ai"],
-        foot: "Every commit lands on GitHub for you to fork & remix",
+        foot: "Every commit lands on GitHub — fork & remix",
       };
 ---
 
@@ -62,31 +62,43 @@ const copy =
 </article>
 
 <style>
+  /* Proportion is locked to an iPhone 17 (402 x 874pt): full width, quarter
+     height -> 402 x 218.5. Every inner dimension is expressed in cqw (1cqw = 1%
+     of the card's own width), so the whole card scales as one piece on narrow
+     screens and the ratio never drifts. */
   .pcard {
     --line: color-mix(in srgb, var(--foreground) 20%, transparent);
     --faint: color-mix(in srgb, var(--foreground) 55%, transparent);
-    width: 100%;
-    max-width: 34rem;
+
+    container-type: inline-size;
+    width: 402px;
+    max-width: 100%;
+    aspect-ratio: 402 / 218.5;
+
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--line);
-    border-radius: 1rem;
+    border-radius: 3.4cqw;
     background: color-mix(in srgb, var(--accent) 4%, var(--background));
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.04),
-      0 18px 50px -24px rgba(0, 0, 0, 0.35);
+      0 4cqw 11cqw -5cqw rgba(0, 0, 0, 0.35);
     overflow: hidden;
     font-variant-ligatures: none;
   }
   :global(html[data-theme="dark"]) .pcard {
     border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
-    box-shadow: 0 24px 70px -28px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 6cqw 16cqw -6cqw rgba(0, 0, 0, 0.7);
   }
 
-  /* avatar left, info right — the whole point of the card */
+  /* avatar left, info right */
   .pcard-inner {
+    flex: 1;
+    min-height: 0;
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 4vw, 1.6rem);
-    padding: clamp(1.25rem, 4vw, 1.75rem);
+    gap: 3.6cqw;
+    padding: 0 4cqw;
   }
 
   .avatar {
@@ -95,9 +107,9 @@ const copy =
   }
   .avatar img {
     display: block;
-    width: clamp(5rem, 22vw, 7rem);
-    height: clamp(5rem, 22vw, 7rem);
-    border-radius: 0.75rem;
+    width: 22cqw;
+    height: 22cqw;
+    border-radius: 2.6cqw;
     object-fit: cover;
     border: 1px solid var(--line);
   }
@@ -107,26 +119,28 @@ const copy =
     flex: 1;
   }
   .role {
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
+    font-size: 2.24cqw;
+    line-height: 1.2;
+    letter-spacing: 0.42cqw;
     text-transform: uppercase;
     color: var(--accent);
   }
   .name {
-    margin-top: 0.3rem;
-    font-size: clamp(1.05rem, 4.4vw, 1.3rem);
+    margin-top: 0.7cqw;
+    font-size: 4.1cqw;
+    line-height: 1.15;
     font-weight: 700;
-    line-height: 1.2;
   }
   .handle {
-    margin-top: 0.1rem;
-    font-size: 0.82rem;
+    margin-top: 0.2cqw;
+    font-size: 2.6cqw;
+    line-height: 1.3;
     color: var(--faint);
   }
   .tagline {
-    margin-top: 0.6rem;
-    font-size: 0.85rem;
-    line-height: 1.55;
+    margin-top: 1.4cqw;
+    font-size: 2.7cqw;
+    line-height: 1.5;
     color: color-mix(in srgb, var(--foreground) 88%, transparent);
     text-wrap: pretty;
   }
@@ -134,31 +148,32 @@ const copy =
   .meta {
     list-style: none;
     padding: 0;
-    margin-top: 0.7rem;
+    margin-top: 1.4cqw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.74rem;
+    gap: 1.2cqw;
+    font-size: 2.4cqw;
+    line-height: 1.3;
     color: var(--faint);
   }
   /* dot separator between meta items, never a trailing one */
   .meta li + li::before {
     content: "·";
-    margin-right: 0.5rem;
+    margin-right: 1.2cqw;
     color: var(--accent);
   }
 
   .socials {
-    margin-top: 0.9rem;
+    margin-top: 1.7cqw;
     display: flex;
     align-items: center;
-    gap: 0.15rem;
-    margin-left: -0.35rem;
+    gap: 0.3cqw;
+    margin-left: -0.8cqw;
   }
   .socials a {
-    padding: 0.35rem;
-    border-radius: 0.4rem;
+    padding: 0.8cqw;
+    border-radius: 1cqw;
     /* deliberately stronger than --faint: at 55% the stroked icons read as
        disabled rather than secondary */
     color: color-mix(in srgb, var(--foreground) 70%, transparent);
@@ -174,28 +189,25 @@ const copy =
     transform: translateY(-1px);
   }
   .socials :global(.icon) {
-    width: 1.05rem;
-    height: 1.05rem;
+    width: 3.5cqw;
+    height: 3.5cqw;
     fill: transparent;
     stroke: currentColor;
     stroke-width: 2;
   }
 
   .foot {
-    padding: 0.7rem clamp(1.25rem, 4vw, 1.75rem);
+    flex-shrink: 0;
+    padding: 1.7cqw 4cqw;
     border-top: 1px solid var(--line);
     background: color-mix(in srgb, var(--muted) 18%, transparent);
-    font-size: 0.68rem;
-    letter-spacing: 0.04em;
+    font-size: 2.2cqw;
+    line-height: 1.3;
+    letter-spacing: 0.06cqw;
     color: var(--faint);
-  }
-
-  /* Below ~420px the two columns stop being a rectangle worth keeping */
-  @media (max-width: 26rem) {
-    .pcard-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @media (prefers-reduced-motion: reduce) {
