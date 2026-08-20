@@ -354,6 +354,8 @@ There were some other things over those days.
 
 Someone was always sitting very close. Making me sit next to her, making me hold her phone, her bag, her laptop, touching my face now and then, or coming over specifically to bother me. Sometimes she'd pretend to be mad so I'd have to talk her down.
 
+<img src="/feeling-close.jpg" alt="The two of us sunk into beanbags, her pulling a pose at the camera, me just sitting there" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); margin: 2rem 0;" />
+
 I don't know how to talk anyone down. I'd just stand there while my brain loaded for a while.
 
 Once she touched my hand.
