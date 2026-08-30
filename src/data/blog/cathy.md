@@ -5,502 +5,146 @@ pubDatetime: 2026-08-30T12:00:00Z
 tags: ["Personal", "Horizon"]
 ---
 
-你知道这个网站
+You know this site. So there is not much point in pretending this is about some vague person.
 
-所以如果我还假装这篇文章是在写某个模糊的人  
-好像也没什么意义
+Cathy, this one is for you.
 
-Cathy
+But I am not writing it because I finally figured something out. The opposite, really. There are things I still do not know how to explain. I just started to think that maybe not everything has to have an answer to be worth keeping.
 
-这篇就是写给你的
+---
 
-但我写它不是因为我终于想明白了什么
+Before I met you, Horizon was, to me, just a project with no website.
 
-恰恰相反
+I was still studying for my zhongkao. One day it came across my feed on Xiaohongshu, and I asked Peter where their website was. He said there wasn't one. My reaction was simple enough: then I'll make one.
 
-有些事情到现在我还是不知道该怎么解释
+The site got built. Registration, review, credentials, submissions, the database, the community — one thing stacked onto the next. And I went from being someone who happened to know how to build a website to being the first engineer on the team.
 
-我只是突然觉得  
-也许不是所有事情都一定要有答案  
-才值得被留下来
+Nobody ever formally discussed who should do what. A problem would show up, I happened to be there, and I caught it.
 
-⸻
+---
 
-在认识你以前
+When I first met you there was nothing special about it. At least I didn't think so at the time. We were on the same team, running events, rushing things out, solving one problem after another as they appeared.
 
-Horizon 对我来说  
-最开始只是一个没有官网的项目
+So much happened in that stretch. Every day felt like sprinting forward. Which means a lot of very small things never got a moment's thought back then, and those are the ones I ended up remembering.
 
-那时候我还在准备中考
+You would hang around next to me. When I was staring at my screen you would lean over to see what I was actually doing. You would take terrible photos on your phone, refuse to delete them, and then bring them over to show me.
 
-有一天在小红书上刷到它  
-我去问 Peter 你们的官网在哪里
+Sometimes I didn't react much, so you would just keep bothering me, like the whole thing wasn't finished until you got me to laugh. Most of the time I kept looking at the screen. Occasionally you got a laugh out of me, and I still didn't say anything.
 
-他说没有
+Looking back now, what actually stayed with me is exactly this — the things that didn't count as events at all.
 
-我当时的反应也很简单
+---
 
-那我做一个吧
+There was another time, close to the submission deadline, when a SQL function kept running and kept being wrong. What the frontend sent back was fine, but the arguments were in the wrong positions.
 
-后来官网做出来了
+That kind of bug is the worst. The page throws no error, the database returns a result, it's just not the result you think it is.
 
-报名  
-审核  
-凭证  
-作品提交  
-数据库  
-社区
+I stayed up most of the night wiring the frontend and the database back together. The next day Echo suddenly said let's go play pool, nobody discussed it for long, and then we actually went. As if the thing that had almost stopped everyone from submitting the night before had already been left in yesterday.
 
-一件事情接着一件事情叠上来
+Horizon was often like that. Something would be serious, and then once it was solved it would suddenly stop being serious, and everyone moved on. Nobody had time to sit down and work out what had just happened.
 
-我也从一个刚好会做网站的人  
-变成了团队里第一个技术
+---
 
-很多东西没有正式讨论过应该由谁来做
+I don't know when it started, but I began paying slightly more attention to you.
 
-只是问题出现了  
-我刚好在那里
+That sentence is easy to read a certain way. I don't really want to explain it, because I probably didn't know myself back then.
 
-然后我就接住了
+I have always been good at turning complicated things into simple ones. You are three years older than me. Fifteen and eighteen. Those aren't two numbers you can pretend don't exist. Later I also started to notice that Peter might feel a certain way about you. Then the team dynamics, the other people around, and a pile of things that, looking back, there was really no need to calculate in advance.
 
-⸻
+Lay all of it out, and the conclusion comes easily: don't touch it, leave it as it is. That's simpler.
 
-刚认识你的时候
+---
 
-其实也没什么特别的
+There's one moment I still remember.
 
-至少当时的我不会觉得有什么特别
+I pulled my hand back.
 
-大家在同一个团队里  
-做活动  
-赶东西  
-解决一个又一个突然冒出来的问题
+I don't know why. I genuinely don't. Maybe it was just reflex. Maybe for that second I didn't know what to do with myself. Maybe I just had the habit of assuming that once something moves forward, everything after it gets complicated. Or maybe it was nothing at all.
 
-那段时间发生的事情太多了
+I don't want to use who I am now to go back and invent an explanation for who I was then. Once you know how something ended, it's easy to rearrange every earlier detail into a story that looks reasonable. I don't want to do that.
 
-每天都像在往前冲
+So all I can do is admit it: I don't know what that meant. But I remember it.
 
-所以很多很小的东西  
-当时根本不会停下来想
+---
 
-后来反而记住了
+After the event ended, we spent three days in Aranya.
 
-你会待在旁边
+On the last night a group of us sat on the lawn and everyone told their own story, one by one. I sat there listening and didn't say a word.
 
-我盯着屏幕的时候  
-你会俯过来看我到底在弄什么
+Something came up in me then that I didn't know what to call. It took a few days to work out what it was. It was not wanting to let go.
 
-你会拿手机拍一些很难看的照片  
-拍完不删  
-还要拿过来给我看
+I used to think that when a project ends, it ends. The code stays in the repo, people move on to the next thing, and there is nothing in particular to deal with. But that time it didn't seem to work that way. Some of it no longer had anything to do with the project itself.
 
-有时候我没什么反应
+---
 
-你就继续在旁边烦我  
-好像非得等到我笑一下  
-这件事才算结束
+After that, a lot of things slowly got complicated. Not just between people, but the whole of Horizon.
 
-我当时大部分时候还是继续看屏幕
+At the start it really did feel like everyone was just thinking about how to do the work well. Then at some point I couldn't identify, there was less and less of the work itself, and more and more about the people.
 
-偶尔被你弄笑了  
-也不会说什么
+Who did more. Who should be responsible. Who was on whose side. Who believed whom.
 
-现在回头看
+The same event, coming out of different mouths, would turn into completely different versions. Sometimes I even felt that people had stopped discussing what happened and started discussing what they wanted it to have been.
 
-真正被我记住的  
-反而就是这些根本算不上大事的东西
+---
 
-⸻
+In the end I left Horizon.
 
-还有一次
+I didn't feel like I was making some dramatic decision at the time, and it wasn't that I suddenly didn't want to do it any more. I just felt that it was about enough. Some things, if you stay in them, only drift further from what they were at the start, and I didn't want to spend much time arguing over who the correct person was.
 
-作品提交快到截止时间
+A project can be built again. A team can be put together again. A lot of things turn out to be far less irreplaceable than you'd imagine.
 
-一个 SQL 函数一直能跑  
-也一直是错的
+I just never sat down and said any of this to you before I left.
 
-前端传回来的东西没有问题  
-但参数的位置错了
+---
 
-那种错误最麻烦
+It was only later that I slowly realised you had picked up some misunderstandings about that team.
 
-页面不报错  
-数据库也会返回结果
+I don't know what you heard. I don't know how it got told. I'm not even sure now how much of it you believed. All I know is that some things, on my side, don't fully match the version you may have heard.
 
-只是返回的不是我们以为的那个结果
+The frontend of the site, the registration system, the database — I did build those from nothing. And the problems that kept coming up in production afterwards, I was in fact the one there handling them.
 
-我几乎熬了一夜  
-把前端和数据库重新接回去
+I'm not writing this to prove I mattered more than anyone else, and I definitely don't want to turn a letter to you into a list of work items. I just want to say that it wasn't a story where I did nothing and then suddenly left.
 
-第二天 Echo 突然说去打台球
+---
 
-大家也没讨论多久  
-然后就真的去了
+I did think about whether to explain, to go through all of it again: who did what, when it happened, why it ended up like this.
 
-好像前一晚差点让所有人交不了作品的事情  
-已经被留在了昨天
+The code, the repos, the database, the commit history — all of it is still there. If I really wanted to reconstruct it line by line, it could be done.
 
-那时候的 Horizon 经常这样
+But then it just felt exhausting. Not because I had nothing to show, but because if it comes down to reconstructing evidence piece by piece before someone will see you differently, then it has already turned into something else.
 
-一件事情很严重
+---
 
-解决以后又突然变得没那么严重
+So in the end I said nothing.
 
-大家继续往前走
+Which is probably very like me. I tend to assume time sorts a lot of things out on its own, that as long as I stay out of it, things will settle back into what they actually were.
 
-谁也没有时间认真总结  
-刚才到底发生了什么
+It turns out that isn't guaranteed. Sometimes when you don't speak, the version other people tell really does slowly become the version, and you're just standing a long way off watching it happen.
 
-⸻
+---
 
-我不知道从什么时候开始  
-我会稍微多注意你一点
+I don't know if this counts as regret. Probably not.
 
-这句话听起来好像很容易被解释成某种意思
+If I had it again, I still probably wouldn't go explain every detail to everyone for the sake of a team that has already ended.
 
-但我其实也不想解释
+It's just that if the person is you, it feels a little different. At least now and then I think that if I had said some of it more clearly at the time, it might not have been so bad.
 
-因为那时候的我自己大概也不知道
+---
 
-我一直很擅长把复杂的事情变简单
+But this isn't here to explain Horizon, and it isn't here to reopen old accounts. That's over. Who was right and who was wrong doesn't matter that much to me now. I'm not waiting for you to give this piece an answer either.
 
-你比我大三岁
+I just noticed that after a place ends, what actually stays usually isn't the project, and it isn't the arguments that felt so serious at the time. It's the small things.
 
-十五和十八
+A conversation. An afternoon. The look on someone's face. A terrible photo. And a few moments you never worked out the meaning of.
 
-不是两个可以假装不存在的数字
+---
 
-后来我也开始察觉  
-Peter 对你可能有不一样的意思
+So — Cathy. I still don't know how that stretch of time should be defined, and I don't know whether anything would have been different if I'd chosen otherwise.
 
-还有团队关系
+Maybe. Maybe not. I'd rather not write the story for another timeline.
 
-其他人的存在
+I just think that at least in this version, some things did happen, some things did get misunderstood afterwards, and some things I still haven't fully worked out.
 
-以及一堆现在回头看  
-其实根本没有必要提前计算的东西
+But they should at least be kept somewhere.
 
-只要把它们全摆出来
-
-最后就很容易得到一个结论
-
-不要碰
-
-保持原样
-
-这样比较简单
-
-⸻
-
-有一个瞬间我到现在还记得
-
-我把手抽了回来
-
-我不知道为什么
-
-真的不知道
-
-可能只是下意识
-
-可能那一秒我突然有点不知所措
-
-也可能我只是习惯性地觉得  
-某些东西一旦往前走  
-后面就会变得很麻烦
-
-当然也可能什么都不是
-
-我不想用现在的自己  
-回去替那时候编一个解释
-
-人知道后来发生了什么以后  
-很容易把以前所有细节  
-重新排列成一个看起来合理的故事
-
-我不想这么做
-
-所以我只能承认
-
-我不知道那是什么意思
-
-但我还记得
-
-⸻
-
-活动结束以后
-
-我们在阿那亚待了三天
-
-最后一晚  
-一群人坐在草坪上
-
-大家一个一个讲自己的故事
-
-我坐在那里听  
-一句话也没说
-
-那时候心里出现了一个  
-我以前不知道该怎么叫的东西
-
-过了几天我才知道
-
-原来那叫舍不得
-
-我以前一直以为  
-一个项目结束就是结束
-
-代码会留在仓库里  
-人会去做下一件事情
-
-没什么需要特别处理的
-
-但那一次好像不是这样
-
-有一些东西已经跟项目本身没有关系了
-
-⸻
-
-后来很多事情慢慢变复杂了
-
-不只是人与人之间
-
-还有整个 Horizon
-
-最开始的时候  
-大家好像真的只是在想怎么把事情做好
-
-后来不知道从什么时候开始
-
-事情本身越来越少
-
-关于人的东西越来越多
-
-谁做得更多
-
-谁应该负责
-
-谁站在哪边
-
-谁相信谁
-
-同一件事情  
-从不同的人嘴里说出来  
-会变成完全不同的版本
-
-有时候我甚至觉得
-
-大家已经不是在讨论发生了什么
-
-而是在讨论  
-自己希望那件事是什么
-
-⸻
-
-最后我离开了 Horizon
-
-当时我没有觉得自己是在做一个多么戏剧性的决定
-
-也不是因为我突然不想做了
-
-我只是觉得
-
-差不多了
-
-有些东西继续待下去  
-只会越来越不像最开始的样子
-
-而我不想花太多时间  
-去争谁才是那个正确的人
-
-项目可以重新做
-
-团队也可以重新组
-
-很多东西其实没有想象中那么不可替代
-
-只是离开以前
-
-我没有把这些话认真讲给你听
-
-⸻
-
-后来我才慢慢发现
-
-你对我好像也产生了一些  
-关于那个团队的误解
-
-我不知道你听到了什么
-
-也不知道那些东西后来是怎么被讲出来的
-
-甚至我现在也不确定  
-你到底相信了多少
-
-我只知道
-
-有些事情在我这里  
-和你后来可能听到的版本  
-并不完全一样
-
-网站的前端  
-报名系统  
-还有数据库
-
-这些东西确实是我从头搭起来的
-
-后面一次次线上出现的问题  
-我也确实在那里处理
-
-我写这些  
-不是想证明自己比谁更重要
-
-更不是想把一篇写给你的文章  
-变成一张工作量清单
-
-我只是想说
-
-那不是一个  
-我什么都没有做  
-然后突然离开的故事
-
-⸻
-
-我以前其实想过要不要解释
-
-把所有事情重新讲一遍
-
-谁做了什么
-
-什么时候发生的
-
-为什么最后会变成这样
-
-代码  
-仓库  
-数据库  
-提交记录
-
-这些东西都还在那里
-
-如果真的要一条一条还原  
-并不是做不到
-
-但后来我又觉得
-
-很累
-
-不是因为我没有东西可以讲
-
-而是如果最后真的需要靠  
-一条一条还原证据  
-才能让一个人重新认识你
-
-那好像已经变成另一件事情了
-
-⸻
-
-所以最后我什么也没说
-
-这可能也很像我
-
-我总觉得时间会自己解决很多东西
-
-觉得只要我不参与  
-事情最后总会恢复到它真正的样子
-
-但后来发现不一定
-
-有时候你不说
-
-别人讲出来的那个版本  
-就真的会慢慢变成版本本身
-
-而你只是站在很远的地方看着它
-
-⸻
-
-我不知道这算不算后悔
-
-可能也不算
-
-如果重新来一次
-
-我大概还是不会为了一个已经结束的团队  
-去和每个人解释所有细节
-
-只是如果那个人是你
-
-好像会有一点不一样
-
-至少偶尔会觉得
-
-有些话当时如果说清楚一点  
-可能也没那么坏
-
-⸻
-
-但这篇不是来解释 Horizon 的
-
-也不是来翻旧账
-
-那些事情已经结束了
-
-谁对谁错  
-现在对我来说也没有那么重要
-
-我也不是在等你  
-给这篇文章一个回答
-
-我只是发现
-
-一个地方结束以后  
-真正留下来的通常不是项目
-
-也不是那些当时觉得特别严重的争执
-
-反而是一些很小的东西
-
-一段对话
-
-一个下午
-
-某个人当时的表情
-
-一张很难看的照片
-
-还有一些  
-你一直没搞明白到底是什么意思的瞬间
-
-⸻
-
-所以
-
-Cathy
-
-我现在还是不知道  
-那段时间到底应该被怎么定义
-
-也不知道如果当时做了别的选择  
-后来会不会有什么不同
-
-可能会
-
-也可能不会
-
-我不太想替另一个世界线写故事
-
-我只是觉得
-
-至少在这个版本里
-
-有些事情确实发生过
-
-有些东西后来确实被误解过
-
-还有一些东西
-
-我到现在也没有完全想明白
-
-但它们至少应该被留下来
-
-大概就这样 idk
+That's about it idk
