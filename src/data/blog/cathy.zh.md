@@ -7,7 +7,7 @@ title: "Cathy"
 description: ""
 lang: "zh"
 pubDatetime: 2026-08-30T12:00:00Z
-tags: ["Personal", "Horizon"]
+tags: ["Personal", "Horizon", "Cathy"]
 ---
 
 你知道这个网站。所以如果我还假装这篇文章是在写某个模糊的人，好像也没什么意义。
