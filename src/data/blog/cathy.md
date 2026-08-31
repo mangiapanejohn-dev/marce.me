@@ -148,3 +148,7 @@ I just think that at least in this version, some things did happen, some things 
 But they should at least be kept somewhere.
 
 That's about it idk
+
+<div style="display: flex; justify-content: center; margin: 2rem 0;">
+  <img src="/cathy-polaroid.jpeg" alt="A framed illustration of two people sitting together" style="width: 100%; max-width: 400px; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);" />
+</div>
