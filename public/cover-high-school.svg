@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A timetable with a few blocks set aside for research">
+  <rect width="1200" height="630" fill="#FAF8F4"/>
+
+  <g>
+    <!-- the timetable -->
+    <g fill="#1A1A1A" opacity="0.24">
+      <rect x="150" y="120" width="150" height="72" rx="8"/><rect x="330" y="120" width="150" height="72" rx="8"/><rect x="510" y="120" width="150" height="72" rx="8"/><rect x="690" y="120" width="150" height="72" rx="8"/><rect x="870" y="120" width="150" height="72" rx="8"/>
+      <rect x="150" y="216" width="150" height="72" rx="8"/><rect x="330" y="216" width="150" height="72" rx="8"/><rect x="510" y="216" width="150" height="72" rx="8"/><rect x="690" y="216" width="150" height="72" rx="8"/><rect x="870" y="216" width="150" height="72" rx="8"/>
+      <rect x="150" y="312" width="150" height="72" rx="8"/><rect x="330" y="312" width="150" height="72" rx="8"/><rect x="690" y="312" width="150" height="72" rx="8"/><rect x="870" y="312" width="150" height="72" rx="8"/>
+      <rect x="150" y="408" width="150" height="72" rx="8"/><rect x="330" y="408" width="150" height="72" rx="8"/><rect x="690" y="408" width="150" height="72" rx="8"/><rect x="870" y="408" width="150" height="72" rx="8"/>
+    </g>
+    <!-- the part that is being asked for -->
+    <rect x="510" y="312" width="150" height="168" rx="8" fill="#d97757"/>
+  </g>
+
+  <text x="585" y="556" text-anchor="middle"
+        font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace"
+        font-size="42" letter-spacing="3" fill="#1A1A1A" opacity="0.62">research</text>
+</svg>

@@ -2,8 +2,8 @@ export const SITE = {
   website: "https://marcyy.me/",
   author: "@marcE",
   profile: "https://marcyy.me/",
-  desc: "Vibe Coder. Building AI tools that actually remember you. Resonix-AG and RE CODE — every commit lands on GitHub for you to fork & remix.",
-  title: "MarkEllington.me",
+  desc: "Building MØBIUS, an experimental agent runtime, plus the developer tools and systems around it. Notes on architecture, security, and what breaks when software meets real people.",
+  title: "MarcEllington.me",
   ogImage: "", // empty → falls back to dynamic /og.png (branded with site title)
   lightAndDarkMode: true,
   postPerIndex: 4,

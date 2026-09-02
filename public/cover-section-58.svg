@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Section 58, struck through — a rule cited by three plans and contained in no document">
+  <rect width="1200" height="630" fill="#FAF8F4"/>
+
+  <text x="600" y="360" text-anchor="middle"
+        font-family="'Helvetica Neue', 'Inter', Arial, sans-serif"
+        font-size="210" font-weight="600" letter-spacing="4" fill="#1A1A1A" opacity="0.82">§58</text>
+
+  <line x1="330" y1="292" x2="870" y2="292" stroke="#d97757" stroke-width="14" stroke-linecap="round"/>
+
+  <text x="600" y="470" text-anchor="middle"
+        font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace"
+        font-size="44" letter-spacing="2" fill="#1A1A1A" opacity="0.6">cited by three plans</text>
+  <text x="600" y="534" text-anchor="middle"
+        font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace"
+        font-size="44" letter-spacing="2" fill="#1A1A1A" opacity="0.6">contained in none</text>
+</svg>

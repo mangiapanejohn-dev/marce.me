@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="MØBIUS — an experimental agent runtime; the model is the small part at the centre">
+  <rect width="1200" height="750" fill="#FAF8F4"/>
+
+  <!-- the runtime, drawn as the space around the model -->
+  <g fill="none" stroke="#6B7A8F" stroke-width="2" opacity="0.42">
+    <circle cx="600" cy="300" r="118" stroke-dasharray="3 10" stroke-linecap="round"/>
+    <circle cx="600" cy="300" r="196" stroke-dasharray="3 10" stroke-linecap="round"/>
+  </g>
+
+  <!-- the model: deliberately the smallest thing on the card -->
+  <circle cx="600" cy="300" r="17" fill="#d97757"/>
+
+  <text x="600" y="565" text-anchor="middle"
+        font-family="'Helvetica Neue', 'Inter', Arial, sans-serif"
+        font-size="150" font-weight="600" letter-spacing="10" fill="#1A1A1A">MØBIUS</text>
+
+  <text x="600" y="645" text-anchor="middle"
+        font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace"
+        font-size="46" letter-spacing="6" fill="#1A1A1A" opacity="0.62">agent runtime</text>
+</svg>

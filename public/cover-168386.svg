@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="About four hundred real applications, then 168,386 more">
+  <rect width="1200" height="630" fill="#FAF8F4"/>
+
+  <g font-family="'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace">
+    <!-- the normal week -->
+    <text x="120" y="196" font-size="40" fill="#1A1A1A" opacity="0.55">before</text>
+    <rect x="120" y="228" width="26" height="34" fill="#1A1A1A" opacity="0.55"/>
+    <text x="168" y="257" font-size="46" fill="#1A1A1A" opacity="0.8">~400</text>
+
+    <!-- five hours -->
+    <text x="120" y="392" font-size="40" fill="#d97757" opacity="0.9">five hours later</text>
+    <rect x="120" y="424" width="960" height="34" fill="#d97757"/>
+    <text x="120" y="540" font-size="96" font-weight="600" fill="#d97757" letter-spacing="2">168,386</text>
+  </g>
+</svg>
