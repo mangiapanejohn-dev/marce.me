@@ -69,3 +69,32 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* Theme-swapped figures. Same pattern the /ø hero card uses, lifted to global scope so it also
+   works inside markdown post bodies, where a scoped <style> is not available. Every research
+   figure is rendered twice by scripts/render-figures.sh — a light SVG and a dark one — and
+   embedded as a pair:
+
+     <img class="fig-light" src="/research/<name>.svg" alt="…" />
+     <img class="fig-dark"  src="/research/<name>-dark.svg" alt="" aria-hidden="true" />
+
+   Only one is ever displayed, so only the visible one is described; the hidden twin carries an
+   empty alt and aria-hidden rather than repeating the description to a screen reader. */
+.fig-light,
+.fig-dark {
+  /* SVGs come out of mermaid-cli with a viewBox and no intrinsic pixel size, so without this an
+     <img> falls back to the 300x150 default ratio and a tall diagram is squashed. */
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.fig-dark {
+  display: none;
+}
+html[data-theme="dark"] .fig-light {
+  display: none;
+}
+html[data-theme="dark"] .fig-dark {
+  display: block;
+}

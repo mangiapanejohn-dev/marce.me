@@ -1,0 +1,25 @@
+flowchart TB
+  subgraph runA["run A"]
+    direction TB
+    e0["0 · goal.created"]
+    e1["1 · action.proposed"]
+    e2["2 · authority.escalated"]
+    e3["3 · goal.suspended"]
+    e0 --> e1 --> e2 --> e3
+  end
+
+  e4["4 · authority.answered<br/>appended by a person,<br/>with no run alive"]
+
+  subgraph runB["run B — same journal, later"]
+    direction TB
+    e5["5 · goal.created"]
+    e8["8 · action.dispatched"]
+    e11["11 · goal.abandoned"]
+    e5 --> e8 --> e11
+  end
+
+  e3 -->|"the run ends;<br/>the question does not"| e4
+  e4 -->|"a second run opens<br/>and folds 0..4"| e5
+
+  classDef human stroke-dasharray: 4 3
+  class e4 human
