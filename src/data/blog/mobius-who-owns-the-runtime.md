@@ -3,7 +3,7 @@ title: "MØBIUS — Who Actually Owns the Runtime?"
 description: "Three of my planning documents deferred a load-bearing architectural decision to a section of a document that does not exist. Finding that out took a week of session-lifecycle bugs, and it changed what I think architecture work actually is."
 pubDatetime: 2026-08-29T12:00:00Z
 modDatetime: 2026-09-04T12:00:00Z
-tags: ["MØBIUS", "Research", "Agents", "Building"]
+tags: ["MØBIUS", "Agents", "Building"]
 category: "research"
 cover: "/cover-section-58.svg"
 ---
