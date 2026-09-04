@@ -82,6 +82,49 @@ points at those, not at `/ƒ` or `/ø`, because three separate things break othe
 So every `install.ps1` is pure ASCII and every installer's base URL is the ASCII
 path. Both build scripts fail hard if a non-ASCII byte creeps into an `install.ps1`.
 
+## Research posts
+
+The MØBIUS work is published as it happens: one post per version slice, filed under the
+**Research** category, with a Chinese counterpart. The running hub is [`/mobius`](https://marcyy.me/mobius),
+whose version log is data — [`src/data/mobius/versions.ts`](src/data/mobius/versions.ts) — so a new
+version is an appended entry rather than an edited page. The hub keeps one URL for the life of the
+project; the posts are the part that multiplies.
+
+Publishing one slice:
+
+1. `src/data/blog/mobius-v<N>-<claim-slug>.md` — `category: "research"`, `tags: ["MØBIUS", "Research", …]`.
+   The title is the version's own claim; the description is what prompted it, in one sentence.
+2. `src/data/blog/mobius-v<N>-<claim-slug>.zh.md` — the Chinese counterpart. It needs all three of
+   `lang: "zh"`, `slug: "<basename>.zh"` and the `.zh.md` filename, or it silently detaches from its
+   original. Note that every listing on this site enumerates English posts only, so a Chinese post
+   without an English original appears in no index at all.
+3. Figures, if the slice has a shape worth drawing (below).
+4. An entry in `src/data/mobius/versions.ts`.
+5. Push to `main`. Then record the live URL in the MØBIUS repo's `docs/architecture/PUBLICATION.md`,
+   whose test goes red for any version plan with no post.
+
+### Figures
+
+Diagram sources live in [`scripts/research/`](scripts/research) as plain Mermaid, and render to
+`public/research/` as a light/dark SVG pair:
+
+```bash
+scripts/render-figures.sh                        # everything
+scripts/render-figures.sh mobius-suspended-run   # one, by name
+```
+
+The `.mmd` files carry **no** `%%{init}%%` block — the palette is in `theme-light.json` /
+`theme-dark.json` beside them, so one source renders both variants and a palette change is one edit
+rather than one per diagram. The script refuses a source that themes itself. Backgrounds are
+transparent; the page ground shows through in either theme.
+
+Embed the pair, and let CSS pick (the rule is at the end of [`src/styles/global.css`](src/styles/global.css)):
+
+```html
+<img class="fig-light" src="/research/mobius-suspended-run.svg" alt="…" />
+<img class="fig-dark"  src="/research/mobius-suspended-run-dark.svg" alt="" aria-hidden="true" />
+```
+
 ## License
 
 Content © Mark Ellington. Theme under MIT (see [LICENSE](LICENSE)).

@@ -1,0 +1,671 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+import { versions } from "@/data/mobius/versions";
+
+const title = `MØBIUS — the runtime log | ${SITE.title}`;
+const description =
+  "A façade with no process became a daemon a real codex client can drive: it causes real effects, asks a person before each one, and can be told to stop. Twenty-three commits, and most of what they found was the measurement catching its own author.";
+
+const ledger = [
+  ["test files", "161", "← 128"],
+  ["assertions", "1,485", "← 1,289"],
+  ["new suites", "40", ""],
+  ["net lines", "+19,995", ""],
+  ["plans & notes", "14", ""],
+];
+
+const journal = [
+  [0, "goal.created", "the prompt, verbatim, with one criterion only a person can settle", false],
+  [1, "action.proposed", "the model describes an effect; it never names a tool", false],
+  [2, "authority.escalated", "no grant covers it, so it is the person's decision", false],
+  [3, "goal.suspended", "the run ends here; the question is durable", false],
+  [4, "authority.answered", "they approved the compiled effect, not their own sentence", true],
+  [5, "goal.created", "a second run, same journal", false],
+  [6, "interrupt.requested", "someone pressed Esc", true],
+  [7, "action.proposed", "", false],
+  [8, "action.dispatched", "the file is written", false],
+  [9, "effect.received", "", false],
+  [10, "task.changed", "", false],
+  [11, "goal.abandoned", 'stop: interrupted · "the daemon was asked to stop"', false],
+] as const;
+
+const splits = [
+  {
+    one: "satisfied: true",
+    two: ["they answered", "they declined to"],
+    where: "V25-5 · a live TUI recorded a refusal as approval, confidence 0.95",
+  },
+  {
+    one: "undefined",
+    two: ["nothing to do", "your reply was refused", "the model is unreachable"],
+    where: "V28-1 · five suites were passing because the network was broken",
+  },
+  {
+    one: "authority.refused",
+    two: ["the gate stopped it", "the client disconnected"],
+    where: "V30-3 · providers drained out from under a running loop",
+  },
+  {
+    one: "routed to fs.delete",
+    two: ["it chose", "it broke a tie"],
+    where: "V32-1 · a measured margin of 0.053 on real model proposals",
+  },
+  {
+    one: "runtime:unknown-session",
+    two: ["invented by the compiler", "adopted, then released"],
+    where: "V34-1 · only the first is an invariant being violated",
+  },
+];
+
+const findings = [
+  {
+    kind: "wrong reason",
+    lead: "Five spawned-daemon suites passed because the network was broken.",
+    rest: "They started <code>mobiusd</code> with <code>sk-test</code> against the real API; the call failed, and the failure was indistinguishable from <em>nothing to propose</em>. The ask each of them waited for was produced by an unreachable endpoint.",
+  },
+  {
+    kind: "wrong reason",
+    lead: "Five pins could not go red.",
+    rest: "A <code>not.toContain</code> over an empty helper body; a use-counter reading a documentation table as a reader; a citation naming the very slice that closed it.",
+  },
+  {
+    kind: "wrong reason",
+    lead: "A conditional assertion measured nothing.",
+    rest: "It checked the stop only <code>if</code> the last record happened to be an abandonment — so every run that suspended instead skipped the check entirely, and a mutation survived a full battery.",
+  },
+  {
+    kind: "my own",
+    lead: "A rule I wrote, and the evidence for it, were both wrong.",
+    rest: 'V25-4 held that serde requires every field without a default. <code>cargo</code> was on the machine and the struct was thirty lines, so it was measured rather than argued: a bare <code>Option</code> deserializes to <code>None</code>. The "live TUI aborted for want of it" was <em>inference read back as evidence</em> — the verbatim record shows that session completing.',
+  },
+  {
+    kind: "my own",
+    lead: "A design I had approved was refuted by four lines of trace.",
+    rest: "The plan said re-reading the projection would over-spend; the check runs <em>before</em> the increment, so the two numbers are equal at the only moment anything reads them. The cache was deleted rather than seeded.",
+  },
+  {
+    kind: "my own",
+    lead: "The version that removes a defect planted it.",
+    rest: "V34-1 wired a new field into two planes and read it in one, so a <em>look</em> into a released world still blamed an invariant while an <em>action</em> told the truth. Two mutations were needed to see it — one per plane.",
+  },
+];
+
+const limits = [
+  {
+    h: "Routing still breaks ties",
+    p: "1/4 on real model proposals, mean margin 0.053. Two mechanisms already catch the harm — a noise window that falls back to harm rank, and a schema check that rejected all four measured mis-routes. What was missing was that nobody was told a tie happened.",
+  },
+  {
+    h: "Interrupt acts between turns",
+    p: "A model call or a dispatch already in flight runs to completion. Stopping mid-<code>await</code> would thread a signal through three ports and put the first throw into a loop with zero catch sites.",
+  },
+  {
+    h: "No budget is declared by default",
+    p: "<code>--max-actions</code> exists and <code>goalFromTurnStart</code> sets nothing. Inventing a number would be this layer deciding what a goal is worth.",
+  },
+  {
+    h: "Six methods, not a client",
+    p: "<code>thread/resume</code>, <code>turn/steer</code> and question expiry are unbuilt. ADR 0013 says resume is the line between a resume seam and a session model, and nobody has measured which is wanted.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main id="mobius" class="mx-auto w-full max-w-3xl px-4 pb-24">
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <p class="eyebrow">MØBIUS · runtime log · V23 → V34</p>
+      <h1>MØBIUS V23–V34</h1>
+      <p class="thesis">
+        A façade with no process became a daemon a real <em>codex</em> client can
+        drive — one that causes real effects, asks a person before each one, and
+        can be told to stop. Twenty-three commits, and most of what they found
+        was <em>the measurement catching its own author</em>.
+      </p>
+
+      <dl class="ledger">
+        {
+          ledger.map(([label, now, was]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>
+                {now}
+                {was && <span class="was">{was}</span>}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <p class="lede-links">
+        The two essays that asked the question are still the way in —
+        <a href="/posts/mobius-not-another-ai-wrapper/">I don't want another AI wrapper</a>
+        and <a href="/posts/mobius-who-owns-the-runtime/">who actually owns the runtime</a>.
+        This page is where the question got to.
+      </p>
+    </header>
+
+    <!-- ONE TURN -->
+    <section>
+      <h2>What one turn looks like now</h2>
+      <p>
+        A person types a sentence into the TUI. This is the journal a real run
+        wrote — the daemon's own record, unedited. Note that the run <em>ends</em>
+        at 3 and a second one starts at 5: under ADR&nbsp;0013 a suspended run is
+        a position in a log, not a paused process, so it survives a restart.
+      </p>
+      <div class="transcript">
+        <ol>
+          {
+            journal.map(([seq, ev, note, person]) => (
+              <li class:list={[{ person }]}>
+                <span class="seq">{seq}</span>
+                <span class="ev">
+                  {ev}
+                  {note && <span class="note"> — {note}</span>}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <figure class="figure">
+        <img
+          class="fig-light"
+          src="/research/mobius-suspended-run.svg"
+          width="340"
+          height="987"
+          alt="Run A records goal.created, action.proposed, authority.escalated and goal.suspended, then ends. A person appends authority.answered at 4 with no run alive. Run B opens over the same journal at 5, folds records 0 to 4, dispatches at 8 and abandons at 11."
+        />
+        <img
+          class="fig-dark"
+          src="/research/mobius-suspended-run-dark.svg"
+          width="340"
+          height="987"
+          alt=""
+          aria-hidden="true"
+        />
+        <figcaption>
+          Two runs, one journal. Nothing is alive between 3 and 5 — the question
+          survives because the log does.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- THE SHAPE -->
+    <section>
+      <h2>The shape that kept coming back</h2>
+      <div class="shape">
+        <p>
+          Five times, a single value was carrying two facts. Each time the
+          collapsed value was <em>correct for the case it was built for</em> and
+          wrong for the one that arrived later — and each time the runtime
+          reported the wrong one to a person.
+        </p>
+        <div class="splits">
+          {
+            splits.map(({ one, two, where }) => (
+              <div class="split-row">
+                <code class="one">{one}</code>
+                <div class="two">
+                  {two.map(fact => (
+                    <span>{fact}</span>
+                  ))}
+                </div>
+                <div class="where">{where}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDINGS -->
+    <section>
+      <h2>What the method caught</h2>
+      <p>
+        Every slice writes its predictions <em>before</em> the code and leaves
+        them standing when refuted, then runs a mutation battery. The findings
+        worth keeping are the ones neither review nor a green suite would have
+        produced.
+      </p>
+      <div class="findings">
+        {
+          findings.map(({ kind, lead, rest }) => (
+            <div class="finding">
+              <span class:list={["tag", { self: kind === "my own" }]}>{kind}</span>
+              <p>
+                <strong>{lead}</strong> <Fragment set:html={rest} />
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- THE LOG -->
+    <section>
+      <h2>The log</h2>
+      <div class="log">
+        {
+          versions.map(({ v, claim, blurb, post }) => (
+            <article>
+              <span class="v">{v}</span>
+              <div>
+                <h3>
+                  {post ? <a href={`/posts/${post}/`}>{claim}</a> : claim}
+                </h3>
+                <p>{blurb}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- EDGES -->
+    <section>
+      <h2>Where the edges are</h2>
+      <div class="limits">
+        {
+          limits.map(({ h, p }) => (
+            <div class="limit">
+              <h3>{h}</h3>
+              <p set:html={p} />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <footer class="colophon">
+      23 commits · branch v24-v26-runnable-daemon · 161 files, 1,485 passing ·
+      every slice pre-registered, every slice battery-tested
+    </footer>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Semantic colours this page needs and the site does not have. Three hues on
+     the site's warm ground: facts told apart, the value that carried two, and a
+     test passing for the wrong reason. Defined light-first, overridden under
+     the same `html[data-theme="dark"]` attribute the rest of the site uses. */
+  #mobius {
+    --split: #3f7d70;
+    --split-soft: #e4efec;
+    --collapse: #9a6b2f;
+    --collapse-soft: #f3ebdd;
+    --wrong: #b8452f;
+    --rule: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --rule-firm: color-mix(in srgb, var(--foreground) 24%, transparent);
+    --muted-ink: color-mix(in srgb, var(--foreground) 58%, transparent);
+    --raised: color-mix(in srgb, var(--background) 60%, #fff 40%);
+    --sunk: var(--muted);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  :global(html[data-theme="dark"]) #mobius {
+    --split: #6fbdad;
+    --split-soft: #1e332f;
+    --collapse: #d4a35e;
+    --collapse-soft: #33291a;
+    --wrong: #e0736a;
+    --raised: color-mix(in srgb, var(--background) 91%, #fff 9%);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+  }
+
+  /* ---- masthead ---- */
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .masthead h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .thesis {
+    font-size: clamp(1.02rem, 2.2vw, 1.15rem);
+    line-height: 1.6;
+    max-width: 46ch;
+  }
+  .thesis em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .lede-links {
+    font-size: 0.88rem;
+    color: var(--muted-ink);
+    max-width: 58ch;
+  }
+  .lede-links a {
+    color: var(--accent);
+    border-bottom: 1px dashed currentColor;
+  }
+  .lede-links a:hover {
+    border-bottom-style: solid;
+  }
+
+  .ledger {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.4rem 0 0;
+  }
+  .ledger div {
+    background: var(--raised);
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ledger dt {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+  }
+  .ledger dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.1rem;
+  }
+  .ledger dd .was {
+    /* Its own line, always. Inline it wraps mid-value on narrow columns — "1,485 ←" then "1,289" —
+       which reads as a broken number rather than a comparison. */
+    display: block;
+    color: var(--muted-ink);
+    font-size: 0.8rem;
+  }
+
+  /* ---- sections ---- */
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  section > h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--rule-firm);
+  }
+  section > p {
+    max-width: 62ch;
+    line-height: 1.65;
+  }
+
+  /* ---- journal transcript ---- */
+  .transcript {
+    font-size: 0.78rem;
+    line-height: 1.95;
+    background: var(--sunk);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    overflow-x: auto;
+  }
+  .transcript ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.05rem;
+  }
+  .transcript li {
+    display: grid;
+    grid-template-columns: 2ch 1fr;
+    gap: 1.1rem;
+    white-space: nowrap;
+  }
+  .transcript .seq {
+    color: var(--muted-ink);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+  }
+  .transcript .note {
+    color: var(--muted-ink);
+  }
+  .transcript li.person .ev,
+  .transcript li.person .note {
+    color: var(--split);
+  }
+
+  /* ---- figures ---- */
+  .figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .figure img {
+    width: min(100%, 21rem);
+  }
+  .figure figcaption {
+    font-size: 0.8rem;
+    color: var(--muted-ink);
+    max-width: 46ch;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ---- the recurring shape ---- */
+  .shape {
+    background: var(--raised);
+    border: 1px solid var(--rule-firm);
+    border-radius: 4px;
+    padding: clamp(1.1rem, 3vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+  .shape > p {
+    max-width: 62ch;
+    line-height: 1.65;
+  }
+  .splits {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .split-row {
+    background: var(--background);
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: 0.3rem 1.1rem;
+    padding: 0.75rem 0.9rem;
+    align-items: baseline;
+  }
+  .split-row .one {
+    font-size: 0.8rem;
+    color: var(--collapse);
+    background: var(--collapse-soft);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    justify-self: start;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .split-row .two {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    align-items: baseline;
+    font-size: 0.86rem;
+  }
+  .split-row .two span {
+    color: var(--split);
+  }
+  .split-row .two span::before {
+    content: "· ";
+    color: var(--muted-ink);
+  }
+  .split-row .two span:first-child::before {
+    content: "";
+  }
+  .split-row .where {
+    grid-column: 1 / -1;
+    font-size: 0.7rem;
+    color: var(--muted-ink);
+  }
+
+  /* ---- findings ---- */
+  .findings {
+    display: flex;
+    flex-direction: column;
+  }
+  .finding {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0 1.4rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .finding:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .finding .tag {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wrong);
+  }
+  .finding .tag.self {
+    color: var(--collapse);
+  }
+  .finding p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 58ch;
+  }
+
+  /* ---- version log ---- */
+  .log {
+    display: flex;
+    flex-direction: column;
+  }
+  .log article {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0 1.4rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .log article:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .log .v {
+    font-size: 0.78rem;
+    color: var(--muted-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .log h3 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+  .log h3 a {
+    color: var(--accent);
+    border-bottom: 1px dashed currentColor;
+  }
+  .log h3 a:hover {
+    border-bottom-style: solid;
+  }
+  .log p {
+    font-size: 0.88rem;
+    color: var(--muted-ink);
+    margin-top: 0.25rem;
+    max-width: 58ch;
+    line-height: 1.6;
+  }
+
+  /* ---- limits ---- */
+  .limits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.3rem 2rem;
+  }
+  .limit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .limit h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .limit p {
+    font-size: 0.85rem;
+    color: var(--muted-ink);
+    max-width: 44ch;
+    line-height: 1.6;
+  }
+
+  .colophon {
+    color: var(--muted-ink);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 34rem) {
+    .log article,
+    .finding {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    .split-row {
+      grid-template-columns: 1fr;
+    }
+    /* Five cells over two columns leaves a sixth slot empty, and the grid's gap trick paints it
+       the rule colour. Pinned to two columns with the last cell spanning both, so the row closes. */
+    .ledger {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ledger div:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

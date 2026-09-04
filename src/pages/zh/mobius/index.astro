@@ -1,0 +1,669 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+import { versions } from "@/data/mobius/versions";
+
+const title = `MØBIUS — 运行时日志 | ${SITE.title}`;
+const description =
+  "一个没有进程的门面，变成了真实 codex 客户端能驱动的 daemon：它会造成真实副作用、每次动手前问人、能被叫停。二十三个提交，而它们找到的东西，大部分是测量抓住了它自己的作者。";
+
+const ledger = [
+  ["测试文件", "161", "← 128"],
+  ["断言", "1,485", "← 1,289"],
+  ["新增套件", "40", ""],
+  ["净增行数", "+19,995", ""],
+  ["计划与笔记", "14", ""],
+];
+
+const journal = [
+  [0, "goal.created", "原样的提示词，其中一条判据只有人能定", false],
+  [1, "action.proposed", "模型描述一个副作用；它从不点名工具", false],
+  [2, "authority.escalated", "没有授权覆盖它，所以这是人的决定", false],
+  [3, "goal.suspended", "run 在这里结束；问题是持久的", false],
+  [4, "authority.answered", "他批准的是编译后的副作用，不是自己那句话", true],
+  [5, "goal.created", "第二个 run，同一份 journal", false],
+  [6, "interrupt.requested", "有人按了 Esc", true],
+  [7, "action.proposed", "", false],
+  [8, "action.dispatched", "文件被写入", false],
+  [9, "effect.received", "", false],
+  [10, "task.changed", "", false],
+  [11, "goal.abandoned", 'stop: interrupted ·「daemon 被要求停下」', false],
+] as const;
+
+const splits = [
+  {
+    one: "satisfied: true",
+    two: ["他回答了", "他拒绝回答"],
+    where: "V25-5 · 一个真 TUI 把拒绝记成了批准，置信度 0.95",
+  },
+  {
+    one: "undefined",
+    two: ["没得做", "你的回复被拒了", "模型连不上"],
+    where: "V28-1 · 五个套件通过，是因为网络是坏的",
+  },
+  {
+    one: "authority.refused",
+    two: ["门拦下了它", "客户端断开了"],
+    where: "V30-3 · providers 被从运行中的 loop 底下抽走",
+  },
+  {
+    one: "routed to fs.delete",
+    two: ["它选了", "它打了平手"],
+    where: "V32-1 · 真实模型提议上量到的均值差 0.053",
+  },
+  {
+    one: "runtime:unknown-session",
+    two: ["编译器凭空造的", "曾经持有、后来释放的"],
+    where: "V34-1 · 只有前者才是不变量被破坏",
+  },
+];
+
+const findings = [
+  {
+    kind: "因为错的原因",
+    self: false,
+    lead: "五个 spawn daemon 的套件通过，是因为网络是坏的。",
+    rest: "它们用 <code>sk-test</code> 启动 <code>mobiusd</code> 打真 API；调用失败了，而这个失败与<em>没得提议</em>无法区分。它们各自等待的那次询问，是一个连不上的端点生产出来的。",
+  },
+  {
+    kind: "因为错的原因",
+    self: false,
+    lead: "五个 pin 根本红不了。",
+    rest: "对着一个空函数体做 <code>not.toContain</code>；一个把文档表格当成读者来数的使用计数器；一处引用点名的正是关掉它的那一片。",
+  },
+  {
+    kind: "因为错的原因",
+    self: false,
+    lead: "一条带条件的断言什么都没量到。",
+    rest: "它只在最后一条记录<code>恰好</code>是 abandonment 时才检查停止原因——于是每个挂起收尾的 run 都整个跳过了检查，一个变异活着穿过了一整轮电池。",
+  },
+  {
+    kind: "我自己的",
+    self: true,
+    lead: "我写下的规则，和支持它的证据，两个都是错的。",
+    rest: "V25-4 主张 serde 要求每个没有 default 的字段必填。<code>cargo</code> 就在这台机器上，那个 struct 只有三十行，于是用<strong>量</strong>而不是用论证：裸 <code>Option</code> 解成 <code>None</code>。而「真 TUI 因缺它而中止」是<em>把推断当证据读回去</em>——原始记录显示那次会话是完成的。",
+  },
+  {
+    kind: "我自己的",
+    self: true,
+    lead: "一个我批准过的设计，被四行 trace 推翻。",
+    rest: "计划说重读投影会超支；而检查跑在自增<em>之前</em>，所以在任何东西读它们的那唯一时刻，两个数字是相等的。缓存被删掉了，而不是被播种。",
+  },
+  {
+    kind: "我自己的",
+    self: true,
+    lead: "修掉某个缺陷的那一版，自己种下了它。",
+    rest: "V34-1 把一个新字段接进两个平面，只在其中一个里读它——于是对一个已释放世界的<em>查看</em>仍然在指责不变量，而<em>动作</em>说了实话。要看见它需要两个变异，每个平面一个。",
+  },
+];
+
+const limits = [
+  {
+    h: "路由仍在打破平局",
+    p: "真实模型提议上 1/4，均值差 0.053。伤害早已被两个机制挡住——一个转向 harm rank 的噪声窗口，以及一个把量到的四次误路由全部拒绝的 schema 检查。缺的是没人被告知打了平手。",
+  },
+  {
+    h: "中断只在轮与轮之间生效",
+    p: "已经在飞的模型调用或 dispatch 会跑完。要在 <code>await</code> 中途停下，需要把信号穿过三个 port，并把第一个 throw 放进一个零 catch 点的循环里。",
+  },
+  {
+    h: "默认不声明预算",
+    p: "<code>--max-actions</code> 存在，而 <code>goalFromTurnStart</code> 什么都不设。发明一个数字，就是这一层在替目标决定它值多少。",
+  },
+  {
+    h: "六个方法，还不是一个客户端",
+    p: "<code>thread/resume</code>、<code>turn/steer</code> 和问题过期都还没建。ADR 0013 说 resume 是 resume seam 与 session model 的分界线，而没人量过哪个才是想要的。",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main id="mobius" class="mx-auto w-full max-w-3xl px-4 pb-24">
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <p class="eyebrow">MØBIUS · 运行时日志 · V23 → V34</p>
+      <h1>MØBIUS V23–V34</h1>
+      <p class="thesis">
+        一个没有进程的门面，变成了真实 <em>codex</em> 客户端能驱动的 daemon
+        ——它会造成真实副作用、每次动手前问人、能被叫停。二十三个提交，而它们找到的东西，大部分是<em
+          >测量抓住了它自己的作者</em
+        >。
+      </p>
+
+      <dl class="ledger">
+        {
+          ledger.map(([label, now, was]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>
+                {now}
+                {was && <span class="was">{was}</span>}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <p class="lede-links">
+        把问题问出来的那两篇仍然是入口——
+        <a href="/zh/posts/mobius-not-another-ai-wrapper/">我不想再要一个 AI 套壳</a>
+        与 <a href="/zh/posts/mobius-who-owns-the-runtime/">运行时究竟归谁</a>。
+        这一页是那个问题被推进到了哪。
+      </p>
+    </header>
+
+    <!-- ONE TURN -->
+    <section>
+      <h2>现在的一次 turn 长什么样</h2>
+      <p>
+        一个人在 TUI 里敲下一句话。下面是一次真实 run 写下的 journal
+        ——daemon 自己的记录，未经编辑。注意这个 run 在 3
+        就<em>结束</em>了，第二个从 5 开始：按 ADR&nbsp;0013，挂起的 run
+        是日志里的一个位置，不是一个暂停的进程，所以它能挺过重启。
+      </p>
+      <div class="transcript">
+        <ol>
+          {
+            journal.map(([seq, ev, note, person]) => (
+              <li class:list={[{ person }]}>
+                <span class="seq">{seq}</span>
+                <span class="ev">
+                  {ev}
+                  {note && <span class="note"> — {note}</span>}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <figure class="figure">
+        <img
+          class="fig-light"
+          src="/research/mobius-suspended-run.svg"
+          width="340"
+          height="987"
+          alt="run A 记录 goal.created、action.proposed、authority.escalated 和 goal.suspended 之后结束。一个人在没有任何 run 活着的情况下，在 4 追加 authority.answered。run B 在同一份 journal 上从 5 开启，折叠 0 到 4 的记录，在 8 派发、在 11 放弃。"
+        />
+        <img
+          class="fig-dark"
+          src="/research/mobius-suspended-run-dark.svg"
+          width="340"
+          height="987"
+          alt=""
+          aria-hidden="true"
+        />
+        <figcaption>
+          两个 run，一份 journal。3 与 5 之间没有任何东西活着——问题能留下来，是因为日志留下来了。
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- THE SHAPE -->
+    <section>
+      <h2>反复回来的那个形状</h2>
+      <div class="shape">
+        <p>
+          五次，同一个值承载着两个事实。而每一次，那个塌缩的值<em
+            >对它诞生的那个场景都是对的</em
+          >，只对后来到达的那个是错的——并且每一次，运行时都把错的那个报告给了人。
+        </p>
+        <div class="splits">
+          {
+            splits.map(({ one, two, where }) => (
+              <div class="split-row">
+                <code class="one">{one}</code>
+                <div class="two">
+                  {two.map(fact => (
+                    <span>{fact}</span>
+                  ))}
+                </div>
+                <div class="where">{where}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDINGS -->
+    <section>
+      <h2>方法抓到了什么</h2>
+      <p>
+        每一片都在写代码<em>之前</em>先写下预测，被推翻时也让它留在原地，然后跑一轮变异电池。值得留下的发现，是评审和一片绿色的测试套件都产不出来的那些。
+      </p>
+      <div class="findings">
+        {
+          findings.map(({ kind, self, lead, rest }) => (
+            <div class="finding">
+              <span class:list={["tag", { self }]}>{kind}</span>
+              <p>
+                <strong>{lead}</strong> <Fragment set:html={rest} />
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- THE LOG -->
+    <section>
+      <h2>版本日志</h2>
+      <div class="log">
+        {
+          versions.map(({ v, claimZh, blurbZh, post }) => (
+            <article>
+              <span class="v">{v}</span>
+              <div>
+                <h3>
+                  {post ? <a href={`/zh/posts/${post}/`}>{claimZh}</a> : claimZh}
+                </h3>
+                <p>{blurbZh}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- EDGES -->
+    <section>
+      <h2>边界在哪</h2>
+      <div class="limits">
+        {
+          limits.map(({ h, p }) => (
+            <div class="limit">
+              <h3>{h}</h3>
+              <p set:html={p} />
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <footer class="colophon">
+      23 个提交 · 分支 v24-v26-runnable-daemon · 161 个文件、1,485 条通过 ·
+      每一片都预注册，每一片都过变异电池
+    </footer>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* 与英文页同一套：站点没有而这一页需要的三个语义色——被拆开的事实、
+     曾经承载两个事实的那个值、以及因为错误的原因而通过。先定义亮色，
+     再在站点自己那套 html[data-theme="dark"] 属性下覆盖。 */
+  #mobius {
+    --split: #3f7d70;
+    --split-soft: #e4efec;
+    --collapse: #9a6b2f;
+    --collapse-soft: #f3ebdd;
+    --wrong: #b8452f;
+    --rule: color-mix(in srgb, var(--foreground) 12%, transparent);
+    --rule-firm: color-mix(in srgb, var(--foreground) 24%, transparent);
+    --muted-ink: color-mix(in srgb, var(--foreground) 58%, transparent);
+    --raised: color-mix(in srgb, var(--background) 60%, #fff 40%);
+    --sunk: var(--muted);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  :global(html[data-theme="dark"]) #mobius {
+    --split: #6fbdad;
+    --split-soft: #1e332f;
+    --collapse: #d4a35e;
+    --collapse-soft: #33291a;
+    --wrong: #e0736a;
+    --raised: color-mix(in srgb, var(--background) 91%, #fff 9%);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+  }
+
+  /* ---- masthead ---- */
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .masthead h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .thesis {
+    font-size: clamp(1.02rem, 2.2vw, 1.15rem);
+    line-height: 1.75;
+    max-width: 34em;
+  }
+  .thesis em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .lede-links {
+    font-size: 0.88rem;
+    color: var(--muted-ink);
+    max-width: 40em;
+  }
+  .lede-links a {
+    color: var(--accent);
+    border-bottom: 1px dashed currentColor;
+  }
+  .lede-links a:hover {
+    border-bottom-style: solid;
+  }
+
+  .ledger {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.4rem 0 0;
+  }
+  .ledger div {
+    background: var(--raised);
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ledger dt {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted-ink);
+  }
+  .ledger dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.1rem;
+  }
+  .ledger dd .was {
+    /* Its own line, always. Inline it wraps mid-value on narrow columns — "1,485 ←" then "1,289" —
+       which reads as a broken number rather than a comparison. */
+    display: block;
+    color: var(--muted-ink);
+    font-size: 0.8rem;
+  }
+
+  /* ---- sections ---- */
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  section > h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--rule-firm);
+  }
+  section > p {
+    max-width: 40em;
+    line-height: 1.8;
+  }
+
+  /* ---- journal transcript ---- */
+  .transcript {
+    font-size: 0.78rem;
+    line-height: 1.95;
+    background: var(--sunk);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    overflow-x: auto;
+  }
+  .transcript ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.05rem;
+  }
+  .transcript li {
+    display: grid;
+    grid-template-columns: 2ch 1fr;
+    gap: 1.1rem;
+    white-space: nowrap;
+  }
+  .transcript .seq {
+    color: var(--muted-ink);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+  }
+  .transcript .note {
+    color: var(--muted-ink);
+  }
+  .transcript li.person .ev,
+  .transcript li.person .note {
+    color: var(--split);
+  }
+
+  /* ---- figures ---- */
+  .figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .figure img {
+    width: min(100%, 21rem);
+  }
+  .figure figcaption {
+    font-size: 0.8rem;
+    color: var(--muted-ink);
+    max-width: 46ch;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ---- the recurring shape ---- */
+  .shape {
+    background: var(--raised);
+    border: 1px solid var(--rule-firm);
+    border-radius: 4px;
+    padding: clamp(1.1rem, 3vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+  .shape > p {
+    max-width: 40em;
+    line-height: 1.8;
+  }
+  .splits {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .split-row {
+    background: var(--background);
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: 0.3rem 1.1rem;
+    padding: 0.75rem 0.9rem;
+    align-items: baseline;
+  }
+  .split-row .one {
+    font-size: 0.8rem;
+    color: var(--collapse);
+    background: var(--collapse-soft);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    justify-self: start;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .split-row .two {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    align-items: baseline;
+    font-size: 0.86rem;
+  }
+  .split-row .two span {
+    color: var(--split);
+  }
+  .split-row .two span::before {
+    content: "· ";
+    color: var(--muted-ink);
+  }
+  .split-row .two span:first-child::before {
+    content: "";
+  }
+  .split-row .where {
+    grid-column: 1 / -1;
+    font-size: 0.7rem;
+    color: var(--muted-ink);
+  }
+
+  /* ---- findings ---- */
+  .findings {
+    display: flex;
+    flex-direction: column;
+  }
+  .finding {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0 1.4rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .finding:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .finding .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--wrong);
+  }
+  .finding .tag.self {
+    color: var(--collapse);
+  }
+  .finding p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    max-width: 40em;
+  }
+
+  /* ---- version log ---- */
+  .log {
+    display: flex;
+    flex-direction: column;
+  }
+  .log article {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0 1.4rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .log article:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .log .v {
+    font-size: 0.78rem;
+    color: var(--muted-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .log h3 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .log h3 a {
+    color: var(--accent);
+    border-bottom: 1px dashed currentColor;
+  }
+  .log h3 a:hover {
+    border-bottom-style: solid;
+  }
+  .log p {
+    font-size: 0.88rem;
+    color: var(--muted-ink);
+    margin-top: 0.25rem;
+    max-width: 40em;
+    line-height: 1.75;
+  }
+
+  /* ---- limits ---- */
+  .limits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.3rem 2rem;
+  }
+  .limit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .limit h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .limit p {
+    font-size: 0.85rem;
+    color: var(--muted-ink);
+    max-width: 30em;
+    line-height: 1.75;
+  }
+
+  .colophon {
+    color: var(--muted-ink);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 34rem) {
+    .log article,
+    .finding {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    .split-row {
+      grid-template-columns: 1fr;
+    }
+    /* Five cells over two columns leaves a sixth slot empty, and the grid's gap trick paints it
+       the rule colour. Pinned to two columns with the last cell spanning both, so the row closes. */
+    .ledger {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ledger div:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

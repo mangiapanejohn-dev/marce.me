@@ -2,7 +2,9 @@
 title: "MØBIUS — I Don't Want Another AI Wrapper"
 description: "I set out to build myself a better coding-agent harness. Every feature I wanted turned out to be a question about the runtime rather than the model, and somewhere in there the harness stopped being the means and became the thing."
 pubDatetime: 2026-08-28T12:00:00Z
-tags: ["MØBIUS", "Agents", "AI"]
+modDatetime: 2026-09-04T12:00:00Z
+tags: ["MØBIUS", "Research", "Agents", "AI"]
+category: "research"
 cover: "/mobius-card.svg"
 ---
 
@@ -64,3 +66,9 @@ I've built a lot of things. Most of them had a shape: figure out the problem, sh
 This one doesn't do that. Every problem I close opens one underneath it, and the one underneath is consistently more fundamental than the one I started with. Checkpointing led to state ownership. State ownership led to session lifecycle. Session lifecycle led to a question about what a host even is, and that one turned out to have a wrong answer sitting in my own planning documents for three versions running — but that's the next post.
 
 For the first time I have something that doesn't feel finishable, and instead of that being discouraging, it's the reason I keep opening it. It's still a research repository — nothing to install, nothing public to link to. That's fine. It isn't a product yet, and pretending otherwise would be the exact thing I'm trying not to build.
+
+---
+
+_Written 2026-08-28, when there was nothing to link to. There is now: the running log of what
+this became lives at [**/mobius**](/mobius) — twelve versions of a daemon that causes real
+effects, asks before each one, and can be told to stop._

@@ -2,7 +2,9 @@
 title: "MØBIUS — Who Actually Owns the Runtime?"
 description: "Three of my planning documents deferred a load-bearing architectural decision to a section of a document that does not exist. Finding that out took a week of session-lifecycle bugs, and it changed what I think architecture work actually is."
 pubDatetime: 2026-08-29T12:00:00Z
-tags: ["MØBIUS", "Agents", "Building"]
+modDatetime: 2026-09-04T12:00:00Z
+tags: ["MØBIUS", "Research", "Agents", "Building"]
+category: "research"
 cover: "/cover-section-58.svg"
 ---
 
@@ -78,3 +80,9 @@ The practical version, which I now do:
 **When a plan cites a rule, open the rule.** Not the plan that cites it. The rule. If you cannot find the document, the rule does not exist, no matter how many places repeat it.
 
 The one that stings is that all three plans citing §58 passed review. They were internally consistent, they agreed with each other, and they were confidently wrong in unison. Consistency is not evidence. It's just consistency.
+
+---
+
+_The versions after this one are logged at [**/mobius**](/mobius), where the same habit kept
+showing up in a different costume: one value quietly carrying two facts, and the runtime
+reporting the wrong one to a person._
