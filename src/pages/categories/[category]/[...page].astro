@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions } from "astro";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+import { categoryName } from "@/data/categories";
+import { SITE } from "@/config";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  // English posts only, as every listing on this site is — a zh-only post appears in no index,
+  // so pairing it with an English original is what makes it reachable at all.
+  const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
+
+  return getUniqueCategories(posts).flatMap(({ category }) =>
+    paginate(getPostsByCategory(posts, category), {
+      params: { category },
+      props: { category },
+      pageSize: SITE.postPerPage,
+    })
+  );
+}
+
+const { page, category } = Astro.props;
+const name = categoryName(category, "en");
+---
+
+<Layout title={`Category: ${name} | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle={["Category:", name]}
+    titleTransition={`category-${category}`}
+    pageDesc={`Everything filed under "${name}".`}
+  >
+    <ul>
+      {page.data.map(data => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

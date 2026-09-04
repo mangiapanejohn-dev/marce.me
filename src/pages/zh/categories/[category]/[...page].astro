@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions } from "astro";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+import { categoryName } from "@/data/categories";
+import { SITE } from "@/config";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
+
+  return getUniqueCategories(posts).flatMap(({ category }) =>
+    paginate(getPostsByCategory(posts, category), {
+      params: { category },
+      props: { category },
+      pageSize: SITE.postPerPage,
+    })
+  );
+}
+
+const { page, category } = Astro.props;
+const name = categoryName(category, "zh");
+---
+
+<Layout title={`分类:${name} | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle={["分类:", name]}
+    titleTransition={`category-${category}`}
+    pageDesc={`归在「${name}」下的全部文章。`}
+  >
+    <ul>
+      {page.data.map(data => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

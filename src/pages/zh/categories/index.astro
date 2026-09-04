@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Category from "@/components/Category.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
+const categories = getUniqueCategories(posts);
+---
+
+<Layout title={`分类 | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="分类" pageDesc="每篇文章只属于一个分类；标签是横着切的。">
+    <ul class="flex flex-wrap gap-6">
+      {categories.map(({ category, count }) => <Category {category} {count} />)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

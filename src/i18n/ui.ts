@@ -16,6 +16,7 @@ export const ui = {
   en: {
     "nav.posts": "Posts",
     "nav.tags": "Tags",
+    "nav.categories": "Categories",
     "nav.about": "About",
     "nav.archives": "Archives",
     "nav.search": "Search",
@@ -39,6 +40,7 @@ export const ui = {
   zh: {
     "nav.posts": "文章",
     "nav.tags": "标签",
+    "nav.categories": "分类",
     "nav.about": "关于",
     "nav.archives": "归档",
     "nav.search": "搜索",
