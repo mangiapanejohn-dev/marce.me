@@ -20,6 +20,33 @@ export type MobiusVersion = {
   post?: string;
 };
 
+/**
+ * The long-form pieces, which are about a span of the work rather than one version.
+ *
+ * They sit below the version log in the research feed rather than inside it: a row in the log is
+ * one slice, and neither of these is. Titles and dates are read from the content collection at
+ * render time — only the span label lives here, because only this file knows it.
+ */
+export type MobiusEssay = {
+  /** Slug in `src/data/blog/`. */
+  slug: string;
+  span: string;
+  spanZh: string;
+};
+
+export const essays: MobiusEssay[] = [
+  {
+    slug: "mobius-who-owns-the-runtime",
+    span: "V19–V22",
+    spanZh: "V19–V22",
+  },
+  {
+    slug: "mobius-not-another-ai-wrapper",
+    span: "Preface",
+    spanZh: "开场",
+  },
+];
+
 export const versions: MobiusVersion[] = [
   {
     v: "ADR 0013",

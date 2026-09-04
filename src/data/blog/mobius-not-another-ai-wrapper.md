@@ -2,7 +2,6 @@
 title: "MØBIUS — I Don't Want Another AI Wrapper"
 description: "I set out to build myself a better coding-agent harness. Every feature I wanted turned out to be a question about the runtime rather than the model, and somewhere in there the harness stopped being the means and became the thing."
 pubDatetime: 2026-08-28T12:00:00Z
-modDatetime: 2026-09-04T12:00:00Z
 tags: ["MØBIUS", "Agents", "AI"]
 category: "research"
 cover: "/mobius-card.svg"

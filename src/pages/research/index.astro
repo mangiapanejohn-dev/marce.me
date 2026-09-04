@@ -1,0 +1,33 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ResearchFeed from "@/components/ResearchFeed.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`Research | ${SITE.title}`}
+  description="Every version slice of MØBIUS as it lands, newest first, plus the essays that set the whole thing up."
+>
+  <Header />
+  <Main
+    pageTitle="Research"
+    pageDesc="Every version as it lands, newest first."
+  >
+    <p class="mb-8 max-w-[62ch] text-sm opacity-80">
+      MØBIUS is an experimental agent runtime — the part around the model. Each
+      slice below is one version: a claim, and what measuring it turned up. The
+      whole thing, with the journal a real run wrote, is on the
+      <a
+        href="/mobius"
+        class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+        >project page</a
+      >.
+    </p>
+
+    <ResearchFeed />
+  </Main>
+  <Footer />
+</Layout>

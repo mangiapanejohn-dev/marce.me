@@ -11,9 +11,12 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
 
 export const getStaticPaths = (async ({ paginate }) => {
+  // 研究不在这里混排：它有自己的 /research，那里连还没写成文章的版本也会出现。
+  // 研究文章依然到得了 —— 从那个动态页、从 /categories/research、从标签、从搜索。
   const posts = await getCollection(
     "blog",
-    ({ data }) => !data.draft && data.lang !== "zh"
+    ({ data }) =>
+      !data.draft && data.lang !== "zh" && data.category !== "research"
   );
   return paginate(getSortedPosts(posts), { pageSize: SITE.postPerPage });
 }) satisfies GetStaticPaths;
@@ -21,9 +24,9 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title={`文章 | ${SITE.title}`}>
+<Layout title={`博客 | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="文章" pageDesc="我发布的所有文章。">
+  <Main pageTitle="博客" pageDesc="开发日记，以及其余的一切。研究有它自己的动态页。">
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

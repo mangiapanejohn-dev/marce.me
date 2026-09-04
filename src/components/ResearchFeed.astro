@@ -1,0 +1,117 @@
+---
+import { getCollection } from "astro:content";
+import { versions, essays } from "@/data/mobius/versions";
+import { getLangFromUrl, localizePath } from "@/i18n/utils";
+
+type Props = {
+  /** How many version rows to show. Omit for all of them. */
+  limit?: number;
+  /** Link through to the full feed at the bottom. Off on the feed page itself. */
+  showMore?: boolean;
+};
+
+const { limit, showMore = false } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const l = (path: string) => localizePath(path, lang);
+
+// Newest first. The array is authored oldest-first because that is how the work happened, and a
+// feed reads the other way — reversed here rather than in the data, so /mobius keeps reading
+// forwards from ADR 0013.
+const rows = [...versions].reverse().slice(0, limit ?? versions.length);
+
+// Titles come from the collection so they cannot drift from the posts themselves; only the span
+// label comes from the essay map.
+const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
+const essayRows = essays.flatMap(essay => {
+  const post = posts.find(p => p.id === essay.slug);
+  return post ? [{ ...essay, title: post.data.title }] : [];
+});
+
+const t = {
+  en: { versions: "Versions", essays: "Essays", more: "The full log" },
+  zh: { versions: "版本", essays: "文章", more: "完整日志" },
+}[lang];
+---
+
+<div class="research-feed">
+  <ul class="flex flex-col">
+    {
+      rows.map(({ v, claim, claimZh, blurb, blurbZh, post }) => (
+        <li class="row grid gap-x-5 border-t border-border py-3.5">
+          <span class="v opacity-60">{v}</span>
+          <div>
+            <h3 class="text-[0.95rem] leading-snug font-semibold">
+              {post ? (
+                <a
+                  href={l(`/posts/${post}/`)}
+                  class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                >
+                  {lang === "zh" ? claimZh : claim}
+                </a>
+              ) : (
+                (lang === "zh" ? claimZh : claim)
+              )}
+            </h3>
+            <p class="mt-1 text-[0.875rem] leading-relaxed opacity-70">
+              {lang === "zh" ? blurbZh : blurb}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    essayRows.length > 0 && (
+      <div class="mt-7 border-t-2 border-dashed border-border pt-4">
+        <p class="mb-2 text-[0.7rem] tracking-[0.13em] uppercase opacity-60">
+          {t.essays}
+        </p>
+        <ul class="flex flex-col">
+          {essayRows.map(({ slug, span, spanZh, title }) => (
+            <li class="row grid gap-x-5 border-t border-border py-2.5">
+              <span class="v opacity-60">{lang === "zh" ? spanZh : span}</span>
+              <a
+                href={l(`/posts/${slug}/`)}
+                class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+              >
+                {title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  {
+    showMore && (
+      <p class="mt-6 text-sm">
+        <a
+          href={l("/research/")}
+          class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+        >
+          {t.more} →
+        </a>
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .row {
+    grid-template-columns: 4.5rem 1fr;
+    align-items: baseline;
+  }
+  .v {
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 30rem) {
+    .row {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+</style>

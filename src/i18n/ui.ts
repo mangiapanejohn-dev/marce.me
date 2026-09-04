@@ -14,9 +14,12 @@ export const defaultLang: Lang = "en";
 
 export const ui = {
   en: {
-    "nav.posts": "Posts",
+    "nav.posts": "Blog",
+    "nav.research": "Research",
     "nav.tags": "Tags",
     "nav.categories": "Categories",
+    "home.blog": "Blog",
+    "home.research": "Research",
     "nav.about": "About",
     "nav.archives": "Archives",
     "nav.search": "Search",
@@ -38,9 +41,12 @@ export const ui = {
     "lang.toggle": "切换语言",
   },
   zh: {
-    "nav.posts": "文章",
+    "nav.posts": "博客",
+    "nav.research": "研究",
     "nav.tags": "标签",
     "nav.categories": "分类",
+    "home.blog": "博客",
+    "home.research": "研究动态",
     "nav.about": "关于",
     "nav.archives": "归档",
     "nav.search": "搜索",

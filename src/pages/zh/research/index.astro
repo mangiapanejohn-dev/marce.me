@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ResearchFeed from "@/components/ResearchFeed.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`研究动态 | ${SITE.title}`}
+  description="MØBIUS 每一版落地时的记录，最新在前，以及把这件事问出来的那两篇长文。"
+>
+  <Header />
+  <Main pageTitle="研究动态" pageDesc="每一版落地时的记录，最新在前。">
+    <p class="mb-8 max-w-[40em] text-sm opacity-80">
+      MØBIUS 是一个实验性的 agent runtime —— 模型之外的那部分。下面每一条是一版：一句主张，
+      以及把它量了之后翻出来的东西。完整的一份，连同一次真实 run 写下的 journal，在<a
+        href="/zh/mobius"
+        class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+        >项目页</a
+      >上。
+    </p>
+
+    <ResearchFeed />
+  </Main>
+  <Footer />
+</Layout>

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
+import ResearchFeed from "@/components/ResearchFeed.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
@@ -14,7 +15,10 @@ import { SITE } from "@/config";
 const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
 
 const sortedPosts = getSortedPosts(posts);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+// 博客 tab 就是博客：研究有自己的 tab。拆开之前，两篇 MØBIUS 压在最上面，把其余文章挤出了首页。
+const blogPosts = sortedPosts.filter(
+  ({ data }) => !data.featured && data.category !== "research"
+);
 
 const featuredProjects = [
   {
@@ -113,26 +117,47 @@ const featuredProjects = [
       </div>
     </section>
 
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="mb-2 text-2xl font-semibold tracking-wide">最近文章</h2>
-          <ul>
-            {recentPosts.map(
+    <section id="recent" class="pt-12 pb-6">
+      <div class="mb-4 flex items-center gap-5 border-b border-border pb-1">
+        <button
+          type="button"
+          class="feed-tab text-xl font-semibold tracking-wide"
+          data-panel="blog"
+          aria-selected="true"
+        >
+          博客
+        </button>
+        <button
+          type="button"
+          class="feed-tab text-xl font-semibold tracking-wide"
+          data-panel="research"
+          aria-selected="false"
+        >
+          研究动态
+        </button>
+      </div>
+
+      <div id="panel-blog">
+        <ul>
+          {
+            blogPosts.map(
               (data, index) =>
                 index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
+            )
+          }
+        </ul>
+        <div class="my-8 text-center">
+          <LinkButton href="/zh/posts/">
+            全部文章
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+        </div>
+      </div>
 
-    <div class="my-8 text-center">
-      <LinkButton href="/zh/posts/">
-        全部文章
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+      <div id="panel-research" hidden>
+        <ResearchFeed limit={4} showMore />
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>
@@ -168,6 +193,24 @@ const featuredProjects = [
       border-inline-end: none;
     }
   }
+
+  /* 博客 / 研究动态 两个 tab。未选中的那个读起来像一个可点的标题，
+     所以这一行仍然是它替代掉的那个小节标题。 */
+  .feed-tab {
+    color: var(--foreground);
+    opacity: 0.4;
+    padding-bottom: 0.35rem;
+    margin-bottom: -0.3rem;
+    border-bottom: 2px solid transparent;
+    transition: opacity 0.15s;
+  }
+  .feed-tab:hover {
+    opacity: 0.7;
+  }
+  .feed-tab[aria-selected="true"] {
+    opacity: 1;
+    border-bottom-color: var(--accent);
+  }
 </style>
 
 <script>
@@ -188,5 +231,19 @@ const featuredProjects = [
     if (indexLayout) {
       sessionStorage.setItem("backUrl", "/zh");
     }
+
+    // 博客 / 研究动态。两块都在 HTML 里，所以页面在这段脚本跑之前就是完整的，
+    // 没有 JS 的读者看到的是博客列表，而不是空白。
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>(".feed-tab")];
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(other => {
+          const selected = other === tab;
+          other.setAttribute("aria-selected", String(selected));
+          const panel = document.getElementById(`panel-${other.dataset.panel}`);
+          if (panel) panel.hidden = !selected;
+        });
+      });
+    });
   });
 </script>

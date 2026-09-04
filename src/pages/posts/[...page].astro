@@ -11,9 +11,13 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
 
 export const getStaticPaths = (async ({ paginate }) => {
+  // Research is excluded rather than merged in: it has its own feed at /research, where a version
+  // with no post of its own still shows up. Every research post stays reachable — from that feed,
+  // from /categories/research, from its tags, and from search.
   const posts = await getCollection(
     "blog",
-    ({ data }) => !data.draft && data.lang !== "zh"
+    ({ data }) =>
+      !data.draft && data.lang !== "zh" && data.category !== "research"
   );
   return paginate(getSortedPosts(posts), { pageSize: SITE.postPerPage });
 }) satisfies GetStaticPaths;
@@ -21,9 +25,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
+<Layout title={`Blog | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main
+    pageTitle="Blog"
+    pageDesc="Dev diaries and everything else. The research has its own feed."
+  >
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>
