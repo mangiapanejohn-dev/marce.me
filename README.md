@@ -90,18 +90,36 @@ whose version log is data — [`src/data/mobius/versions.ts`](src/data/mobius/ve
 version is an appended entry rather than an edited page. The hub keeps one URL for the life of the
 project; the posts are the part that multiplies.
 
-Publishing one slice:
+Publishing one slice — `/reup` in the MØBIUS repo walks all of it, starting from what is owed:
 
-1. `src/data/blog/mobius-v<N>-<claim-slug>.md` — `category: "research"`, `tags: ["MØBIUS", "Research", …]`.
+1. `src/data/blog/mobius-v<N>-<claim-slug>.md` — `category: "research"`, `tags: ["MØBIUS", …]`.
    The title is the version's own claim; the description is what prompted it, in one sentence.
 2. `src/data/blog/mobius-v<N>-<claim-slug>.zh.md` — the Chinese counterpart. It needs all three of
    `lang: "zh"`, `slug: "<basename>.zh"` and the `.zh.md` filename, or it silently detaches from its
    original. Note that every listing on this site enumerates English posts only, so a Chinese post
    without an English original appears in no index at all.
 3. Figures, if the slice has a shape worth drawing (below).
-4. An entry in `src/data/mobius/versions.ts`.
+4. An entry in `src/data/mobius/versions.ts`, **carrying `at`** — see below.
 5. Push to `main`. Then record the live URL in the MØBIUS repo's `docs/architecture/PUBLICATION.md`,
    whose test goes red for any version plan with no post.
+
+### Timestamps
+
+`at` is the timestamp of the commit that landed the slice, with that commit's own offset, verbatim:
+
+```bash
+git log --reverse --date=format:'%Y-%m-%dT%H:%M:%S%z' --format='%ad|%s' | grep '|V35'
+```
+
+Not `new Date()`, and not the day the post got written. Several versions land on one day —
+2026-09-04 carries five — so a date with no time cannot order them. `at` is required by the type,
+so an entry without one fails `astro check`, which runs inside `npm run build`.
+
+It is printed **without timezone conversion**, deliberately: converting an evening commit into
+`Asia/Shanghai` moves it to the next day, and a version's date is the working day it landed on, the
+same one `PUBLICATION.md` and the plan document record. The exact instant stays recoverable in the
+`<time datetime>` attribute. [`src/utils/formatStamp.ts`](src/utils/formatStamp.ts) carries the
+argument.
 
 ### Figures
 

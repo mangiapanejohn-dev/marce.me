@@ -10,6 +10,19 @@
 export type MobiusVersion = {
   /** "V29", "ADR 0013" — printed verbatim in the left column. */
   v: string;
+  /**
+   * When the slice actually landed: the timestamp of its last commit in the MØBIUS repository,
+   * with that commit's own UTC offset, verbatim.
+   *
+   * **Never `new Date()` and never the day you got round to writing the post.** Several versions
+   * land on one day — 2026-09-04 carries five — so a date alone cannot order them, and a
+   * publication date would record when it was written up rather than when it happened. The
+   * command is `git log -1 --date=format:'%Y-%m-%dT%H:%M:%S%z' --format='%ad' <commit>`, and the
+   * `/reup` skill runs it rather than asking anyone to remember.
+   *
+   * Rendered in `SITE.timezone`, so the reader sees one clock no matter where the commit was made.
+   */
+  at: string;
   /** The version's own title. Always a claim, never a topic. */
   claim: string;
   claimZh: string;
@@ -50,6 +63,7 @@ export const essays: MobiusEssay[] = [
 export const versions: MobiusVersion[] = [
   {
     v: "ADR 0013",
+    at: "2026-09-02T14:24:18-04:00",
     claim: "A suspended run is a log position, not a paused process",
     claimZh: "挂起的 run 是日志里的一个位置，不是一个暂停的进程",
     blurb:
@@ -59,6 +73,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V24",
+    at: "2026-09-02T14:25:04-04:00",
     claim: "mobiusd becomes a process a real client can connect to",
     claimZh: "mobiusd 成为一个真客户端能连上的进程",
     blurb:
@@ -68,6 +83,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V25",
+    at: "2026-09-02T14:25:22-04:00",
     claim: "A real TUI connects, and finds six defects",
     claimZh: "真 TUI 接上来，找出六个缺陷",
     blurb:
@@ -77,6 +93,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V26",
+    at: "2026-09-02T14:26:54-04:00",
     claim: "A well-formed message must not kill the daemon",
     claimZh: "一条格式正确的消息不该杀死 daemon",
     blurb:
@@ -86,6 +103,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V27",
+    at: "2026-09-03T01:13:21-04:00",
     claim: "Acting is not grading",
     claimZh: "干活不是打分",
     blurb:
@@ -95,6 +113,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V28",
+    at: "2026-09-03T11:28:33-04:00",
     claim: "The run says why it stopped",
     claimZh: "run 要说清自己为什么停了",
     blurb:
@@ -104,6 +123,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V29",
+    at: "2026-09-03T11:44:45-04:00",
     claim: "Work already carried out is not work",
     claimZh: "已经做过的事不算事",
     blurb:
@@ -113,6 +133,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V30",
+    at: "2026-09-04T10:38:14-04:00",
     claim: "Boundaries: the ledger, and being told to stop",
     claimZh: "边界：账本，以及被叫停",
     blurb:
@@ -122,6 +143,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V31",
+    at: "2026-09-04T10:53:38-04:00",
     claim: "The rule I got wrong, measured with the thing it was about",
     claimZh: "我搞错的那条规则，用它所描述的东西量了一遍",
     blurb:
@@ -131,6 +153,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V32",
+    at: "2026-09-04T11:14:25-04:00",
     claim: "When the runtime is breaking a tie, it says so",
     claimZh: "运行时在打破平局时，会说出来",
     blurb:
@@ -140,6 +163,7 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V33",
+    at: "2026-09-04T11:47:12-04:00",
     claim: "A signal takes the same release a dropped socket does",
     claimZh: "一个信号走的是断掉的 socket 走的那条释放路径",
     blurb:
@@ -149,11 +173,83 @@ export const versions: MobiusVersion[] = [
   },
   {
     v: "V34",
+    at: "2026-09-04T13:22:28-04:00",
     claim: "A session that was let go is not a session that never was",
     claimZh: "被放走的会话，不等于从未存在过的会话",
     blurb:
       'One branch answered two questions. An invented id really is an invariant being violated; a released world stopped nothing, and now says so: "nothing refused it."',
     blurbZh:
       '一个分支回答了两个问题。一个凭空捏造的 id 确实是不变量被破坏；而一个已释放的世界什么都没拦——现在它这么说了："没有东西拒绝它。"',
+  },
+  {
+    v: "V35",
+    // Landed, and this is now the commit's own timestamp as the rule requires. The four rows V35
+    // through V38 carry the *same* one because they landed in the same commit: their production
+    // code shares one file that each of the four rewrote, so no sequence of commits exists that
+    // means "V35 landed, then V36 landed". Giving them distinct times would be inventing an
+    // ordering the repository does not have. Array order carries the sequence instead.
+    at: "2026-09-05T14:19:03-04:00",
+    claim: "A proposal is a prediction, and the log can already grade it",
+    claimZh: "提案本身就是预测，而日志早就能给它打分",
+    blurb:
+      "Every dispatch was described before it happened and verified after, and nothing had ever read the two as a pair. So this version built the scorer rather than another forecaster — and the kill condition it registered first, that a real proposer might only ever be right, did not hold.",
+    blurbZh:
+      "每一次派发事前都被描述过、事后都被验证过，而从来没有东西把这两半当作一对来读。所以这一版造的是打分器，不是又一个预测器——而它事先登记的那条死刑条件（真实提议者会不会永远只说对），没有成立。",
+    post: "mobius-v35-a-proposal-is-a-prediction",
+  },
+  {
+    v: "V36",
+    at: "2026-09-05T14:19:03-04:00",
+    claim: "A world that moved is not a wrong forecast",
+    claimZh: "世界动了，不等于预测错了",
+    blurb:
+      "A verdict read from a world the action did not produce charges the proposer for the weather, so drift became a third resolution beside graded and ungraded. Then its own first cut failed: the write counter it trusted is bumped inside the provider's write path, and is blind to anyone who edits the file directly.",
+    blurbZh:
+      "一个从「并非该动作造出来的世界」里读出的裁决，等于把天气算在提议者头上，所以 drift 成了 graded 和 ungraded 之外的第三种判定。然后它自己的第一版就挂了：它信任的那个写计数器是在 provider 自己的写路径里递增的，对任何直接改文件的人都是瞎的。",
+    post: "mobius-v36-v38-a-forecast-is-about-a-world",
+  },
+  {
+    v: "V37",
+    at: "2026-09-05T14:19:03-04:00",
+    claim: "Drift is a resource changing identity, not a counter moving",
+    claimZh: "drift 是资源的内容标识变了，不是某个计数器动了",
+    blurb:
+      "The counter failed in both directions at once — blind to a writer who bypasses the provider, and over-broad about a file the assertions never read. V36's own P3 stands refuted in place, because rewriting it would remove the only trace that a rule was wrong in a way its own battery could not see.",
+    blurbZh:
+      "那个计数器同时错在两个方向——对绕过 provider 的写入是瞎的，对一个断言从没读过的文件又过宽。V36 自己的 P3 以「被推翻」的状态原样留着，因为改写它就等于抹掉「一条规则曾经错在它自己的 battery 看不见的地方」的唯一痕迹。",
+    post: "mobius-v36-v38-a-forecast-is-about-a-world",
+  },
+  {
+    v: "V38",
+    at: "2026-09-05T14:19:03-04:00",
+    claim: "The world a prediction was made in was bindable all along",
+    claimZh: "一次预测所处的世界，一直都是可绑定的",
+    blurb:
+      "V36 concluded the pre-action world was unavailable, from a fixture with one action in it — and its pin ran on a stub that discards the grounding input, so it held whatever the loop did. The observation that verifies one action is the grounding stamped on the next, and has been since V21-2.",
+    blurbZh:
+      "V36 断定动作之前的世界不可用，而那是从一个只有一个动作的 fixture 里推广出来的——并且它的 pin 跑在一个丢掉 grounding 输入的 stub 上，所以不管 loop 做什么它都成立。验证一个动作的那次观测，正是盖在下一个动作上的 grounding，从 V21-2 起就是。",
+    post: "mobius-v36-v38-a-forecast-is-about-a-world",
+  },
+  {
+    v: "V39",
+    at: "2026-09-05T14:19:16-04:00",
+    claim: "The prior value was in the journal the whole time",
+    claimZh: "前值一直就在 journal 里",
+    blurb:
+      "The plane escalates to a fresh observation because a changed assertion has no prior value — and then the observation cannot decide it either, measured with a perfect look. The baseline input had been accepted and unsupplied since the plane was written; the action already named an observation taken before it ran.",
+    blurbZh:
+      "平面之所以升级去取一次新观测，是因为 changed 断言没有前值——然后那次观测同样裁决不了它，这是用一次完美的 look 测出来的。baseline 这个输入从平面写成那天起就被接受着、从来没人供给过；而动作本身早就指名了一次在它之前取的观测。",
+    post: "mobius-v39-the-prior-value-was-in-the-journal",
+  },
+  {
+    v: "V40",
+    at: "2026-09-05T14:19:30-04:00",
+    claim: "A battery cannot refute what it does not run",
+    claimZh: "battery 无法推翻它没有跑过的东西",
+    blurb:
+      "The change passed all four of its predictions and a five-mutation battery with nothing surviving, and was still wrong: the full suite found it restoring work on an off-target look. Reverted. A battery measures the tests you hand it, and all six of those had been chosen from what the version was about.",
+    blurbZh:
+      "这个改动通过了它全部四条预测、通过了五条 mutation 的 battery 且零存活，而它依然是错的：全套件发现它会在一次跑偏的 look 上恢复工作。已回滚。battery 衡量的是你交给它的那些测试，而那六个文件全都是按「这一版讲什么」挑的。",
+    post: "mobius-v40-a-battery-cannot-refute-what-it-does-not-run",
   },
 ];

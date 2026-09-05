@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { versions, essays } from "@/data/mobius/versions";
+import { formatStamp, formatDay } from "@/utils/formatStamp";
 import { getLangFromUrl, localizePath } from "@/i18n/utils";
 
 type Props = {
@@ -25,7 +26,15 @@ const rows = [...versions].reverse().slice(0, limit ?? versions.length);
 const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
 const essayRows = essays.flatMap(essay => {
   const post = posts.find(p => p.id === essay.slug);
-  return post ? [{ ...essay, title: post.data.title }] : [];
+  return post
+    ? [
+        {
+          ...essay,
+          title: post.data.title,
+          at: post.data.pubDatetime.toISOString(),
+        },
+      ]
+    : [];
 });
 
 const t = {
@@ -37,10 +46,13 @@ const t = {
 <div class="research-feed">
   <ul class="flex flex-col">
     {
-      rows.map(({ v, claim, claimZh, blurb, blurbZh, post }) => (
+      rows.map(({ v, at, claim, claimZh, blurb, blurbZh, post }) => (
         <li class="row grid gap-x-5 border-t border-border py-3.5">
           <span class="v opacity-60">{v}</span>
           <div>
+            <time class="stamp block opacity-55" datetime={at}>
+              {formatStamp(at, lang)}
+            </time>
             <h3 class="text-[0.95rem] leading-snug font-semibold">
               {post ? (
                 <a
@@ -69,15 +81,20 @@ const t = {
           {t.essays}
         </p>
         <ul class="flex flex-col">
-          {essayRows.map(({ slug, span, spanZh, title }) => (
+          {essayRows.map(({ slug, span, spanZh, title, at }) => (
             <li class="row grid gap-x-5 border-t border-border py-2.5">
               <span class="v opacity-60">{lang === "zh" ? spanZh : span}</span>
-              <a
-                href={l(`/posts/${slug}/`)}
-                class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
-              >
-                {title}
-              </a>
+              <div>
+                <time class="stamp block opacity-55" datetime={at}>
+                  {formatDay(at, lang)}
+                </time>
+                <a
+                  href={l(`/posts/${slug}/`)}
+                  class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                >
+                  {title}
+                </a>
+              </div>
             </li>
           ))}
         </ul>
@@ -107,6 +124,12 @@ const t = {
   .v {
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
+  }
+  .stamp {
+    font-size: 0.7rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.2rem;
   }
   @media (max-width: 30rem) {
     .row {

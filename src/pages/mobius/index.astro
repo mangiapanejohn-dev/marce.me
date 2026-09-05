@@ -4,6 +4,7 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 import { versions } from "@/data/mobius/versions";
+import { formatStamp } from "@/utils/formatStamp";
 
 const title = `MØBIUS — the runtime log | ${SITE.title}`;
 const description =
@@ -253,10 +254,11 @@ const limits = [
       <h2>The log</h2>
       <div class="log">
         {
-          versions.map(({ v, claim, blurb, post }) => (
+          versions.map(({ v, at, claim, blurb, post }) => (
             <article>
               <span class="v">{v}</span>
               <div>
+                <time class="stamp" datetime={at}>{formatStamp(at, "en")}</time>
                 <h3>
                   {post ? <a href={`/posts/${post}/`}>{claim}</a> : claim}
                 </h3>
@@ -600,6 +602,14 @@ const limits = [
     font-size: 0.78rem;
     color: var(--muted-ink);
     font-variant-numeric: tabular-nums;
+  }
+  .log .stamp {
+    display: block;
+    font-size: 0.7rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    color: var(--muted-ink);
+    margin-bottom: 0.15rem;
   }
   .log h3 {
     font-weight: 600;
