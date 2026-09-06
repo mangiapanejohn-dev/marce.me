@@ -15,12 +15,12 @@
     "tertiaryTextColor": "#262521",
     "secondaryTextColor": "#262521",
     "fontFamily": "ui-monospace, SFMono-Regular, Menlo, monospace",
-    "fontSize": "14px"
+    "fontSize": "11px"
   },
   "flowchart": {
     "curve": "basis",
     "htmlLabels": false,
-    "wrappingWidth": 340
+    "wrappingWidth": 270
   },
   "themeCSS": ".node rect, .node polygon, .cluster rect { rx: 4; ry: 4; }"
 }
