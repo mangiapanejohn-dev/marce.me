@@ -14,11 +14,11 @@ category: "research"
 runtime 有这个机制。`ActionPrecondition` 的 `kind: 'fresh-observation'` 就是模型在说*这个动作依赖一件
 我还没看过的事*。V41 问它为什么从来产不出一次 look，答案是同一条路径上的三个缺陷。
 
-<figure class="fig-pan-wrap">
-  <div class="fig-pan"><img src="/research/mobius-a03-action-lifecycle.png" alt="一个被提议的 effect 从认知到验证的十二步：ActionIntent、PreconditionGate、unknown.raised、路由缺口、fresh observation、resolution check、准入门、编译、派发、EffectReceipt、VerificationResult、forecast resolution。图上标了两个缺陷：路由缺口会在 no-route 和 look 之间翻转，以及一个 unknown 对三十一次 resolved、零次 dispatch。" loading="lazy" /></div>
-</figure>
+<a class="fig-plate" href="/research/mobius-a03-action-lifecycle.png">
+  <img src="/research/mobius-a03-action-lifecycle.png" alt="一个被提议的 effect 从认知到验证的十二步：ActionIntent、PreconditionGate、unknown.raised、路由缺口、fresh observation、resolution check、准入门、编译、派发、EffectReceipt、VerificationResult、forecast resolution。图上标了两个缺陷：路由缺口会在 no-route 和 look 之间翻转，以及一个 unknown 对三十一次 resolved、零次 dispatch。" loading="lazy" />
+</a>
 
-<p class="fig-note">一次 effect，从认知到验证。两个红框是 V41 量出来的东西；第 6 步之后的一切都没有发生。横向滚动——它是 11:1。</p>
+<p class="fig-note">一次 effect，从认知到验证。两个红框是 V41 量出来的东西；第 6 步之后的一切都没有发生。点开看原图。</p>
 
 
 修它们的四个版本里，有两个先打偏了——而那反倒是更有意思的一半。

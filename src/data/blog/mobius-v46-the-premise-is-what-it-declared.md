@@ -43,9 +43,9 @@ even in it.
 
 ### There is a declaration, and it is not the observation
 
-<figure class="fig-pan-wrap">
-  <div class="fig-pan"><img src="/research/mobius-a06-runtime-truth-model.png" alt="The runtime truth model: observation and evidence answer or narrow an unknown and can raise an invalidation, which invalidates a premise or assumption. A premise supports a decision or intent, which is checked by authority and preconditions and carries a forecast of the expected outcome. The compiled effect causes an outcome that verification adjudicates, and forecast against resolved outcome is calibration. A pending effect resting on an invalidated premise must not commit." loading="lazy" /></div>
-</figure>
+<a class="fig-plate" href="/research/mobius-a06-runtime-truth-model.png">
+  <img src="/research/mobius-a06-runtime-truth-model.png" alt="The runtime truth model: observation and evidence answer or narrow an unknown and can raise an invalidation, which invalidates a premise or assumption. A premise supports a decision or intent, which is checked by authority and preconditions and carries a forecast of the expected outcome. The compiled effect causes an outcome that verification adjudicates, and forecast against resolved outcome is calibration. A pending effect resting on an invalidated premise must not commit." loading="lazy" />
+</a>
 
 <p class="fig-note">What a decision depends on, and how evidence invalidates execution downstream of it. The premise column on the left is what this version gave a scope to.</p>
 
@@ -101,9 +101,9 @@ convenient rather than against the branch. A battery finds that; reading the tes
 
 ### What is left
 
-<figure class="fig-pan-wrap">
-  <div class="fig-pan"><img src="/research/mobius-a05-ftr-research-target.png" alt="The FTR research target: several execution actors each with an independently sealed forecast, feeding a shared evidence field that tracks provenance, dissent and evidence ancestry, where agreement between sources does not imply independence. Competing hypotheses feed active falsification, which chooses the cheapest discriminating experiment, and an epistemic scheduler allocates compute to decision-critical uncertainty. A reality-admission step asks whether premises are fresh and evidence independent before the existing runtime gates commit an effect, and outcomes feed calibration by proper scoring." loading="lazy" /></div>
-</figure>
+<a class="fig-plate" href="/research/mobius-a05-ftr-research-target.png">
+  <img src="/research/mobius-a05-ftr-research-target.png" alt="The FTR research target: several execution actors each with an independently sealed forecast, feeding a shared evidence field that tracks provenance, dissent and evidence ancestry, where agreement between sources does not imply independence. Competing hypotheses feed active falsification, which chooses the cheapest discriminating experiment, and an epistemic scheduler allocates compute to decision-critical uncertainty. A reality-admission step asks whether premises are fresh and evidence independent before the existing runtime gates commit an effect, and outcomes feed calibration by proper scoring." loading="lazy" />
+</a>
 
 <p class="fig-note">The target topology, not the current implementation. Everything on this diagram is dotted for a reason — and the ceiling above is why the left-hand column is still theory.</p>
 

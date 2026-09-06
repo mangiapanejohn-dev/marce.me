@@ -17,9 +17,9 @@ That's the post. But the way I got there matters more than the finding, because 
 
 ### The week that forced the question
 
-<figure class="fig-pan-wrap">
-  <div class="fig-pan"><img src="/research/mobius-a04-durability-reentry.png" alt="Durability and re-entry: run A records goal.created, action.proposed, authority.escalated and goal.suspended, then ends. The question leaves the process and the durable journal holds it. A human answers later, authority.answered is appended to the same journal, and a new run B folds the log with project() and continues execution from the same causal position." loading="lazy" /></div>
-</figure>
+<a class="fig-plate" href="/research/mobius-a04-durability-reentry.png">
+  <img src="/research/mobius-a04-durability-reentry.png" alt="Durability and re-entry: run A records goal.created, action.proposed, authority.escalated and goal.suspended, then ends. The question leaves the process and the durable journal holds it. A human answers later, authority.answered is appended to the same journal, and a new run B folds the log with project() and continues execution from the same causal position." loading="lazy" />
+</a>
 
 <p class="fig-note">ADR 0013, drawn: a suspended run is a log position, not a paused process. The gap in the middle is where nothing is alive.</p>
 

@@ -13,11 +13,11 @@ The runtime has a mechanism for exactly this. `ActionPrecondition` with `kind: '
 is the model saying *this action rests on something I have not looked at yet*. V41 asked why it never
 produces a look, and the answer was three defects in one path.
 
-<figure class="fig-pan-wrap">
-  <div class="fig-pan"><img src="/research/mobius-a03-action-lifecycle.png" alt="One proposed effect from cognition to verification, in twelve steps: ActionIntent, PreconditionGate, unknown.raised, route gap, fresh observation, resolution check, admission gates, compile, dispatch, EffectReceipt, VerificationResult, forecast resolution. Two defects are marked on it — the route gap flipping no-route against look, and one unknown raised against thirty-one resolved and no dispatch." loading="lazy" /></div>
-</figure>
+<a class="fig-plate" href="/research/mobius-a03-action-lifecycle.png">
+  <img src="/research/mobius-a03-action-lifecycle.png" alt="One proposed effect from cognition to verification, in twelve steps: ActionIntent, PreconditionGate, unknown.raised, route gap, fresh observation, resolution check, admission gates, compile, dispatch, EffectReceipt, VerificationResult, forecast resolution. Two defects are marked on it — the route gap flipping no-route against look, and one unknown raised against thirty-one resolved and no dispatch." loading="lazy" />
+</a>
 
-<p class="fig-note">One effect, cognition to verification. The two red boxes are what V41 measured; everything after step 6 is what never happened. Scroll sideways — it is 11:1.</p>
+<p class="fig-note">One effect, cognition to verification. The two red boxes are what V41 measured; everything after step 6 is what never happened. Click to open it full size.</p>
 
 
 Two of the four versions that fixed them aimed at the wrong site first, and that turned out to be the

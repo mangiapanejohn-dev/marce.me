@@ -99,49 +99,43 @@ html[data-theme="dark"] .fig-dark {
   display: block;
 }
 
-/* Panoramic figures — the architecture maps.
+/* The architecture maps.
 
-   These are not the mermaid pairs above. They are raster, they are light-only, and their aspect
-   ratios run to 11:1: A03 is 7287x641, so fitted to a text column it would be a 68px strip with
-   two-pixel labels. Fitting them to the column destroys the only thing they are for.
-
-   So they keep a height that makes the labels legible and scroll sideways in their own box, which
-   is the same rule tables and code blocks already follow here.
+   Not the mermaid pairs above. These are raster, they are light-only, and their aspect ratios run to
+   11:1 — A03 is 7287x641. Fitted to a text column that is a sixty-pixel strip, so the plate is
+   allowed to be wider than the column where the viewport has room, and it links to itself at full
+   resolution. At any width below its own, it is an orientation aid; the click is how you read it.
 
    The box carries the diagram's own paper colour in both themes, on purpose. There is no dark twin
    to swap to — a bright rectangle dropped into a dark page reads as a mistake, and a light panel
    with a border reads as a plate. When these get mermaid sources they should become `.fig-light` /
    `.fig-dark` pairs like everything else and this rule can go. */
-.fig-pan {
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  border: 1px solid rgb(0 0 0 / 15%);
-  border-radius: 6px;
-  background: #f6f3ec;
-  margin-block: 1rem;
-}
-.fig-pan img {
-  display: block;
-  height: 20rem;
-  width: auto;
-  max-width: none;
-}
-
-/* The dense map is nearly square rather than panoramic, so it fits the column — but at that size it
-   is an orientation aid, not a readable diagram. It links to itself at full resolution, and says so.
-   `max-width: 100%` here rather than a fixed height, which is the opposite of the rule above. */
 .fig-plate {
   display: block;
   border: 1px solid rgb(0 0 0 / 15%);
   border-radius: 6px;
   background: #f6f3ec;
   margin-block: 1rem;
+  overflow: hidden;
 }
 .fig-plate img {
   display: block;
   width: 100%;
   height: auto;
 }
+.fig-plate:hover {
+  border-color: rgb(0 0 0 / 32%);
+}
+
+/* Break out of the text column when there is room for it, and only then. Below the breakpoint the
+   negative margins would push the plate off-screen, so the rule simply does not apply. */
+@media (min-width: 62rem) {
+  .fig-plate {
+    width: 56rem;
+    margin-inline: calc((100% - 56rem) / 2);
+  }
+}
+
 .fig-note {
   font-size: 0.8rem;
   opacity: 0.72;
