@@ -318,4 +318,15 @@ export const versions: MobiusVersion[] = [
       "缺的那个作用域恰好有一个字段，而每个 provider 都写 []。显而易见的填法重现的正是早已被否决的作用域——grounding 观测就是 premise。声明一直在动作自己的前置条件里。",
     post: "mobius-v46-the-premise-is-what-it-declared",
   },
+  {
+    v: "V47",
+    at: "2026-09-06T05:50:48-04:00",
+    claim: "Two witnesses and one interpretation",
+    claimZh: "两个证人，一种解释",
+    blurb:
+      "Four evidence refs, two roots — the verdict's observed ref is the receipt's, carried forward. The one path with two independent reads finds them disagreeing at the same world revision, and the runtime has exactly one reading of that. H5 is located, not closed.",
+    blurbZh:
+      "四条证据 ref，两个根——裁决里那条 observed ref 就是 receipt 那一条带下来的。唯一有两次独立读取的路径，发现它们在同一个世界版本上互相矛盾，而 runtime 对此只有一种读法。H5 是被定位了，不是被关闭了。",
+    post: "mobius-v47-two-witnesses-one-interpretation",
+  },
 ];
