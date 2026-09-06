@@ -362,4 +362,15 @@ export const versions: MobiusVersion[] = [
       "manifest 十七个字段里有两个没有读者，而这个类型赖以存在的那个机器可读谓词从来没有被机器读过。为揭露此事而写的报告，去统计了它所描述的那些声明——那是一次读取——于是第一次运行就证伪了自己。",
     post: "mobius-v50-declared-and-not-read",
   },
+  {
+    v: "V51",
+    at: "2026-09-06T10:17:09-04:00",
+    claim: "A plan is not a status",
+    claimZh: "计划不是状态",
+    blurb:
+      "Three of four pre-registered predictions refuted, and one of them invalidated the previous version's method: name matching establishes absence, not presence. Plus a new red file that this version did not cause — a fixture stamping Date.now() and compared to itself.",
+    blurbZh:
+      "四条预注册预测被证伪三条，其中一条作废了上一版的方法：名字匹配能确立缺席，不能确立在场。外加一个不是这一版造成的新红文件——一个盖了 Date.now() 又拿来和自己比对的 fixture。",
+    post: "mobius-v51-declared-and-nothing-runs-it",
+  },
 ];
