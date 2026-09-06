@@ -340,4 +340,15 @@ export const versions: MobiusVersion[] = [
       "仓库只报一个路径变了，从不报变成了什么——所以显而易见的逐路径互证并不存在。存在的是：一个内容 token 和一个状态 token，盲区互不重叠，以及一个在某一个文件上与其中之一达成一致的文件系统摘要。H5 从够不着，变成了够得着、而且可能不值得去够。",
     post: "mobius-v48-a-second-reader",
   },
+  {
+    v: "V49",
+    at: "2026-09-06T09:19:59-04:00",
+    claim: "Named for what it measures",
+    claimZh: "按它实际测量的东西命名",
+    blurb:
+      "A field called worktreeChanged, built on a token that is blind to a second edit of an already-modified file, reporting false across a real content change — and read by nothing. What shipped is the rename. What deliberately did not is the one-line fix that would have worked.",
+    blurbZh:
+      "一个叫 worktreeChanged 的字段，建在一个看不见「已修改文件再改一次」的 token 上，在一次真实的内容变更上报 false——而且没有任何东西在读它。发出去的是改名。刻意没发的，是那个一行就能成、而且确实能工作的修复。",
+    post: "mobius-v49-named-for-what-it-measures",
+  },
 ];
