@@ -4,6 +4,7 @@ description: "Three of my planning documents deferred a load-bearing architectur
 pubDatetime: 2026-08-29T12:00:00Z
 tags: ["MØBIUS", "Agents", "Building"]
 category: "research"
+series: "MØBIUS"
 cover: "/cover-section-58.svg"
 ---
 

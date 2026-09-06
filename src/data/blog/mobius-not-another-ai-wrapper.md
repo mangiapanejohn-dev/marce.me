@@ -4,6 +4,7 @@ description: "I set out to build myself a better coding-agent harness. Every fea
 pubDatetime: 2026-08-28T12:00:00Z
 tags: ["MØBIUS", "Agents", "AI"]
 category: "research"
+series: "MØBIUS"
 cover: "/mobius-card.svg"
 ---
 

@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-05T18:45:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 `changed` 是唯一一个"任何对动作后状态的观测都裁决不了"的断言算子。验证平面自己知道这件事：当 provider

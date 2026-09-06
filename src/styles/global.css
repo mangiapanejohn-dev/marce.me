@@ -101,39 +101,45 @@ html[data-theme="dark"] .fig-dark {
 
 /* The architecture maps.
 
-   Not the mermaid pairs above. These are raster, they are light-only, and their aspect ratios run to
-   11:1 — A03 is 7287x641. Fitted to a text column that is a sixty-pixel strip, so the plate is
-   allowed to be wider than the column where the viewport has room, and it links to itself at full
-   resolution. At any width below its own, it is an orientation aid; the click is how you read it.
+   Not the mermaid pairs above: raster, light-only, and panoramic — A03 is 7287x641. They are cut
+   into stacked segments so the labels are legible in the column, and the plate links to the whole
+   undivided diagram at full resolution.
 
-   The box carries the diagram's own paper colour in both themes, on purpose. There is no dark twin
-   to swap to — a bright rectangle dropped into a dark page reads as a mistake, and a light panel
-   with a border reads as a plate. When these get mermaid sources they should become `.fig-light` /
-   `.fig-dark` pairs like everything else and this rule can go. */
+   Matched to what every other image on this site already does — full column width, 12px radius, the
+   same shadow, 2rem of air. An earlier cut of this broke the plate out to 56rem while the text column
+   is 48rem, which made the diagrams the only element on the site that did not line up with the prose.
+
+   The paper colour is carried in both themes on purpose. There is no dark twin to swap to; a bright
+   rectangle dropped into a dark page reads as a mistake, and a light panel reads as a plate. When
+   these get mermaid sources they become `.fig-light` / `.fig-dark` pairs and this rule can go. */
 .fig-plate {
   display: block;
-  border: 1px solid rgb(0 0 0 / 15%);
-  border-radius: 6px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
   background: #f6f3ec;
-  margin-block: 1rem;
+  margin-block: 2rem;
   overflow: hidden;
 }
+.fig-plate:hover {
+  box-shadow: 0 4px 20px rgb(0 0 0 / 18%);
+}
+
+/* Segments stack flush: one diagram folded onto several lines, not several diagrams. The caption
+   under each says what that stretch covers, so the fold is readable rather than merely tolerated. */
 .fig-plate img {
   display: block;
   width: 100%;
   height: auto;
 }
-.fig-plate:hover {
-  border-color: rgb(0 0 0 / 32%);
+.fig-seg {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-align: center;
+  padding: 0.3rem 1rem 0.7rem;
+  margin: 0;
 }
-
-/* Break out of the text column when there is room for it, and only then. Below the breakpoint the
-   negative margins would push the plate off-screen, so the rule simply does not apply. */
-@media (min-width: 62rem) {
-  .fig-plate {
-    width: 56rem;
-    margin-inline: calc((100% - 56rem) / 2);
-  }
+.fig-seg + img {
+  border-top: 1px solid rgb(0 0 0 / 8%);
 }
 
 .fig-note {

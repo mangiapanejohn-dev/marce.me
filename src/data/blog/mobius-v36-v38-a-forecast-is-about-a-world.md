@@ -4,6 +4,7 @@ description: "V35 built a scorer. Three versions then spent their whole length a
 pubDatetime: 2026-09-05T18:30:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 V35 scored the pair the journal already carried — a prediction written before a dispatch, a verdict

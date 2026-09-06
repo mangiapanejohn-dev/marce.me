@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-05T18:30:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 V35 给 journal 里早就存在的那一对打了分——派发之前写下的预测，派发之后写下的裁决。这张表一旦存在，

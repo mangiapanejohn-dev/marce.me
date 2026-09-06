@@ -4,6 +4,7 @@ description: "The verification plane escalates to a fresh observation because a 
 pubDatetime: 2026-09-05T18:45:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 `changed` is the one assertion operator that no observation of post-action state can settle. The

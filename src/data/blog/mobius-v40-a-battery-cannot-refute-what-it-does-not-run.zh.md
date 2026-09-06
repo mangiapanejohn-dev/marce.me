@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-05T19:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 这一版没有交付任何生产代码改动。它之所以在这里，是因为它失败的方式。

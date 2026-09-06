@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-06T10:15:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 六个版本之前，forecast 表学会了说*「这个决策所处的世界动了」*——而且是**报告**它，不是拿它计分。理由是

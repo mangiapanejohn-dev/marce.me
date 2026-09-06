@@ -86,7 +86,17 @@ const layoutProps = {
 
 /* ========== Prev/Next Posts ========== */
 
-const allPosts = posts.map(({ data: { title }, id, filePath }) => ({
+/**
+ * Walk the series when the post is in one.
+ *
+ * A reader working through the MØBIUS version log should not be handed a personal essay after V35.
+ * Every post in a series declares `series`; a post outside one still walks the whole blog, which is
+ * what every post did before the field existed.
+ */
+const series = post.data.series;
+const pool = series ? posts.filter(entry => entry.data.series === series) : posts;
+
+const allPosts = pool.map(({ data: { title }, id, filePath }) => ({
   id,
   title,
   filePath,
@@ -96,9 +106,21 @@ const currentPostIndex = allPosts.findIndex(
   a => getTranslationKey(a.id) === getTranslationKey(post.id)
 );
 
-const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
-const nextPost =
-  currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+/**
+ * `posts` arrives sorted newest-first, so the **newer** neighbour is the one *before* this post in
+ * the array and the older one is after it.
+ *
+ * This used to read `prev = index - 1` and `next = index + 1` straight off those positions, which
+ * made "Next Post" hand you the *older* article — backwards for a log that reads V35 → V47, and the
+ * opposite of what `/mobius` does with the same versions. The bound was wrong too: the last index is
+ * `length - 1`, so `index !== length` was true on the final post and `next` resolved to `undefined`,
+ * masked only by the `nextPost &&` guard in the template.
+ */
+const nextPost = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null;
+const prevPost =
+  currentPostIndex >= 0 && currentPostIndex < allPosts.length - 1
+    ? allPosts[currentPostIndex + 1]
+    : null;
 ---
 
 <Layout {...layoutProps}>

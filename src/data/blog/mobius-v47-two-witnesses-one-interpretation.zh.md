@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-06T11:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 开启这整条线的那份前沿综述，结尾列了一串假设，其中一条——**一个能自己制造独立证据根的 runtime**——是

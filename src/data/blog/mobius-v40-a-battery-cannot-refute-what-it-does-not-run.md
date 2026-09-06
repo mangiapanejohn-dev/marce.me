@@ -4,6 +4,7 @@ description: "The change passed all four of its pre-registered predictions and a
 pubDatetime: 2026-09-05T19:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 This version shipped no production change. It is here because of how it failed.

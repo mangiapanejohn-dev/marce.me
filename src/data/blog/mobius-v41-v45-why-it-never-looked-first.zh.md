@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-06T10:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 连着四个版本，结尾都是同一句话：*没有任何东西让 runtime 有意地在动作之前去看——它之所以看过，只是因为

@@ -4,6 +4,7 @@ description: "The one frontier hypothesis nothing had touched: a runtime manufac
 pubDatetime: 2026-09-06T11:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 The frontier review that started this whole line closed with a list of hypotheses, and one of them —

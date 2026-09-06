@@ -4,6 +4,7 @@ description: "Four versions had arrived at the same open question from four dire
 pubDatetime: 2026-09-06T10:00:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 Four versions in a row had ended on the same sentence. *Nothing makes the runtime look before acting

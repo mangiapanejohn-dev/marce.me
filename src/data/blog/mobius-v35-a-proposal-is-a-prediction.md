@@ -4,6 +4,7 @@ description: "Every action the runtime dispatches was described before it happen
 pubDatetime: 2026-09-05T12:00:00Z
 tags: ["MØBIUS", "Agents", "Verification"]
 category: "research"
+series: "MØBIUS"
 ---
 
 `ActionIntent.expected` is written **before** a dispatch: a description, machine-checkable

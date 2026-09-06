@@ -6,6 +6,7 @@ lang: "zh"
 pubDatetime: 2026-09-05T12:00:00Z
 tags: ["MØBIUS", "Agents", "Verification"]
 category: "research"
+series: "MØBIUS"
 ---
 
 `ActionIntent.expected` 写在派发**之前**：一句描述、一组机器可判定的断言、一个 `reversible` 标记。

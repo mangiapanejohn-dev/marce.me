@@ -4,6 +4,7 @@ description: "The forecast line's last open row. A field existed for exactly the
 pubDatetime: 2026-09-06T10:15:00Z
 tags: ["MØBIUS", "Agents", "Verification", "Research"]
 category: "research"
+series: "MØBIUS"
 ---
 
 Six versions ago the forecast table learned to say *the world this decision was made in has moved* —
