@@ -329,4 +329,15 @@ export const versions: MobiusVersion[] = [
       "四条证据 ref，两个根——裁决里那条 observed ref 就是 receipt 那一条带下来的。唯一有两次独立读取的路径，发现它们在同一个世界版本上互相矛盾，而 runtime 对此只有一种读法。H5 是被定位了，不是被关闭了。",
     post: "mobius-v47-two-witnesses-one-interpretation",
   },
+  {
+    v: "V48",
+    at: "2026-09-06T08:58:09-04:00",
+    claim: "A second reader exists, and its blind spots are disjoint",
+    claimZh: "第二个读取者是存在的，而且它们的盲区互不重叠",
+    blurb:
+      "The repository reports that a path changed, never to what — so the obvious per-path corroboration does not exist. What does: a content token and a status token whose blind spots are disjoint, and a filesystem digest that agrees with one of them about one file. H5 moves from unreachable to reachable and possibly not worth reaching.",
+    blurbZh:
+      "仓库只报一个路径变了，从不报变成了什么——所以显而易见的逐路径互证并不存在。存在的是：一个内容 token 和一个状态 token，盲区互不重叠，以及一个在某一个文件上与其中之一达成一致的文件系统摘要。H5 从够不着，变成了够得着、而且可能不值得去够。",
+    post: "mobius-v48-a-second-reader",
+  },
 ];
