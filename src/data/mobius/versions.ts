@@ -340,37 +340,4 @@ export const versions: MobiusVersion[] = [
       "仓库只报一个路径变了，从不报变成了什么——所以显而易见的逐路径互证并不存在。存在的是：一个内容 token 和一个状态 token，盲区互不重叠，以及一个在某一个文件上与其中之一达成一致的文件系统摘要。H5 从够不着，变成了够得着、而且可能不值得去够。",
     post: "mobius-v48-a-second-reader",
   },
-  {
-    v: "V49",
-    at: "2026-09-06T09:19:59-04:00",
-    claim: "Named for what it measures",
-    claimZh: "按它实际测量的东西命名",
-    blurb:
-      "A field called worktreeChanged, built on a token that is blind to a second edit of an already-modified file, reporting false across a real content change — and read by nothing. What shipped is the rename. What deliberately did not is the one-line fix that would have worked.",
-    blurbZh:
-      "一个叫 worktreeChanged 的字段，建在一个看不见「已修改文件再改一次」的 token 上，在一次真实的内容变更上报 false——而且没有任何东西在读它。发出去的是改名。刻意没发的，是那个一行就能成、而且确实能工作的修复。",
-    post: "mobius-v49-named-for-what-it-measures",
-  },
-  {
-    v: "V50",
-    at: "2026-09-06T09:41:33-04:00",
-    claim: "Declared and not read",
-    claimZh: "声明了，而没人读",
-    blurb:
-      "Two of seventeen manifest fields have no reader, and the machine-readable predicate the type exists for has never been machine-read. The report written to disclose that counted the declarations it described — which is a read — and falsified itself on the first run.",
-    blurbZh:
-      "manifest 十七个字段里有两个没有读者，而这个类型赖以存在的那个机器可读谓词从来没有被机器读过。为揭露此事而写的报告，去统计了它所描述的那些声明——那是一次读取——于是第一次运行就证伪了自己。",
-    post: "mobius-v50-declared-and-not-read",
-  },
-  {
-    v: "V51",
-    at: "2026-09-06T10:17:09-04:00",
-    claim: "A plan is not a status",
-    claimZh: "计划不是状态",
-    blurb:
-      "Three of four pre-registered predictions refuted, and one of them invalidated the previous version's method: name matching establishes absence, not presence. Plus a new red file that this version did not cause — a fixture stamping Date.now() and compared to itself.",
-    blurbZh:
-      "四条预注册预测被证伪三条，其中一条作废了上一版的方法：名字匹配能确立缺席，不能确立在场。外加一个不是这一版造成的新红文件——一个盖了 Date.now() 又拿来和自己比对的 fixture。",
-    post: "mobius-v51-declared-and-nothing-runs-it",
-  },
 ];
