@@ -252,4 +252,70 @@ export const versions: MobiusVersion[] = [
       "这个改动通过了它全部四条预测、通过了五条 mutation 的 battery 且零存活，而它依然是错的：全套件发现它会在一次跑偏的 look 上恢复工作。已回滚。battery 衡量的是你交给它的那些测试，而那六个文件全都是按「这一版讲什么」挑的。",
     post: "mobius-v40-a-battery-cannot-refute-what-it-does-not-run",
   },
+  {
+    v: "V41",
+    at: "2026-09-05T15:14:04-04:00",
+    claim: "Why the runtime never looks before it acts",
+    claimZh: "为什么 runtime 从不在动作之前先看一眼",
+    blurb:
+      "The one mechanism that would make it look first never produces a usable look, for three independent reasons — and this version fixed none of them. Repairing the routing alone turns a failure that costs nothing into one that costs 31 charged observations.",
+    blurbZh:
+      "那个唯一能让它先看一眼的机制，因为三个独立原因从来产不出一次可用的 look——而这一版一个都没修。只修路由，会把一个不花钱的失败换成一个要花 31 次计费观测的失败。",
+    post: "mobius-v41-v45-why-it-never-looked-first",
+  },
+  {
+    v: "V42",
+    at: "2026-09-05T15:45:14-04:00",
+    claim: "Only one of the two meanings is ever promised",
+    claimZh: "两个含义里，只有一个被承诺出去",
+    blurb:
+      "A field meant the precondition's subject where it was written and criterion ids where it was read. Emptying it at the writer broke a reader that depended on it — filing evidence under the subject is the mechanism, not the mislabel. The fix is at the boundary that makes a promise.",
+    blurbZh:
+      "一个字段在写它的地方指前置条件的 subject，在读它的地方指 criterion id。在写入方清空它，打断了一个依赖它的读取方——把证据归档到 subject 下不是标错，那就是机制。修在真正做出承诺的那个边界上。",
+    post: "mobius-v41-v45-why-it-never-looked-first",
+  },
+  {
+    v: "V43",
+    at: "2026-09-05T16:12:24-04:00",
+    claim: "A resolution the look did not produce is not recorded",
+    claimZh: "一次 look 没产出的「解决」，不该被记录",
+    blurb:
+      "One question was marked answered 31 times by looks that came back carrying nothing, and the runtime's own projection already disbelieved every one of them. They were not claims anything acted on; they were false records.",
+    blurbZh:
+      "一个问题被 31 次什么都没带回来的 look 标记为「已回答」，而 runtime 自己的投影早就一个都不信。它们不是被采信的声明，是假记录。",
+    post: "mobius-v41-v45-why-it-never-looked-first",
+  },
+  {
+    v: "V44",
+    at: "2026-09-05T16:50:53-04:00",
+    claim: "A question already asked of the world is not still open",
+    claimZh: "已经问过世界的问题，不算还开着",
+    blurb:
+      "The stop, the reason and the filter were all already there. What was missing was one fact — this unknown has been asked — and the two places that had to read it. A test that had been green for years turned out to be passing on the defect.",
+    blurbZh:
+      "停止状态、理由、过滤器全都早就在。缺的是一个事实——这个 unknown 已经问过了——和两个必须读它的地方。一个绿了很多年的测试，原来一直靠着这个缺陷才通过。",
+    post: "mobius-v41-v45-why-it-never-looked-first",
+  },
+  {
+    v: "V45",
+    at: "2026-09-06T04:31:39-04:00",
+    claim: "The runtime knows what the look is for, and now says so",
+    claimZh: "runtime 知道这次 look 是为了什么，现在它说出来了",
+    blurb:
+      "The reflex could always have routed the look; the runtime could not say what the look was for. The proposer had a slot channel and the runtime had none — so whether it was allowed to look at a file it could see was decided by the wording of a sentence written for a human.",
+    blurbZh:
+      "reflex 一直都能路由这次 look；说不出「这次 look 是为了什么」的是 runtime。提议者有 slot 通道而 runtime 没有——于是它能不能去看一个它看得见的文件，由一句写给人看的话的措辞决定。",
+    post: "mobius-v41-v45-why-it-never-looked-first",
+  },
+  {
+    v: "V46",
+    at: "2026-09-06T05:01:46-04:00",
+    claim: "An action's premise is what it said it rested on",
+    claimZh: "一个动作的 premise，是它自己说过依赖什么",
+    blurb:
+      "A field existed for exactly the missing scope and every provider wrote []. The obvious way to fill it reproduces the scope already rejected — the grounding observation is the premise. The declaration was in the action's own preconditions all along.",
+    blurbZh:
+      "缺的那个作用域恰好有一个字段，而每个 provider 都写 []。显而易见的填法重现的正是早已被否决的作用域——grounding 观测就是 premise。声明一直在动作自己的前置条件里。",
+    post: "mobius-v46-the-premise-is-what-it-declared",
+  },
 ];
