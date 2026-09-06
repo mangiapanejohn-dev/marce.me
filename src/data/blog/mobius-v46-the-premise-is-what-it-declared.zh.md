@@ -42,6 +42,13 @@ a2 acts on:            settings.json
 
 ### 声明是存在的，只是不在观测里
 
+<figure class="fig-pan-wrap">
+  <div class="fig-pan"><img src="/research/mobius-a06-runtime-truth-model.png" alt="runtime 真值模型：观测/证据回答或收窄一个 unknown，并可能引发失效，失效会作废一个前提或假设。前提支撑决策/意图，决策被 authority 与前置条件检查，并携带一个关于预期结果的 forecast。编译后的 effect 造成结果，验证对它裁决，而 forecast 与已裁决结果之对照就是 calibration。一个建立在已失效前提上的待执行 effect 不得提交。" loading="lazy" /></div>
+</figure>
+
+<p class="fig-note">一个决策依赖什么，以及证据如何让它下游的执行失效。左边那一列前提，正是这一版给了它作用域的东西。</p>
+
+
 `ActionIntent.preconditions` 就是动作在派发之前说出自己依赖什么。`fresh-observation(X)` 的意思是*这个动作
 依赖 X 被看过*。这是 runtime 里唯一一个和 `targets` 同义的东西——而编译器本来就拿得到 intent，什么都不用
 铺管子。
@@ -83,6 +90,13 @@ staleness 自己的用词——在此之前第一版断言的是「run 不以 ab
 fixture 写的，不是照着分支写的。battery 能发现，读测试发现不了。
 
 ### 还剩什么
+
+<figure class="fig-pan-wrap">
+  <div class="fig-pan"><img src="/research/mobius-a05-ftr-research-target.png" alt="FTR 研究目标拓扑：多个执行 actor，各自持有独立封存的 forecast，汇入一个共享的证据场——该证据场追踪 provenance、异议与证据谱系，并且「来源之间达成一致」并不蕴含「彼此独立」。competing hypotheses 供给 active falsification，后者挑选最便宜的判别实验；epistemic scheduler 把算力分配给决策关键的不确定性。在既有 runtime 门提交 effect 之前，有一步 reality admission 追问前提是否新鲜、证据是否独立；结果再回流到 按 proper scoring 的 calibration。" loading="lazy" /></div>
+</figure>
+
+<p class="fig-note">这是目标拓扑，不是当前实现。图上每条线都是点线，是有原因的——而上面那段天花板，正是左边那一列仍然是理论的理由。</p>
+
 
 这个作用域的好坏，取决于提议者愿不愿意声明依赖，而目前没有任何东西奖励它这么做。大多数动作什么都不声明，
 所以大多数仍然是全树报告——诚实，也是天花板。

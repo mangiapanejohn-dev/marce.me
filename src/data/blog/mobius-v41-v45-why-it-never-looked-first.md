@@ -13,6 +13,13 @@ The runtime has a mechanism for exactly this. `ActionPrecondition` with `kind: '
 is the model saying *this action rests on something I have not looked at yet*. V41 asked why it never
 produces a look, and the answer was three defects in one path.
 
+<figure class="fig-pan-wrap">
+  <div class="fig-pan"><img src="/research/mobius-a03-action-lifecycle.png" alt="One proposed effect from cognition to verification, in twelve steps: ActionIntent, PreconditionGate, unknown.raised, route gap, fresh observation, resolution check, admission gates, compile, dispatch, EffectReceipt, VerificationResult, forecast resolution. Two defects are marked on it — the route gap flipping no-route against look, and one unknown raised against thirty-one resolved and no dispatch." loading="lazy" /></div>
+</figure>
+
+<p class="fig-note">One effect, cognition to verification. The two red boxes are what V41 measured; everything after step 6 is what never happened. Scroll sideways — it is 11:1.</p>
+
+
 Two of the four versions that fixed them aimed at the wrong site first, and that turned out to be the
 more interesting half.
 
@@ -188,3 +195,11 @@ fixing them. Every one has now been acted on, and its last pin was not refuted b
 it asserted that rewording `because` changes the outcome, and under V45 both wordings produce the same
 run. The record of what it measured is its plan document. The tests belong to the versions that own
 the claims.
+
+### The map, for what it is worth
+
+<a class="fig-plate" href="/research/mobius-v42-runtime-architecture.png">
+  <img src="/research/mobius-v42-runtime-architecture.png" alt="The whole runtime at V42, in five bands: a live execution spine from human authority through goal, model port, ActionIntent, premise resolution, admission gates, compile, dispatch, world, receipt and verification; cognition and observation, holding the unknown lifecycle, gap routing and fresh observation; world and freshness, holding WorldRevision, ActionBasis and the staleness guard; durability and calibration, holding the durable journal, project() and the forecast calibration fold; and a dotted research frontier for the future trajectory reasoner. Solid edges are live, dashed are declared but dormant, dotted are research." loading="lazy" />
+</a>
+
+<p class="fig-note">The whole runtime at V42 — the version in the middle of this post. Solid is live, dashed is declared but dormant, dotted is research. Open it full size; at this width it is an orientation aid rather than a readable diagram.</p>

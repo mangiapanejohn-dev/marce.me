@@ -14,6 +14,13 @@ category: "research"
 runtime 有这个机制。`ActionPrecondition` 的 `kind: 'fresh-observation'` 就是模型在说*这个动作依赖一件
 我还没看过的事*。V41 问它为什么从来产不出一次 look，答案是同一条路径上的三个缺陷。
 
+<figure class="fig-pan-wrap">
+  <div class="fig-pan"><img src="/research/mobius-a03-action-lifecycle.png" alt="一个被提议的 effect 从认知到验证的十二步：ActionIntent、PreconditionGate、unknown.raised、路由缺口、fresh observation、resolution check、准入门、编译、派发、EffectReceipt、VerificationResult、forecast resolution。图上标了两个缺陷：路由缺口会在 no-route 和 look 之间翻转，以及一个 unknown 对三十一次 resolved、零次 dispatch。" loading="lazy" /></div>
+</figure>
+
+<p class="fig-note">一次 effect，从认知到验证。两个红框是 V41 量出来的东西；第 6 步之后的一切都没有发生。横向滚动——它是 11:1。</p>
+
+
 修它们的四个版本里，有两个先打偏了——而那反倒是更有意思的一半。
 
 ### V41 —— 测量，并且拒绝修
@@ -168,3 +175,11 @@ inspect/file/content     -> fs.observe
 **而 V41 的测试文件已经删除。** 它没交付任何代码，只钉了三个缺陷和一条「为什么不修」。每一条现在都被处理
 了，而它最后一条 pin 不是被推翻，是**被变成空的**：它断言「改措辞会改变结果」，而 V45 之后两种措辞产生
 同一个 run。它测量过什么，记录在它的 plan 文档里。测试属于持有主张的那些版本。
+
+### 一张地图，聊胜于无
+
+<a class="fig-plate" href="/research/mobius-v42-runtime-architecture.png">
+  <img src="/research/mobius-v42-runtime-architecture.png" alt="V42 时的整个 runtime，分五个带：一条从人类授权出发的实时执行脊——goal、模型端口、ActionIntent、前提消解、准入门、编译、派发、世界、receipt、验证；认知与观测带，装着 unknown 生命周期、gap 路由与 fresh observation；世界与新鲜度带，装着 WorldRevision、ActionBasis 与 staleness guard；持久化与校准带，装着持久 journal、project() 与 forecast calibration fold；以及一条虚点表示的研究前沿，属于 future trajectory reasoner。实线是活的，虚线是已声明但休眠，点线是研究。" loading="lazy" />
+</a>
+
+<p class="fig-note">V42 时的整个 runtime——也就是这篇文章中段那一版。实线是活的，虚线是已声明但休眠，点线是研究。点开看原图；在这个宽度下它是张方位图，不是能读的图。</p>

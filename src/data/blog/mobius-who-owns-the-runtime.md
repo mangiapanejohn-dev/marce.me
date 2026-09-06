@@ -17,6 +17,13 @@ That's the post. But the way I got there matters more than the finding, because 
 
 ### The week that forced the question
 
+<figure class="fig-pan-wrap">
+  <div class="fig-pan"><img src="/research/mobius-a04-durability-reentry.png" alt="Durability and re-entry: run A records goal.created, action.proposed, authority.escalated and goal.suspended, then ends. The question leaves the process and the durable journal holds it. A human answers later, authority.answered is appended to the same journal, and a new run B folds the log with project() and continues execution from the same causal position." loading="lazy" /></div>
+</figure>
+
+<p class="fig-note">ADR 0013, drawn: a suspended run is a log position, not a paused process. The gap in the middle is where nothing is alive.</p>
+
+
 MØBIUS is a runtime for agents, which means the objects it manages are sessions: a connection to a filesystem, a shell, a repository, a browser. Six slices of work landed in one morning, and each one found the same class of defect from a different angle.
 
 **A capability was declared and never chosen.** Session ownership was modelled as `launch` or `attach` — either the runtime started this thing, or it connected to something already running. Reasonable model. Then I checked the call sites, and every single one on the kernel side passed `launch`. The distinction existed in the type and nowhere in the behaviour. The measurable consequence: open a session as `attach`, ask to close it with `terminate`, and it closes. **The runtime could destroy a session it had never created.**
