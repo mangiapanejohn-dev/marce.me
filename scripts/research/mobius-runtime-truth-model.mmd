@@ -1,0 +1,30 @@
+flowchart TB
+  obs["observation / evidence<br/>world state · tool result<br/>human answer"]
+  unk["unknown<br/>what is not settled yet"]
+  inval["invalidation / staleness<br/>a premise no longer holds"]
+  prem["premise / assumption<br/>the fact a decision rests on"]
+  dec["decision / intent<br/>a proposed change to the world"]
+  auth["authority / preconditions<br/>may this intent proceed?"]
+  fore["forecast<br/>the expected outcome,<br/>written before the effect"]
+  stale["a pending effect on<br/>an invalid premise<br/>must not commit"]
+  eff["compiled effect<br/>ActionIR"]
+  out["outcome / verification<br/>what actually happened"]
+  cal["calibration<br/>forecast × resolved outcome"]
+  journal[("durable journal<br/>causal history · replay · audit")]
+
+  obs -->|"answers / narrows"| unk
+  obs -->|"contradicts"| inval
+  unk -->|"resolved into"| prem
+  inval -->|"invalidates"| prem
+  prem -->|"supports"| dec
+  dec -->|"checked by"| auth
+  dec -->|"expected"| fore
+  inval -->|"propagates"| stale
+  auth -->|"admitted"| eff
+  eff -->|"causes"| out
+  out -->|"actual"| cal
+  fore --> cal
+  cal --> journal
+
+  classDef refusal stroke-dasharray: 4 3
+  class stale refusal

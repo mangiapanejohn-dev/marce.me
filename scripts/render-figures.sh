@@ -64,6 +64,22 @@ for src in "${sources[@]}"; do
       --backgroundColor transparent \
       --quiet
 
+    # Preserve the spaces mermaid puts at tspan boundaries.
+    #
+    # With htmlLabels off, a wrapped label becomes <tspan>the</tspan><tspan> proposal</tspan> — the
+    # space is there, and SVG's default xml:space="default" strips leading whitespace inside a
+    # tspan, so it renders as "theproposal". Every renderer does this; it is the spec, not a bug in
+    # one of them. `xml:space="preserve"` on the <text> keeps them.
+    #
+    # htmlLabels stays off on purpose: with it on the labels go inside <foreignObject>, which is not
+    # rendered when an SVG is referenced from <img>, and every figure here is embedded that way.
+    python3 - "$out" <<'PYFIX'
+import re, sys
+p = sys.argv[1]
+s = open(p, encoding="utf-8").read()
+open(p, "w", encoding="utf-8").write(re.sub(r'<text(?![^>]*xml:space)', '<text xml:space="preserve"', s))
+PYFIX
+
     echo "$out"
   done
 done

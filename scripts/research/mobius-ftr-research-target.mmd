@@ -1,0 +1,23 @@
+flowchart TB
+  agents["several execution actors<br/>each sealing its own forecast<br/>before it sees the others"]
+  field["shared evidence field<br/>provenance · dissent<br/>evidence ancestry<br/>agreement between sources<br/>is not independence"]
+  hyp["competing hypotheses<br/>candidate trajectories<br/>assumptions"]
+  fals["active falsification<br/>the cheapest experiment that would<br/>tell two hypotheses apart"]
+  sched["epistemic scheduler<br/>spend compute on the uncertainty<br/>a decision actually turns on"]
+  admit["reality admission<br/>are the premises fresh?<br/>is the evidence independent?"]
+  gates["the runtime gates that exist today<br/>authority · resource · invariant"]
+  eff["effect<br/>committed to the world"]
+  cal["calibration<br/>proper scoring, back<br/>to each forecaster"]
+
+  agents --> field
+  field --> hyp
+  hyp --> fals
+  fals --> sched
+  sched --> admit
+  admit -->|"admitted"| gates
+  gates --> eff
+  eff --> cal
+  cal -.->|"feedback"| agents
+
+  classDef target stroke-dasharray: 4 3
+  class agents,field,hyp,fals,sched,admit,cal target

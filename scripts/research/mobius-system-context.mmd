@@ -1,0 +1,23 @@
+flowchart TB
+  human["Human<br/>goal · authority<br/>answers · interrupt"]
+  client["Client / TUI<br/>an interaction surface,<br/>never runtime truth"]
+  rt["MØBIUS Runtime<br/>goal · cognition · authority<br/>effects · journal"]
+  model["Model Providers<br/>proposals are advisory,<br/>never authority"]
+  ports["Tool / Effect Ports<br/>filesystem · browser<br/>process · APIs"]
+  world["External World<br/>where an effect becomes visible"]
+  journal[("Durable Journal<br/>the authoritative event history")]
+  ftr["FTR / research plane<br/>forecast · falsification<br/>not authoritative yet"]
+
+  human -->|"intent / decision"| client
+  client -->|"turn / answer / interrupt"| rt
+  model -->|"proposal"| rt
+  rt -->|"reason / propose"| model
+  rt -->|"compiled effect"| ports
+  ports -->|"dispatch"| world
+  world -->|"observation / receipt"| rt
+  rt -->|"append events"| journal
+  journal -->|"replay / project"| rt
+  journal -.->|"history"| ftr
+
+  classDef research stroke-dasharray: 4 3
+  class ftr research

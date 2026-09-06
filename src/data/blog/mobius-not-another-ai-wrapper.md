@@ -51,9 +51,8 @@ That distinction is the whole posture. Take the mature thing where the mature th
 
 ### Connecting a model to the world is the actual hard part
 
-<a class="fig-plate" href="/research/mobius-a01-system-context.png">
-  <img src="/research/mobius-a01-system-context.png" alt="System context: a human gives intent and authority to a client which is an interaction surface and never runtime truth; the client passes turns to the MØBIUS runtime, which owns goal, cognition, authority, effects and journal. Model providers return proposals that are advisory rather than authoritative; tool and effect ports dispatch compiled effects to the external world and return observations and receipts; the durable journal holds authoritative event history." loading="lazy" />
-</a>
+<img class="fig-light" src="/research/mobius-system-context.svg" alt="System context: a human gives intent and authority to a client which is an interaction surface and never runtime truth; the client passes turns to the MØBIUS runtime, which owns goal, cognition, authority, effects and journal. Model providers return proposals that are advisory rather than authoritative; tool and effect ports dispatch compiled effects to the external world and return observations and receipts; the durable journal holds authoritative event history." loading="lazy" />
+<img class="fig-dark" src="/research/mobius-system-context-dark.svg" alt="" aria-hidden="true" loading="lazy" />
 
 <p class="fig-note">Who owns intent, who owns semantics, who touches reality. The model proposes and the runtime decides — that boundary is the whole argument of this post, drawn.</p>
 

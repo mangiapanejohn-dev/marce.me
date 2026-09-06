@@ -14,11 +14,10 @@ The runtime has a mechanism for exactly this. `ActionPrecondition` with `kind: '
 is the model saying *this action rests on something I have not looked at yet*. V41 asked why it never
 produces a look, and the answer was three defects in one path.
 
-<a class="fig-plate" href="/research/mobius-a03-action-lifecycle.png">
-  <img src="/research/mobius-a03-action-lifecycle.png" alt="One proposed effect from cognition to verification, in twelve steps: ActionIntent, PreconditionGate, unknown.raised, route gap, fresh observation, resolution check, admission gates, compile, dispatch, EffectReceipt, VerificationResult, forecast resolution. Two defects are marked on it — the route gap flipping no-route against look, and one unknown raised against thirty-one resolved and no dispatch." loading="lazy" />
-</a>
+<img class="fig-light" src="/research/mobius-action-lifecycle.svg" alt="One proposed effect from cognition to verification, in twelve steps: ActionIntent, PreconditionGate, unknown.raised, route gap, fresh observation, resolution check, admission gates, compile, dispatch, EffectReceipt, VerificationResult, forecast resolution. Two defects are marked on it — the route gap flipping no-route against look, and one unknown raised against thirty-one resolved and no dispatch." loading="lazy" />
+<img class="fig-dark" src="/research/mobius-action-lifecycle-dark.svg" alt="" aria-hidden="true" loading="lazy" />
 
-<p class="fig-note">One effect, cognition to verification. The two red boxes are what V41 measured; everything after step 6 is what never happened. Click to open it full size.</p>
+<p class="fig-note">One effect, cognition to verification. The dashed steps are where V41 and V42 found defects; the loop from 6 back to 3 is the one that never left.</p>
 
 
 Two of the four versions that fixed them aimed at the wrong site first, and that turned out to be the

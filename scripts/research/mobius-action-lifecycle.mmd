@@ -1,0 +1,34 @@
+flowchart TB
+  subgraph propose["the proposal"]
+    direction TB
+    n1["1 · ActionIntent<br/>because · satisfies · expected"]
+    n2["2 · PreconditionGate<br/>is every required premise settled?"]
+    n3["3 · unknown.raised<br/>the question carries<br/>the unsettled premise<br/>V42 · it must name<br/>SuccessCriterion ids"]
+    n1 --> n2 --> n3
+  end
+
+  subgraph look["the look"]
+    direction TB
+    n4["4 · route the gap<br/>classifyUnknown → capability match<br/>V41 · routed on free text, so<br/>no-route ↔ look turns on<br/>how the reason was worded"]
+    n5["5 · fresh observation<br/>LOOK / EXPLORE →<br/>observation.received"]
+    n6["6 · resolution check<br/>did the look answer the question?<br/>V41 · 1 raised · 31 resolved<br/>0 dispatched"]
+    n4 --> n5 --> n6
+  end
+
+  subgraph effect["the effect"]
+    direction TB
+    n7["7 · admission gates<br/>authority · resource · invariant"]
+    n8["8 · compile ActionIR<br/>a concrete effect target"]
+    n9["9 · dispatch<br/>action.dispatched"]
+    n10["10 · EffectReceipt<br/>worldRevisionAfter"]
+    n11["11 · VerificationResult<br/>satisfied / violated<br/>undetermined"]
+    n12["12 · forecast resolution<br/>the expectation written at step 1,<br/>against what actually happened"]
+    n7 --> n8 --> n9 --> n10 --> n11 --> n12
+  end
+
+  n3 --> n4
+  n6 -->|"settled"| n7
+  n6 -->|"still unresolved"| n3
+
+  classDef defect stroke-dasharray: 4 3
+  class n3,n4,n6 defect

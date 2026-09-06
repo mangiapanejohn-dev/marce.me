@@ -1,0 +1,29 @@
+flowchart TB
+  subgraph runA["run A"]
+    direction TB
+    a0["goal.created"]
+    a1["action.proposed<br/>the effect needs human authority"]
+    a2["authority.escalated<br/>no grant covers this effect"]
+    a3["goal.suspended<br/>the run ends here"]
+    a0 --> a1 --> a2 --> a3
+  end
+
+  journal[("durable journal<br/>the question and the causal position<br/>survive the process")]
+  person["a person answers later<br/>approve / refuse"]
+  answered["authority.answered<br/>appended to the same journal"]
+
+  subgraph runB["run B — new process, same journal"]
+    direction TB
+    b0["project()<br/>reconstruct the state from the log"]
+    b1["continue execution<br/>compile · dispatch · verify"]
+    b0 --> b1
+  end
+
+  a3 -->|"the process may exit"| journal
+  a3 -.->|"the question leaves the process"| person
+  person --> answered
+  answered --> journal
+  journal -->|"replay / fold"| b0
+
+  classDef human stroke-dasharray: 4 3
+  class person human
