@@ -340,4 +340,37 @@ export const versions: MobiusVersion[] = [
       "仓库只报一个路径变了，从不报变成了什么——所以显而易见的逐路径互证并不存在。存在的是：一个内容 token 和一个状态 token，盲区互不重叠，以及一个在某一个文件上与其中之一达成一致的文件系统摘要。H5 从够不着，变成了够得着、而且可能不值得去够。",
     post: "mobius-v48-a-second-reader",
   },
+  {
+    v: "V54",
+    at: "2026-09-06T11:22:24-04:00",
+    claim: "Two of eighty-four",
+    claimZh: "八十四分之二",
+    blurb:
+      "Five versions each found a fact the runtime records and nothing reads, and called it a coincidence. They are the visible cases of one interface admitting two of the eighty-four keys a provider writes down — held narrow on purpose, so the pattern is what the discipline produces rather than neglect accumulating.",
+    blurbZh:
+      "连着五个版本，每一版都找到一个 runtime 记下而没人读的事实，每次都当成巧合。它们是同一个接口的可见病例：provider 写下 84 个键，它只接纳 2 个——而这个窄是刻意的，所以那个形状是这条纪律的产物，不是疏忽在累积。",
+    post: "mobius-what-one-binary-can-load",
+  },
+  {
+    v: "V55",
+    at: "2026-09-06T12:25:12-04:00",
+    claim: "Implemented, tested, and not reachable",
+    claimZh: "实现了、测过了、启动不了",
+    blurb:
+      "The fold six versions were built on has no caller, and neither do four report renderers — three of which name a command that does not exist. The tree ships one binary and it is a daemon with no subcommands. The mirror of a plane declared and not implemented, and neither said so where a reader would look.",
+    blurbZh:
+      "六个版本建在上面的那个 fold 没有任何调用者，四个报告渲染器也没有——其中三个在自己的注释里点名了一个不存在的命令。这棵树只发布一个二进制，而它是个没有子命令的守护进程。这是「声明了没实现」的镜像，而两者都没有在任何人会看的地方说明自己。",
+    post: "mobius-what-one-binary-can-load",
+  },
+  {
+    v: "V56",
+    at: "2026-09-06T12:41:15-04:00",
+    claim: "What one binary can actually load",
+    claimZh: "一个二进制到底能装载什么",
+    blurb:
+      "167 production modules, 132 reachable from the binary's entry — and the two largest unreachable groups are whole environment providers. A ladder followed: declared, implemented, tested, import-reachable, composed, adoptable, co-composable. A green suite proves the third rung and says nothing about the fifth.",
+    blurbZh:
+      "167 个生产模块，从二进制入口可达 132 个——而不可达里最大的两组是两个完整的环境 provider。由此得出一把尺子：已声明、已实现、被测试触及、导入可达、被组合、可采纳、可共存。一套绿色测试证明的是第三层，对第五层一个字都没说。",
+    post: "mobius-what-one-binary-can-load",
+  },
 ];
