@@ -77,7 +77,26 @@ for src in "${sources[@]}"; do
 import re, sys
 p = sys.argv[1]
 s = open(p, encoding="utf-8").read()
-open(p, "w", encoding="utf-8").write(re.sub(r'<text(?![^>]*xml:space)', '<text xml:space="preserve"', s))
+s = re.sub(r'<text(?![^>]*xml:space)', '<text xml:space="preserve"', s)
+
+# Give the root a real intrinsic size.
+#
+# mermaid writes width="100%" and puts the pixel cap only in an inline style. Referenced from
+# <img> that leaves no usable intrinsic width, so the browser stretches the figure to the
+# container and scales the type up with it — a 579px diagram rendered at 768px and shouting.
+# width/height from the viewBox make <img> use the natural size; max-width:100% still shrinks it
+# on a narrow screen.
+NUM = r'[-+]?[0-9.]+'
+m = re.match(r'<svg\b[^>]*>', s)
+if m:
+    root = m.group(0)
+    vb = re.search(r'viewBox="\s*(%s)\s+(%s)\s+(%s)\s+(%s)\s*"' % (NUM, NUM, NUM, NUM), root)
+    if vb:
+        w, h = round(float(vb.group(3))), round(float(vb.group(4)))
+        new_root = re.sub(r'\s(?:width|height)="[^"]*"', '', root)
+        new_root = new_root.replace('<svg', '<svg width="%d" height="%d"' % (w, h), 1)
+        s = new_root + s[m.end():]
+open(p, "w", encoding="utf-8").write(s)
 PYFIX
 
     echo "$out"
