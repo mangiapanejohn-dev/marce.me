@@ -1,6 +1,6 @@
 ---
 title: "MØBIUS — A Correct World Is Not a Proven One"
-description: "Thirteen days after the last update, MØBIUS moved from execution reliability into completion: who decides that work is done, on what evidence, and what that evidence forgets. Most of the claims I started the fortnight with are now dead or known under other names. What is left is narrower, measured, and more interesting — and FTR, the most ambitious idea in the project, was retired by the kill criteria written for it."
+description: "Thirteen days after the last update, MØBIUS moved from execution reliability into completion: who decides that work is done, on what evidence, and what that evidence forgets. Most of the claims I started the fortnight with are now dead or known under other names. What is left is narrower, measured, and more interesting — and FTR, the most ambitious idea in the project, was retired by the kill criteria written for it. The question that produced it is still open."
 pubDatetime: 2026-09-19T19:30:00Z
 tags: ["MØBIUS", "Agents", "Verification", "FTR"]
 category: "research"
@@ -26,7 +26,7 @@ re-derived it from the journals rather than copying it from a summary. Where som
 called one.
 
 <figure class="fig">
-<a href="/research/mobius-r3-timeline.svg"><img class="fig-light" src="/research/mobius-r3-timeline.svg" alt="Timeline from 6 to 19 September 2026: the last public post at V56; a world declared not discovered (ADR 0014–0019, Probes 1–6); human decisions outliving their world (V59–V73); the approval line meeting its neighbours (VB-1, VB-2, PP-1, OV-1, B1, K8); an unattended mission reporting success (S-M1/B, ADR 0021–0026); a real model in the loop (R1); completion starting to lie (R2); the judge shown more (R3); claims killed, with FTR retired by its own criteria; this audit; and the open frontier." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-timeline-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
+<a href="/research/mobius-r3-timeline.svg"><img class="fig-light" src="/research/mobius-r3-timeline.svg" alt="Timeline from 6 to 19 September 2026: the last public post at V56; a world declared not discovered (ADR 0014–0019, Probes 1–6); human decisions outliving their world (V59–V73); the approval line meeting its neighbours (VB-1, VB-2, PP-1, OV-1, B1, K8); an unattended mission reporting success (S-M1/B, ADR 0021–0026); a real model in the loop (R1); completion starting to lie (R2); the judge shown more (R3); claims killed, with FTR's strong form retired under its own criteria; this audit; and the open frontier." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-timeline-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
 <figcaption><strong>Figure A.</strong> Thirteen days. The coral points are where the research question itself moved; the red one is where claims died.</figcaption>
 </figure>
 
@@ -528,14 +528,15 @@ before-image with a provenance edge); and is there an experiment that could fail
 evaluable). The formalization in the next part is where this became impossible to avoid: once every term was
 written down, every term had someone else's name next to it.
 
-So on 19 September I retired FTR — not because an outside objection beat it, but because **its own kill criteria
-fired**, or reduced it to prior art, or showed its one designed test could not be run. FTR killed itself.
+So on 19 September I retired the FTR I had been carrying — not because an outside objection beat it, but because
+**its own kill criteria fired**, or reduced it to prior art, or showed that its one designed test could not be
+run. FTR killed itself under investigation.
 
-I count that as FTR's success, and I mean it literally. FTR was always an argument that a runtime should find out
+I count that as FTR's success, and I mean it literally. FTR was always an argument that a system should find out
 early which of its beliefs about the future will not survive contact with the world. Applied to itself, it did
-exactly that: it identified the belief that would not survive — that a maintained future-state object is a new
-runtime primitive — and ended it before any code was built on it. It is the cleanest kill in the project, and the
-most expensive idea to have been wrong about for longer.
+exactly that: it found the belief that would not survive — that a maintained future-state object is a new runtime
+primitive — and ended it before a line of architecture was built on it. The strong form is gone. The question
+that produced it is not (see the closing).
 
 What it leaves behind is one question, and it no longer carries FTR's name: **which facts must a runtime keep
 before an action, because a later proof of completion will need them?** That question is measured against real
@@ -733,13 +734,13 @@ that could kill them, is in the PDF at the end of this post.
 ## Part VIII — What has been killed, and what is actually open
 
 <figure class="fig">
-<a href="/research/mobius-r3-status.svg"><img class="fig-light" src="/research/mobius-r3-status.svg" alt="Research status map. Measured: cannot-tell dominated by missing prior state in three task shapes; unsupported establishment, one clear case in 20; certificate closure 0 of 11; layered determinism 0.923 and 0.795. Open: the future information requirement, which outlives FTR, rollout disagreement as a signal, anticipatory evidence preservation, proof-failure prediction, open-provider addressability. Killed: FTR itself, retired by its own kill criteria; pre-write write-set anticipation from reads, reuse costs nothing, provenance link is load-bearing, lease as approval validity. Retired as prior art: future prediction as novelty, approval capture and revalidation, false success, transition witness as a new primitive, append-only replay and per-action approval gate. Not yet evaluable: Boolean expected to Brier, zero false completions with zero opportunities, whether content variance changes outcomes." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-status-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
+<a href="/research/mobius-r3-status.svg"><img class="fig-light" src="/research/mobius-r3-status.svg" alt="Research status map. Measured: cannot-tell dominated by missing prior state in three task shapes; unsupported establishment, one clear case in 20; certificate closure 0 of 11; layered determinism 0.923 and 0.795. Open: the future information requirement, which outlives FTR, rollout disagreement as a signal, anticipatory evidence preservation, proof-failure prediction, open-provider addressability. Killed: the strong form of FTR, under its own criteria; pre-write write-set anticipation from reads, reuse costs nothing, provenance link is load-bearing, lease as approval validity. Retired as prior art: future prediction as novelty, approval capture and revalidation, false success, transition witness as a new primitive, append-only replay and per-action approval gate. Not yet evaluable: Boolean expected to Brier, zero false completions with zero opportunities, whether content variance changes outcomes." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-status-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
 <figcaption><strong>Figure H.</strong> The status map. No column is a ranking; "retired" means someone else has it, not that it was wrong.</figcaption>
 </figure>
 
 | claim | status | why |
 |---|---|---|
-| FTR overall | <span class="st st-killed">RETIRED BY ITS OWN CRITERIA</span> | every sub-claim failed its threshold, reduced to prior art, or could not be evaluated; retired 19 Sep |
+| FTR, strong form (maintained future-state object) | <span class="st st-killed">RETIRED BY ITS OWN CRITERIA</span> | every sub-claim failed its threshold, reduced to prior art, or could not be evaluated; retired 19 Sep. The question it came from stays open |
 | future prediction itself as the novelty | <span class="st st-retired">RETIRED</span> | predictive runtime verification [[10]](#ref-10) |
 | exact prediction of future actions | <span class="st st-killed">UNSUPPORTED</span> | not the surviving claim; nothing measured supports it |
 | read-only, pre-write write-set anticipation | <span class="st st-killed">KILLED</span> | median read coverage 0.25 against a < 0.5 threshold; 33/69 zero |
@@ -864,18 +865,68 @@ experiment that decides whether the question FTR left behind is a runtime object
 control is the obvious rival: "always snapshot the files you are about to touch", which costs almost nothing on
 a filesystem and may leave nothing for prediction to add.
 
-## Closing
+## Closing — what died, and what did not
 
-What I understand better than I did on 6 September is not what the answer is. It is what the answer is not. It
-is not approval revalidation, which exists. It is not a judge with a better prompt, since most of what the judge
-could not tell it was right not to tell. It is not simulating the future, which predictive monitoring already
-does — and it is not FTR, which the method retired more cleanly than anything else. It is not keeping history, which databases have done for forty years.
+MØBIUS has not stopped, and FTR was not abandoned because the project failed. The opposite is what happened:
+the part of this fortnight I am most sure was right is that **we did not keep believing a beautiful idea in
+order to keep it**.
 
-What is left is a suspicion, stated as a question. An autonomous-agent runtime may need to manage more than
-state, actions and observations: history, world versions, the basis of each decision, possible futures, the
-information those futures will require, proof obligations, and the relations that must hold across a
-transition. Which of those deserve to be first-class primitives, and which are ordinary engineering wearing new
-names, is **open**. The next experiments are designed so that most of those candidates can die.
+FTR carried the strongest hypotheses in the project — future prediction, write-set anticipation, predictive
+control over what the runtime does next, calibration of its own forecasts. Experiments, prior-art searches and
+kill tests took them one at a time. Some were refuted directly by evidence. Some turned out to be long covered
+by mature theory, under names that were there before the project started. In a real sense:
+
+> **FTR killed itself under investigation.**
+
+That is not a failure. It is the moment research actually works. The worst outcome available was never a dead
+hypothesis; it was carrying a hypothesis already known to be wrong into code, into architecture, into
+benchmarks, and finding out years later that the whole structure had been built on a problem that does not
+exist. We stopped because the evidence required us to stop.
+
+And it was precisely the death of those old explanations that let the deeper questions surface:
+
+- whether **completion depends on history**, and not only on the current state;
+- whether a runtime must **preserve, before it acts, the information a later proof of completion will need**;
+- whether a **transition relation** should be a first-class runtime object rather than something reconstructed
+  by hand;
+- whether the **disagreement between possible futures** carries runtime value in itself;
+- and which computational primitives an autonomous-agent runtime is missing that **do not yet have names**.
+
+So the honest ending is not *FTR is over*. It is:
+
+> **The old version of FTR may be dying. The question that created it is not.**
+
+### What MØBIUS does next
+
+Not a longer feature list. The next phase treats MØBIUS as an **experimental instrument**: let autonomous
+agents run real tasks until they hit the edges of the runtime, and take each collision seriously. When a
+phenomenon appears that no existing abstraction explains gracefully, it goes through the same loop as
+everything above —
+
+```text
+phenomenon → minimal counterexample → cross-task reproduction → prior-art search
+           → formalization → kill test → runtime consequence
+```
+
+— and the first thing I do with it is try to kill it. If it dies, the record says why. If it is a new name for
+an existing theory, it is retired to that theory. If it is an implementation bug, it gets fixed and stops being
+research. Only if it survives across tasks and across systems, and current computational models still cannot
+express it naturally, does it get considered as the next primitive MØBIUS should carry.
+
+The queue, in order: **evidence horizon · transition-dependent completion · unsupported establishment ·
+completion-certificate replayability · anticipatory evidence preservation · rollout disagreement · future
+information requirements · future proof obligations.** And none of those names should be mistaken for answers.
+They are the best descriptions I currently have, which is a different claim. Part of the work is finding the
+phenomenon underneath them that is more basic than all eight.
+
+We did not lose FTR. We removed the parts of it that reality would not allow us to keep. What remains is
+smaller, stranger, and more interesting.
+
+MØBIUS continues — not as a system defending its original ideas, but as a system built to destroy weak ones
+until something fundamental survives.
+
+The next phase is not to make MØBIUS look more complete. It is to use MØBIUS to find out what autonomous-agent
+runtimes still do not know how to represent.
 
 ---
 

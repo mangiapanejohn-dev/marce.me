@@ -413,7 +413,7 @@ def fig_status():
                             "rollout disagreement as a signal",
                             "anticipatory evidence preservation", "proof-failure prediction",
                             "open-provider addressability"]),
-        ("KILLED", "bad", ["FTR — retired by its own kill criteria",
+        ("KILLED", "bad", ["FTR, strong form — killed under its own criteria",
                                           "pre-write write-set anticipation from reads (median 0.25)",
                                           "\"reuse costs nothing\" (OV-1)", "\"provenance link is load-bearing\" (PP-1)",
                                           "lease as approval validity (VB-1)"]),
