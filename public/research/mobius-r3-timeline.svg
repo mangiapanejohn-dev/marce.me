@@ -44,9 +44,9 @@
 <text x="112" y="544.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="start">74 cannot-tell. P4: Boolean expected → no Brier.</text>
 <text x="82" y="577" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#6b6a63" text-anchor="end">18–19 Sep</text>
 <circle cx="96" cy="572" r="4" fill="#f6f3ec" stroke="#9b3a33" stroke-width="2"/>
-<text x="112" y="577" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9b3a33" text-anchor="start">Claims killed in review</text>
-<text x="112" y="595.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="start">Approval line and FTR mechanism → prior art;</text>
-<text x="112" y="610.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="start">write-set anticipation fails its kill threshold.</text>
+<text x="112" y="577" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9b3a33" text-anchor="start">Claims killed; FTR kills itself</text>
+<text x="112" y="595.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="start">Approval line → prior art; write-set anticipation</text>
+<text x="112" y="610.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="start">fails its threshold; FTR retired by its own criteria.</text>
 <text x="82" y="643" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#6b6a63" text-anchor="end">19 Sep</text>
 <circle cx="96" cy="638" r="5.5" fill="#c4623f" stroke="#c4623f" stroke-width="2"/>
 <text x="112" y="643" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#262521" text-anchor="start">This audit</text>

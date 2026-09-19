@@ -43,16 +43,17 @@ const R = String.raw;
 
 const body = String.raw`
 <section class="cover">
-  <div class="kicker">MØBIUS research note · working specification</div>
+  <div class="kicker">MØBIUS research note · record of a retired direction</div>
   <h1>FTR</h1>
   <div class="subtitle">Core Formalization</div>
   <div class="subsub">Future trajectory representation for autonomous-agent runtimes:<br/>possible futures, disagreement, future information requirements, proof obligations, risk, resolution and calibration.</div>
   <div class="coverformula">${M(R`\mathcal{F}_t=\big(P_t(\tau),\ D_t,\ \mathcal{H}_t,\ \Omega_t^{*},\ P_t^{\mathrm{proof}},\ R_t,\ \Gamma_t\big)`)}</div>
   <div class="warn">
-    <strong>Status.</strong> FTR is <strong>not a validated theory</strong>. Everything here marked ${OPEN} is a hypothesis or a
-    candidate formalization; nothing in this document is implemented as FTR in MØBIUS, and no FTR experiment has yet produced a result.
-    Known abstractions — probabilistic forecasting, runtime verification, provenance, value of information — are not relabelled here as
-    FTR novelty.
+    <strong>Status: retired by its own criteria, 19 September 2026.</strong> Every FTR sub-claim either failed the kill threshold
+    written for it, reduced to prior art, or proved not evaluable by its one designed experiment. FTR was never a validated theory and is
+    no longer a research direction. This document is kept as the record of what was formalized and why it died. The one question that
+    outlives it — which facts must be kept before an action because a later proof will need them (\(\Omega^{*}\), <em>preserve</em>) —
+    is marked ${OPEN} and no longer carries FTR's name.
   </div>
   <table class="meta">
     <tr><td>Version</td><td>2026-09-19 · supersedes the undated working specification</td></tr>
@@ -64,6 +65,10 @@ const body = String.raw`
 
 <h2>0 · What changed in this version</h2>
 <ul>
+  <li><strong>FTR retired itself.</strong> Reopened on 19 September as a looser question, then put through its own tests: no task class
+    where planning and replanning fall short; every component reduced to a known object; the only designed experiment not evaluable.
+    Retired the same day. By FTR's own logic — find early which beliefs about the future will not survive — this is its success, not a
+    failure (§15).</li>
   <li><strong>Evidence horizon, corrected.</strong> The previous version implied information that becomes <em>unrecoverable</em> after an action. In every R3 P3 journal with a transition-shaped criterion, the pre-state <em>was</em> captured before the first effect; it was absent from the judge's <em>view</em>, not from the journal. The unrecoverable variant has not been observed and is kept as a hypothesis (§6).</li>
   <li><strong>Transition witness, downgraded.</strong> Retired as a new primitive (before-image + provenance edge + past-time operator). Kept as a candidate <em>representation</em> (§7).</li>
   <li><strong>Measured additions.</strong> Hand-coded cause of all 74 <code>cannot-tell</code> verdicts; a manual audit of all 20 <code>established</code> verdicts (one unsupported); certificate closure measured at 0 of 11 (§12).</li>
@@ -186,13 +191,13 @@ ${M(R`\Omega = \{\mathrm{digest}(\mathit{notes}_t)\}: \quad \mathrm{digest}(\mat
 <h2>15 · Research status, 19 September 2026</h2>
 <table class="data status">
   <tr><th>claim / component</th><th>status</th><th>basis</th></tr>
-  <tr><td>FTR overall</td><td>${OPEN}</td><td>reopened by the author as a question after a recommendation to retire it; no measurement yet</td></tr>
+  <tr><td>FTR overall</td><td>${tag("killed", "RETIRED BY ITS OWN CRITERIA")}</td><td>reopened as a question, then retired on 19 Sep: every sub-claim failed its threshold, reduced to prior art, or could not be evaluated</td></tr>
   <tr><td>future prediction itself as novelty</td><td>${RETIRED}</td><td>predictive runtime verification (Lindemann et al., arXiv 2211.01539)</td></tr>
   <tr><td>exact prediction of future actions</td><td>${UNS}</td><td>not the surviving claim</td></tr>
   <tr><td>read-only pre-write write-set anticipation</td><td>${KILLED}</td><td>median read coverage 0.25 (33 of 69 zero) against a recall &lt; 0.5 threshold fixed before computing; experiment-arm corpus, so only the shape split (edit vs create/rename) generalises</td></tr>
   <tr><td>Boolean <code>expected</code> → Brier / resolution</td><td>${NE}</td><td>constant forecasts; resolution zero by definition</td></tr>
   <tr><td>rollout disagreement as runtime signal</td><td>${OPEN}</td><td>as uncertainty: prior art; as trigger: untested</td></tr>
-  <tr><td>future information requirement \(\Omega^{*}\)</td><td>${OPEN}</td><td>formalised; no estimator</td></tr>
+  <tr><td>future information requirement \(\Omega^{*}\)</td><td>${OPEN}</td><td>outlives FTR under its own name; no estimator yet</td></tr>
   <tr><td>anticipatory evidence preservation</td><td>${OPEN}</td><td>experiment E4</td></tr>
   <tr><td>proof-failure prediction</td><td>${OPEN}</td><td>one instance of the quantity; no predictor</td></tr>
   <tr><td>transition witness</td><td>${CAND}</td><td>retired as a primitive; kept as representation</td></tr>

@@ -1,13 +1,14 @@
 ---
 title: "MØBIUS — A Correct World Is Not a Proven One"
-description: "Thirteen days after the last update, MØBIUS moved from execution reliability into completion: who decides that work is done, on what evidence, and what that evidence forgets. Most of the claims I started the fortnight with are now dead or known under other names. What is left is narrower, measured, and more interesting — including a much smaller FTR."
+description: "Thirteen days after the last update, MØBIUS moved from execution reliability into completion: who decides that work is done, on what evidence, and what that evidence forgets. Most of the claims I started the fortnight with are now dead or known under other names. What is left is narrower, measured, and more interesting — and FTR, the most ambitious idea in the project, was retired by the kill criteria written for it."
 pubDatetime: 2026-09-19T19:30:00Z
 tags: ["MØBIUS", "Agents", "Verification", "FTR"]
 category: "research"
 series: "MØBIUS"
 timezone: "America/New_York"
 showInBlog: true
-cover: "/cover-correct-world.svg"
+cover: "/cover-mobius-exploring.webp"
+ogImage: "@/assets/images/og-mobius-exploring.png"
 ---
 
 The last thing this blog told you about MØBIUS was on 6 September: a binary that could load 132 of its 167
@@ -25,7 +26,7 @@ re-derived it from the journals rather than copying it from a summary. Where som
 called one.
 
 <figure class="fig">
-<a href="/research/mobius-r3-timeline.svg"><img class="fig-light" src="/research/mobius-r3-timeline.svg" alt="Timeline from 6 to 19 September 2026: the last public post at V56; a world declared not discovered (ADR 0014–0019, Probes 1–6); human decisions outliving their world (V59–V73); the approval line meeting its neighbours (VB-1, VB-2, PP-1, OV-1, B1, K8); an unattended mission reporting success (S-M1/B, ADR 0021–0026); a real model in the loop (R1); completion starting to lie (R2); the judge shown more (R3); claims killed in review; this audit; and the open frontier." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-timeline-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
+<a href="/research/mobius-r3-timeline.svg"><img class="fig-light" src="/research/mobius-r3-timeline.svg" alt="Timeline from 6 to 19 September 2026: the last public post at V56; a world declared not discovered (ADR 0014–0019, Probes 1–6); human decisions outliving their world (V59–V73); the approval line meeting its neighbours (VB-1, VB-2, PP-1, OV-1, B1, K8); an unattended mission reporting success (S-M1/B, ADR 0021–0026); a real model in the loop (R1); completion starting to lie (R2); the judge shown more (R3); claims killed, with FTR retired by its own criteria; this audit; and the open frontier." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-timeline-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
 <figcaption><strong>Figure A.</strong> Thirteen days. The coral points are where the research question itself moved; the red one is where claims died.</figcaption>
 </figure>
 
@@ -469,7 +470,7 @@ moving view, adjudicated by a model, and later reused by whoever reads the recor
 record contain for someone else to reach the same verdict, and how does it stay valid when the view that
 produced it has moved on?** Nobody has run the replay yet (E3 below).
 
-## Part VI — FTR: what survived trying to kill it
+## Part VI — FTR killed itself, and that is the result
 
 FTR — originally *Future Trajectory Reasoner*, and now more honestly a *future trajectory representation* —
 has been the project's most ambitious idea and its least evidenced one. The story of this fortnight is mostly
@@ -516,13 +517,37 @@ exact framing: not "predict the future", but
   unrecoverable or unreachable;
 - **proof obligations** — can the runtime tell, before acting, that completion will become unprovable.
 
-Status: **OPEN**. A hypothesis, with no measurement behind it yet. The reopening was a decision about what is
-worth testing, not evidence that it is true.
+### Then it confirmed its own death
 
-## Part VII — The FTR formalization, as it currently stands
+Reopening it meant holding the loose version to the same standard as everything else in this post, and I did.
+Each of the four reframed questions was put through the tests FTR's own review had written down: is there a
+task class where planning and replanning are not enough (none found); does the component reduce to a known
+object (disagreement is sampling-based uncertainty, the value function is value of information, forecast
+resolution with *void* is the same version-binding as the approval rule, and the transition witness is a
+before-image with a provenance edge); and is there an experiment that could fail (the only one designed was not
+evaluable). The formalization in the next part is where this became impossible to avoid: once every term was
+written down, every term had someone else's name next to it.
 
-Everything in this section is a **candidate formalization**. None of it is implemented, and none of it is a
-theorem. It is written down so that it can be attacked.
+So on 19 September I retired FTR — not because an outside objection beat it, but because **its own kill criteria
+fired**, or reduced it to prior art, or showed its one designed test could not be run. FTR killed itself.
+
+I count that as FTR's success, and I mean it literally. FTR was always an argument that a runtime should find out
+early which of its beliefs about the future will not survive contact with the world. Applied to itself, it did
+exactly that: it identified the belief that would not survive — that a maintained future-state object is a new
+runtime primitive — and ended it before any code was built on it. It is the cleanest kill in the project, and the
+most expensive idea to have been wrong about for longer.
+
+What it leaves behind is one question, and it no longer carries FTR's name: **which facts must a runtime keep
+before an action, because a later proof of completion will need them?** That question is measured against real
+data (Part III), has a precise statement ($$\Omega_t^{*}$$ below), and has an experiment that can fail (E4). It
+stands or falls on its own.
+
+## Part VII — The FTR formalization, as it stood when it retired
+
+This is the formalization FTR ended with, kept as a record of what was killed and why. None of it is
+implemented, and none of it is a theorem. Read it as the evidence for Part VI: each term below comes with the
+prior art that absorbed it. The one part that outlives FTR is the future-information requirement
+$$\Omega_t^{*}$$ and the `preserve` action — the question in the last paragraph above.
 
 ### Runtime state and history
 
@@ -699,7 +724,7 @@ $$
 
 <figure class="fig">
 <a href="/research/mobius-r3-ftr-loop.svg"><img class="fig-light" src="/research/mobius-r3-ftr-loop.svg" alt="The candidate FTR loop: reality and history feed a versioned world W_t; the FTR state F_t holds possible futures P_t(tau), disagreement D_t and H_t, future evidence Omega-star, proof failure P-proof, risk R_t(a) and calibration Gamma_t; it informs a runtime meta-decision among act, observe, test, ask, fork, replan, preserve and wait; the action produces a world transition; forecasts resolve as satisfied, violated or void; calibration updates; a new FTR state follows and loops back. A note says nothing here is implemented as FTR." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-ftr-loop-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
-<figcaption><strong>Figure G.</strong> FTR as a candidate closed loop. Of everything in it, only a Boolean expectation layer exists in code today.</figcaption>
+<figcaption><strong>Figure G.</strong> FTR as it was formalized before it retired itself. Of everything in it, only a Boolean expectation layer ever existed in code.</figcaption>
 </figure>
 
 The full formalization, with variable definitions, invariants, the status of each part and the experiments
@@ -708,20 +733,20 @@ that could kill them, is in the PDF at the end of this post.
 ## Part VIII — What has been killed, and what is actually open
 
 <figure class="fig">
-<a href="/research/mobius-r3-status.svg"><img class="fig-light" src="/research/mobius-r3-status.svg" alt="Research status map. Measured: cannot-tell dominated by missing prior state in three task shapes; unsupported establishment, one clear case in 20; certificate closure 0 of 11; layered determinism 0.923 and 0.795. Open: FTR as a runtime object, rollout disagreement as a signal, future information requirement, anticipatory evidence preservation, proof-failure prediction, open-provider addressability. Killed by experiment: pre-write write-set anticipation from reads, reuse costs nothing, provenance link is load-bearing, lease as approval validity. Retired as prior art: future prediction as novelty, approval capture and revalidation, false success, transition witness as a new primitive, append-only replay and per-action approval gate. Not yet evaluable: Boolean expected to Brier, zero false completions with zero opportunities, whether content variance changes outcomes." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-status-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
+<a href="/research/mobius-r3-status.svg"><img class="fig-light" src="/research/mobius-r3-status.svg" alt="Research status map. Measured: cannot-tell dominated by missing prior state in three task shapes; unsupported establishment, one clear case in 20; certificate closure 0 of 11; layered determinism 0.923 and 0.795. Open: the future information requirement, which outlives FTR, rollout disagreement as a signal, anticipatory evidence preservation, proof-failure prediction, open-provider addressability. Killed: FTR itself, retired by its own kill criteria; pre-write write-set anticipation from reads, reuse costs nothing, provenance link is load-bearing, lease as approval validity. Retired as prior art: future prediction as novelty, approval capture and revalidation, false success, transition witness as a new primitive, append-only replay and per-action approval gate. Not yet evaluable: Boolean expected to Brier, zero false completions with zero opportunities, whether content variance changes outcomes." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-status-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
 <figcaption><strong>Figure H.</strong> The status map. No column is a ranking; "retired" means someone else has it, not that it was wrong.</figcaption>
 </figure>
 
 | claim | status | why |
 |---|---|---|
-| FTR overall | <span class="st st-open">OPEN</span> | reopened as a question; no measurement yet |
+| FTR overall | <span class="st st-killed">RETIRED BY ITS OWN CRITERIA</span> | every sub-claim failed its threshold, reduced to prior art, or could not be evaluated; retired 19 Sep |
 | future prediction itself as the novelty | <span class="st st-retired">RETIRED</span> | predictive runtime verification [[10]](#ref-10) |
 | exact prediction of future actions | <span class="st st-killed">UNSUPPORTED</span> | not the surviving claim; nothing measured supports it |
 | read-only, pre-write write-set anticipation | <span class="st st-killed">KILLED</span> | median read coverage 0.25 against a < 0.5 threshold; 33/69 zero |
 | Boolean `expected` → Brier / resolution | <span class="st st-ne">NOT EVALUABLE</span> | constant forecasts; resolution is zero by definition |
 | predictive runtime verification | <span class="st st-prior">PRIOR ART</span> | [[10]](#ref-10) |
 | rollout disagreement as a runtime signal | <span class="st st-open">OPEN</span> | known as uncertainty [[11]](#ref-11) [[12]](#ref-12); as a runtime trigger, untested |
-| future information requirement $$\Omega^{*}$$ | <span class="st st-open">OPEN</span> | formalised above; no estimator |
+| future information requirement $$\Omega^{*}$$ | <span class="st st-open">OPEN</span> | outlives FTR under its own name; no estimator yet |
 | anticipatory evidence preservation | <span class="st st-open">OPEN</span> | E4 below |
 | proof-failure prediction | <span class="st st-open">OPEN</span> | T4 is one instance of the quantity, not of a predictor |
 | transition witness | <span class="st st-retired">CANDIDATE, NOT NOVEL</span> | = before-image + provenance edge + past-time operator |
@@ -764,7 +789,8 @@ or a paper killed the claim that it was new, or the claim that it worked. What w
 the mechanism had been standing on. Approval revalidation narrowed to *what is a decision bound to*. The
 completion judge narrowed to *what the judge is shown*. That narrowed to *what the runtime keeps in view about
 the past*, and from there to *what a completion record must contain to be believed later*. FTR narrowed from
-*simulate the future* to *know what the future will need you to have kept*.
+*simulate the future* to *know what the future will need you to have kept* — and then retired itself, leaving
+that question behind without the name.
 
 None of those endpoints is a feature. They are questions about what an autonomous-agent runtime has to treat as
 data. A conventional runtime manages state, processes, memory, I/O and permissions. An agent runtime is also,
@@ -801,8 +827,8 @@ The current entries, each at a different stage:
 - **Information that exists before an action and is gone after it, while a future proof depends on it.** Not yet
   observed here — in every case measured, the past was captured and merely out of view. I have a minimal
   construction (move without a prior read) and no reproduction. It stays a hypothesis.
-- **Divergence among rollouts as a signal in itself, rather than a prediction error.** No data. It is the
-  cheapest FTR experiment to design and the one most likely to reduce to known uncertainty estimation.
+- **Divergence among rollouts as a signal in itself, rather than a prediction error.** No data. It was the
+  cheapest experiment FTR proposed and the one most likely to reduce to known uncertainty estimation.
 - **A verdict that is right about the world and unsupported by its evidence.** One instance, audited by hand.
 
 The test every entry has to pass is the same: can I build two worlds that the runtime's current state cannot
@@ -834,7 +860,7 @@ does not return `established`. This one is cheap and should run before any fix, 
 `preserve` or proceed — on tasks where a later criterion depends on pre-state and on matched tasks where it does
 not. Measure whether an FTR-style estimate of $$P^{\mathrm{proof}}$$ picks out the facts that the action will put
 out of reach, against a baseline that preserves nothing and one that preserves everything. This is the
-experiment that decides whether the most promising part of FTR is a runtime object or a paragraph. Its hardest
+experiment that decides whether the question FTR left behind is a runtime object or a paragraph. Its hardest
 control is the obvious rival: "always snapshot the files you are about to touch", which costs almost nothing on
 a filesystem and may leave nothing for prediction to add.
 
@@ -843,7 +869,7 @@ a filesystem and may leave nothing for prediction to add.
 What I understand better than I did on 6 September is not what the answer is. It is what the answer is not. It
 is not approval revalidation, which exists. It is not a judge with a better prompt, since most of what the judge
 could not tell it was right not to tell. It is not simulating the future, which predictive monitoring already
-does. It is not keeping history, which databases have done for forty years.
+does — and it is not FTR, which the method retired more cleanly than anything else. It is not keeping history, which databases have done for forty years.
 
 What is left is a suspicion, stated as a question. An autonomous-agent runtime may need to manage more than
 state, actions and observations: history, world versions, the basis of each decision, possible futures, the
@@ -855,7 +881,7 @@ names, is **open**. The next experiments are designed so that most of those cand
 
 <a class="resource-card" href="/research/FTR_Core_Formalization_2026-09-19.pdf">
   <span class="rc-title">FTR Core Formalization</span>
-  <span class="rc-desc">Current mathematical formulation, assumptions, research status and open experiments — including what has been killed and what is only a candidate.</span>
+  <span class="rc-desc">The formalization FTR ended with, why its own criteria retired it, and the one question it leaves open — with the experiments that can still fail.</span>
   <span class="rc-meta">PDF · 12 pages · Updated 19 Sep 2026</span>
 </a>
 
