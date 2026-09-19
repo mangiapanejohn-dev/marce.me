@@ -33,6 +33,14 @@ const blog = defineCollection({
        * `MØBIUS` tag already sits on a career post that is not part of the log.
        */
       series: z.string().optional(),
+      /**
+       * A research post that should also stand in the Blog tab.
+       *
+       * The Blog tab leaves `category: "research"` out on purpose — before the split, version posts
+       * crowded everything else off the homepage. A long-form research essay is the exception the
+       * author opts into per post, rather than a rule that would pull every version slice back in.
+       */
+      showInBlog: z.boolean().optional(),
       cover: z.string().optional(),
       ogImage: image().or(z.string()).optional(),
       description: z.string(),

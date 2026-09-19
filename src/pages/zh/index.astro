@@ -17,7 +17,8 @@ const posts = await getCollection("blog", ({ data }) => data.lang !== "zh");
 const sortedPosts = getSortedPosts(posts);
 // 博客 tab 就是博客：研究有自己的 tab。拆开之前，两篇 MØBIUS 压在最上面，把其余文章挤出了首页。
 const blogPosts = sortedPosts.filter(
-  ({ data }) => !data.featured && data.category !== "research"
+  ({ data }) =>
+    !data.featured && (data.category !== "research" || data.showInBlog)
 );
 
 const featuredProjects = [

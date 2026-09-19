@@ -37,13 +37,49 @@ const essayRows = essays.flatMap(essay => {
     : [];
 });
 
+// An essay written after the newest version row is the latest thing in the research, so it leads the
+// feed instead of waiting under the version rows; older essays stay in their section below.
+const newestVersion = Math.max(...versions.map(({ at }) => new Date(at).getTime()));
+const latestEssays = essayRows
+  .filter(({ at }) => new Date(at).getTime() > newestVersion)
+  .sort((a, b) => b.at.localeCompare(a.at));
+const olderEssays = essayRows.filter(essay => !latestEssays.includes(essay));
+
 const t = {
-  en: { versions: "Versions", essays: "Essays", more: "The full log" },
-  zh: { versions: "版本", essays: "文章", more: "完整日志" },
+  en: { versions: "Versions", essays: "Essays", more: "The full log", latest: "Latest" },
+  zh: { versions: "版本", essays: "文章", more: "完整日志", latest: "最新" },
 }[lang];
 ---
 
 <div class="research-feed">
+  {
+    latestEssays.length > 0 && (
+      <div class="mb-6">
+        <p class="mb-2 text-[0.7rem] tracking-[0.13em] uppercase opacity-60">
+          {t.latest}
+        </p>
+        <ul class="flex flex-col">
+          {latestEssays.map(({ slug, span, spanZh, title, at }) => (
+            <li class="row grid gap-x-5 border-t border-border py-3.5">
+              <span class="v opacity-60">{lang === "zh" ? spanZh : span}</span>
+              <div>
+                <time class="stamp block opacity-55" datetime={at}>
+                  {formatDay(at, lang)}
+                </time>
+                <a
+                  href={l(`/posts/${slug}/`)}
+                  class="text-[1.05rem] leading-snug font-semibold text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                >
+                  {title}
+                </a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
   <ul class="flex flex-col">
     {
       rows.map(({ v, at, claim, claimZh, blurb, blurbZh, post }) => (
@@ -75,13 +111,13 @@ const t = {
   </ul>
 
   {
-    essayRows.length > 0 && (
+    olderEssays.length > 0 && (
       <div class="mt-7 border-t-2 border-dashed border-border pt-4">
         <p class="mb-2 text-[0.7rem] tracking-[0.13em] uppercase opacity-60">
           {t.essays}
         </p>
         <ul class="flex flex-col">
-          {essayRows.map(({ slug, span, spanZh, title, at }) => (
+          {olderEssays.map(({ slug, span, spanZh, title, at }) => (
             <li class="row grid gap-x-5 border-t border-border py-2.5">
               <span class="v opacity-60">{lang === "zh" ? spanZh : span}</span>
               <div>

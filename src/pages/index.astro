@@ -19,7 +19,8 @@ const sortedPosts = getSortedPosts(posts);
 // The Blog tab is the blog: research has its own tab, and before this split the two MØBIUS posts
 // sat on top of the list and pushed everything else off the homepage.
 const blogPosts = sortedPosts.filter(
-  ({ data }) => !data.featured && data.category !== "research"
+  ({ data }) =>
+    !data.featured && (data.category !== "research" || data.showInBlog)
 );
 
 const featuredProjects = [

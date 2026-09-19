@@ -6,6 +6,8 @@ tags: ["MØBIUS", "Agents", "Verification", "FTR"]
 category: "research"
 series: "MØBIUS"
 timezone: "America/New_York"
+showInBlog: true
+cover: "/cover-correct-world.svg"
 ---
 
 The last thing this blog told you about MØBIUS was on 6 September: a binary that could load 132 of its 167
