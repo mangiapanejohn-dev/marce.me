@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { versions, essays } from "@/data/mobius/versions";
+import { papers } from "@/data/mobius/papers";
 import { formatStamp, formatDay } from "@/utils/formatStamp";
 import { getLangFromUrl, localizePath } from "@/i18n/utils";
 
@@ -9,9 +10,16 @@ type Props = {
   limit?: number;
   /** Link through to the full feed at the bottom. Off on the feed page itself. */
   showMore?: boolean;
+  /**
+   * Papers as full cards with their blurb and their standing, rather than one line each.
+   *
+   * On the feed page there is room to say what a document argues and where it stands now; on the
+   * homepage tab there is not, and a wall of abstracts would bury the version log underneath it.
+   */
+  fullPapers?: boolean;
 };
 
-const { limit, showMore = false } = Astro.props;
+const { limit, showMore = false, fullPapers = false } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const l = (path: string) => localizePath(path, lang);
@@ -46,8 +54,24 @@ const latestEssays = essayRows
 const olderEssays = essayRows.filter(essay => !latestEssays.includes(essay));
 
 const t = {
-  en: { versions: "Versions", essays: "Essays", more: "The full log", latest: "Latest" },
-  zh: { versions: "版本", essays: "文章", more: "完整日志", latest: "最新" },
+  en: {
+    versions: "Versions",
+    essays: "Essays",
+    more: "The full log",
+    latest: "Latest",
+    papers: "Papers & formal notes",
+    pages: "pages",
+    since: "Since then",
+  },
+  zh: {
+    versions: "版本",
+    essays: "文章",
+    more: "完整日志",
+    latest: "最新",
+    papers: "论文与形式化笔记",
+    pages: "页",
+    since: "此后",
+  },
 }[lang];
 ---
 
@@ -76,6 +100,61 @@ const t = {
             </li>
           ))}
         </ul>
+      </div>
+    )
+  }
+
+  {
+    papers.length > 0 && (
+      <div class="mb-7">
+        <p class="mb-2 text-[0.7rem] tracking-[0.13em] uppercase opacity-60">
+          {t.papers}
+        </p>
+        {fullPapers ? (
+          <ul class="flex flex-col gap-3">
+            {papers.map(paper => (
+              <li class="paper-card">
+                <a href={paper.href} class="paper-head">
+                  <span class="paper-title">{paper.title}</span>
+                  {paper.subtitle && <span class="paper-sub">{paper.subtitle}</span>}
+                </a>
+                <p class="paper-meta">
+                  <span class={`st st-${paper.kind}`}>{paper.status}</span>
+                  <span>
+                    PDF · {paper.pages} {t.pages} · {formatDay(paper.at, lang)}
+                  </span>
+                </p>
+                <p class="paper-blurb">{lang === "zh" ? paper.blurbZh : paper.blurb}</p>
+                {paper.since && (
+                  <p class="paper-since">
+                    <strong>{t.since}:</strong>{" "}
+                    {lang === "zh" ? paper.sinceZh : paper.since}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul class="flex flex-col">
+            {papers.map(paper => (
+              <li class="row grid gap-x-5 border-t border-border py-2.5">
+                <span class="v opacity-60">PDF</span>
+                <div>
+                  <time class="stamp block opacity-55" datetime={paper.at}>
+                    {formatDay(paper.at, lang)}
+                  </time>
+                  <a
+                    href={paper.href}
+                    class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                  >
+                    {paper.title}
+                  </a>
+                  <span class={`st st-${paper.kind} ms-2`}>{paper.status}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     )
   }
@@ -153,6 +232,51 @@ const t = {
 </div>
 
 <style>
+  .paper-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.95rem 1.1rem;
+    background: color-mix(in srgb, var(--muted) 38%, transparent);
+  }
+  .paper-card:hover {
+    border-color: var(--accent);
+  }
+  .paper-head {
+    display: block;
+    text-decoration: none;
+  }
+  .paper-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .paper-sub {
+    display: block;
+    font-size: 0.82rem;
+    opacity: 0.72;
+    margin-top: 0.1rem;
+  }
+  .paper-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    opacity: 0.7;
+    margin: 0.55rem 0 0.5rem;
+  }
+  .paper-blurb {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    opacity: 0.88;
+  }
+  .paper-since {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    opacity: 0.68;
+    margin-top: 0.45rem;
+  }
   .row {
     grid-template-columns: 4.5rem 1fr;
     align-items: baseline;

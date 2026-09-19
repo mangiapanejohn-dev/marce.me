@@ -1,6 +1,6 @@
 ---
 title: "MØBIUS — A Correct World Is Not a Proven One"
-description: "Thirteen days after the last update, MØBIUS moved from execution reliability into completion: who decides that work is done, on what evidence, and what that evidence forgets. Most of the claims I started the fortnight with are now dead or known under other names. What is left is narrower, measured, and more interesting — and FTR, the most ambitious idea in the project, was retired by the kill criteria written for it. The question that produced it is still open."
+description: "Thirteen days of runtime work, and one arc running through them: FTR — the most ambitious idea in MØBIUS — was formalized, measured, searched against the literature, narrowed, and did not survive. It was not abandoned for something shinier; the investigation meant to validate it is what killed it. This is the evidence that did it, and the sharper questions the collapse exposed."
 pubDatetime: 2026-09-19T19:30:00Z
 tags: ["MØBIUS", "Agents", "Verification", "FTR"]
 category: "research"
@@ -24,6 +24,19 @@ This post covers 6 September (the last public post, V56) through 19 September (`
 an audit I ran for this post). Where a number appears, the evidence directory it came from is named, and I
 re-derived it from the journals rather than copying it from a summary. Where something is a hypothesis, it is
 called one.
+
+One thread runs through all of it, and it is why the post is ordered the way it is. For months the most
+ambitious idea in this project has been **FTR** — a runtime that maintains a representation of its own possible
+futures. This fortnight was supposed to be where FTR got formalized and tested. It was: formalized, measured
+against real journals, searched against the literature, narrowed, narrowed again — and by 19 September the
+strong version of it had nowhere left to stand.
+
+> FTR was not set aside for a more attractive idea. **It was killed by the investigation that was supposed to
+> validate it.**
+
+That is not the sound of a project failing. It is the sound of one working, and I will argue that plainly in
+Part VI. Everything before Part VI is the evidence that did it; everything after is what the collapse left
+behind, which turned out to be the interesting part.
 
 <figure class="fig">
 <a href="/research/mobius-r3-timeline.svg"><img class="fig-light" src="/research/mobius-r3-timeline.svg" alt="Timeline from 6 to 19 September 2026: the last public post at V56; a world declared not discovered (ADR 0014–0019, Probes 1–6); human decisions outliving their world (V59–V73); the approval line meeting its neighbours (VB-1, VB-2, PP-1, OV-1, B1, K8); an unattended mission reporting success (S-M1/B, ADR 0021–0026); a real model in the loop (R1); completion starting to lie (R2); the judge shown more (R3); claims killed, with FTR's strong form retired under its own criteria; this audit; and the open frontier." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-timeline-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
@@ -147,6 +160,12 @@ one, and the difference turned out to matter everywhere below.
 Whether the runtime's structure (a closed capability surface, one gated observation door, compiled effects)
 *causes* the stability, or whether small tasks and one model would be this stable anywhere, is an open
 question with a designed ablation and no data.
+
+This was also the first quiet result about FTR, though I did not read it that way at the time. A forecaster can
+only be calibrated if the distribution it forecasts over is concentrated enough for repetition to mean
+something. The layering says: concentrated at the capability level, much less so at the content level, and the
+level that decides whether the work is *correct* is the content level. Whatever FTR could be, it was already
+going to be smaller than "predict what the agent does next".
 
 <figure class="fig">
 <a href="/research/mobius-r3-runtime.svg"><img class="fig-light" src="/research/mobius-r3-runtime.svg" alt="The runtime at f9b27dd. Model and cognition — proposer, look and criterion judge through the model port — produce an ActionIntent carrying desiredEffect, expected, satisfies and parameters. The runtime loop owns authority, routing, world and version binding, observation, execution, verification, evidence, completion and the journal; evidence and completion are highlighted. Effects reach a world of a filesystem provider as anchor and a repository provider as witness, and a human is asked through mobiusd or the TUI." loading="lazy" /><img class="fig-dark" src="/research/mobius-r3-runtime-dark.svg" alt="" aria-hidden="true" loading="lazy" /></a>
@@ -287,6 +306,10 @@ every time it said `cannot-tell`. It was being shown a world with its past remov
 So the question moved. Not *how do we make the judge smarter*, but:
 
 > **What must an agent runtime keep in view — not just keep — so that completion stays decidable?**
+
+It moved FTR too. The question worth asking about the future stopped being *what will happen next* and became
+*what will I wish I had kept*. That reframing is the only part of FTR still standing at the end of this post —
+and by then it no longer needs the name.
 
 And one thing the audit could not show: whether the past would have been captured at all if the model had not
 happened to list the directory with `includeContent` before acting. Here it always did. Nothing in the runtime
@@ -470,85 +493,106 @@ moving view, adjudicated by a model, and later reused by whoever reads the recor
 record contain for someone else to reach the same verdict, and how does it stay valid when the view that
 produced it has moved on?** Nobody has run the replay yet (E3 below).
 
-## Part VI — FTR killed itself, and that is the result
+## Part VI — FTR was killed by the investigation meant to validate it
 
-FTR — originally *Future Trajectory Reasoner*, and now more honestly a *future trajectory representation* —
-has been the project's most ambitious idea and its least evidenced one. The story of this fortnight is mostly
-the story of it getting smaller.
+FTR — originally *Future Trajectory Reasoner*, later and more honestly a *future trajectory representation* —
+was the largest bet in this project. Everything else MØBIUS does is about the present: what the world is now,
+what the person approved then, whether the work is done yet. FTR was the claim that a runtime also needs a
+maintained object for what has *not happened yet*: roll the run forward, watch where the futures disagree, and
+let that change what you do now.
 
-**What it was.** A continuously maintained layer of future simulation: roll the run forward, monitor how the
-futures diverge, and let that inform what the runtime does now.
+I did not decide to drop it. I spent this fortnight trying to make it real, in the only order that is honest —
+state it, formalize it, measure it, search the literature for whoever already had it, and write down in advance
+what would count as it failing. That sequence is what killed it. Here it is in order.
 
-**What killed the strong form.**
+**1 · Formalize it.** The whole of Part VII is the attempt. Writing a thing down is already a test: every term
+you introduce either does work the existing terms cannot, or it does not. By the time the object had a full
+definition — a distribution over trajectories, a disagreement index, a future-information requirement, a proof-
+failure probability, a risk term, a value function, a calibration history — most of its terms had a second
+name from somewhere else.
 
-1. *Predicting the future is not the novelty.* Predictive runtime verification already forecasts future
-   trajectories from an observed prefix and bounds the violation probability with conformal prediction
-   [[10]](#ref-10). Sample disagreement as an uncertainty signal is also established — self-consistency
-   [[11]](#ref-11), semantic entropy over equivalence classes of samples [[12]](#ref-12), and conformal
-   "ask for help" sets for LLM planners [[13]](#ref-13). The project's own review had already reduced the
-   *monitor* sub-claim, the *worldline* sub-claim (an ATMS [[14]](#ref-14) with MVCC) and *epistemic
-   scheduling* (rational metareasoning [[15]](#ref-15), where the right object is the value of information
-   [[16]](#ref-16)).
-2. *A specific prediction failed its threshold.* Could the stream of reads predict the future write set before
-   the first write — the input any anticipatory scheduler would need? Across 69 journals with dispatched writes,
-   the median fraction of the eventual write set covered by earlier reads was **0.25**, with 33 of 69 at
-   exactly zero, against a kill threshold (recall < 0.5) fixed before the computation. The shape is structural:
-   editing an existing file is highly anticipatable; creating or renaming one is not, because **a read cannot
-   point at a path that does not exist yet**. Killed on this corpus.
-3. *The designed evaluation could not run.* R3 P4 resolved every assertion a real model wrote in `expected`
-   across 104 journals — 1,345 of them — as satisfied, violated, undecidable or void. They are bare Booleans. As
-   forecasts their probability is 1, and for a constant forecast the resolution term of a proper score is zero
-   by definition, whatever the outcomes. The kill criterion *"resolution ≈ 0 against a shuffled control"* would
-   have fired on arithmetic, not measurement. Not killed; **not evaluable**.
+**2 · Measure the one thing it needed.** Any anticipatory runtime needs to know something about the next write
+before it happens. So: can the stream of reads predict the eventual write set *before the first write*? Across
+69 journals with dispatched writes, the median coverage was **0.25**, with 33 of 69 at exactly zero, against a
+threshold (recall < 0.5) fixed before the computation ran. And the failure is structural, not a matter of a
+better predictor: **a read cannot point at a path that does not exist yet**, so creation and rename carry no
+signal at all. Editing an existing file is anticipatable; the cases where anticipation would have mattered are
+the ones where it is impossible.
 
-**Near retirement.** On 18 September the research lead recommended dropping the name altogether: three of four
-sub-claims dead, the fourth untestable, and the one live residue (who produces the validity key) better stated
-without FTR's vocabulary. I think that recommendation was right about everything it examined.
+**3 · Run its own designed evaluation — and find the evaluation invalid.** FTR's pre-registered test was
+whether the proposer's `expected` assertions carry information as forecasts, scored by Brier resolution
+against a shuffled control. R3 P4 resolved all 1,345 of them across 104 journals. They are bare Booleans: as
+forecasts their probability is 1, and for a constant forecast the resolution term is zero *by definition*,
+whatever the outcomes. The kill criterion would have fired on arithmetic rather than on measurement. So this
+one did not refute FTR — it showed the experiment that was supposed to decide FTR could not decide anything.
+An unevaluable test is not evidence for the hypothesis it was built to protect.
 
-**Reopened, deliberately.** It did not examine the thing FTR was for. The 791 — later 1,345 — Boolean
-expectations were never a forecast of anything; testing FTR on them tested the wrong object, and a failed test of
-the wrong object kills nothing. So I reopened FTR as an **open research question**, under a looser and more
-exact framing: not "predict the future", but
+**4 · Search for whoever already had it.** This was the heaviest blow, and none of it was aimed at MØBIUS.
+Predicting future trajectories from an observed prefix, with calibrated bounds on violation probability, is
+predictive runtime verification [[10]](#ref-10). Disagreement across samples as an uncertainty signal is
+self-consistency [[11]](#ref-11) and semantic entropy [[12]](#ref-12), with conformal "ask for help" sets for
+planners [[13]](#ref-13). Deciding what to compute next by its expected value is value of information
+[[16]](#ref-16) and rational metareasoning [[15]](#ref-15). Branching beliefs with assumptions and retraction
+is an ATMS [[14]](#ref-14). Acting on a predicted future and rolling back is speculative execution
+[[19]](#ref-19). Keeping the past to prove a property about change is past-time temporal logic
+[[5]](#ref-5), provenance [[7]](#ref-7) [[8]](#ref-8) and before-images. Each one absorbed a piece.
 
-- **future disagreement** — does the *structure* of divergence across possible futures carry information the
-  runtime can act on;
-- **future information requirements** — what will a future decision or a future proof need to know;
-- **anticipatory evidence** — what should be captured *now* because the next action will make it
-  unrecoverable or unreachable;
-- **proof obligations** — can the runtime tell, before acting, that completion will become unprovable.
+**5 · Fail its own existence test.** FTR's review had written down the condition that mattered most: find a
+task class where planning plus replanning is demonstrably not enough, and where maintaining future state
+reduces irreversible effects, human interruptions or wasted work. No such class was found, in the literature
+or in our own corpus. By the criterion FTR itself proposed, that is a weak result for FTR.
 
-### Then it confirmed its own death
+**6 · Narrow, then narrow again.** What was left after all of that was not the original object. It was four
+questions — future disagreement, future information requirements, anticipatory evidence, proof obligations —
+and then, after the same tests were applied to those, **one**: which facts must a runtime keep before it acts,
+because a later proof will need them. That question is measured (Part III), has a precise statement
+($$\Omega_t^{*}$$, Part VII) and an experiment that can fail (E4). It is also the one part of FTR that does not
+need FTR's vocabulary to be stated.
 
-Reopening it meant holding the loose version to the same standard as everything else in this post, and I did.
-Each of the four reframed questions was put through the tests FTR's own review had written down: is there a
-task class where planning and replanning are not enough (none found); does the component reduce to a known
-object (disagreement is sampling-based uncertainty, the value function is value of information, forecast
-resolution with *void* is the same version-binding as the approval rule, and the transition witness is a
-before-image with a provenance edge); and is there an experiment that could fail (the only one designed was not
-evaluable). The formalization in the next part is where this became impossible to avoid: once every term was
-written down, every term had someone else's name next to it.
+So on 19 September I retired the strong form. Not because someone argued me out of it, and not because I got
+bored: **its own kill criteria fired, or its parts turned out to be other people's, or its designed test could
+not be run.** The most accurate sentence I can write is this one:
 
-So on 19 September I retired the FTR I had been carrying — not because an outside objection beat it, but because
-**its own kill criteria fired**, or reduced it to prior art, or showed that its one designed test could not be
-run. FTR killed itself under investigation.
+> We kept investigating FTR until the evidence no longer allowed the original FTR to survive.
 
-I count that as FTR's success, and I mean it literally. FTR was always an argument that a system should find out
-early which of its beliefs about the future will not survive contact with the world. Applied to itself, it did
-exactly that: it found the belief that would not survive — that a maintained future-state object is a new runtime
-primitive — and ended it before a line of architecture was built on it. The strong form is gone. The question
-that produced it is not (see the closing).
+### Why this is the success and not the failure
 
-What it leaves behind is one question, and it no longer carries FTR's name: **which facts must a runtime keep
-before an action, because a later proof of completion will need them?** That question is measured against real
-data (Part III), has a precise statement ($$\Omega_t^{*}$$ below), and has an experiment that can fail (E4). It
-stands or falls on its own.
+A hypothesis dying is not a bad outcome. Research fails in different ways, and all of them were available here:
+
+- keeping the architecture after the counter-evidence arrived;
+- ignoring prior art because acknowledging it would cost the novelty;
+- retelling the original story on data that does not support it;
+- refusing to let a direction die because of how much time had gone into it.
+
+None of those happened, and avoiding them is the actual result of this fortnight. It is worth stating as
+plainly as the technical claims:
+
+$$
+\textit{Research success} \;\neq\; \textit{the hypothesis survives}
+$$
+
+$$
+\textit{Research success} \;\approx\; \textit{belief changes when the evidence changes}
+$$
+
+By that standard FTR succeeded in the only way it still could. It was always an argument that a system should
+discover early which of its beliefs about the future will not survive contact with the world. Applied to
+itself, it did exactly that — and it did it before a line of architecture was built on it.
+
+And the questions did not die with it. The old FTR collapsed **as an answer**; several of the problems it
+exposed got *more* important once it was gone: future disagreement, future information requirements,
+anticipatory evidence preservation, proof obligations, the evidence horizon, transition-dependent completion,
+history-dependent correctness, unsupported establishment, certificate replayability. Parts VII to IX are what
+that looks like written down.
+
+> The old FTR died. The questions underneath it did not.
 
 ## Part VII — The FTR formalization, as it stood when it retired
 
-This is the formalization FTR ended with, kept as a record of what was killed and why. None of it is
-implemented, and none of it is a theorem. Read it as the evidence for Part VI: each term below comes with the
-prior art that absorbed it. The one part that outlives FTR is the future-information requirement
-$$\Omega_t^{*}$$ and the `preserve` action — the question in the last paragraph above.
+This is the formalization FTR ended with, and it is also the autopsy: writing every term down is how it became
+clear that most of them already belonged to someone else. None of it is implemented and none of it is a
+theorem. Read it as the evidence behind Part VI — and watch for the two places marked as outliving FTR: the
+future-information requirement $$\Omega_t^{*}$$ and the `preserve` meta-action.
 
 ### Runtime state and history
 
@@ -837,6 +881,17 @@ distinguish, but whose correct decision differs? If yes, something is missing fr
 thing is already a known object, it gets that object's name, and MØBIUS gets an implementation, not a
 contribution.
 
+Six of these are worth naming as the standing list, because each one already has at least one real instance
+behind it:
+
+- information that exists before an action and is unrecoverable after it — constructed, not yet observed;
+- criteria whose truth depends on history rather than current state — measured, three task shapes;
+- evidence that must be preserved before the runtime knows whether it will be needed;
+- possible futures whose *disagreement* may itself be actionable;
+- a decision basis that goes stale as the world moves under it — measured on approvals;
+- completion claims that are right about the world and unsupported by the runtime's own evidence — one audited
+  case.
+
 ## Next experiments
 
 Only ones that can come out either way.
@@ -867,9 +922,9 @@ a filesystem and may leave nothing for prediction to add.
 
 ## Closing — what died, and what did not
 
-MØBIUS has not stopped, and FTR was not abandoned because the project failed. The opposite is what happened:
-the part of this fortnight I am most sure was right is that **we did not keep believing a beautiful idea in
-order to keep it**.
+MØBIUS has not stopped, and FTR was not abandoned because the project failed. The opposite happened: the part
+of this fortnight I am most sure about is that **a beautiful idea was not kept alive by being believed
+harder**. It was investigated until the evidence would no longer carry it.
 
 FTR carried the strongest hypotheses in the project — future prediction, write-set anticipation, predictive
 control over what the runtime does next, calibration of its own forecasts. Experiments, prior-art searches and
@@ -880,8 +935,12 @@ by mature theory, under names that were there before the project started. In a r
 
 That is not a failure. It is the moment research actually works. The worst outcome available was never a dead
 hypothesis; it was carrying a hypothesis already known to be wrong into code, into architecture, into
-benchmarks, and finding out years later that the whole structure had been built on a problem that does not
-exist. We stopped because the evidence required us to stop.
+benchmarks, and finding out years later that the whole structure stood on a problem that does not exist. We
+stopped because the evidence required it.
+
+And the months were not lost when FTR died. **The months are what allowed it to die for the right reasons** —
+with a formalization precise enough to be attacked, measurements that could have come out the other way, and a
+literature search that was allowed to win.
 
 And it was precisely the death of those old explanations that let the deeper questions surface:
 
@@ -919,14 +978,18 @@ information requirements · future proof obligations.** And none of those names 
 They are the best descriptions I currently have, which is a different claim. Part of the work is finding the
 phenomenon underneath them that is more basic than all eight.
 
+A hypothesis that survives scrutiny is useful. A hypothesis that dies under scrutiny is useful too. The only
+dangerous outcome is letting one survive after the evidence has already moved on.
+
 We did not lose FTR. We removed the parts of it that reality would not allow us to keep. What remains is
 smaller, stranger, and more interesting.
 
 MØBIUS continues — not as a system defending its original ideas, but as a system built to destroy weak ones
 until something fundamental survives.
 
-The next phase is not to make MØBIUS look more complete. It is to use MØBIUS to find out what autonomous-agent
-runtimes still do not know how to represent.
+The next phase is not about rescuing FTR, and it is not about making MØBIUS look more complete. It is about
+using MØBIUS to find out which objects, which relations, and which forms of evidence an autonomous-agent
+runtime still does not know how to represent.
 
 ---
 
@@ -935,6 +998,11 @@ runtimes still do not know how to represent.
   <span class="rc-desc">The formalization FTR ended with, why its own criteria retired it, and the one question it leaves open — with the experiments that can still fail.</span>
   <span class="rc-meta">PDF · 12 pages · Updated 19 Sep 2026</span>
 </a>
+
+<p class="fig-note">The approval line's two papers are on the <a href="/research/">research page</a>, with what
+has changed since they were written: <a href="/research/papers/mobius-premise-bound-execution-2026-09-15.pdf">Premise-Bound
+Execution</a> (47 pp, the long-form record) and <a href="/research/papers/mobius-approvals-as-memoized-decisions-2026-09-15.pdf">Approvals
+as Memoized Decisions</a> (22 pp, the conference draft that was never sent).</p>
 
 ### References
 
