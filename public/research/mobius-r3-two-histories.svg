@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="430" viewBox="0 0 500 430" role="img" aria-labelledby="t d">
+<title id="t">Two histories with the same post-state and opposite criterion truth</title>
+<desc id="d">History A: notes.txt held &#x27;the note&#x27; and was moved to archive.txt; the criterion is true. History B: notes.txt held something else, was deleted, and archive.txt was written with &#x27;the note&#x27;; the criterion is false. The post-state evidence is identical in both.</desc>
+<rect x="20" y="16" width="220" height="214" rx="8" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="34" y="40" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#3f6b4f" text-anchor="start">History A</text>
+<rect x="32" y="52" width="196" height="40" rx="6" fill="#f6f3ec" stroke="#cfcabb" stroke-width="1"/>
+<text x="42" y="77" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">notes<tspan baseline-shift="sub" font-size="72%">pre</tspan> = "the note"</text>
+<line x1="130" y1="92" x2="130.0" y2="110.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="130.0,110.0 126.5,103.0 133.5,103.0" fill="#4a4842"/>
+<text x="130" y="128" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#6b6a63" text-anchor="middle">fs.move(notes → archive)</text>
+<line x1="130" y1="134" x2="130.0" y2="148.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="130.0,148.0 126.5,141.0 133.5,141.0" fill="#4a4842"/>
+<rect x="32" y="150" width="196" height="40" rx="6" fill="#f6f3ec" stroke="#cfcabb" stroke-width="1"/>
+<text x="42" y="168" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">archive<tspan baseline-shift="sub" font-size="72%">post</tspan> = "the note"</text>
+<text x="42" y="184" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">notes<tspan baseline-shift="sub" font-size="72%">post</tspan>: absent</text>
+<text x="130" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#3f6b4f" text-anchor="middle">C true</text>
+<path d="M130,230 C130,262 250,262 250,286" fill="none" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="250.0,286.0 246.5,279.0 253.5,279.0" fill="#4a4842"/>
+<rect x="260" y="16" width="220" height="214" rx="8" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="274" y="40" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#9b3a33" text-anchor="start">History B</text>
+<rect x="272" y="52" width="196" height="40" rx="6" fill="#f6f3ec" stroke="#cfcabb" stroke-width="1"/>
+<text x="282" y="77" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">notes<tspan baseline-shift="sub" font-size="72%">pre</tspan> = "something else"</text>
+<line x1="370" y1="92" x2="370.0" y2="110.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="370.0,110.0 366.5,103.0 373.5,103.0" fill="#4a4842"/>
+<text x="370" y="128" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#6b6a63" text-anchor="middle">delete notes; write archive</text>
+<line x1="370" y1="134" x2="370.0" y2="148.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="370.0,148.0 366.5,141.0 373.5,141.0" fill="#4a4842"/>
+<rect x="272" y="150" width="196" height="40" rx="6" fill="#f6f3ec" stroke="#cfcabb" stroke-width="1"/>
+<text x="282" y="168" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">archive<tspan baseline-shift="sub" font-size="72%">post</tspan> = "the note"</text>
+<text x="282" y="184" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">notes<tspan baseline-shift="sub" font-size="72%">post</tspan>: absent</text>
+<text x="370" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#9b3a33" text-anchor="middle">C false</text>
+<path d="M370,230 C370,262 250,262 250,286" fill="none" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="250.0,286.0 246.5,279.0 253.5,279.0" fill="#4a4842"/>
+<rect x="70" y="286" width="360" height="58" rx="8" fill="#f4dfd3" stroke="#c4623f" stroke-width="1"/>
+<text x="250" y="310" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#c4623f" text-anchor="middle">same post evidence  E<tspan baseline-shift="sub" font-size="72%">post</tspan>(h<tspan baseline-shift="sub" font-size="72%">A</tspan>) = E<tspan baseline-shift="sub" font-size="72%">post</tspan>(h<tspan baseline-shift="sub" font-size="72%">B</tspan>)</text>
+<text x="250" y="330" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#c4623f" text-anchor="middle">different criterion truth  C(h<tspan baseline-shift="sub" font-size="72%">A</tspan>) ≠ C(h<tspan baseline-shift="sub" font-size="72%">B</tspan>)</text>
+<text x="250" y="372" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6a63" text-anchor="middle">so no judge can soundly answer established from E<tspan baseline-shift="sub" font-size="72%">post</tspan> alone:</text>
+<text x="250" y="396" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#262521" text-anchor="middle">E<tspan baseline-shift="sub" font-size="72%">post</tspan> ⊭ C</text>
+</svg>

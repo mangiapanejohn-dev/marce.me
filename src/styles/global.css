@@ -147,3 +147,103 @@ html[data-theme="dark"] .fig-dark {
   opacity: 0.72;
   margin-block-start: -0.4rem;
 }
+
+/* Math (KaTeX, `$$…$$` in a post). A long display equation scrolls inside its own box rather than
+   widening the page, so a phone never gets a horizontal page scroll from a formula. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.25rem;
+  margin-block: 1.1rem;
+}
+.katex {
+  font-size: 1.06em;
+  /* Display math sits in a div, which the prose overrides in typography.css do not recolour, so it
+     would take Tailwind Typography's slate body colour — nearly invisible on the dark ground. */
+  color: var(--foreground);
+}
+/* On a phone a wide post table scrolls inside its own box instead of widening the page. */
+@media (max-width: 640px) {
+  .app-prose table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.eq-note {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-block-start: -0.5rem;
+}
+
+/* A research figure with its caption. The pair inside it is the same fig-light / fig-dark pair as
+   above; the figure only adds air and a caption that reads as one. */
+.fig {
+  margin-block: 2.25rem;
+}
+.fig img {
+  border: none;
+}
+.fig figcaption {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-top: 0.75rem;
+  text-align: left;
+}
+
+/* A downloadable resource at the end of a post, shaped like the site's other cards. */
+.resource-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin-block: 2rem;
+  text-decoration: none !important;
+  background: color-mix(in srgb, var(--muted) 45%, transparent);
+}
+.resource-card:hover {
+  border-color: var(--accent);
+}
+.resource-card .rc-title {
+  display: block;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.resource-card .rc-desc {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  opacity: 0.85;
+}
+.resource-card .rc-meta {
+  display: block;
+  font-size: 0.78rem;
+  margin-top: 0.6rem;
+  opacity: 0.65;
+  color: var(--foreground);
+}
+
+/* Status tags in a research table: small, and legible in both themes. */
+.st {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.st-open { color: #b3562f; }
+.st-killed { color: #8f2f2f; }
+.st-retired { color: #6b6a63; }
+.st-prior { color: #5a6b4a; }
+.st-measured { color: #2f5d7a; }
+.st-ne { color: #7a5a2f; }
+html[data-theme="dark"] .st-open { color: #e08a6b; }
+html[data-theme="dark"] .st-killed { color: #e59a9a; }
+html[data-theme="dark"] .st-retired { color: #b9b7ad; }
+html[data-theme="dark"] .st-prior { color: #b5c79f; }
+html[data-theme="dark"] .st-measured { color: #9cc3de; }
+html[data-theme="dark"] .st-ne { color: #dcc08f; }

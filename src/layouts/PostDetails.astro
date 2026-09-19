@@ -1,6 +1,8 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+// KaTeX's stylesheet for posts that carry `$$…$$` math. Its fonts load only when a glyph needs them.
+import "katex/dist/katex.min.css";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Tag from "@/components/Tag.astro";

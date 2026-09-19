@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="760" viewBox="0 0 500 760" role="img" aria-labelledby="t d">
+<title id="t">The MØBIUS runtime as it stands at f9b27dd</title>
+<desc id="d">Model and cognition propose intents, looks and judgements through the model port. The runtime loop owns authority, routing, world and version binding, observation, execution, verification, evidence and completion, and the journal. Effects reach the world through environment providers.</desc>
+<rect x="20" y="16" width="460" height="86" rx="8" fill="#2f3f4a" stroke="#9cc3de" stroke-width="1"/>
+<text x="36" y="40" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9cc3de" text-anchor="start">Model / cognition  ·  advisory, never authoritative</text>
+<text x="36" y="62" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">proposer (intent-source) · look (observation-source)</text>
+<text x="36" y="79" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">criterion judge (criterion-judge, ADR 0043) · Claude CLI / OpenAI transports</text>
+<line x1="250" y1="108" x2="250.0" y2="130.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="250.0,130.0 246.5,123.0 253.5,123.0" fill="#c9c6ba"/>
+<rect x="120" y="132" width="260" height="50" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="250" y="153" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="middle">ActionIntent</text>
+<text x="250" y="171" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">desiredEffect · expected · satisfies · parameters</text>
+<line x1="250" y1="182" x2="250.0" y2="204.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="250.0,204.0 246.5,197.0 253.5,197.0" fill="#c9c6ba"/>
+<rect x="20" y="206" width="460" height="432" rx="10" fill="#36352f" stroke="#e08a6b" stroke-width="1.6"/>
+<text x="36" y="230" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#e08a6b" text-anchor="start">Runtime  ·  runtime-core/loop.ts, owns every consequential decision</text>
+<rect x="34" y="256" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="272" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">authority</text>
+<text x="46" y="287" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">AuthorityGate · approval revalidation · occurrence binding (K8)</text>
+<rect x="34" y="298" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="314" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">routing</text>
+<text x="46" y="329" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">reflex + compiler: intent → ActionIR; arguments may route (ADR 0030/0033)</text>
+<rect x="34" y="340" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="356" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">world / version</text>
+<text x="46" y="371" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">declared world (ADR 0014) · per-provider revision · basis, stale-basis</text>
+<rect x="34" y="382" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="398" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">observation</text>
+<text x="46" y="413" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">one gated door; the runtime looks where the model did not (ADR 0041)</text>
+<rect x="34" y="424" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="440" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">execution</text>
+<text x="46" y="455" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">MEP transport → provider session; receipts carry identity</text>
+<rect x="34" y="466" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="482" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">verification</text>
+<text x="46" y="497" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">comparator over expected · paths.ts resolvePath (dotted, no search)</text>
+<rect x="34" y="508" width="432" height="38" rx="6" fill="#5a3d31" stroke="#e08a6b" stroke-width="1"/>
+<text x="46" y="524" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#e08a6b" text-anchor="start">evidence</text>
+<text x="46" y="539" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">#evidenceByCriterion · judge sees binding ∪ run view (ADR 0045)</text>
+<rect x="34" y="550" width="432" height="38" rx="6" fill="#5a3d31" stroke="#e08a6b" stroke-width="1"/>
+<text x="46" y="566" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#e08a6b" text-anchor="start">completion</text>
+<text x="46" y="581" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">goal.completed records the binding's evidence only</text>
+<rect x="34" y="592" width="432" height="38" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="608" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#edebe3" text-anchor="start">journal</text>
+<text x="46" y="623" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">append-only events; a run re-opens over the journal (ADR 0013)</text>
+<line x1="250" y1="638" x2="250.0" y2="660.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="250.0,660.0 246.5,653.0 253.5,653.0" fill="#c9c6ba"/>
+<rect x="20" y="662" width="460" height="80" rx="8" fill="#34423a" stroke="#a9c9b1" stroke-width="1"/>
+<text x="36" y="686" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#a9c9b1" text-anchor="start">World</text>
+<text x="36" y="706" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">filesystem provider (anchor) · repository provider (witness, asked, never anchored)</text>
+<text x="36" y="723" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">human: asked through mobiusd / the TUI; an answer re-opens the run</text>
+</svg>

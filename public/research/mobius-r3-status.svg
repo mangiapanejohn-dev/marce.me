@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="678" viewBox="0 0 500 678" role="img" aria-labelledby="t d">
+<title id="t">Research status map, 19 September 2026</title>
+<desc id="d">Measured, open, killed by experiment, retired as prior art, and not yet evaluable — the items the post discusses, grouped by status.</desc>
+<rect x="20" y="14" width="460" height="106" rx="8" fill="#dce6ee" stroke="#2f5d7a" stroke-width="1"/>
+<text x="34" y="35" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#2f5d7a" text-anchor="start">MEASURED</text>
+<text x="46" y="56" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· cannot-tell dominated by missing prior state (3 task shapes)</text>
+<text x="46" y="75" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· unsupported establishment: 1 clear case in 20</text>
+<text x="46" y="94" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· certificate closure: 0 of 11</text>
+<text x="46" y="113" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· layered determinism 0.923 / 0.795 (n = 3, one commit)</text>
+<rect x="20" y="134" width="460" height="144" rx="8" fill="#f4dfd3" stroke="#c4623f" stroke-width="1"/>
+<text x="34" y="155" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#c4623f" text-anchor="start">OPEN</text>
+<text x="46" y="176" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· FTR as a runtime object (reopened, untested)</text>
+<text x="46" y="195" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· rollout disagreement as a signal</text>
+<text x="46" y="214" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· future information requirement Ω*</text>
+<text x="46" y="233" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· anticipatory evidence preservation</text>
+<text x="46" y="252" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· proof-failure prediction</text>
+<text x="46" y="271" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· open-provider addressability</text>
+<rect x="20" y="292" width="460" height="106" rx="8" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="34" y="313" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#9b3a33" text-anchor="start">KILLED BY EXPERIMENT</text>
+<text x="46" y="334" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· pre-write write-set anticipation from reads (median 0.25)</text>
+<text x="46" y="353" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· "reuse costs nothing" (OV-1)</text>
+<text x="46" y="372" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· "provenance link is load-bearing" (PP-1)</text>
+<text x="46" y="391" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· lease as approval validity (VB-1)</text>
+<rect x="20" y="412" width="460" height="125" rx="8" fill="#e7e3d7" stroke="#6b6a63" stroke-width="1"/>
+<text x="34" y="433" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#6b6a63" text-anchor="start">RETIRED · PRIOR ART</text>
+<text x="46" y="454" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· future prediction as novelty (predictive RV)</text>
+<text x="46" y="473" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· approval capture/revalidation (CommitGuard, PlanFence, S-Bus)</text>
+<text x="46" y="492" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· false success (Advani 2026)</text>
+<text x="46" y="511" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· transition witness as a new primitive</text>
+<text x="46" y="530" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· append-only replay; per-action approval gate</text>
+<rect x="20" y="551" width="460" height="87" rx="8" fill="#f1e6cc" stroke="#9a6a1f" stroke-width="1"/>
+<text x="34" y="572" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#9a6a1f" text-anchor="start">NOT YET EVALUABLE</text>
+<text x="46" y="593" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· Boolean expected → Brier / resolution</text>
+<text x="46" y="612" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· "0 false completions" (0 opportunities)</text>
+<text x="46" y="631" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#262521" text-anchor="start">· does content variance change outcomes (39/39 pass)</text>
+</svg>

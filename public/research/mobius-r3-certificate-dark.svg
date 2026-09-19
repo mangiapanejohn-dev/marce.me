@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="470" viewBox="0 0 500 470" role="img" aria-labelledby="t d">
+<title id="t">The judge&#x27;s decision basis against the completion certificate</title>
+<desc id="d">The judge is shown the binding&#x27;s evidence plus the run&#x27;s view; it answers established; goal.completed stores only the binding&#x27;s evidence. In T4 repetition 3 the judge used a read of archive.txt and a listing of the root; the certificate keeps the read. Across R3 P3, 0 of 11 judge-bound criteria in completed runs had a certificate containing the judge&#x27;s basis.</desc>
+<rect x="20" y="16" width="460" height="118" rx="8" fill="#2f3f4a" stroke="#9cc3de" stroke-width="1"/>
+<text x="36" y="40" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#9cc3de" text-anchor="start">What the judge was shown   J<tspan baseline-shift="sub" font-size="72%">i</tspan> = E<tspan baseline-shift="sub" font-size="72%">binding</tspan> ∪ E<tspan baseline-shift="sub" font-size="72%">runView</tspan></text>
+<rect x="36" y="54" width="204" height="64" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="74" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">binding</tspan></text>
+<text x="46" y="89" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">obs-5: read archive.txt</text>
+<text x="46" y="104" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">"the note\n"</text>
+<rect x="252" y="54" width="212" height="64" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="262" y="74" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">E<tspan baseline-shift="sub" font-size="72%">runView</tspan></text>
+<text x="262" y="89" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">obs-4: listing of .</text>
+<text x="262" y="104" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">notes.txt absent</text>
+<line x1="250" y1="134" x2="250.0" y2="158.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="250.0,158.0 246.5,151.0 253.5,151.0" fill="#c9c6ba"/>
+<rect x="150" y="160" width="200" height="40" rx="8" fill="#34423a" stroke="#a9c9b1" stroke-width="1"/>
+<text x="250" y="185" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#a9c9b1" text-anchor="middle">verdict: established</text>
+<line x1="250" y1="200" x2="250.0" y2="224.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="250.0,224.0 246.5,217.0 253.5,217.0" fill="#c9c6ba"/>
+<rect x="20" y="226" width="460" height="96" rx="8" fill="#5a3d31" stroke="#e08a6b" stroke-width="1"/>
+<text x="36" y="250" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#e08a6b" text-anchor="start">What goal.completed keeps   C<tspan baseline-shift="sub" font-size="72%">i</tspan> = E<tspan baseline-shift="sub" font-size="72%">binding</tspan></text>
+<rect x="36" y="262" width="204" height="44" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="46" y="280" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">obs-5: read archive.txt</text>
+<text x="46" y="295" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">(nothing says notes.txt is gone)</text>
+<rect x="252" y="262" width="212" height="44" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="262" y="289" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="start" font-style="italic">obs-4 — not kept</text>
+<text x="250" y="352" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#edebe3" text-anchor="middle">J<tspan baseline-shift="sub" font-size="72%">i</tspan> ⊈ C<tspan baseline-shift="sub" font-size="72%">i</tspan></text>
+<text x="20" y="384" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#b9b7ad" text-anchor="start">R3 P3: 11 judge-bound criteria in completed runs; J ⊆ C in 0 of 11.</text>
+<text x="20" y="401" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#b9b7ad" text-anchor="start">In 8 of the 11 the omitted evidence carries part of what the judge's own reason cites.</text>
+<text x="20" y="418" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#b9b7ad" text-anchor="start">The journal's criterion.judged event still names J — the gap is in the certificate,</text>
+<text x="20" y="435" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#b9b7ad" text-anchor="start">not in the log.</text>
+</svg>

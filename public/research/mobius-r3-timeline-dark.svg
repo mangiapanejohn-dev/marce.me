@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="780" viewBox="0 0 500 780" role="img" aria-labelledby="t d">
+<title id="t">MØBIUS research timeline, 6 to 19 September 2026</title>
+<desc id="d">From the last public post to the current frontier: declared worlds, approvals bound to premises, the approval line reduced to prior art, real-model missions, the completion judge, R3, claims retired in review, and this audit.</desc>
+<text x="16" y="24" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b9b7ad" text-anchor="start">6 Sep → 19 Sep 2026 · what happened between the two posts</text>
+<line x1="96" y1="44" x2="96" y2="712" stroke="#55534b" stroke-width="2"/>
+<text x="82" y="49" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">6 Sep</text>
+<circle cx="96" cy="44" r="4" fill="#36352f" stroke="#b9b7ad" stroke-width="2"/>
+<text x="112" y="49" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Last public post</text>
+<text x="112" y="67.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">V54–V56: what one binary can actually load.</text>
+<text x="82" y="115" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">6–8 Sep</text>
+<circle cx="96" cy="110" r="4" fill="#36352f" stroke="#c9c6ba" stroke-width="2"/>
+<text x="112" y="115" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">A world is declared, not discovered</text>
+<text x="112" y="133.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">ADR 0014–0019, Probes 1–6. A revision records what</text>
+<text x="112" y="148.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">a provider did; the declared premise was inert.</text>
+<text x="82" y="181" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">8–9 Sep</text>
+<circle cx="96" cy="176" r="4" fill="#36352f" stroke="#c9c6ba" stroke-width="2"/>
+<text x="112" y="181" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Human decisions outlive their world</text>
+<text x="112" y="199.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">V59–V73. An approval is reused across a world</text>
+<text x="112" y="214.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">change; V65 binds it to what it was granted over.</text>
+<text x="82" y="247" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">10–12 Sep</text>
+<circle cx="96" cy="242" r="4" fill="#36352f" stroke="#c9c6ba" stroke-width="2"/>
+<text x="112" y="247" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">The approval line meets its neighbours</text>
+<text x="112" y="265.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">VB-1, VB-2, PP-1, OV-1; B1 ratified (approval =</text>
+<text x="112" y="280.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">memoized decision keyed by its premise); K8 repaired.</text>
+<text x="82" y="313" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">12–13 Sep</text>
+<circle cx="96" cy="308" r="4" fill="#36352f" stroke="#c9c6ba" stroke-width="2"/>
+<text x="112" y="313" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">An unattended mission reports success</text>
+<text x="112" y="331.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">S-M1/B: a moving world overwritten and called</text>
+<text x="112" y="346.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">complete. ADR 0021–0026.</text>
+<text x="82" y="379" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">13–15 Sep</text>
+<circle cx="96" cy="374" r="4" fill="#36352f" stroke="#c9c6ba" stroke-width="2"/>
+<text x="112" y="379" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">A real model in the loop (R1)</text>
+<text x="112" y="397.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">The proposer was blind. ADR 0027–0035; approval</text>
+<text x="112" y="412.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">cells P6b: seven predictions, seven held.</text>
+<text x="82" y="445" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">18 Sep</text>
+<circle cx="96" cy="440" r="5.5" fill="#e08a6b" stroke="#e08a6b" stroke-width="2"/>
+<text x="112" y="445" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Completion starts lying (R2)</text>
+<text x="112" y="463.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">Pilot: checker 0/6, runtime complete 5/6. ADR 0043</text>
+<text x="112" y="478.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">judge: 0 false, and 0/6 completed at all.</text>
+<text x="82" y="511" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">18–19 Sep</text>
+<circle cx="96" cy="506" r="5.5" fill="#e08a6b" stroke="#e08a6b" stroke-width="2"/>
+<text x="112" y="511" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">The judge is shown more (R3)</text>
+<text x="112" y="529.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">ADR 0044/0045, P3: 39 valid rows, 114 judgements,</text>
+<text x="112" y="544.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">74 cannot-tell. P4: Boolean expected → no Brier.</text>
+<text x="82" y="577" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">18–19 Sep</text>
+<circle cx="96" cy="572" r="4" fill="#36352f" stroke="#eba59c" stroke-width="2"/>
+<text x="112" y="577" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#eba59c" text-anchor="start">Claims killed in review</text>
+<text x="112" y="595.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">Approval line and FTR mechanism → prior art;</text>
+<text x="112" y="610.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">write-set anticipation fails its kill threshold.</text>
+<text x="82" y="643" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">19 Sep</text>
+<circle cx="96" cy="638" r="5.5" fill="#e08a6b" stroke="#e08a6b" stroke-width="2"/>
+<text x="112" y="643" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">This audit</text>
+<text x="112" y="661.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">The missing past is in the journal, out of view;</text>
+<text x="112" y="676.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">1 unsupported established; certificates 0/11 closed.</text>
+<text x="82" y="709" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b9b7ad" text-anchor="end">now</text>
+<circle cx="96" cy="704" r="5.5" fill="#9cc3de" stroke="#9cc3de" stroke-width="2"/>
+<text x="112" y="709" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Open frontier</text>
+<text x="112" y="727.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">Which of history, decision basis, possible futures</text>
+<text x="112" y="742.5" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#b9b7ad" text-anchor="start">and proof obligations become runtime objects?</text>
+</svg>

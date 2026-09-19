@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="800" viewBox="0 0 500 800" role="img" aria-labelledby="t d">
+<title id="t">FTR as a candidate closed loop</title>
+<desc id="d">Reality and history feed a versioned world W_t. The FTR state holds possible futures, disagreement, future evidence requirements, risk, proof-failure probability and calibration. It informs a runtime meta-decision among act, observe, test, ask, fork, replan, preserve and wait. The action changes the world; forecasts resolve as satisfied, violated or void; calibration updates; a new FTR state follows.</desc>
+<rect x="60" y="14" width="300" height="40" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="39.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">Reality / history  H<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<line x1="210" y1="54" x2="210.0" y2="72.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,72.0 206.5,65.0 213.5,65.0" fill="#c9c6ba"/>
+<rect x="60" y="74" width="300" height="40" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="99.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">Versioned world  W<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<line x1="210" y1="114" x2="210.0" y2="132.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,132.0 206.5,125.0 213.5,125.0" fill="#c9c6ba"/>
+<rect x="40" y="134" width="340" height="196" rx="10" fill="#5a3d31" stroke="#e08a6b" stroke-width="1.6"/>
+<text x="210" y="158" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#e08a6b" text-anchor="middle">FTR state  F<tspan baseline-shift="sub" font-size="72%">t</tspan>   (candidate, not validated)</text>
+<text x="70" y="184" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">possible futures</text>
+<text x="350" y="184" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">t</tspan>(τ)</text>
+<text x="70" y="209" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">disagreement</text>
+<text x="350" y="209" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">D<tspan baseline-shift="sub" font-size="72%">t</tspan>, H<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<text x="70" y="234" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">future evidence</text>
+<text x="350" y="234" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">Ω*<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<text x="70" y="259" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">proof failure</text>
+<text x="350" y="259" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">P<tspan baseline-shift="sub" font-size="72%">t</tspan><tspan baseline-shift="super" font-size="72%">proof</tspan></text>
+<text x="70" y="284" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">risk</text>
+<text x="350" y="284" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">R<tspan baseline-shift="sub" font-size="72%">t</tspan>(a)</text>
+<text x="70" y="309" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#edebe3" text-anchor="start">calibration</text>
+<text x="350" y="309" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" fill="#e08a6b" text-anchor="end" font-style="italic">Γ<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<line x1="210" y1="330" x2="210.0" y2="350.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,350.0 206.5,343.0 213.5,343.0" fill="#c9c6ba"/>
+<rect x="60" y="352" width="300" height="64" rx="8" fill="#2f3f4a" stroke="#9cc3de" stroke-width="1"/>
+<text x="210" y="374" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#9cc3de" text-anchor="middle">Runtime meta-decision  x*<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<text x="210" y="392" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">act · observe · test · ask</text>
+<text x="210" y="407" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">fork · replan · preserve · wait</text>
+<line x1="210" y1="416" x2="210.0" y2="434.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,434.0 206.5,427.0 213.5,427.0" fill="#c9c6ba"/>
+<rect x="60" y="436" width="300" height="40" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="461.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">Action  A<tspan baseline-shift="sub" font-size="72%">t</tspan></text>
+<line x1="210" y1="476" x2="210.0" y2="494.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,494.0 206.5,487.0 213.5,487.0" fill="#c9c6ba"/>
+<rect x="60" y="496" width="300" height="40" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="521.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">World transition  (O<tspan baseline-shift="sub" font-size="72%">t+1</tspan>, W<tspan baseline-shift="sub" font-size="72%">t+1</tspan>)</text>
+<line x1="210" y1="536" x2="210.0" y2="554.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,554.0 206.5,547.0 213.5,547.0" fill="#c9c6ba"/>
+<rect x="60" y="556" width="300" height="58" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="578" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">Forecast resolution</text>
+<text x="210" y="596" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">satisfied · violated · void</text>
+<line x1="210" y1="614" x2="210.0" y2="632.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,632.0 206.5,625.0 213.5,625.0" fill="#c9c6ba"/>
+<rect x="60" y="634" width="300" height="40" rx="8" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="210" y="659.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#edebe3" text-anchor="middle">Calibration  Γ<tspan baseline-shift="sub" font-size="72%">t+1</tspan></text>
+<line x1="210" y1="674" x2="210.0" y2="692.0" stroke="#c9c6ba" stroke-width="1.2"/>
+<polygon points="210.0,692.0 206.5,685.0 213.5,685.0" fill="#c9c6ba"/>
+<rect x="60" y="694" width="300" height="40" rx="8" fill="#5a3d31" stroke="#e08a6b" stroke-width="1"/>
+<text x="210" y="719.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#e08a6b" text-anchor="middle">New FTR state  F<tspan baseline-shift="sub" font-size="72%">t+1</tspan></text>
+<path d="M360,714 C460,714 460,232 382,232" fill="none" stroke="#c9c6ba" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="382.0,232.0 389.0,228.5 389.0,235.5" fill="#c9c6ba"/>
+<text x="472" y="470" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="400" fill="#b9b7ad" text-anchor="middle">↺</text>
+<text x="20" y="770" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start" font-style="italic">Only the Boolean expectation layer exists in code today; nothing here is implemented as FTR.</text>
+</svg>
