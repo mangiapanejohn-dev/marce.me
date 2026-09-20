@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Papers from "@/components/Papers.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`Papers | ${SITE.title}`}
+  description="The MØBIUS papers and formal notes, each with the status it holds today — what it argues, and what has changed since it was written."
+>
+  <Header />
+  <Main
+    pageTitle="Papers"
+    pageDesc="Every document with the status it holds today."
+  >
+    <p class="mb-8 max-w-[62ch] text-sm opacity-80">
+      These are dated records of what was believed and measured, not a
+      publication list. Two of them are drafts whose novelty framing has since
+      been narrowed by the project's own prior-art work, and one records a
+      research direction that was retired. Each card says where it stands now,
+      because a paper that is quietly wrong is worse than one that says so. The
+      work they came from is on the
+      <a
+        href="/research/"
+        class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+        >research page</a
+      >.
+    </p>
+
+    <Papers variant="full" />
+  </Main>
+  <Footer />
+</Layout>

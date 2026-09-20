@@ -1,0 +1,27 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Papers from "@/components/Papers.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`论文 | ${SITE.title}`}
+  description="MØBIUS 的论文与形式化笔记，每一份都标明它今天的状态：它主张什么，以及写完之后有什么变了。"
+>
+  <Header />
+  <Main pageTitle="论文" pageDesc="每一份文档，连同它今天的状态。">
+    <p class="mb-8 max-w-[62ch] text-sm opacity-80">
+      这里放的是「当时相信什么、测到了什么」的带日期记录，不是发表列表。其中两份是草稿，其新颖性表述此后已被项目自己的先验工作检索收窄；另一份记录的是一条已经退役的研究方向。每张卡片都写明它现在的状态——一份悄悄出错的论文，比一份自己说清楚的更糟。它们背后的工作在<a
+        href="/zh/research/"
+        class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+        >研究页</a
+      >。
+    </p>
+
+    <Papers variant="full" />
+  </Main>
+  <Footer />
+</Layout>

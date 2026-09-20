@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { versions, essays } from "@/data/mobius/versions";
 import { papers } from "@/data/mobius/papers";
+import Papers from "@/components/Papers.astro";
 import { formatStamp, formatDay } from "@/utils/formatStamp";
 import { getLangFromUrl, localizePath } from "@/i18n/utils";
 
@@ -110,51 +111,7 @@ const t = {
         <p class="mb-2 text-[0.7rem] tracking-[0.13em] uppercase opacity-60">
           {t.papers}
         </p>
-        {fullPapers ? (
-          <ul class="flex flex-col gap-3">
-            {papers.map(paper => (
-              <li class="paper-card">
-                <a href={paper.href} class="paper-head">
-                  <span class="paper-title">{paper.title}</span>
-                  {paper.subtitle && <span class="paper-sub">{paper.subtitle}</span>}
-                </a>
-                <p class="paper-meta">
-                  <span class={`st st-${paper.kind}`}>{paper.status}</span>
-                  <span>
-                    PDF · {paper.pages} {t.pages} · {formatDay(paper.at, lang)}
-                  </span>
-                </p>
-                <p class="paper-blurb">{lang === "zh" ? paper.blurbZh : paper.blurb}</p>
-                {paper.since && (
-                  <p class="paper-since">
-                    <strong>{t.since}:</strong>{" "}
-                    {lang === "zh" ? paper.sinceZh : paper.since}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <ul class="flex flex-col">
-            {papers.map(paper => (
-              <li class="row grid gap-x-5 border-t border-border py-2.5">
-                <span class="v opacity-60">PDF</span>
-                <div>
-                  <time class="stamp block opacity-55" datetime={paper.at}>
-                    {formatDay(paper.at, lang)}
-                  </time>
-                  <a
-                    href={paper.href}
-                    class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
-                  >
-                    {paper.title}
-                  </a>
-                  <span class={`st st-${paper.kind} ms-2`}>{paper.status}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
+        <Papers variant={fullPapers ? "full" : "compact"} />
       </div>
     )
   }

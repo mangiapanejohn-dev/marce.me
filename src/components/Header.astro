@@ -82,26 +82,53 @@ const l = (path: string) => localizePath(path, lang);
           "sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
         ]}
       >
-        <li class="col-span-2">
-          <a href={l("/posts")} class:list={{ "active-nav": isActive("/posts") }}>
+        <li class="nav-group col-span-2">
+          <a
+            href={l("/posts")}
+            class:list={[
+              "nav-link",
+              { "active-nav": isActive("/posts") || isActive("/papers") },
+            ]}
+            aria-haspopup="true"
+          >
             {t("nav.posts")}
+            <span class="caret" aria-hidden="true">▾</span>
           </a>
+          <ul class="submenu">
+            <li>
+              <a href={l("/posts")} class="sub-link">{t("nav.allPosts")}</a>
+            </li>
+            <li>
+              <a
+                href={l("/papers")}
+                class:list={["sub-link", { "sub-active": isActive("/papers") }]}
+              >
+                {t("nav.papers")}
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="col-span-2">
           <a
             href={l("/research")}
-            class:list={{ "active-nav": isActive("/research") }}
+            class:list={["nav-link", { "active-nav": isActive("/research") }]}
           >
             {t("nav.research")}
           </a>
         </li>
         <li class="col-span-2">
-          <a href={l("/tags")} class:list={{ "active-nav": isActive("/tags") }}>
+          <a
+            href={l("/tags")}
+            class:list={["nav-link", { "active-nav": isActive("/tags") }]}
+          >
             {t("nav.tags")}
           </a>
         </li>
         <li class="col-span-2">
-          <a href={l("/about")} class:list={{ "active-nav": isActive("/about") }}>
+          <a
+            href={l("/about")}
+            class:list={["nav-link", { "active-nav": isActive("/about") }]}
+          >
             {t("nav.about")}
           </a>
         </li>
@@ -162,6 +189,122 @@ const l = (path: string) => localizePath(path, lang);
     </nav>
   </div>
 </header>
+
+<style>
+  /* The hover underline: it grows from the middle rather than appearing all at once, which is the
+     difference between a link reacting and a link just changing colour. `.active-nav` keeps the
+     wavy underline that marks the current section, so the two never draw at the same time. */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 50%;
+    bottom: 0.15rem;
+    height: 1.5px;
+    border-radius: 1px;
+    background: currentColor;
+    opacity: 0;
+    transition:
+      inset-inline 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    inset-inline: 0.5rem;
+    opacity: 0.85;
+  }
+  .active-nav::after {
+    content: none;
+  }
+  .caret {
+    display: none;
+    font-size: 0.6em;
+    opacity: 0.55;
+    margin-inline-start: 0.25rem;
+    transition: transform 0.2s ease;
+  }
+  .sub-link {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.9rem;
+    transition:
+      background 0.18s ease,
+      color 0.18s ease;
+  }
+  .sub-link:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--muted) 70%, transparent);
+  }
+  .sub-active {
+    color: var(--accent);
+  }
+
+  @media (min-width: 640px) {
+    .nav-group {
+      position: relative;
+      padding-bottom: 0.35rem;
+      margin-bottom: -0.35rem;
+    }
+    .caret {
+      display: inline-block;
+    }
+    .submenu {
+      position: absolute;
+      top: 100%;
+      inset-inline-start: 50%;
+      z-index: 50;
+      min-width: 10.5rem;
+      padding: 0.35rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--background);
+      box-shadow: 0 10px 28px rgb(0 0 0 / 12%);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -0.35rem);
+      transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s;
+    }
+    .nav-group:hover .submenu,
+    .nav-group:focus-within .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0.15rem);
+    }
+    .nav-group:hover .caret,
+    .nav-group:focus-within .caret {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* On the phone menu there is no hover, so the sub-item is simply always there, one step in. */
+  @media (max-width: 639px) {
+    .submenu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .sub-link {
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::after,
+    .submenu,
+    .caret {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   function toggleNav() {

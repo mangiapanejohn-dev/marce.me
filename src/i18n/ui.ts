@@ -16,6 +16,8 @@ export const ui = {
   en: {
     "nav.posts": "Blog",
     "nav.research": "Research",
+    "nav.papers": "Papers",
+    "nav.allPosts": "All posts",
     "nav.tags": "Tags",
     "nav.categories": "Categories",
     "home.blog": "Blog",
@@ -43,6 +45,8 @@ export const ui = {
   zh: {
     "nav.posts": "博客",
     "nav.research": "研究",
+    "nav.papers": "论文",
+    "nav.allPosts": "全部文章",
     "nav.tags": "标签",
     "nav.categories": "分类",
     "home.blog": "博客",

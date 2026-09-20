@@ -124,6 +124,20 @@ not recomputable" is a different outcome from "key differs."** Two surprises —
 reuse costing what first use costs — become *predictions* under that reading. That is the one abstraction from
 this period I would still defend.
 
+<a class="ref-card ref-mine" href="/research/papers/mobius-premise-bound-execution-2026-09-15.pdf">
+  <span class="ref-label">MØBIUS paper · PDF</span>
+  <span class="ref-title">Premise-Bound Execution</span>
+  <span class="ref-sub">Approval Validity under Mutable World State in an Agent Runtime — the long-form record behind this section: 272 arms across one run, a run boundary and a resume, and the memoized-decision model.</span>
+  <span class="ref-meta">47 pages · 15 Sep 2026 · draft, partly superseded by the prior art below</span>
+</a>
+
+<a class="ref-card ref-mine" href="/research/papers/mobius-approvals-as-memoized-decisions-2026-09-15.pdf">
+  <span class="ref-label">MØBIUS paper · PDF</span>
+  <span class="ref-title">Approvals as Memoized Decisions</span>
+  <span class="ref-sub">The short version, written to a conference page budget and built anonymously for review. Targeted at USENIX OSDI ’27, never submitted.</span>
+  <span class="ref-meta">22 pages · 15 Sep 2026 · conference draft, not submitted</span>
+</a>
+
 And then it stopped being ours. External baselines showed LangGraph 1.2.11 and the OpenAI Agents SDK 0.22.2
 executing on a changed world in all sixteen arms; but Claude Code 2.1.269 and Codex 0.149.0 **refuse** a stale
 edit on their native editing paths — by a content precondition, not by revalidating anything — and execute
@@ -137,6 +151,16 @@ declaration [[2]](#ref-2); S-Bus reconstructs read sets from traffic without age
 
 > A human decision is a runtime object bound to a version of the world. That sentence is true, it is
 > measured here, and it is **not new**. MØBIUS is one more instance of a boundary-witness family.
+
+<div class="ref-related">
+  <span class="ref-label">Related work — the family this belongs to</span>
+  <ul>
+    <li><a href="https://arxiv.org/abs/2607.10487">Temporary Authority, Permanent Effects</a> <span class="rr-note">— commit-time authorization: witnesses captured before dispatch, recomputed at the commit boundary, with a typed third outcome for "not observable".</span></li>
+    <li><a href="https://arxiv.org/abs/2609.03340">Fresh Memory, Stale Plans</a> <span class="rr-note">— dependency-scoped validation at action time; an incomplete declaration blocks rather than proceeds.</span></li>
+    <li><a href="https://arxiv.org/abs/2605.17076">S-Bus</a> <span class="rr-note">— read sets reconstructed from traffic, with a measured ceiling on how much of an agent's reading is observable at all.</span></li>
+    <li><a href="https://arxiv.org/abs/2607.05743">A systematization of execution-security research for coding agents</a> <span class="rr-note">— names <em>authorization checked once and trusted forever</em> as a root cause.</span></li>
+  </ul>
+</div>
 
 ### Determinism is layered, and it is not a property of "the agent"
 
@@ -194,7 +218,17 @@ solution and the solution one step short (`evidence/r2/de5b79b`, measured):
 
 Every false completion closed its last criterion the same way: on a **read** whose proposer-written
 expectation held (*"content exists"*), through ADR 0031's rule that such a read evidences the criterion it names.
-One mission read a file, wrote nothing, and was complete. Two protocol decisions multiplied: a `satisfies`
+One mission read a file, wrote nothing, and was complete.
+
+<div class="ref-related">
+  <span class="ref-label">Related work — this failure has a name</span>
+  <ul>
+    <li><a href="https://arxiv.org/abs/2606.09863">From Confident Closing to Silent Failure</a> <span class="rr-note">— <em>false success</em> named and measured at scale (tau2-bench, AppWorld), including the exact shape above: agents read environment state without modifying it and then claim completion. R2 is a replication, not a discovery.</span></li>
+    <li><a href="https://arxiv.org/abs/2608.11434">Benchmarking LLM Judges for Mobile Agent Evaluation</a> <span class="rr-note">— an ablation over what a judge is shown: state coverage dominates, the agent's own reasoning is marginal. It is the reason ADR 0045 adds state rather than hiding narration.</span></li>
+  </ul>
+</div>
+
+Two protocol decisions multiplied: a `satisfies`
 field the model attached to 395 of 396 intents (it means *working toward* to the model and *evidences* to the
 runtime), and a rule that let a satisfied expectation stand as evidence. Nobody was cheating. The runtime had
 made the proposer its own completion oracle.
@@ -388,6 +422,15 @@ three of them in one pass: it is a before-image plus a provenance edge plus a pa
 it is largely an engineering gap (give the judge an ordered slice of the journal and the T4 case goes away);
 and the name is a new name for known parts. **Retired as a primitive.**
 
+<div class="ref-related">
+  <span class="ref-label">Related work — keeping the past is not new</span>
+  <ul>
+    <li><a href="https://doi.org/10.1007/3-540-46002-0_24">Synthesizing Monitors for Safety Properties</a> <span class="rr-note">— past-time temporal logic exists precisely to state properties about change, and monitors for it are efficient.</span></li>
+    <li><a href="https://doi.org/10.1109/MC.1986.1663327">Temporal Databases</a> <span class="rr-note">— valid-time history as a first-class part of the data model, forty years ago.</span></li>
+    <li><a href="https://doi.org/10.1145/1265530.1265535">Provenance Semirings</a> <span class="rr-note">— where a value came from, and why, as an algebra rather than an add-on.</span></li>
+  </ul>
+</div>
+
 What survives is a narrower question, and I think a real one: in an autonomous-agent runtime, **which
 transitions must produce first-class evidence, and how does the runtime decide that before it acts** — given
 that the criterion is written in natural language by someone else, the model chooses the action, and the
@@ -536,6 +579,17 @@ planners [[13]](#ref-13). Deciding what to compute next by its expected value is
 is an ATMS [[14]](#ref-14). Acting on a predicted future and rolling back is speculative execution
 [[19]](#ref-19). Keeping the past to prove a property about change is past-time temporal logic
 [[5]](#ref-5), provenance [[7]](#ref-7) [[8]](#ref-8) and before-images. Each one absorbed a piece.
+
+<div class="ref-related">
+  <span class="ref-label">Related work — what absorbed each piece of FTR</span>
+  <ul>
+    <li><a href="https://arxiv.org/abs/2211.01539">Conformal Prediction for STL Runtime Verification</a> <span class="rr-note">— predicting future trajectories from an observed prefix, with calibrated bounds. This is FTR's first paragraph, published in 2022.</span></li>
+    <li><a href="https://arxiv.org/abs/2203.11171">Self-Consistency</a> · <a href="https://arxiv.org/abs/2302.09664">Semantic Uncertainty</a> <span class="rr-note">— disagreement across samples as an uncertainty signal, including clustering samples into equivalence classes, which is exactly the disagreement index <em>D</em><sub>t</sub> below.</span></li>
+    <li><a href="https://arxiv.org/abs/2307.01928">Robots That Ask For Help</a> <span class="rr-note">— conformal sets deciding when to ask a human instead of acting.</span></li>
+    <li><a href="https://doi.org/10.1109/TSSC.1966.300074">Information Value Theory</a> · <a href="https://doi.org/10.1016/0004-3702(91)90015-C">Principles of Metareasoning</a> <span class="rr-note">— deciding what to compute or observe next by its expected value. FTR's value function is this.</span></li>
+    <li><a href="https://doi.org/10.1016/0004-3702(86)90080-9">An Assumption-based TMS</a> · <a href="https://doi.org/10.1145/1095810.1095829">Speculative Execution in a Distributed File System</a> <span class="rr-note">— branching beliefs with retraction, and acting on a predicted future with rollback.</span></li>
+  </ul>
+</div>
 
 **5 · Fail its own existence test.** FTR's review had written down the condition that mattered most: find a
 task class where planning plus replanning is demonstrably not enough, and where maintaining future state
@@ -772,8 +826,12 @@ $$
 <figcaption><strong>Figure G.</strong> FTR as it was formalized before it retired itself. Of everything in it, only a Boolean expectation layer ever existed in code.</figcaption>
 </figure>
 
-The full formalization, with variable definitions, invariants, the status of each part and the experiments
-that could kill them, is in the PDF at the end of this post.
+<a class="ref-card ref-mine" href="/research/FTR_Core_Formalization_2026-09-19.pdf">
+  <span class="ref-label">MØBIUS note · PDF</span>
+  <span class="ref-title">FTR — Core Formalization</span>
+  <span class="ref-sub">All of the above with variable definitions, invariants, the status of each part, the prior-art boundary, and the four experiments that could still kill what is left.</span>
+  <span class="ref-meta">12 pages · 19 Sep 2026 · retired direction, kept as the record</span>
+</a>
 
 ## Part VIII — What has been killed, and what is actually open
 
