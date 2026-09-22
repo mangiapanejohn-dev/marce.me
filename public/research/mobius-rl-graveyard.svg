@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="790" height="688" viewBox="0 0 790 688" role="img" aria-labelledby="t d">
+<title id="t">Research trajectory, 18 to 22 September 2026</title>
+<desc id="d">Fifteen candidates in the order they were raised, what attacked each, and its status today.</desc>
+<text x="16" y="24" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#6b6a63" text-anchor="start">18 → 22 Sep 2026 · candidate → attack → verdict</text>
+<text x="118" y="44" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#6b6a63" text-anchor="start">candidate</text>
+<text x="420" y="44" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#6b6a63" text-anchor="start">what attacked it</text>
+<line x1="98" y1="52" x2="98" y2="624" stroke="#cfcabb" stroke-width="2"/>
+<text x="86" y="62" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">18 Sep</text>
+<circle cx="98" cy="58" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="58" x2="112" y2="58" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="62" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Approval line: capture at decision time</text>
+<line x1="406" y1="58" x2="410" y2="58" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="62" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">CommitGuard · PlanFence (rule-encoded, VB-2)</text>
+<rect x="676" y="45" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="59" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="102" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">18 Sep</text>
+<circle cx="98" cy="98" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="98" x2="112" y2="98" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="102" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Evidence substitution (R2: 5/6 false completions)</text>
+<line x1="406" y1="98" x2="410" y2="98" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="102" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">false success, measured at scale</text>
+<rect x="676" y="85" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="99" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="142" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">19 Sep</text>
+<circle cx="98" cy="138" r="4" fill="#f6f3ec" stroke="#9b3a33" stroke-width="2"/>
+<line x1="103" y1="138" x2="112" y2="138" stroke="#9b3a33" stroke-width="1.2"/>
+<text x="118" y="142" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Residual A: effects with no content precondition</text>
+<line x1="406" y1="138" x2="410" y2="138" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="142" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">If-None-Match: * / O_⁠EXCL — a one-flag bug</text>
+<rect x="676" y="125" width="104" height="19" rx="4" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="728.0" y="139" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9b3a33" text-anchor="middle">× KILLED</text>
+<text x="86" y="182" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">19 Sep</text>
+<circle cx="98" cy="178" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="178" x2="112" y2="178" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="182" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Residual B: who produces the validity key</text>
+<line x1="406" y1="178" x2="410" y2="178" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="182" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">S-Bus DeliveryLog / ORI; later ATR</text>
+<rect x="676" y="165" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="179" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="222" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">19 Sep</text>
+<circle cx="98" cy="218" r="4" fill="#f6f3ec" stroke="#6b6a63" stroke-width="2"/>
+<line x1="103" y1="218" x2="112" y2="218" stroke="#6b6a63" stroke-width="1.2"/>
+<text x="118" y="222" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Transition witness (51/88 cannot-tell)</text>
+<line x1="406" y1="218" x2="410" y2="218" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="222" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">WAL undo · provenance · past-time LTL</text>
+<rect x="676" y="205" width="104" height="19" rx="4" fill="#e7e3d7" stroke="#6b6a63" stroke-width="1"/>
+<text x="728.0" y="219" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#6b6a63" text-anchor="middle">× RETIRED</text>
+<text x="86" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">20 Sep</text>
+<circle cx="98" cy="258" r="4" fill="#f6f3ec" stroke="#2f5d7a" stroke-width="2"/>
+<line x1="103" y1="258" x2="112" y2="258" stroke="#2f5d7a" stroke-width="1.2"/>
+<text x="118" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Evidence selection: −57.1 pp cannot-tell</text>
+<line x1="406" y1="258" x2="410" y2="258" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">2nd system: coverage 76% → 25%</text>
+<rect x="676" y="245" width="104" height="19" rx="4" fill="#dce6ee" stroke="#2f5d7a" stroke-width="1"/>
+<text x="728.0" y="259" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#2f5d7a" text-anchor="middle">◐ MEASURED</text>
+<text x="86" y="302" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 06:14</text>
+<circle cx="98" cy="298" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="298" x2="112" y2="298" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="302" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Verification-input ownership (endogenous AP<tspan baseline-shift="sub" font-size="72%">a</tspan>)</text>
+<line x1="406" y1="298" x2="410" y2="298" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="302" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">monitorability · RTLola · IRA · ADR 0041</text>
+<rect x="676" y="285" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="299" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="342" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 07:06</text>
+<circle cx="98" cy="338" r="4" fill="#f6f3ec" stroke="#6b6a63" stroke-width="2"/>
+<line x1="103" y1="338" x2="112" y2="338" stroke="#6b6a63" stroke-width="1.2"/>
+<text x="118" y="342" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Completion attribution (G-ext)</text>
+<line x1="406" y1="338" x2="410" y2="338" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="342" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">F = N 21/21; actual causality</text>
+<rect x="676" y="325" width="104" height="19" rx="4" fill="#e7e3d7" stroke="#6b6a63" stroke-width="1"/>
+<text x="728.0" y="339" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#6b6a63" text-anchor="middle">× RETIRED</text>
+<text x="86" y="382" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 08:33</text>
+<circle cx="98" cy="378" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="378" x2="112" y2="378" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="382" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Temporal witness lifecycle</text>
+<line x1="406" y1="378" x2="410" y2="378" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="382" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">auxiliary views, self-maintainability (1996)</text>
+<rect x="676" y="365" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="379" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="422" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 08:45</text>
+<circle cx="98" cy="418" r="4" fill="#f6f3ec" stroke="#9b3a33" stroke-width="2"/>
+<line x1="103" y1="418" x2="112" y2="418" stroke="#9b3a33" stroke-width="1.2"/>
+<text x="118" y="422" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Late-bound witness obligations</text>
+<line x1="406" y1="418" x2="410" y2="418" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="422" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">LATE-CRITICAL = 0 / 165</text>
+<rect x="676" y="405" width="104" height="19" rx="4" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="728.0" y="419" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9b3a33" text-anchor="middle">× KILLED</text>
+<text x="86" y="462" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 08:51</text>
+<circle cx="98" cy="458" r="4" fill="#f6f3ec" stroke="#3f6b4f" stroke-width="2"/>
+<line x1="103" y1="458" x2="112" y2="458" stroke="#3f6b4f" stroke-width="1.2"/>
+<text x="118" y="462" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Recovery semantic closure (#ledger reset)</text>
+<line x1="406" y1="458" x2="410" y2="458" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="462" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">durable execution · semantic replay</text>
+<rect x="676" y="445" width="104" height="19" rx="4" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="728.0" y="459" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">× PRIOR ART</text>
+<text x="86" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 10:08</text>
+<circle cx="98" cy="498" r="4" fill="#f6f3ec" stroke="#9b3a33" stroke-width="2"/>
+<line x1="103" y1="498" x2="112" y2="498" stroke="#9b3a33" stroke-width="1.2"/>
+<text x="118" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Correctness-under-adoption (cards C1–C3)</text>
+<line x1="406" y1="498" x2="410" y2="498" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">0 violations in 5 applicable cells</text>
+<rect x="676" y="485" width="104" height="19" rx="4" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="728.0" y="499" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9b3a33" text-anchor="middle">■ STOPPED</text>
+<text x="86" y="542" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 10:24</text>
+<circle cx="98" cy="538" r="4" fill="#f6f3ec" stroke="#9b3a33" stroke-width="2"/>
+<line x1="103" y1="538" x2="112" y2="538" stroke="#9b3a33" stroke-width="1.2"/>
+<text x="118" y="542" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Delegated obligation closure</text>
+<line x1="406" y1="538" x2="410" y2="538" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="542" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">C2-NI: stable identity, 1 effect</text>
+<rect x="676" y="525" width="104" height="19" rx="4" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="728.0" y="539" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#9b3a33" text-anchor="middle">× KILLED</text>
+<text x="86" y="582" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 10:52</text>
+<circle cx="98" cy="578" r="4" fill="#f6f3ec" stroke="#6b6a63" stroke-width="2"/>
+<line x1="103" y1="578" x2="112" y2="578" stroke="#6b6a63" stroke-width="1.2"/>
+<text x="118" y="582" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">FTR, strong form</text>
+<line x1="406" y1="578" x2="410" y2="578" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="582" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">shield + output commit + belief state</text>
+<rect x="676" y="565" width="104" height="19" rx="4" fill="#e7e3d7" stroke="#6b6a63" stroke-width="1"/>
+<text x="728.0" y="579" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#6b6a63" text-anchor="middle">× RETIRED</text>
+<text x="86" y="622" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6b6a63" text-anchor="end">22 Sep 11:07</text>
+<circle cx="98" cy="618" r="4" fill="#f6f3ec" stroke="#c4623f" stroke-width="2"/>
+<line x1="103" y1="618" x2="112" y2="618" stroke="#c4623f" stroke-width="1.2"/>
+<text x="118" y="622" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">Direction discovery from unexplained phenomena</text>
+<line x1="406" y1="618" x2="410" y2="618" stroke="#cfcabb" stroke-width="1.2"/>
+<text x="420" y="622" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#6b6a63" text-anchor="start">running — NO PRIMARY THESIS YET</text>
+<rect x="676" y="605" width="104" height="19" rx="4" fill="#f4dfd3" stroke="#c4623f" stroke-width="1"/>
+<text x="728.0" y="619" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#c4623f" text-anchor="middle">○ OPEN</text>
+<text x="16" y="678" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start" font-style="italic">Terminal glyphs: × retired, reduced or killed · ■ stopped by a pre-written decision · ◐ measured, kept as a dimension · ○ open.</text>
+</svg>

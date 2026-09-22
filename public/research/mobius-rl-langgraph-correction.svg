@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-labelledby="t d">
+<title id="t">One LangGraph result, read three times; and three instrument errors</title>
+<desc id="d">First reading, contract check, corrected reading; below, the untyped state schema, the cross-thread SQLite connection and the missing socksio package.</desc>
+<rect x="20" y="16" width="222" height="232" rx="8" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="32" y="38" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#9b3a33" text-anchor="start">1 · first reading</text>
+<text x="32" y="64" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">external audit</text>
+<text x="32" y="78" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">[1, 2, 2, 3]</text>
+<text x="32" y="94" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">budget</text>
+<text x="32" y="108" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">3</text>
+<text x="32" y="124" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">runtime self-report</text>
+<text x="32" y="138" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">spent = 3</text>
+<text x="32" y="154" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">durability</text>
+<text x="32" y="168" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">"sync"</text>
+<text x="131.0" y="234" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#9b3a33" text-anchor="middle">VIOLATED?</text>
+<line x1="243" y1="132" x2="247.0" y2="132.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="247.0,132.0 240.0,135.5 240.0,128.5" fill="#4a4842"/>
+<rect x="250" y="16" width="222" height="232" rx="8" fill="#f1e6cc" stroke="#9a6a1f" stroke-width="1"/>
+<text x="262" y="38" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#9a6a1f" text-anchor="start">2 · contract check</text>
+<text x="262" y="64" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">durable execution</text>
+<text x="262" y="78" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">replay, not resume-at-line</text>
+<text x="262" y="94" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">interrupt()</text>
+<text x="262" y="108" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">node re-executes</text>
+<text x="262" y="124" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">side effects</text>
+<text x="262" y="138" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">wrap in @task</text>
+<text x="262" y="154" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">unfinished task</text>
+<text x="262" y="168" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">may run again →</text>
+<text x="262" y="198" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">idempotency key</text>
+<text x="361.0" y="234" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#9a6a1f" text-anchor="middle">documented</text>
+<line x1="473" y1="132" x2="477.0" y2="132.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="477.0,132.0 470.0,135.5 470.0,128.5" fill="#4a4842"/>
+<rect x="480" y="16" width="222" height="232" rx="8" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="492" y="38" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#3f6b4f" text-anchor="start">3 · corrected reading</text>
+<text x="492" y="64" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">C2-N (inside node)</text>
+<text x="492" y="78" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">inapplicable</text>
+<text x="492" y="108" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">outside guarantee</text>
+<text x="492" y="124" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">C2-T (@task done)</text>
+<text x="492" y="138" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">[1, 2, 3]</text>
+<text x="492" y="168" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">not-violated 3/3</text>
+<text x="492" y="184" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">C3 journaled value</text>
+<text x="492" y="198" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11.8" font-weight="700" fill="#262521" text-anchor="start">kept</text>
+<text x="591.0" y="234" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#3f6b4f" text-anchor="middle">no violation</text>
+<text x="20" y="272" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#6b6a63" text-anchor="start" font-style="italic">The audit sequence never changed. What changed was its comparison with the contract.</text>
+<text x="20" y="304" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#262521" text-anchor="start">The same morning, our own instrument</text>
+<rect x="20" y="318" width="222" height="196" rx="8" fill="#f6f3ec" stroke="#4a4842" stroke-width="1"/>
+<text x="32" y="342" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="800" fill="#c4623f" text-anchor="start">StateGraph(dict)</text>
+<text x="32" y="366" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">untyped schema = one root</text>
+<text x="32" y="383" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">channel, last value wins;</text>
+<text x="32" y="400" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">gate's return erased</text>
+<text x="32" y="417" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">proposal → approve A,</text>
+<text x="32" y="434" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">dispatch B</text>
+<text x="32" y="500" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="700" fill="#9b3a33" text-anchor="start">fabricated a C3-W violation</text>
+<rect x="250" y="318" width="222" height="196" rx="8" fill="#f6f3ec" stroke="#4a4842" stroke-width="1"/>
+<text x="262" y="342" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="800" fill="#c4623f" text-anchor="start">SQLite across threads</text>
+<text x="262" y="366" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">world connection used</text>
+<text x="262" y="383" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">on LangGraph's worker</text>
+<text x="262" y="400" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">thread → C2-T never ran</text>
+<text x="262" y="417" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start"></text>
+<text x="262" y="434" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start"></text>
+<text x="262" y="500" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="700" fill="#9b3a33" text-anchor="start">recorded NOT-CAPTURED</text>
+<rect x="480" y="318" width="222" height="196" rx="8" fill="#f6f3ec" stroke="#4a4842" stroke-width="1"/>
+<text x="492" y="342" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="800" fill="#c4623f" text-anchor="start">socksio + mixed ledger</text>
+<text x="492" y="366" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">tracing exporter import</text>
+<text x="492" y="383" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">failed under a SOCKS proxy;</text>
+<text x="492" y="400" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">3 NOT-CAPTURED rows mixed</text>
+<text x="492" y="417" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">with 3 fixed rows →</text>
+<text x="492" y="434" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#262521" text-anchor="start">unstable (openai, C1-RV)</text>
+<text x="492" y="500" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="700" fill="#9b3a33" text-anchor="start">archived 60 rows, reran 24</text>
+<text x="20" y="540" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#6b6a63" text-anchor="start">Found by: event stream + typed-schema baseline with in-process resume; stderr; tables generated from rows.jsonl.</text>
+</svg>

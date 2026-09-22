@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="380" viewBox="0 0 720 380" role="img" aria-labelledby="t d">
+<title id="t">LATE-CRITICAL = 0 of 165</title>
+<desc id="d">165 criterion–resource pairs by when the resource was first resolvable and by whether the criterion needs the pre-state and whether the resource existed before the effect.</desc>
+<text x="20" y="26" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#b9b7ad" text-anchor="start">165 (criterion, changed resource) pairs · 65 journals · 102 criteria</text>
+<text x="184.0" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">needs pre-state: no</text>
+<text x="184.0" y="66" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">resource existed: no</text>
+<text x="316.0" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">needs pre-state: no</text>
+<text x="316.0" y="66" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">resource existed: yes</text>
+<text x="448.0" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">needs pre-state: yes</text>
+<text x="448.0" y="66" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">resource existed: no</text>
+<text x="580.0" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">needs pre-state: yes</text>
+<text x="580.0" y="66" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#b9b7ad" text-anchor="middle">resource existed: yes</text>
+<text x="106" y="110.0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" font-weight="800" fill="#edebe3" text-anchor="end">STATIC</text>
+<rect x="121" y="79" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="184.0" y="112.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">22</text>
+<rect x="253" y="79" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="316.0" y="112.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">50</text>
+<rect x="385" y="79" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="448.0" y="112.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">7</text>
+<rect x="517" y="79" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="580.0" y="112.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">47</text>
+<text x="654" y="110.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="start">n = 126</text>
+<text x="106" y="168.0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" font-weight="800" fill="#edebe3" text-anchor="end">LATE-SAFE</text>
+<rect x="121" y="137" width="126" height="52" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="184.0" y="170.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#55534b" text-anchor="middle">0</text>
+<rect x="253" y="137" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="316.0" y="170.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">12</text>
+<rect x="385" y="137" width="126" height="52" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="448.0" y="170.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#55534b" text-anchor="middle">0</text>
+<rect x="517" y="137" width="126" height="52" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="580.0" y="170.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#55534b" text-anchor="middle">0</text>
+<text x="654" y="168.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="start">n = 12</text>
+<text x="106" y="226.0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" font-weight="800" fill="#edebe3" text-anchor="end">LATE</text>
+<rect x="121" y="195" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="184.0" y="228.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">15</text>
+<rect x="253" y="195" width="126" height="52" rx="6" fill="#36352f" stroke="#55534b" stroke-width="1"/>
+<text x="316.0" y="228.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#55534b" text-anchor="middle">0</text>
+<rect x="385" y="195" width="126" height="52" rx="6" fill="#403f38" stroke="#55534b" stroke-width="1"/>
+<text x="448.0" y="228.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="middle">12</text>
+<rect x="517" y="195" width="126" height="52" rx="6" fill="#4f3432" stroke="#eba59c" stroke-width="1.6"/>
+<text x="580.0" y="228.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#eba59c" text-anchor="middle">0</text>
+<text x="654" y="226.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="start">n = 27</text>
+<text x="580.0" y="268" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#eba59c" text-anchor="middle">↑ LATE-CRITICAL</text>
+<text x="20" y="292" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">27 / 27 LATE resources did not exist before the effect — a late-bound resource had no pre-state to lose.</text>
+<text x="20" y="311" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">109 / 109 pairs on pre-existing resources had the pre-state captured (57 receipt digest, 52 earlier observation).</text>
+<text x="20" y="330" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">75 / 75 applied overwrites of existing files carry a basis observation; 55 are full-content file reads.</text>
+<text x="20" y="349" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">Stricter definition (pre-state existence from the effect's own receipt): still 0 / 165.</text>
+</svg>

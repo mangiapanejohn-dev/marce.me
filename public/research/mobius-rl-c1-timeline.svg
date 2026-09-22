@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="470" viewBox="0 0 700 470" role="img" aria-labelledby="t d">
+<title id="t">C1-RV: post-approval revalidation under a foreign world change</title>
+<desc id="d">Validation at version 1 allows; wait; a third party moves the world to version 2, protected; approval; validation at version 2 denies; no destructive effect. A broken control that caches allow executes.</desc>
+<text x="20" y="26" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#6b6a63" text-anchor="start">OpenAI Agents SDK 0.22.3 and Pydantic AI 2.47.0 · 3/3 each</text>
+<rect x="20" y="42" width="390" height="50" rx="8" fill="#f6f3ec" stroke="#4a4842" stroke-width="1"/>
+<text x="34" y="63" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">V(a, S₀) = allow</text>
+<text x="34" y="81" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">world: version 1, protected = false</text>
+<line x1="215" y1="92" x2="215.0" y2="104.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="215.0,104.0 211.5,97.0 218.5,97.0" fill="#4a4842"/>
+<rect x="20" y="106" width="390" height="50" rx="8" fill="#e7e3d7" stroke="#cfcabb" stroke-width="1"/>
+<text x="34" y="127" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">approval wait</text>
+<text x="34" y="145" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">pending tool call held in run state</text>
+<line x1="215" y1="156" x2="215.0" y2="168.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="215.0,168.0 211.5,161.0 218.5,161.0" fill="#4a4842"/>
+<rect x="20" y="170" width="390" height="50" rx="8" fill="#f1e6cc" stroke="#9a6a1f" stroke-width="1"/>
+<text x="34" y="191" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">foreign mutation</text>
+<text x="34" y="209" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">harness, outside the runtime: version 2, protected = true</text>
+<line x1="215" y1="220" x2="215.0" y2="232.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="215.0,232.0 211.5,225.0 218.5,225.0" fill="#4a4842"/>
+<rect x="20" y="234" width="390" height="50" rx="8" fill="#e7e3d7" stroke="#cfcabb" stroke-width="1"/>
+<text x="34" y="255" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">human approves a</text>
+<text x="34" y="273" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">same call id</text>
+<line x1="215" y1="284" x2="215.0" y2="296.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="215.0,296.0 211.5,289.0 218.5,289.0" fill="#4a4842"/>
+<rect x="20" y="298" width="390" height="50" rx="8" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="34" y="319" font-family="'STIX Two Math', 'Cambria Math', Georgia, 'Times New Roman', serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">V(a, S₁) = deny</text>
+<text x="34" y="337" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">guardrail / args_⁠validator runs again after approval</text>
+<line x1="215" y1="348" x2="215.0" y2="360.0" stroke="#4a4842" stroke-width="1.2"/>
+<polygon points="215.0,360.0 211.5,353.0 218.5,353.0" fill="#4a4842"/>
+<rect x="20" y="362" width="390" height="50" rx="8" fill="#dfe8dc" stroke="#3f6b4f" stroke-width="1"/>
+<text x="34" y="383" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.8" font-weight="800" fill="#262521" text-anchor="start">effect blocked</text>
+<text x="34" y="401" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start">destructive effects = 0</text>
+<rect x="20" y="428" width="390" height="30" rx="6" fill="#f6f3ec" stroke="#c4623f" stroke-width="1"/>
+<text x="34" y="448" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" font-weight="800" fill="#c4623f" text-anchor="start">validation_⁠world_⁠versions = [1, 2]</text>
+<rect x="440" y="42" width="240" height="306" rx="8" fill="#f1d9d4" stroke="#9b3a33" stroke-width="1"/>
+<text x="454" y="64" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#9b3a33" text-anchor="start">broken control</text>
+<text x="454" y="88" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">V(a, S₀) = allow</text>
+<text x="454" y="107" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">cache ALLOW</text>
+<text x="454" y="126" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start"></text>
+<text x="454" y="145" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">foreign mutation → v2</text>
+<text x="454" y="164" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">approve</text>
+<text x="454" y="183" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">reuse cached ALLOW</text>
+<text x="454" y="202" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start"></text>
+<text x="454" y="221" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="400" fill="#262521" text-anchor="start">effect executes on v2</text>
+<text x="454" y="262" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12" font-weight="800" fill="#9b3a33" text-anchor="start">versions = [1]</text>
+<text x="454" y="282" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="700" fill="#9b3a33" text-anchor="start">destructive effects = 1</text>
+<text x="454" y="302" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.2" font-weight="700" fill="#9b3a33" text-anchor="start">violated 3/3</text>
+<text x="454" y="330" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.3" font-weight="400" fill="#262521" text-anchor="start">correct control: [1, 2], 0 effects</text>
+<text x="440" y="376" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start" font-style="italic">What detected the change is the validator we</text>
+<text x="440" y="391" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start" font-style="italic">wrote in the seam — not the runtime. The runtime</text>
+<text x="440" y="406" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6b6a63" text-anchor="start" font-style="italic">re-invoked the seam and obeyed its denial.</text>
+</svg>

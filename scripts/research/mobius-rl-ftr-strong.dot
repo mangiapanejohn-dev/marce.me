@@ -1,0 +1,36 @@
+// FTR, strong form — redrawn from the "FTR · RESEARCH FRONTIER" band of the V42 runtime architecture map
+// (public/research/mobius-v42-runtime-architecture.png, rendered by Graphviz) and the 22 Sep 2026
+// formulation F_t = {(h_i, E_i, O_i, A_i)}, A_safe = ∩ A(h). The green line in each node is what the
+// reduction gate (FTR_REDUCTION_GATE.md) mapped it to. {ink} {soft} {line} {faint} {card} {accent}
+// {accentfill} {ok} are palette slots filled by rl-figures.py, once per theme.
+digraph FTR {
+  graph [rankdir=TB, bgcolor="transparent", fontname="Helvetica", nodesep=0.35, ranksep=0.28, pad=0.15];
+  node  [shape=box, style="rounded,filled,dashed", fontname="Helvetica", fontsize=11, color="{accent}",
+         fillcolor="{accentfill}", fontcolor="{ink}", penwidth=1.1, margin="0.16,0.07", width=3.6];
+  edge  [color="{line}", arrowsize=0.6, penwidth=1.0, fontname="Helvetica", fontsize=9.5, fontcolor="{soft}"];
+
+  actors [label=<<b>several execution actors</b><br/><font point-size="9.5">each seals its forecast before seeing the others</font><br/><font point-size="9.5" color="{ok}">→ epistemic fault domains · epistemic Sybil</font>>];
+  field  [label=<<b>evidence field</b><br/><font point-size="9.5">provenance · dissent · evidence ancestry<br/>agent count ≠ evidence independence</font><br/><font point-size="9.5" color="{ok}">→ provenance semirings · κ<sub>E</sub> over exposure sets</font>>];
+  hyp    [label=<<b>competing hypotheses</b><br/><font point-size="9.5">F<sub>t</sub> = {(h<sub>i</sub>, E<sub>i</sub>, O<sub>i</sub>, A<sub>i</sub>)} · split / merge / eliminate</font><br/><font point-size="9.5" color="{ok}">→ ATMS · POMDP belief state · Agent-BRACE</font>>];
+  fals   [label=<<b>active falsification</b><br/><font point-size="9.5">cheapest discriminating experiment · execute-for-information</font><br/><font point-size="9.5" color="{ok}">→ Bayesian experimental design · VoI · dual control</font>>];
+  sched  [label=<<b>epistemic scheduler</b><br/><font point-size="9.5">reason · ask · test · fork · observe · act</font><br/><font point-size="9.5" color="{ok}">→ rational metareasoning (value of computation)</font>>];
+  admit  [label=<<b>reality admission</b><br/><font point-size="9.5">premises fresh? evidence independent? cheap falsifier left?<br/>A-safe(t) = ∩ A(h) over live h</font><br/><font point-size="9.5" color="{ok}">→ shield over belief supports (partial model suffices)</font>>];
+  gates  [label=<<b>gates that exist today</b><br/><font point-size="9.5">authority · resource · invariant</font>>, style="rounded,filled", color="{line}", fillcolor="{card}"];
+  effect [label=<<b>effect</b><br/><font point-size="9.5">committed to the world</font><br/><font point-size="9.5" color="{ok}">→ output commit problem</font>>, style="rounded,filled", color="{line}", fillcolor="{card}"];
+  cal    [label=<<b>calibration</b><br/><font point-size="9.5">proper scoring, back to each forecaster</font><br/><font point-size="9.5" color="{ok}">→ Brier · strictly proper scores · calibration ≠ control</font>>];
+
+  fcast  [width=2.6, label=<<b>forecast contract</b><br/><font point-size="9.5">world-version bound<br/>falsifiable · resolvable · scored</font><br/><font point-size="9.5" color="{ok}">→ POMDP model validation</font>>];
+  need   [width=2.6, label=<<b>future evidential need</b><br/><font point-size="9.5">Ω*(t): cheapest capture that<br/>separates histories</font><br/><font point-size="9.5" color="{ok}">→ auxiliary views · past-time monitors</font>>];
+
+  actors -> field -> hyp -> fals -> sched -> admit;
+  admit -> gates [label=" admitted"];
+  gates -> effect -> cal;
+  cal -> actors [style=dotted, constraint=false, label=" feedback"];
+  hyp -> fcast [style=dotted, arrowhead=none, color="{faint}"];
+  fals -> need [style=dotted, arrowhead=none, color="{faint}"];
+  {rank=same; hyp; fcast;} {rank=same; fals; need;}
+
+  legend [shape=plaintext, style="", width=0, fontcolor="{soft}", fontsize=9.5,
+          label="dashed = research, never implemented · solid = live today · green = what the reduction gate mapped it to"];
+  cal -> legend [style=invis];
+}

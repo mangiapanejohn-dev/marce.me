@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" role="img" aria-labelledby="t d">
+<title id="t">Seven candidates and what killed them</title>
+<desc id="d">Candidates on the left; experiments, prior art, official contracts and controls on the right.</desc>
+<rect x="20" y="43" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="64" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">completion attribution</text>
+<rect x="20" y="103" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="124" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">transition witness</text>
+<rect x="20" y="163" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="184" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">late-bound obligations</text>
+<rect x="20" y="223" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="244" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">observation ownership</text>
+<rect x="20" y="283" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="304" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">correctness-under-adoption</text>
+<rect x="20" y="343" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="364" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">delegated obligation closure</text>
+<rect x="20" y="403" width="200" height="34" rx="6" fill="#36352f" stroke="#c9c6ba" stroke-width="1"/>
+<text x="120" y="424" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#edebe3" text-anchor="middle">FTR strong form</text>
+<rect x="430" y="30" width="270" height="28" rx="6" fill="#36352f" stroke="#edebe3" stroke-width="1"/>
+<text x="442" y="48" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">G-ext four arms: F = N 21/21</text>
+<rect x="430" y="66" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="84" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">actual causality (Halpern–Pearl; Dec-POMDP)</text>
+<rect x="430" y="102" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="120" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">WAL undo · past-time LTL · provenance</text>
+<rect x="430" y="138" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="156" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">auxiliary views, self-maintainable (1988/96)</text>
+<rect x="430" y="174" width="270" height="28" rx="6" fill="#36352f" stroke="#edebe3" stroke-width="1"/>
+<text x="442" y="192" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">LATE-CRITICAL = 0 / 165</text>
+<rect x="430" y="210" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="228" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">RV monitorability (decidable, fixed AP<tspan baseline-shift="sub" font-size="72%">a</tspan>)</text>
+<rect x="430" y="246" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="264" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">RTLola active monitoring · IRA · ADR 0041</text>
+<rect x="430" y="282" width="270" height="28" rx="6" fill="#36352f" stroke="#9cc3de" stroke-width="1" stroke-dasharray="8 3 2 3"/>
+<text x="442" y="300" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">LangGraph / OpenAI / Pydantic contracts</text>
+<rect x="430" y="318" width="270" height="28" rx="6" fill="#36352f" stroke="#e2c38a" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="442" y="336" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">broken + correct controls, 100% separated</text>
+<rect x="430" y="354" width="270" height="28" rx="6" fill="#36352f" stroke="#edebe3" stroke-width="1"/>
+<text x="442" y="372" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">C2-NI: stable execution_⁠info, 1 effect</text>
+<rect x="430" y="390" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="408" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">End-to-End Arguments (1984)</text>
+<rect x="430" y="426" width="270" height="28" rx="6" fill="#36352f" stroke="#a9c9b1" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="442" y="444" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#edebe3" text-anchor="start">POMDP shield · output commit · belief state</text>
+<path d="M220,60 C330,60 330,44 430,44" fill="none" stroke="#edebe3" stroke-width="1.6"/>
+<path d="M220,60 C330,60 330,80 430,80" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,120 C330,120 330,116 430,116" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,120 C330,120 330,152 430,152" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,180 C330,180 330,188 430,188" fill="none" stroke="#edebe3" stroke-width="1.6"/>
+<path d="M220,180 C330,180 330,152 430,152" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,240 C330,240 330,224 430,224" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,240 C330,240 330,260 430,260" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,300 C330,300 330,296 430,296" fill="none" stroke="#9cc3de" stroke-width="1.4" stroke-dasharray="8 3 2 3"/>
+<path d="M220,300 C330,300 330,332 430,332" fill="none" stroke="#e2c38a" stroke-width="1.6" stroke-dasharray="2 3"/>
+<path d="M220,360 C330,360 330,368 430,368" fill="none" stroke="#edebe3" stroke-width="1.6"/>
+<path d="M220,360 C330,360 330,404 430,404" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,420 C330,420 330,440 430,440" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M220,420 C330,420 330,224 430,224" fill="none" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<line x1="20" y1="498" x2="56" y2="498" stroke="#edebe3" stroke-width="1.6"/>
+<text x="64" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="start">experiment</text>
+<line x1="190" y1="498" x2="226" y2="498" stroke="#a9c9b1" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="234" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="start">prior art</text>
+<line x1="360" y1="498" x2="396" y2="498" stroke="#9cc3de" stroke-width="1.4" stroke-dasharray="8 3 2 3"/>
+<text x="404" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="start">official contract</text>
+<line x1="530" y1="498" x2="566" y2="498" stroke="#e2c38a" stroke-width="1.6" stroke-dasharray="2 3"/>
+<text x="574" y="502" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="start">control</text>
+</svg>
