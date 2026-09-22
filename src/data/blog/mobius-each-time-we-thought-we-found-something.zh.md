@@ -9,6 +9,8 @@ category: "research"
 series: "MØBIUS"
 timezone: "America/New_York"
 showInBlog: true
+cover: "/cover-mobius-exploring.webp"
+ogImage: "@/assets/images/og-mobius-exploring.png"
 ---
 
 上一篇 MØBIUS 文章发在 9 月 19 日。它的结尾说 FTR 在调查中把自己杀掉了，但催生它的问题没有死，并列了一张接下来要追的队列：evidence horizon、transition-dependent completion、unsupported establishment、certificate replayability、anticipatory evidence preservation、future information requirements。

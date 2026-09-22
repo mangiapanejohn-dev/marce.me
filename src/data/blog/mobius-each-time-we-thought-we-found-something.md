@@ -7,6 +7,8 @@ category: "research"
 series: "MØBIUS"
 timezone: "America/New_York"
 showInBlog: true
+cover: "/cover-mobius-exploring.webp"
+ogImage: "@/assets/images/og-mobius-exploring.png"
 ---
 
 The previous MØBIUS post went out on 19 September. It ended by saying that FTR had killed itself under investigation but that the question which produced it had not died, and it listed a queue: evidence horizon, transition-dependent completion, unsupported establishment, certificate replayability, anticipatory evidence preservation, future information requirements.
