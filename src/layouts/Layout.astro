@@ -41,21 +41,30 @@ const zhHref = new URL(localizePath(Astro.url.pathname, "zh"), Astro.site ?? Ast
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
-    },
-  ],
-};
+// Only a post is a BlogPosting. Every other page used to claim to be one too, with
+// datePublished set to the string "undefined".
+const structuredData = pubDatetime
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: `${title}`,
+      image: `${socialImageURL}`,
+      datePublished: pubDatetime.toISOString(),
+      ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+      author: [
+        {
+          "@type": "Person",
+          name: `${author}`,
+          ...(profile && { url: profile }),
+        },
+      ],
+    }
+  : {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE.title,
+      url: SITE.website,
+    };
 ---
 
 <!doctype html>
@@ -66,7 +75,7 @@ const structuredData = {
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />

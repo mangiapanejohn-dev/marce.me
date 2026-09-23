@@ -9,6 +9,9 @@ html[data-theme="light"] {
   --background: #f0eee6;
   --foreground: #262521;
   --accent: #d97757;
+  /* Accent as text. Coral on the paper ground is 2.7:1; this is the same hue at 4.8:1. Coral stays
+     for icons, underlines, borders and other marks that are not read as text. */
+  --accent-text: #a84d2c;
   --muted: #e7e3d7;
   --border: #e0dcce;
 }
@@ -17,6 +20,7 @@ html[data-theme="dark"] {
   --background: #30302b;
   --foreground: #edebe3;
   --accent: #e08a6b;
+  --accent-text: #e08a6b;
   --muted: #3b3a34;
   --border: #47463f;
 }
@@ -26,6 +30,7 @@ html[data-theme="dark"] {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
   --color-muted: var(--muted);
   --color-border: var(--border);
 }
@@ -207,7 +212,7 @@ html[data-theme="dark"] .fig-dark {
 .resource-card .rc-title {
   display: block;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 0.35rem;
 }
 .resource-card .rc-desc {

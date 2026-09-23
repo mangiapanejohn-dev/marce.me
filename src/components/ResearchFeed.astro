@@ -93,7 +93,7 @@ const t = {
                 </time>
                 <a
                   href={l(`/posts/${slug}/`)}
-                  class="text-[1.05rem] leading-snug font-semibold text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                  class="text-[1.05rem] leading-snug font-semibold text-accent-text underline decoration-dashed underline-offset-4 hover:decoration-solid"
                 >
                   {title}
                 </a>
@@ -129,7 +129,7 @@ const t = {
               {post ? (
                 <a
                   href={l(`/posts/${post}/`)}
-                  class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                  class="text-accent-text underline decoration-dashed underline-offset-4 hover:decoration-solid"
                 >
                   {lang === "zh" ? claimZh : claim}
                 </a>
@@ -162,7 +162,7 @@ const t = {
                 </time>
                 <a
                   href={l(`/posts/${slug}/`)}
-                  class="text-[0.95rem] leading-snug text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+                  class="text-[0.95rem] leading-snug text-accent-text underline decoration-dashed underline-offset-4 hover:decoration-solid"
                 >
                   {title}
                 </a>
@@ -179,7 +179,7 @@ const t = {
       <p class="mt-6 text-sm">
         <a
           href={l("/research/")}
-          class="text-accent underline decoration-dashed underline-offset-4 hover:decoration-solid"
+          class="text-accent-text underline decoration-dashed underline-offset-4 hover:decoration-solid"
         >
           {t.more} →
         </a>
@@ -206,7 +206,7 @@ const t = {
     display: block;
     font-size: 1rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .paper-sub {
     display: block;

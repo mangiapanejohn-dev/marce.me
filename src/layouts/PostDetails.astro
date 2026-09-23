@@ -67,7 +67,7 @@ if (typeof initOgImage === "string") {
 // Always point to the English OG route (`/posts/<slug>/index.png`).
 if (!ogImageUrl && SITE.dynamicOgImage) {
   const ogSlug = slug ?? getPath(post.id, post.filePath, false);
-  ogImageUrl = `/posts/${ogSlug}/index.png`;
+  ogImageUrl = `/posts/${ogSlug.replace(/^\/+/, "")}/index.png`;
 }
 
 // Resolve OG image URL (or fallback to SITE.ogImage / default `og.png`)
@@ -135,7 +135,7 @@ const prevPost =
   >
     <h1
       transition:name={slugifyStr(title.replaceAll(".", "-"))}
-      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+      class="inline-block text-2xl font-bold text-accent-text sm:text-3xl"
     >
       {title}
     </h1>
@@ -190,7 +190,7 @@ const prevPost =
             <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
             <div>
               <span>{t("post.previous")}</span>
-              <div class="text-sm text-accent/85">{prevPost.title}</div>
+              <div class="text-sm text-accent-text">{prevPost.title}</div>
             </div>
           </a>
         )
@@ -203,7 +203,7 @@ const prevPost =
           >
             <div>
               <span>{t("post.next")}</span>
-              <div class="text-sm text-accent/85">{nextPost.title}</div>
+              <div class="text-sm text-accent-text">{nextPost.title}</div>
             </div>
             <IconChevronRight class="inline-block flex-none rtl:rotate-180" />
           </a>

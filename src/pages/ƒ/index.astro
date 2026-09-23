@@ -411,14 +411,14 @@ const loop = [
       transform 0.1s ease;
   }
   .copy:hover {
-    color: var(--accent);
+    color: var(--accent-text);
     background: color-mix(in srgb, var(--accent) 8%, var(--background));
   }
   .copy:active {
     transform: scale(0.94);
   }
   .copy.is-copied {
-    color: var(--accent);
+    color: var(--accent-text);
     background: color-mix(in srgb, var(--accent) 12%, var(--background));
   }
   .fineprint {
@@ -427,7 +427,7 @@ const loop = [
     color: var(--faint);
   }
   .fineprint a {
-    color: var(--accent);
+    color: var(--accent-text);
     text-underline-offset: 3px;
   }
 
@@ -545,7 +545,7 @@ const loop = [
   .mode-handle {
     font-size: 0.72rem;
     letter-spacing: 0.03em;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .mode-name {
     margin-top: 0.3rem;
@@ -599,7 +599,7 @@ const loop = [
   .lightbox {
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 60; /* above the header submenu and back-to-top (50) */
     background: rgba(10, 11, 15, 0.94);
     overflow: auto;
     padding: 3.5rem 1rem 3rem;

@@ -59,14 +59,14 @@ const featuredProjects = [
         </a>
         <div class="flex-1 text-center sm:text-left">
           <div class="flex items-center gap-2 justify-center sm:justify-start">
-            <h1 class="typing-effect my-2 text-2xl font-bold sm:my-4 sm:text-3xl">@marcE</h1>
+            <h1 class="my-2 text-2xl font-bold sm:my-4 sm:text-3xl"><span class="sr-only">@marcE</span><span class="typing-effect" aria-hidden="true">@marcE</span></h1>
             <a target="_blank" href="/rss.xml" class="inline-block" aria-label="RSS 订阅" title="RSS 订阅">
               <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
               <span class="sr-only">RSS 订阅</span>
             </a>
           </div>
           <div class="bio-collapsed space-y-3 opacity-80" id="bio-text">
-            <p>哟!!!我叫 Mark Ellington。你可以叫我 Marc,或者 BUG～。</p>
+            <p>哟!!!我叫 Marc Ellington。你可以叫我 Marc,或者 BUG～。</p>
             <p>我们这种生物可以统称为 Vibe Coder ✌️,也可以理解成「硅基生命营养师」👾。</p>
             <p>我不喜欢那些繁琐的规矩,更愿意自己安排想做的事,一个人待着(我觉得这样效率很高)。</p>
             <p>大家都说我不太会聊天、是个直男,我也这么觉得 😁。无所谓,我不在意这些。我经常到处跑,去过很多地方(多到数不清),但每个地方都有很棒的回忆 🤠。</p>
@@ -75,7 +75,7 @@ const featuredProjects = [
             <p>如果非要用一句话形容自己,我觉得是:一个阳光开朗的家伙,哈哈哈 ✌️</p>
             <p>#SBTI:OJBK #MBTI:INTJ #「Loser」#幽默 #好人 #Marc #……</p>
           </div>
-          <button id="read-more-btn" class="text-sm text-accent hover:underline mt-1">阅读更多</button>
+          <button id="read-more-btn" type="button" aria-expanded="false" aria-controls="bio-text" class="text-sm text-accent-text hover:underline mt-1">阅读更多</button>
           <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
             <div class="flex-wrap justify-center gap-1">
               <Socials />
@@ -107,7 +107,7 @@ const featuredProjects = [
                 />
               </div>
               <div class="p-4">
-                <h3 class="font-semibold text-accent group-hover:underline">
+                <h3 class="font-semibold text-accent-text group-hover:underline">
                   {project.name}
                 </h3>
                 <p class="mt-1 text-sm opacity-80">{project.tagline}</p>
@@ -119,12 +119,16 @@ const featuredProjects = [
     </section>
 
     <section id="recent" class="pt-12 pb-6">
-      <div class="mb-4 flex items-center gap-5 border-b border-border pb-1">
+      <div class="mb-4 flex items-center gap-5 border-b border-border pb-1" role="tablist" aria-label="最新文章">
         <button
           type="button"
           class="feed-tab text-xl font-semibold tracking-wide"
           data-panel="blog"
+          role="tab"
+          id="tab-blog"
+          aria-controls="panel-blog"
           aria-selected="true"
+          tabindex="0"
         >
           博客
         </button>
@@ -132,13 +136,17 @@ const featuredProjects = [
           type="button"
           class="feed-tab text-xl font-semibold tracking-wide"
           data-panel="research"
+          role="tab"
+          id="tab-research"
+          aria-controls="panel-research"
           aria-selected="false"
+          tabindex="-1"
         >
           研究动态
         </button>
       </div>
 
-      <div id="panel-blog">
+      <div id="panel-blog" role="tabpanel" aria-labelledby="tab-blog">
         <ul>
           {
             blogPosts.map(
@@ -155,7 +163,7 @@ const featuredProjects = [
         </div>
       </div>
 
-      <div id="panel-research" hidden>
+      <div id="panel-research" role="tabpanel" aria-labelledby="tab-research" hidden>
         <ResearchFeed limit={4} showMore />
       </div>
     </section>
@@ -172,6 +180,7 @@ const featuredProjects = [
   }
   .typing-effect {
     display: inline-block;
+    vertical-align: bottom;
     width: 6ch;
     overflow: hidden;
     white-space: nowrap;
@@ -199,14 +208,14 @@ const featuredProjects = [
      所以这一行仍然是它替代掉的那个小节标题。 */
   .feed-tab {
     color: var(--foreground);
-    opacity: 0.4;
+    opacity: 0.65;
     padding-bottom: 0.35rem;
     margin-bottom: -0.3rem;
     border-bottom: 2px solid transparent;
     transition: opacity 0.15s;
   }
   .feed-tab:hover {
-    opacity: 0.7;
+    opacity: 0.85;
   }
   .feed-tab[aria-selected="true"] {
     opacity: 1;
@@ -223,7 +232,8 @@ const featuredProjects = [
       readMoreBtn.addEventListener("click", () => {
         const isClamped = bioText.classList.contains("bio-collapsed");
         bioText.classList.toggle("bio-collapsed", !isClamped);
-        readMoreBtn.textContent = isClamped ? "阅读更多" : "收起";
+        readMoreBtn.textContent = isClamped ? "收起" : "阅读更多";
+        readMoreBtn.setAttribute("aria-expanded", String(isClamped));
       });
     }
 
@@ -236,14 +246,25 @@ const featuredProjects = [
     // 博客 / 研究动态。两块都在 HTML 里，所以页面在这段脚本跑之前就是完整的，
     // 没有 JS 的读者看到的是博客列表，而不是空白。
     const tabs = [...document.querySelectorAll<HTMLButtonElement>(".feed-tab")];
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(other => {
-          const selected = other === tab;
-          other.setAttribute("aria-selected", String(selected));
-          const panel = document.getElementById(`panel-${other.dataset.panel}`);
-          if (panel) panel.hidden = !selected;
-        });
+    const select = (tab: HTMLButtonElement) => {
+      tabs.forEach(other => {
+        const selected = other === tab;
+        other.setAttribute("aria-selected", String(selected));
+        other.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(`panel-${other.dataset.panel}`);
+        if (panel) panel.hidden = !selected;
+      });
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => select(tab));
+      // Arrow keys move between tabs, as a tablist does everywhere else.
+      tab.addEventListener("keydown", e => {
+        const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        const next = tabs[(i + step + tabs.length) % tabs.length];
+        select(next);
+        next.focus();
       });
     });
   });

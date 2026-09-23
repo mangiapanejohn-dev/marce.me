@@ -11,13 +11,13 @@ const copy =
     ? {
         role: "Vibe Coder",
         tagline: "做真的记得住你的 AI 工具。",
-        meta: ["长沙", "CTO @ Horizon-Ai"],
+        meta: ["CTO @ Horizon-Ai"],
         foot: "每个 commit 都会上 GitHub，随便你 fork",
       }
     : {
         role: "Vibe Coder",
         tagline: "Building AI tools that actually remember you.",
-        meta: ["ChengDu", "CTO @ Horizon-Ai"],
+        meta: ["CTO @ Horizon-Ai"],
         foot: "Every commit lands on GitHub — fork & remix",
       };
 ---
@@ -123,7 +123,7 @@ const copy =
     line-height: 1.2;
     letter-spacing: 0.42cqw;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .name {
     margin-top: 0.7cqw;
@@ -161,7 +161,7 @@ const copy =
   .meta li + li::before {
     content: "·";
     margin-right: 1.2cqw;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .socials {
@@ -184,7 +184,7 @@ const copy =
       transform 0.15s ease;
   }
   .socials a:hover {
-    color: var(--accent);
+    color: var(--accent-text);
     background: color-mix(in srgb, var(--accent) 10%, transparent);
     transform: translateY(-1px);
   }

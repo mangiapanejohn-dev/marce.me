@@ -52,7 +52,7 @@ export const SHARE_LINKS: Social[] = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/share/1CGnWBgTBR/?mibextid=wwXIfr",
+    href: "https://www.facebook.com/sharer/sharer.php?u=",
     linkTitle: `Share this post on Facebook`,
     icon: IconFacebook,
   },
