@@ -8,6 +8,13 @@ type Props = {
 
 const { headings } = Astro.props;
 
+// Section headings on this site carry their number in the text ("2 · Completion judgement"). The
+// number gets its own column so a title that wraps lines up under itself, not under the number.
+const items = headings.map(h => {
+  const m = h.text.match(/^(\S{1,4})\s+·\s+(.+)$/);
+  return { slug: h.slug, num: m?.[1] ?? "", title: m?.[2] ?? h.text };
+});
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -21,9 +28,12 @@ const t = useTranslations(lang);
   <summary>{t("post.toc")}</summary>
   <ol>
     {
-      headings.map(h => (
+      items.map(h => (
         <li>
-          <a href={`#${h.slug}`}>{h.text}</a>
+          <a href={`#${h.slug}`}>
+            {h.num && <span class="toc-num">{h.num}</span>}
+            <span class="toc-title">{h.title}</span>
+          </a>
         </li>
       ))
     }
@@ -35,10 +45,11 @@ const t = useTranslations(lang);
     <p class="toc-label">{t("post.toc")}</p>
     <ol>
       {
-        headings.map(h => (
+        items.map(h => (
           <li>
             <a href={`#${h.slug}`} data-toc-link={h.slug}>
-              {h.text}
+              {h.num && <span class="toc-num">{h.num}</span>}
+              <span class="toc-title">{h.title}</span>
             </a>
           </li>
         ))
@@ -48,21 +59,41 @@ const t = useTranslations(lang);
 </aside>
 
 <style>
+  /* Shared by both renderings: number column, title beside it, a hairline between entries. */
+  li + li {
+    border-top: 1px solid var(--border);
+  }
+  li a {
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    column-gap: 0.35rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+  .toc-num {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.55;
+  }
+  .toc-title {
+    grid-column: 2;
+    text-wrap: pretty;
+  }
+
   .toc-inline {
     margin-top: 1.5rem;
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 0.75rem;
     font-size: 0.875rem;
   }
   .toc-inline summary {
     cursor: pointer;
     font-weight: 600;
+    padding-inline: 0.5rem;
   }
   .toc-inline ol {
-    margin-top: 0.6rem;
-    display: grid;
-    gap: 0.35rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
   }
   .toc-inline a:hover {
     color: var(--accent-text);
@@ -85,33 +116,33 @@ const t = useTranslations(lang);
     line-height: 1.45;
   }
   .toc-label {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
+    padding-inline: 0.5rem;
     font-weight: 600;
     opacity: 0.7;
   }
   .toc-side ol {
-    display: grid;
-    gap: 0.15rem;
-    border-inline-start: 1px solid var(--border);
+    border-block: 1px solid var(--border);
   }
   .toc-side a {
-    display: block;
-    margin-inline-start: -1px;
-    border-inline-start: 1px solid transparent;
-    padding: 0.2rem 0 0.2rem 0.75rem;
     opacity: 0.7;
     transition:
       opacity 0.15s ease,
       color 0.15s ease,
-      border-color 0.15s ease;
+      background-color 0.15s ease;
   }
   .toc-side a:hover {
     opacity: 1;
   }
+  /* The section being read: full ink, accent title, the number picked out, a faint wash behind. */
   .toc-side a[aria-current="true"] {
     opacity: 1;
     color: var(--accent-text);
-    border-inline-start-color: var(--accent);
+    background: color-mix(in srgb, var(--muted) 70%, transparent);
+  }
+  .toc-side a[aria-current="true"] .toc-num {
+    opacity: 1;
+    font-weight: 600;
   }
   @media (prefers-reduced-motion: reduce) {
     .toc-side a {
