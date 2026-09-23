@@ -109,7 +109,9 @@ const t = useTranslations(lang);
     position: absolute;
     top: 0;
     bottom: 0;
-    inset-inline-start: calc(1.5rem - (100vw - 48rem) / 2 - 1rem);
+    inset-inline-start: calc(
+      1.5rem - (100vw - 48rem) / 2 - 1rem - var(--post-shift, 0rem)
+    );
     width: 13rem;
   }
   .toc-side nav {

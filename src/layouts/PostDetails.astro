@@ -133,10 +133,15 @@ const prevPost =
 
 <Layout {...layoutProps}>
   <Header />
-  <BackButton />
+  <div class:list={["mx-auto w-full max-w-app", { "post-shift": showToc }]}>
+    <BackButton />
+  </div>
   <main
     id="main-content"
-    class:list={["app-layout pb-12", { "mt-8": !SITE.showBackButton }]}
+    class:list={[
+      "app-layout pb-12",
+      { "mt-8": !SITE.showBackButton, "post-shift": showToc },
+    ]}
     data-pagefind-body
   >
     <h1
@@ -223,6 +228,18 @@ const prevPost =
   </main>
   <Footer />
 </Layout>
+
+<style is:global>
+  /* With the contents list on the left and only a thin progress line on the right, a column that is
+     centred to the pixel still reads as sitting left. On wide screens the post moves right by
+     --post-shift; the two margin rails subtract it back out so they stay at the window edges. */
+  @media (min-width: 1280px) {
+    .post-shift {
+      --post-shift: 4rem;
+      translate: var(--post-shift) 0;
+    }
+  }
+</style>
 
 <script is:inline data-astro-rerun>
   /** Create a progress indicator

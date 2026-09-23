@@ -103,7 +103,9 @@ const loop =
     position: absolute;
     top: 0;
     bottom: 0;
-    inset-inline-end: calc(1.5rem - (100vw - 48rem) / 2 - 1rem);
+    inset-inline-end: calc(
+      1.5rem - (100vw - 48rem) / 2 - 1rem + var(--post-shift, 0rem)
+    );
     width: 6.5rem;
   }
   .rp-inner {
