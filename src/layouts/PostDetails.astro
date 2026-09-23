@@ -12,6 +12,7 @@ import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
@@ -52,7 +53,11 @@ const {
   hideEditPost,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+// A contents list earns its place on a long post only; a short one reads fine without.
+const tocHeadings = headings.filter(h => h.depth === 2);
+const showToc = tocHeadings.length >= 4;
 
 let ogImageUrl: string | undefined;
 
@@ -157,12 +162,15 @@ const prevPost =
         </p>
       )
     }
-    <article
-      id="article"
-      class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
-    >
-      <Content />
-    </article>
+    <div class="relative">
+      {showToc && <TableOfContents headings={tocHeadings} />}
+      <article
+        id="article"
+        class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
+      >
+        <Content />
+      </article>
+    </div>
 
     <hr class="my-8 border-dashed" />
 

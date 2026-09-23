@@ -1,0 +1,166 @@
+---
+import type { MarkdownHeading } from "astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!--
+  Two renderings of one list. Below 1280px there is no room beside the column, so the contents sit
+  under the title, folded. From 1280px the list moves into the margin to the left of the column and
+  follows the reader down, marking the section they are in. The prose column does not move.
+-->
+<details class="toc-inline xl:hidden">
+  <summary>{t("post.toc")}</summary>
+  <ol>
+    {
+      headings.map(h => (
+        <li>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))
+    }
+  </ol>
+</details>
+
+<aside class="toc-side hidden xl:block" aria-label={t("post.toc")}>
+  <nav>
+    <p class="toc-label">{t("post.toc")}</p>
+    <ol>
+      {
+        headings.map(h => (
+          <li>
+            <a href={`#${h.slug}`} data-toc-link={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+</aside>
+
+<style>
+  .toc-inline {
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+  .toc-inline summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .toc-inline ol {
+    margin-top: 0.6rem;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .toc-inline a:hover {
+    color: var(--accent-text);
+  }
+
+  /* The aside spans the article's full height so the nav inside can stick for all of it. */
+  .toc-side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inset-inline-end: calc(100% + 2.5rem);
+    width: 13rem;
+  }
+  .toc-side nav {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100svh - 4rem);
+    overflow-y: auto;
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+  .toc-label {
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+  .toc-side ol {
+    display: grid;
+    gap: 0.15rem;
+    border-inline-start: 1px solid var(--border);
+  }
+  .toc-side a {
+    display: block;
+    margin-inline-start: -1px;
+    border-inline-start: 1px solid transparent;
+    padding: 0.2rem 0 0.2rem 0.75rem;
+    opacity: 0.7;
+    transition:
+      opacity 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .toc-side a:hover {
+    opacity: 1;
+  }
+  .toc-side a[aria-current="true"] {
+    opacity: 1;
+    color: var(--accent-text);
+    border-inline-start-color: var(--accent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .toc-side a {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  let controller: AbortController | undefined;
+
+  // The current section is the last heading that has scrolled past the top quarter of the screen.
+  function trackCurrentSection() {
+    controller?.abort();
+    const links = [
+      ...document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"),
+    ];
+    if (!links.length) return;
+    controller = new AbortController();
+
+    const targets = links
+      .map(link => document.getElementById(link.dataset.tocLink ?? ""))
+      .filter((el): el is HTMLElement => el !== null);
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.25;
+      let current = -1;
+      targets.forEach((el, i) => {
+        if (el.getBoundingClientRect().top <= line) current = i;
+      });
+      links.forEach((link, i) => {
+        if (i === current) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", schedule, {
+      passive: true,
+      signal: controller.signal,
+    });
+    window.addEventListener("resize", schedule, { signal: controller.signal });
+    update();
+  }
+
+  document.addEventListener("astro:page-load", trackCurrentSection);
+  document.addEventListener("astro:before-swap", () => controller?.abort());
+</script>

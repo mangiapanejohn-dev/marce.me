@@ -7,7 +7,7 @@ export const SITE = {
   ogImage: "", // empty → falls back to dynamic /og.png (branded with site title)
   lightAndDarkMode: true,
   postPerIndex: 4,
-  postPerPage: 4,
+  postPerPage: 10,
   scheduledPostMargin: 0,
   showArchives: true,
   showBackButton: true, // show back button in post detail

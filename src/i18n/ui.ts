@@ -39,6 +39,7 @@ export const ui = {
     "post.next": "Next Post",
     "post.updated": "Updated:",
     "post.share": "Share this post on:",
+    "post.toc": "Contents",
     "post.fallback":
       "This post isn't available in Chinese yet — showing the English original.",
     "breadcrumb.home": "Home",
@@ -70,6 +71,7 @@ export const ui = {
     "post.next": "下一篇",
     "post.updated": "更新于:",
     "post.share": "分享到:",
+    "post.toc": "目录",
     "post.fallback": "本文暂无中文版,以下为英文原文。",
     "breadcrumb.home": "首页",
     "lang.toggle": "Switch language",
