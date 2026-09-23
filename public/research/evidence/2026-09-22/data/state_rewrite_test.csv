@@ -1,0 +1,354 @@
+id,orig,armC,armT,armR,nC,nT,nR,jdir,checker_pass,cid,order,crit_key,criterionId,stmt,O_ev,armO,transitional,stmt_rw,armO_rw
+T4-rename-e2-e17,established,cannot-tell,established,cannot-tell,2,3,0,r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json,True,T4-rename-e2,17,r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json|T4-rename,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists","final workspace, complete listing (archive.txt):
+
+[file] archive.txt
+the note
+
+",cannot-tell,True,archive.txt exists and its content is exactly the team-notes text (the text that notes.txt held at task start); notes.txt does not exist,cannot-tell
+T4-rename-e5-e21,cannot-tell,cannot-tell,established,cannot-tell,2,6,1,r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,True,T4-rename-e5,21,r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json|T4-rename,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists","final workspace, complete listing (archive.txt):
+
+[file] archive.txt
+the note
+
+",cannot-tell,True,archive.txt exists and its content is exactly the team-notes text (the text that notes.txt held at task start); notes.txt does not exist,cannot-tell
+T4-rename-e5-e27,cannot-tell,cannot-tell,established,cannot-tell,1,7,1,r1/33e599e/M9-control-b/T4-rename/events.json,True,T4-rename-e5,27,r1/33e599e/M9-control-b/T4-rename/events.json|T4-rename,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists","final workspace, complete listing (archive.txt):
+
+[file] archive.txt
+the note
+
+",cannot-tell,True,archive.txt exists and its content is exactly the team-notes text (the text that notes.txt held at task start); notes.txt does not exist,cannot-tell
+T4-rename-e5-e33,cannot-tell,cannot-tell,established,cannot-tell,3,7,1,r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,True,T4-rename-e5,33,r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json|T4-rename,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists","final workspace, complete listing (archive.txt):
+
+[file] archive.txt
+the note
+
+",cannot-tell,True,archive.txt exists and its content is exactly the team-notes text (the text that notes.txt held at task start); notes.txt does not exist,cannot-tell
+R2-6-split-e2-e35,cannot-tell,cannot-tell,cannot-tell,cannot-tell,0,1,1,r2/33e599e/M9-judge-b/R2-6-split/events.json,True,R2-6-split-e2,35,r2/33e599e/M9-judge-b/R2-6-split/events.json|R2-6-split,c1,each section of the old notes.md is its own file under notes/,"final workspace, complete listing (notes.md, notes/on-call.md, notes/onboarding.md, notes/releases.md):
+
+[file] notes.md
+# Team notes
+
+- [Onboarding](notes/onboarding.md)
+- [Releases](notes/releases.md)
+- [On-call](notes/on-call.md)
+
+
+[file] notes/on-call.md
+## On-call
+
+Rotation is weekly. Hand over in the Monday standup.
+
+
+[file] notes/onboarding.md
+## Onboarding
+
+Read the handbook first. Ask your buddy for repository access.
+
+
+[file] notes/releases.md
+## Releases
+
+We release every second Tuesday. Freeze starts the Friday before.
+
+",cannot-tell,True,"notes/ contains exactly onboarding.md, releases.md and on-call.md, and each holds one of the three sections that notes.md held at task start",cannot-tell
+R2-6-split-e2-e37,established,established,cannot-tell,cannot-tell,3,1,1,r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,True,R2-6-split-e2,37,r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json|R2-6-split,c1,each section of the old notes.md is its own file under notes/,"final workspace, complete listing (notes.md, notes/on-call.md, notes/onboarding.md, notes/releases.md):
+
+[file] notes.md
+# Team notes
+
+- [Onboarding](notes/onboarding.md)
+- [Releases](notes/releases.md)
+- [On-call](notes/on-call.md)
+
+
+[file] notes/on-call.md
+## On-call
+
+Rotation is weekly. Hand over in the Monday standup.
+
+
+[file] notes/onboarding.md
+## Onboarding
+
+Read the handbook first. Ask your buddy for repository access.
+
+
+[file] notes/releases.md
+## Releases
+
+We release every second Tuesday. Freeze starts the Friday before.
+
+",cannot-tell,True,"notes/ contains exactly onboarding.md, releases.md and on-call.md, and each holds one of the three sections that notes.md held at task start",cannot-tell
+R2-3-spec-e2-e40,cannot-tell,cannot-tell,established,cannot-tell,2,4,4,r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,True,R2-3-spec-e2,40,r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json|R2-3-spec,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed","final workspace, complete listing (SPEC.md, settings.ini, settings.ini.evidence.md, settings.ini.verification.md):
+
+[file] SPEC.md
+# Settings changes for the next release
+
+1. The server must listen on port 9000.
+2. Use four workers.
+3. Turn the cache on.
+4. Log in JSON format.
+
+Nothing else in settings.ini changes.
+
+
+[file] settings.ini
+[server]
+host = 0.0.0.0
+port = 9000
+workers = 4
+
+[cache]
+enabled = true
+ttl = 60
+
+[logging]
+level = info
+format = json
+
+
+[file] settings.ini.evidence.md
+# Before/after evidence for settings.ini
+
+The edit was performed as four exact-string replacements, each constrained to
+exactly one occurrence (`expectedOccurrences: 1`), applied atomically. No other
+bytes of the file were addressed by the operation, so the pre-edit content is
+exactly recoverable by inverting those four replacements against the current
+file.
+
+## The four replacements (as applied)
+
+| # | SPEC.md item | find (pre-edit) | replace (post-edit) | occurrences |
+|---|---|---|---|---|
+| 1 | ""The server must listen on port 9000."" | `port = 8080` | `port = 9000` | 1 |
+| 2 | ""Use four workers."" | `workers = 2` | `workers = 4` | 1 |
+| 3 | ""Turn the cache on."" | `enabled = false` | `enabled = true` | 1 |
+| 4 | ""Log in JSON format."" | `format = text` | `format = json` | 1 |
+
+## BEFORE — settings.ini reconstructed by inverting the four replacements
+
+```ini
+[server]
+host = 0.0.0.0
+port = 8080
+workers = 2
+
+[cache]
+enabled = false
+ttl = 60
+
+[logging]
+level = info
+format = text
+```
+
+(120 bytes: identical to the current file except that `enabled = false` is one
+byte longer than `enabled = true`; the other three replacements are
+length-preserving.)
+
+## AFTER — settings.ini as it now stands on disk
+
+Observed content, 119 bytes,
+`sha256:2ed96e22f24cf06c549868f7c20329de621486bc319bf9c87c3b49a0218bbcbf`:
+
+```ini
+[server]
+host = 0.0.0.0
+port = 9000
+workers = 4
+
+[cache]
+enabled = true
+ttl = 60
+
+[logging]
+level = info
+format = json
+```
+
+## Line-by-line diff
+
+| line | before | after | status |
+|---|---|---|---|
+| 1 | `[server]` | `[server]` | unchanged |
+| 2 | `host = 0.0.0.0` | `host = 0.0.0.0` | unchanged |
+| 3 | `port = 8080` | `port = 9000` | CHANGED — SPEC item 1 |
+| 4 | `workers = 2` | `workers = 4` | CHANGED — SPEC item 2 |
+| 5 | (blank) | (blank) | unchanged |
+| 6 | `[cache]` | `[cache]` | unchanged |
+| 7 | `enabled = false` | `enabled = true` | CHANGED — SPEC item 3 |
+| 8 | `ttl = 60` | `ttl = 60` | unchanged |
+| 9 | (blank) | (blank) | unchanged |
+| 10 | `[logging]` | `[logging]` | unchanged |
+| 11 | `level = info` | `level = info` | unchanged |
+| 12 | `format = text` | `format = json` | CHANGED — SPEC item 4 |
+
+Unified form:
+
+```diff
+ [server]
+ host = 0.0.0.0
+-port = 8080
+-workers = 2
++port = 9000
++workers = 4
+ 
+ [cache]
+-enabled = false
++enabled = true
+ ttl = 60
+ 
+ [logging]
+ level = info
+-format = text
++format = json
+```
+
+## Conclusion
+
+Exactly four lines differ, and each corresponds one-to-one with a numbered item
+in SPEC.md. The keys SPEC.md does not mention — `host`, `ttl`, `level` — are
+byte-identical before and after, as are both section headers, all blank lines,
+the line ordering and the trailing newline. SPEC.md's closing requirement,
+""Nothing else in settings.ini changes,"" is satisfied.
+
+
+[file] settings.ini.verification.md
+# Verification: SPEC.md changes applied to settings.ini
+
+The edit was performed as four exact-string replacements, each constrained to
+exactly one occurrence (expectedOccurrences = 1). No other bytes of the file
+were addressed by the operation, so the pre-edit content is recoverable by
+inverting those four replacements.
+
+## Replacements applied (the whole of the change)
+
+| SPEC item | find (exact) | replace (exact) | occurrences |
+|---|---|---|---|
+| 1. listen on port 9000 | `port = 8080` | `port = 9000` | 1 |
+| 2. four workers | `workers = 2` | `workers = 4` | 1 |
+| 3. cache on | `enabled = false` | `enabled = true` | 1 |
+| 4. log in JSON format | `format = text` | `format = json` | 1 |
+
+## Before (reconstructed by inverting the four replacements)
+
+```ini
+[server]
+host = 0.0.0.0
+port = 8080
+workers = 2
+
+[cache]
+enabled = false
+ttl = 60
+
+[logging]
+level = info
+format = text
+```
+
+## After (current content of settings.ini, 119 bytes)
+
+```ini
+[server]
+host = 0.0.0.0
+port = 9000
+workers = 4
+
+[cache]
+enabled = true
+ttl = 60
+
+[logging]
+level = info
+format = json
+```
+
+## Line-by-line delta
+
+```diff
+ [server]
+ host = 0.0.0.0
+-port = 8080
++port = 9000
+-workers = 2
++workers = 4
+ 
+ [cache]
+-enabled = false
++enabled = true
+ ttl = 60
+ 
+ [logging]
+ level = info
+-format = text
++format = json
+```
+
+## Untouched keys, confirmed unchanged
+
+- `host = 0.0.0.0` — not named by SPEC.md, not matched by any replacement, present unchanged.
+- `ttl = 60` — not named by SPEC.md, not matched by any replacement, present unchanged.
+- `level = info` — not named by SPEC.md, not matched by any replacement, present unchanged.
+- Section headers `[server]`, `[cache]`, `[logging]` and blank-line layout: unchanged; line count is 12 before and after.
+
+SPEC.md lists exactly four changes and states ""Nothing else in settings.ini changes.""
+Exactly four lines differ, one per SPEC item.
+
+",cannot-tell,True,"settings.ini has port = 9000, workers = 4, enabled = true, format = json, and every other key holds the value it held at task start",cannot-tell
+R2-6-split-e2-e70,cannot-tell,established,established,cannot-tell,4,3,3,r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,True,R2-6-split-e2,70,r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json|R2-6-split,c1,each section of the old notes.md is its own file under notes/,"final workspace, complete listing (notes.md, notes/on-call.md, notes/onboarding.md, notes/releases.md):
+
+[file] notes.md
+# Team notes
+
+- [Onboarding](notes/onboarding.md)
+- [Releases](notes/releases.md)
+- [On-call](notes/on-call.md)
+
+
+[file] notes/on-call.md
+## On-call
+
+Rotation is weekly. Hand over in the Monday standup.
+
+
+[file] notes/onboarding.md
+## Onboarding
+
+Read the handbook first. Ask your buddy for repository access.
+
+
+[file] notes/releases.md
+## Releases
+
+We release every second Tuesday. Freeze starts the Friday before.
+
+",cannot-tell,True,"notes/ contains exactly onboarding.md, releases.md and on-call.md, and each holds one of the three sections that notes.md held at task start",cannot-tell
+R2-6-split-e2-e71,cannot-tell,established,established,cannot-tell,4,3,3,r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,True,R2-6-split-e2,71,r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json|R2-6-split,c1,each section of the old notes.md is its own file under notes/,"final workspace, complete listing (notes.md, notes/on-call.md, notes/onboarding.md, notes/releases.md):
+
+[file] notes.md
+# Team notes
+
+- [Onboarding](notes/onboarding.md)
+- [Releases](notes/releases.md)
+- [On-call](notes/on-call.md)
+
+
+[file] notes/on-call.md
+## On-call
+
+Rotation is weekly. Hand over in the Monday standup.
+
+
+[file] notes/onboarding.md
+## Onboarding
+
+Read the handbook first. Ask your buddy for repository access.
+
+
+[file] notes/releases.md
+## Releases
+
+We release every second Tuesday. Freeze starts the Friday before.
+
+",cannot-tell,True,"notes/ contains exactly onboarding.md, releases.md and on-call.md, and each holds one of the three sections that notes.md held at task start",cannot-tell

@@ -1,0 +1,626 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T2-edit-key-g",
+   "objective": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "originalRequest": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "every other setting in config.json is unchanged",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T2-edit-key-e2-e1",
+  "at": 1789388490935
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789388490942
+  },
+  "id": "T2-edit-key-e2-e2",
+  "at": 1789388490942
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e2-e3",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root, so the debug setting can be changed without disturbing any other setting",
+   "expected": {
+    "description": "config.json exists and its content is returned. This gives the exact current settings, including the debug key, so a minimal edit can be made next and the other settings can be compared afterwards.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789388504794
+  },
+  "id": "T2-edit-key-e2-e4",
+  "at": 1789388504795
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789388490930-1",
+   "sessionId": "fs-session-2-1789388490930",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388504805,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T2-edit-key-NzEjhU/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789388490879,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789388490930",
+    "observationId": "obs-fs-session-2-1789388490930-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789388504805,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T2-edit-key-e2-e5",
+  "at": 1789388504808
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789388490930-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789388490930",
+    "observationId": "obs-fs-session-2-1789388490930-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789388504813,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789388490930-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T2-edit-key-e2-e6",
+  "at": 1789388504814
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789388504819
+  },
+  "id": "T2-edit-key-e2-e7",
+  "at": 1789388504819
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e2-e8",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Change the debug setting in config.json from true to false, leaving every other byte of the file untouched.",
+   "expected": {
+    "description": "config.json now reads debug false. Name, port, features and owner stay exactly as before, and the formatting is unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false,"
+     },
+     {
+      "path": "content",
+      "operator": "equals",
+      "value": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "edits": [
+     {
+      "find": "\"debug\": true,",
+      "replace": "\"debug\": false,",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789388515685
+  },
+  "id": "T2-edit-key-e2-e9",
+  "at": 1789388515686
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T2-edit-key-e2-a-T2-edit-key-e2-e8",
+   "intentId": "T2-edit-key-e2-e8",
+   "sessionId": "fs-session-2-1789388490930",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "config.json",
+    "edits": [
+     {
+      "find": "\"debug\": true,",
+      "replace": "\"debug\": false,",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "config.json now reads debug false. Name, port, features and owner stay exactly as before, and the formatting is unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false,"
+     },
+     {
+      "path": "content",
+      "operator": "equals",
+      "value": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-2-1789388490930-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T2-edit-key-e2-e10",
+  "at": 1789388515697
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789388515694",
+   "actionId": "T2-edit-key-e2-a-T2-edit-key-e2-e8",
+   "sessionId": "fs-session-2-1789388490930",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "config.json",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T2-edit-key-NzEjhU/ws/config.json",
+     "byteLength": 127,
+     "mtimeMs": 1789388515697,
+     "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+     "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789388515697",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789388490930",
+      "sessionRevision": 0,
+      "capturedAt": 1789388515697,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+      "byteLength": 127,
+      "mtimeMs": 1789388515697
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789388515694,
+   "completedAt": 1789388515697
+  },
+  "id": "T2-edit-key-e2-e11",
+  "at": 1789388515701
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T2-edit-key-e2-e8",
+   "description": "Change the debug setting in config.json from true to false, leaving every other byte of the file untouched.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "T2-edit-key-e2-e12",
+  "at": 1789388515705
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789388490930-2",
+   "sessionId": "fs-session-2-1789388490930",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388525280,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 127 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T2-edit-key-NzEjhU/ws/config.json",
+    "byteLength": 127,
+    "mtimeMs": 1789388515697,
+    "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789388490930",
+    "observationId": "obs-fs-session-2-1789388490930-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388525280,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T2-edit-key-e2-e13",
+  "at": 1789388525282
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789388515694",
+   "actionId": "T2-edit-key-e2-a-T2-edit-key-e2-e8",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"debug\": false,",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "equals",
+     "expected": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789388515697",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789388490930",
+      "sessionRevision": 0,
+      "capturedAt": 1789388515697,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+      "byteLength": 127,
+      "mtimeMs": 1789388515697
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789388515694:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789388490930",
+      "observationId": "obs-fs-session-2-1789388490930-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789388525288,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-2-1789388490930-2 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-2-1789388490930-2",
+   "confidence": 0.9,
+   "decidedAt": 1789388525288
+  },
+  "id": "T2-edit-key-e2-e14",
+  "at": 1789388525288
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789388515697",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789388490930",
+    "sessionRevision": 0,
+    "capturedAt": 1789388515697,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "config.json is 127 bytes with digest sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+   "data": {
+    "path": "config.json",
+    "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+    "byteLength": 127,
+    "mtimeMs": 1789388515697
+   },
+   "artifacts": []
+  },
+  "id": "T2-edit-key-e2-e15",
+  "at": 1789388525292
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789388515694:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789388490930",
+    "observationId": "obs-fs-session-2-1789388490930-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388525288,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789388490930-2 at world revision 1, taken to verify fs.patch",
+   "artifacts": []
+  },
+  "id": "T2-edit-key-e2-e16",
+  "at": 1789388525318
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T2-edit-key-e2-e8",
+   "description": "Change the debug setting in config.json from true to false, leaving every other byte of the file untouched.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789388515697",
+    "ev:receipt-2-1789388515694:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "T2-edit-key-e2-e17",
+  "at": 1789388525323
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789388515697",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789388490930",
+        "sessionRevision": 0,
+        "capturedAt": 1789388515697,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "config.json is 127 bytes with digest sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+       "data": {
+        "path": "config.json",
+        "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+        "byteLength": 127,
+        "mtimeMs": 1789388515697
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789388515694:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789388490930",
+        "observationId": "obs-fs-session-2-1789388490930-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789388525288,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-2-1789388490930-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789388515697",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789388490930",
+        "sessionRevision": 0,
+        "capturedAt": 1789388515697,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "config.json is 127 bytes with digest sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+       "data": {
+        "path": "config.json",
+        "digest": "sha256:10950806b2fa9535bedba2046a675b0aed1d15e581f6ce332bfb12263c0110cb",
+        "byteLength": 127,
+        "mtimeMs": 1789388515697
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789388515694:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789388490930",
+        "observationId": "obs-fs-session-2-1789388490930-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789388525288,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-2-1789388490930-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789388525328
+  },
+  "id": "T2-edit-key-e2-e18",
+  "at": 1789388525328
+ }
+]

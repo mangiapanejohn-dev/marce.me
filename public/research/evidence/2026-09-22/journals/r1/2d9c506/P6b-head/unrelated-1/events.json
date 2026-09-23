@@ -1,0 +1,933 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-unrelated-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "unrelated-e2-e1",
+  "at": 1789461642689
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789461642692
+  },
+  "id": "unrelated-e2-e2",
+  "at": 1789461642692
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "unrelated-e2-e3",
+   "goalId": "r1-T8-approved-rewrite-unrelated-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so it can be rewritten with sorted keys and debug set to false without losing any other settings.",
+   "expected": {
+    "description": "config.json exists and its full content is returned. That gives a baseline of every existing top-level setting and the current debug value, so a rewrite can keep all the other settings.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789461654078
+  },
+  "id": "unrelated-e2-e4",
+  "at": 1789461654079
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-7-1789461642684-1",
+   "sessionId": "fs-session-7-1789461642684",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789461654085,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-unrelated-XSeDMk/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789461642622,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789461642684",
+    "observationId": "obs-fs-session-7-1789461642684-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789461654085,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "unrelated-e2-e5",
+  "at": 1789461654085
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-7-1789461642684-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789461642684",
+    "observationId": "obs-fs-session-7-1789461642684-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789461654088,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-7-1789461642684-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "unrelated-e2-e6",
+  "at": 1789461654088
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789461654092
+  },
+  "id": "unrelated-e2-e7",
+  "at": 1789461654092
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "unrelated-e2-e8",
+   "goalId": "r1-T8-approved-rewrite-unrelated-g",
+   "desiredEffect": "Rewrite config.json with its top-level keys sorted alphabetically, debug set to false, and every other setting kept as it was.",
+   "expected": {
+    "description": "config.json now lists its keys in alphabetical order (debug, features, name, owner, port). debug is false. name, port, features and owner keep their original values.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789461665462
+  },
+  "id": "unrelated-e2-e9",
+  "at": 1789461665462
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-7-1789461642684-2",
+   "sessionId": "fs-session-7-1789461642684",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789461672567,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-unrelated-XSeDMk/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789461642622,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789461642684",
+    "observationId": "obs-fs-session-7-1789461642684-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789461672567,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "unrelated-e2-e10",
+  "at": 1789461672568
+ },
+ {
+  "type": "authority.escalated",
+  "report": {
+   "intentId": "unrelated-e2-e8",
+   "decision": "escalate",
+   "effect": {
+    "capabilityId": "fs.write",
+    "effectClass": "reversible-write",
+    "environmentKind": "filesystem",
+    "semanticEffect": "filesystem-mutation",
+    "resources": [
+     "config.json in the workspace root",
+     "config.json"
+    ],
+    "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 8080\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+    "resourceBindings": [
+     {
+      "resource": "config.json",
+      "identity": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+      "fromObservation": "obs-fs-session-7-1789461642684-2"
+     }
+    ]
+   },
+   "rulings": [
+    {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    }
+   ],
+   "decidedBy": {
+    "source": "envelope-default",
+    "ruleId": "envelope:the mission author:otherwise",
+    "verdict": "approve",
+    "on": [],
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+   },
+   "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+  },
+  "id": "unrelated-e2-e11",
+  "at": 1789461672574
+ },
+ {
+  "type": "goal.suspended",
+  "stop": "asked-user",
+  "question": {
+   "kind": "authority",
+   "id": "q:auth:[\"fs.write\",[\"config.json\",\"config.json in the workspace root\"],\"[\\\"fs.write\\\",{\\\"content\\\":\\\"{\\\\n  \\\\\\\"debug\\\\\\\": false,\\\\n  \\\\\\\"features\\\\\\\": [\\\\\\\"search\\\\\\\", \\\\\\\"export\\\\\\\"],\\\\n  \\\\\\\"name\\\\\\\": \\\\\\\"demo-service\\\\\\\",\\\\n  \\\\\\\"owner\\\\\\\": \\\\\\\"platform-team\\\\\\\",\\\\n  \\\\\\\"port\\\\\\\": 8080\\\\n}\\\\n\\\",\\\"overwrite\\\":true,\\\"path\\\":\\\"config.json\\\"}]\"]",
+   "askedAt": 1789461672575,
+   "report": {
+    "intentId": "unrelated-e2-e8",
+    "decision": "escalate",
+    "effect": {
+     "capabilityId": "fs.write",
+     "effectClass": "reversible-write",
+     "environmentKind": "filesystem",
+     "semanticEffect": "filesystem-mutation",
+     "resources": [
+      "config.json in the workspace root",
+      "config.json"
+     ],
+     "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 8080\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+     "resourceBindings": [
+      {
+       "resource": "config.json",
+       "identity": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+       "fromObservation": "obs-fs-session-7-1789461642684-2"
+      }
+     ]
+    },
+    "rulings": [
+     {
+      "source": "envelope-default",
+      "ruleId": "envelope:the mission author:otherwise",
+      "verdict": "approve",
+      "on": [],
+      "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+     }
+    ],
+    "decidedBy": {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    },
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+   }
+  },
+  "reason": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]",
+  "id": "unrelated-e2-e12",
+  "at": 1789461672575
+ },
+ {
+  "type": "harness.answered",
+  "__answered": true
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-unrelated-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "unrelated-e7-e2",
+  "at": 1789461672666
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 8,
+   "enteredAt": 1789461672670
+  },
+  "id": "unrelated-e7-e3",
+  "at": 1789461672670
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-8-1789461672655-1",
+   "sessionId": "fs-session-8-1789461672655",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789461681140,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-unrelated-XSeDMk/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789461642622,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789461672655",
+    "observationId": "obs-fs-session-8-1789461672655-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789461681140,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "unrelated-e7-e4",
+  "at": 1789461681141
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "unrelated-e7-a-unrelated-e2-e8",
+   "intentId": "unrelated-e2-e8",
+   "sessionId": "fs-session-8-1789461672655",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true,
+    "path": "config.json"
+   },
+   "expected": {
+    "assertions": [
+     {
+      "operator": "contains",
+      "path": "content",
+      "value": "\"debug\": false"
+     },
+     {
+      "operator": "contains",
+      "path": "content",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "operator": "contains",
+      "path": "content",
+      "value": "\"port\": 8080"
+     },
+     {
+      "operator": "contains",
+      "path": "content",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "operator": "contains",
+      "path": "content",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "operator": "matches",
+      "path": "content",
+      "value": "\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\""
+     }
+    ],
+    "description": "config.json now lists its keys in alphabetical order (debug, features, name, owner, port). debug is false. name, port, features and owner keep their original values.",
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-8-1789461672655-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "authorisedBy": "q:auth:[\"fs.write\",[\"config.json\",\"config.json in the workspace root\"],\"[\\\"fs.write\\\",{\\\"content\\\":\\\"{\\\\n  \\\\\\\"debug\\\\\\\": false,\\\\n  \\\\\\\"features\\\\\\\": [\\\\\\\"search\\\\\\\", \\\\\\\"export\\\\\\\"],\\\\n  \\\\\\\"name\\\\\\\": \\\\\\\"demo-service\\\\\\\",\\\\n  \\\\\\\"owner\\\\\\\": \\\\\\\"platform-team\\\\\\\",\\\\n  \\\\\\\"port\\\\\\\": 8080\\\\n}\\\\n\\\",\\\"overwrite\\\":true,\\\"path\\\":\\\"config.json\\\"}]\"]",
+  "id": "unrelated-e7-e5",
+  "at": 1789461681149
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789461681148",
+   "actionId": "unrelated-e7-a-unrelated-e2-e8",
+   "sessionId": "fs-session-8-1789461672655",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "config.json",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-unrelated-XSeDMk/ws/config.json",
+     "byteLength": 127,
+     "mtimeMs": 1789461681149,
+     "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789461681149",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789461672655",
+      "sessionRevision": 0,
+      "capturedAt": 1789461681149,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+      "byteLength": 127,
+      "mtimeMs": 1789461681149
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789461681148,
+   "completedAt": 1789461681149
+  },
+  "id": "unrelated-e7-e6",
+  "at": 1789461681153
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:unrelated-e2-e8",
+   "description": "Rewrite config.json with its top-level keys sorted alphabetically, debug set to false, and every other setting kept as it was.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "unrelated-e7-e7",
+  "at": 1789461681156
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-8-1789461672655-2",
+   "sessionId": "fs-session-8-1789461672655",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789461688650,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 127 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-unrelated-XSeDMk/ws/config.json",
+    "byteLength": 127,
+    "mtimeMs": 1789461681149,
+    "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789461672655",
+    "observationId": "obs-fs-session-8-1789461672655-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789461688650,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "unrelated-e7-e8",
+  "at": 1789461688651
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789461681148",
+   "actionId": "unrelated-e7-a-unrelated-e2-e8",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"debug\": false",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"name\": \"demo-service\"",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"port\": 8080",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"features\": [\"search\", \"export\"]",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"owner\": \"platform-team\"",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "matches",
+     "expected": "\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"",
+     "actual": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789461681149",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789461672655",
+      "sessionRevision": 0,
+      "capturedAt": 1789461681149,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+      "byteLength": 127,
+      "mtimeMs": 1789461681149
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789461681148:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789461672655",
+      "observationId": "obs-fs-session-8-1789461672655-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789461688655,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-8-1789461672655-2 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-8-1789461672655-2",
+   "confidence": 0.9,
+   "decidedAt": 1789461688655
+  },
+  "id": "unrelated-e7-e9",
+  "at": 1789461688655
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789461681149",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789461672655",
+    "sessionRevision": 0,
+    "capturedAt": 1789461681149,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "config.json is 127 bytes with digest sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+   "data": {
+    "path": "config.json",
+    "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+    "byteLength": 127,
+    "mtimeMs": 1789461681149
+   },
+   "artifacts": []
+  },
+  "id": "unrelated-e7-e10",
+  "at": 1789461688659
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789461681148:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789461672655",
+    "observationId": "obs-fs-session-8-1789461672655-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789461688655,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-8-1789461672655-2 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "unrelated-e7-e11",
+  "at": 1789461688663
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:unrelated-e2-e8",
+   "description": "Rewrite config.json with its top-level keys sorted alphabetically, debug set to false, and every other setting kept as it was.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789461681149",
+    "ev:receipt-2-1789461681148:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "unrelated-e7-e12",
+  "at": 1789461688667
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 14,
+   "enteredAt": 1789461688670
+  },
+  "id": "unrelated-e7-e13",
+  "at": 1789461688670
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789461681149",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789461672655",
+        "sessionRevision": 0,
+        "capturedAt": 1789461681149,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "config.json is 127 bytes with digest sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+       "data": {
+        "path": "config.json",
+        "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+        "byteLength": 127,
+        "mtimeMs": 1789461681149
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789461681148:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789461672655",
+        "observationId": "obs-fs-session-8-1789461672655-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789461688655,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-8-1789461672655-2 at world revision 1, taken to verify fs.write",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789461681149",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789461672655",
+        "sessionRevision": 0,
+        "capturedAt": 1789461681149,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "config.json is 127 bytes with digest sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+       "data": {
+        "path": "config.json",
+        "digest": "sha256:79b4a50403e338d5a726b9af7a10a9ea06f8e64e5874c3ef4eec0abc5491fae5",
+        "byteLength": 127,
+        "mtimeMs": 1789461681149
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789461681148:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789461672655",
+        "observationId": "obs-fs-session-8-1789461672655-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789461688655,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-8-1789461672655-2 at world revision 1, taken to verify fs.write",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789461688674
+  },
+  "id": "unrelated-e7-e14",
+  "at": 1789461688674
+ }
+]

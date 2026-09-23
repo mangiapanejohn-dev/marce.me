@@ -1,0 +1,12 @@
+{"adapter": "broken-control", "logical_run_id": "broken-control:C3-W:3", "phase": 1, "process_id": 33303, "ts": 1790083963.073496, "type": "phase.start"}
+{"logical_run_id": "broken-control:C3-W:3", "ordinal_global": 1, "process_id": 33303, "response_id": "A", "ts": 1790083963.075735, "type": "model.call"}
+{"logical_run_id": "broken-control:C3-W:3", "process_id": 33303, "proposal_id": "A", "ts": 1790083963.0764859, "type": "proposal.presented"}
+{"logical_run_id": "broken-control:C3-W:3", "process_id": 33303, "ts": 1790083963.076679, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33303, "ts": 1790083963.076877, "type": "faultpoint.reached"}
+{"for_proposal_id": "A", "granted_by": "harness-operator", "logical_run_id": "broken-control:C3-W:3", "process_id": 33297, "ts": 1790083963.1076732, "type": "approval.granted"}
+{"adapter": "broken-control", "logical_run_id": "broken-control:C3-W:3", "phase": 2, "process_id": 33304, "ts": 1790083963.134134, "type": "phase.start"}
+{"logical_run_id": "broken-control:C3-W:3", "ordinal_global": 2, "process_id": 33304, "response_id": "B", "ts": 1790083963.135542, "type": "model.call"}
+{"logical_run_id": "broken-control:C3-W:3", "process_id": 33304, "proposal_id": "B", "ts": 1790083963.135751, "type": "proposal.regenerated"}
+{"effect_id": "broken-control:C3-W:3:e1", "logical_run_id": "broken-control:C3-W:3", "process_id": 33304, "proposal_id": "B", "ts": 1790083963.1374469, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C3-W:3", "process_id": 33304, "ts": 1790083963.1376379, "type": "run.finished"}
+{"logical_run_id": "broken-control:C3-W:3", "phase": 2, "process_id": 33304, "ts": 1790083963.137831, "type": "phase.end"}

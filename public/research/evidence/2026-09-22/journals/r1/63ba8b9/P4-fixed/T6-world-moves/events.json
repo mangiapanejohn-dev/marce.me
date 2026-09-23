@@ -1,0 +1,621 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T6-world-moves-g",
+   "objective": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "originalRequest": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "every other setting in config.json is unchanged",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T6-world-moves-e2-e1",
+  "at": 1789388857862
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789388857866
+  },
+  "id": "T6-world-moves-e2-e2",
+  "at": 1789388857866
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T6-world-moves-e2-e3",
+   "goalId": "r1-T6-world-moves-g",
+   "desiredEffect": "Read the current contents of config.json so the debug setting and all other settings are known before changing anything",
+   "expected": {
+    "description": "config.json exists and its content is returned, showing the current debug value and every other setting, which serves as the baseline for the edit",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789388871858
+  },
+  "id": "T6-world-moves-e2-e4",
+  "at": 1789388871858
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-7-1789388857857-1",
+   "sessionId": "fs-session-7-1789388857857",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388871865,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T6-world-moves-c4gPuY/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789388857795,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789388857857",
+    "observationId": "obs-fs-session-7-1789388857857-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789388871865,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T6-world-moves-e2-e5",
+  "at": 1789388871866
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-7-1789388857857-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789388857857",
+    "observationId": "obs-fs-session-7-1789388857857-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789388871871,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-7-1789388857857-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T6-world-moves-e2-e6",
+  "at": 1789388871871
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789388871873
+  },
+  "id": "T6-world-moves-e2-e7",
+  "at": 1789388871873
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T6-world-moves-e2-e8",
+   "goalId": "r1-T6-world-moves-g",
+   "desiredEffect": "Change the debug setting in config.json from true to false, touching nothing else in the file.",
+   "expected": {
+    "description": "config.json content now has \"debug\": false, and name, port, features and owner stay exactly as they were.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false,"
+     },
+     {
+      "path": "content",
+      "operator": "equals",
+      "value": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json debug setting",
+   "parameters": {
+    "path": "config.json",
+    "edits": [
+     {
+      "find": "\"debug\": true,",
+      "replace": "\"debug\": false,",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789388881610
+  },
+  "id": "T6-world-moves-e2-e9",
+  "at": 1789388881610
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T6-world-moves-e2-a-T6-world-moves-e2-e8",
+   "intentId": "T6-world-moves-e2-e8",
+   "sessionId": "fs-session-7-1789388857857",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "config.json",
+    "edits": [
+     {
+      "find": "\"debug\": true,",
+      "replace": "\"debug\": false,",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "config.json content now has \"debug\": false, and name, port, features and owner stay exactly as they were.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false,"
+     },
+     {
+      "path": "content",
+      "operator": "equals",
+      "value": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-7-1789388857857-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T6-world-moves-e2-e10",
+  "at": 1789388881622
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789388881620",
+   "actionId": "T6-world-moves-e2-a-T6-world-moves-e2-e8",
+   "sessionId": "fs-session-7-1789388857857",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "config.json",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T6-world-moves-c4gPuY/ws/config.json",
+     "byteLength": 127,
+     "mtimeMs": 1789388881622,
+     "digest": "sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f",
+     "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789388881621",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-7-1789388857857",
+      "sessionRevision": 0,
+      "capturedAt": 1789388881621,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+      "byteLength": 127,
+      "mtimeMs": 1789388881622
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789388881620,
+   "completedAt": 1789388881622
+  },
+  "id": "T6-world-moves-e2-e11",
+  "at": 1789388881626
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T6-world-moves-e2-e8",
+   "description": "Change the debug setting in config.json from true to false, touching nothing else in the file.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "T6-world-moves-e2-e12",
+  "at": 1789388881629
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-7-1789388857857-2",
+   "sessionId": "fs-session-7-1789388857857",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388889051,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 127 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T6-world-moves-c4gPuY/ws/config.json",
+    "byteLength": 127,
+    "mtimeMs": 1789388881622,
+    "digest": "sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789388857857",
+    "observationId": "obs-fs-session-7-1789388857857-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388889051,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T6-world-moves-e2-e13",
+  "at": 1789388889051
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789388881620",
+   "actionId": "T6-world-moves-e2-a-T6-world-moves-e2-e8",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"debug\": false,",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "equals",
+     "expected": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": false,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789388881621",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-7-1789388857857",
+      "sessionRevision": 0,
+      "capturedAt": 1789388881621,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config.json is 127 bytes with digest sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+     "data": {
+      "path": "config.json",
+      "digest": "sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+      "byteLength": 127,
+      "mtimeMs": 1789388881622
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789388881620:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-7-1789388857857",
+      "observationId": "obs-fs-session-7-1789388857857-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789388889058,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-7-1789388857857-2 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-7-1789388857857-2",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-2-1789388881620",
+    "actionId": "T6-world-moves-e2-a-T6-world-moves-e2-e8",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-1-1789388881621",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-7-1789388857857",
+       "sessionRevision": 0,
+       "capturedAt": 1789388881621,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "config.json is 127 bytes with digest sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+      "data": {
+       "path": "config.json",
+       "digest": "sha256:9cdfa713ddb731ef57fd4a1d34b5f2f0e7cf62aadbe82a53bd1848a697bf4c16",
+       "byteLength": 127,
+       "mtimeMs": 1789388881622
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-2-1789388881620:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-7-1789388857857",
+       "observationId": "obs-fs-session-7-1789388857857-2",
+       "sessionRevision": 1,
+       "capturedAt": 1789388889058,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-7-1789388857857-2 at world revision 1, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789388889058
+  },
+  "id": "T6-world-moves-e2-e14",
+  "at": 1789388889058
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789388881620:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-7-1789388857857",
+    "observationId": "obs-fs-session-7-1789388857857-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388889058,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-7-1789388857857-2 at world revision 1, taken to verify fs.patch",
+   "artifacts": []
+  },
+  "id": "T6-world-moves-e2-e15",
+  "at": 1789388889063
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:receipt-2-1789388881620:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-7-1789388857857",
+        "observationId": "obs-fs-session-7-1789388857857-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789388889058,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-7-1789388857857-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:receipt-2-1789388881620:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-7-1789388857857",
+        "observationId": "obs-fs-session-7-1789388857857-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789388889058,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-7-1789388857857-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789388889066
+  },
+  "id": "T6-world-moves-e2-e16",
+  "at": 1789388889066
+ }
+]

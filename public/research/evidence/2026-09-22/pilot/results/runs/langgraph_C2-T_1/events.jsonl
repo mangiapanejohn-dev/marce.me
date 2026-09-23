@@ -1,0 +1,13 @@
+{"adapter": "langgraph", "logical_run_id": "langgraph:C2-T:1", "phase": 1, "process_id": 33331, "ts": 1790083964.362278, "type": "phase.start"}
+{"logical_run_id": "langgraph:C2-T:1", "ordinal_global": 1, "process_id": 33331, "response_id": "A", "ts": 1790083964.368347, "type": "model.call"}
+{"effect_id": "langgraph:C2-T:1:e1", "logical_run_id": "langgraph:C2-T:1", "process_id": 33331, "proposal_id": "A", "task_ordinal": 1, "ts": 1790083964.370232, "type": "effect.committed"}
+{"logical_run_id": "langgraph:C2-T:1", "ordinal_global": 2, "process_id": 33331, "response_id": "B", "ts": 1790083964.3713, "type": "model.call"}
+{"effect_id": "langgraph:C2-T:1:e2", "logical_run_id": "langgraph:C2-T:1", "process_id": 33331, "proposal_id": "B", "task_ordinal": 2, "ts": 1790083964.37247, "type": "effect.committed"}
+{"logical_run_id": "langgraph:C2-T:1", "n": 2, "process_id": 33331, "ts": 1790083964.372715, "type": "tasks.completed"}
+{"fault_point": "AFTER_ACK_BEFORE_NEXT_STEP", "process_id": 33331, "ts": 1790083964.3729331, "type": "faultpoint.reached"}
+{"adapter": "langgraph", "logical_run_id": "langgraph:C2-T:1", "phase": 2, "process_id": 33332, "ts": 1790083964.678412, "type": "phase.start"}
+{"logical_run_id": "langgraph:C2-T:1", "n": 2, "process_id": 33332, "ts": 1790083964.682178, "type": "tasks.completed"}
+{"logical_run_id": "langgraph:C2-T:1", "ordinal_global": 3, "process_id": 33332, "response_id": "C", "ts": 1790083964.6831412, "type": "model.call"}
+{"effect_id": "langgraph:C2-T:1:e3", "logical_run_id": "langgraph:C2-T:1", "process_id": 33332, "proposal_id": "C", "task_ordinal": 3, "ts": 1790083964.684342, "type": "effect.committed"}
+{"logical_run_id": "langgraph:C2-T:1", "process_id": 33332, "ts": 1790083964.68545, "type": "run.finished"}
+{"logical_run_id": "langgraph:C2-T:1", "phase": 2, "process_id": 33332, "ts": 1790083964.685667, "type": "phase.end"}

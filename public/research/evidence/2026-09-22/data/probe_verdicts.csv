@@ -1,0 +1,13 @@
+card,runtime,role,crash_window,durability,budget_location,external_events,limit,sequence,verdict
+C2,langgraph 1.2.12,positive-control,after_effect,async,process,5,3,"[1, 2, 1, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,positive-control,after_effect,exit,process,2,3,"[1, 2]",inapplicable
+C2,langgraph 1.2.12,positive-control,after_effect,sync,process,5,3,"[1, 2, 1, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,positive-control,entry,async,process,4,3,"[1, 1, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,positive-control,entry,exit,process,1,3,[1],inapplicable
+C2,langgraph 1.2.12,positive-control,entry,sync,process,4,3,"[1, 1, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,subject,after_effect,async,state,4,3,"[1, 2, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,subject,after_effect,exit,state,2,3,"[1, 2]",inapplicable
+C2,langgraph 1.2.12,subject,after_effect,sync,state,4,3,"[1, 2, 2, 3]",VIOLATED
+C2,langgraph 1.2.12,subject,entry,async,state,3,3,"[1, 2, 3]",probe-insensitive
+C2,langgraph 1.2.12,subject,entry,exit,state,1,3,[1],inapplicable
+C2,langgraph 1.2.12,subject,entry,sync,state,3,3,"[1, 2, 3]",not-violated

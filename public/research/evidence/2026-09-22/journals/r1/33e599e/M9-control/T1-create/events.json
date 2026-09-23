@@ -1,0 +1,192 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T1-create-g",
+   "objective": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "originalRequest": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "notes.txt contains the line \"hello from the mission\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T1-create-e2-e1",
+  "at": 1789727678926
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789727678931
+  },
+  "id": "T1-create-e2-e2",
+  "at": 1789727678931
+ },
+ {
+  "id": "T1-create-e2-m1",
+  "at": 1789727678935,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T1-create-e2-m2",
+  "at": 1789728053735,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "failed"
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "the proposer's reply could not be used: transport-failed — the claude CLI did not answer within 180000 ms and was killed (retryable)",
+  "id": "T1-create-e2-e3",
+  "at": 1789728053742
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T1-create-g",
+   "objective": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "originalRequest": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "notes.txt contains the line \"hello from the mission\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T1-create-e5-e1",
+  "at": 1789728053823
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789728053827
+  },
+  "id": "T1-create-e5-e2",
+  "at": 1789728053827
+ },
+ {
+  "id": "T1-create-e5-m1",
+  "at": 1789728053830,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T1-create-e5-m2",
+  "at": 1789728313270,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "failed"
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "the proposer's reply could not be used: transport-failed — the claude CLI did not answer within 180000 ms and was killed (retryable)",
+  "id": "T1-create-e5-e3",
+  "at": 1789728313275
+ }
+]

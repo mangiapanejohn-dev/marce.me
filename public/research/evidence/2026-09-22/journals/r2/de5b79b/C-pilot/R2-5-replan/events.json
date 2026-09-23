@@ -1,0 +1,315 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-5-replan-g",
+   "objective": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "originalRequest": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "the file the service reads its settings from sets replicas to 3",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-5-replan-e2-e1",
+  "at": 1789719072601
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789719072604
+  },
+  "id": "R2-5-replan-e2-e2",
+  "at": 1789719072604
+ },
+ {
+  "id": "R2-5-replan-e2-m1",
+  "at": 1789719072608,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m2",
+  "at": 1789719080205,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e3",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the README to learn where the ingest service's settings file lives",
+   "expected": {
+    "description": "The README's text is returned, and it names the file or directory the ingest service reads its settings from",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "(?i)ingest"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "README at the repository root",
+   "parameters": {
+    "path": "README.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789719080210
+  },
+  "id": "R2-5-replan-e2-e4",
+  "at": 1789719080211
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789719072595-1",
+   "sessionId": "fs-session-6-1789719072595",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789719080218,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file README.md, 60 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "README.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-1Sz3tG/ws/README.md",
+    "byteLength": 60,
+    "mtimeMs": 1789719072518,
+    "digest": "sha256:bcf1f5ee790ebb81a3c21c93295abc8ac98d247a199a67ff2ed73d63923aeb80",
+    "binary": false,
+    "inline": true,
+    "content": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789719072595",
+    "observationId": "obs-fs-session-6-1789719072595-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789719080218,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e5",
+  "at": 1789719080219
+ },
+ {
+  "id": "R2-5-replan-e2-m3",
+  "at": 1789719080226,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m4",
+  "at": 1789719088318,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e6",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the current contents of service.yaml, the settings file the README names, so I know its structure before changing the replica count",
+   "expected": {
+    "description": "service.yaml exists at the repository root and its text is returned, showing whether and how a replicas setting is currently expressed",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "service.yaml",
+   "parameters": {
+    "path": "service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789719088323
+  },
+  "id": "R2-5-replan-e2-e7",
+  "at": 1789719088323
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789719072595-2",
+   "sessionId": "fs-session-6-1789719072595",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789719088327,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file service.yaml, 84 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "service.yaml",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-1Sz3tG/ws/service.yaml",
+    "byteLength": 84,
+    "mtimeMs": 1789719072518,
+    "digest": "sha256:9d9ad505bca960dbafb23ccb41f634e0ad89cfed519f90b23dd7a52bbb618e80",
+    "binary": false,
+    "inline": true,
+    "content": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789719072595",
+    "observationId": "obs-fs-session-6-1789719072595-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789719088327,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e8",
+  "at": 1789719088327
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-6-1789719072595-2:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789719072595",
+    "observationId": "obs-fs-session-6-1789719072595-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789719088331,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-6-1789719072595-2 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e2-e9",
+  "at": 1789719088331
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 4,
+   "enteredAt": 1789719088335
+  },
+  "id": "R2-5-replan-e2-e10",
+  "at": 1789719088335
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-6-1789719072595-2:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-6-1789719072595",
+        "observationId": "obs-fs-session-6-1789719072595-2",
+        "sessionRevision": 0,
+        "capturedAt": 1789719088331,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-6-1789719072595-2 at world revision 0, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789719088339
+  },
+  "id": "R2-5-replan-e2-e11",
+  "at": 1789719088339
+ }
+]

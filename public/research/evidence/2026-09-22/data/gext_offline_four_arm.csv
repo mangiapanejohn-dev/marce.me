@@ -1,0 +1,22 @@
+jdir,cid,stmt,N,S,F,S2,F2
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,c2,notes.md is an index linking the three files,established,established,established,established,not-established
+r2/33e599e/M9-judge-b/R2-6-split/events.json,c2,notes.md is an index linking the three files,established,established,established,established,not-established
+r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json,c1,"archive.txt exists with the former content of notes.txt, a",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,c1,"settings.ini reflects every change SPEC.md lists, and noth",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,c1,"archive.txt exists with the former content of notes.txt, a",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r1/33e599e/M9-control-b/T4-rename/events.json,c1,"archive.txt exists with the former content of notes.txt, a",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,c1,"archive.txt exists with the former content of notes.txt, a",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/33e599e/M9-judge-b/R2-6-split/events.json,c1,each section of the old notes.md is its own file under not,cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,c1,"settings.ini reflects every change SPEC.md lists, and noth",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,c1,each section of the old notes.md is its own file under not,cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/f9b27dd/P3-judge-run/R2-4-independent/rep-1/events.json,c2,version 1.4.3 is set in package.json and described in CHAN,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-1/events.json,c2,version 1.4.3 is set in package.json and described in CHAN,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,c1,"settings.ini reflects every change SPEC.md lists, and noth",cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-2/events.json,c2,version 1.4.3 is set in package.json and described in CHAN,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json,c2,slugify is exported from src/index.js and registered in mo,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,c2,slugify is exported from src/index.js and registered in mo,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,c2,slugify is exported from src/index.js and registered in mo,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,c2,notes.md is an index linking the three files,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,c2,notes.md is an index linking the three files,established,established,established,established,not-established
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,c1,each section of the old notes.md is its own file under not,cannot-tell,cannot-tell,cannot-tell,cannot-tell,cannot-tell
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,c1,each section of the old notes.md is its own file under not,cannot-tell,cannot-tell,cannot-tell,cannot-tell,not-established

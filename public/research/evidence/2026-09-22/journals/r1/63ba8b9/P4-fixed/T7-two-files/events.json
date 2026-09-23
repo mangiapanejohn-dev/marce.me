@@ -1,0 +1,1040 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T7-two-files-g",
+   "objective": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "originalRequest": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "src/greet.ts exports greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+(function\\s+greet|const\\s+greet)"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/index.ts re-exports greet from ./greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export[^;\\n]*greet[^;\\n]*from\\s*['\"]\\./greet(\\.js|\\.ts)?['\"]"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T7-two-files-e2-e1",
+  "at": 1789388889156
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789388889160
+  },
+  "id": "T7-two-files-e2-e2",
+  "at": 1789388889160
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e3",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/greet.ts",
+   "parameters": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789388897505
+  },
+  "id": "T7-two-files-e2-e4",
+  "at": 1789388897505
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "intentId": "T7-two-files-e2-e3",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation"
+  },
+  "id": "T7-two-files-e2-e5",
+  "at": 1789388906643
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789388906642",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/greet.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-hrTT27/ws/src/greet.ts",
+     "byteLength": 76,
+     "mtimeMs": 1789388906643,
+     "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789388906643",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "sessionRevision": 0,
+      "capturedAt": 1789388906643,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789388906643
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789388906642,
+   "completedAt": 1789388906643
+  },
+  "id": "T7-two-files-e2-e6",
+  "at": 1789388906651
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e7",
+  "at": 1789388906654
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-8-1789388889151-2",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388915447,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file src/greet.ts, 76 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/greet.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-hrTT27/ws/src/greet.ts",
+    "byteLength": 76,
+    "mtimeMs": 1789388906643,
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "binary": false,
+    "inline": true,
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388915447,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e8",
+  "at": 1789388915447
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789388906642",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "export function greet(name: string): string",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "return `Hello, ${name}!`;",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789388906643",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "sessionRevision": 0,
+      "capturedAt": 1789388906643,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789388906643
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789388906642:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "observationId": "obs-fs-session-8-1789388889151-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789388915455,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-8-1789388889151-2 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-8-1789388889151-2",
+   "confidence": 0.9,
+   "decidedAt": 1789388915455
+  },
+  "id": "T7-two-files-e2-e9",
+  "at": 1789388915455
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789388906643",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "sessionRevision": 0,
+    "capturedAt": 1789388906643,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+   "data": {
+    "path": "src/greet.ts",
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "byteLength": 76,
+    "mtimeMs": 1789388906643
+   },
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e10",
+  "at": 1789388915459
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789388906642:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789388915455,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-8-1789388889151-2 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e11",
+  "at": 1789388915462
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789388906643",
+    "ev:receipt-2-1789388906642:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e12",
+  "at": 1789388915466
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e13",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create src/index.ts so that it re-exports greet from ./greet.",
+   "expected": {
+    "description": "src/index.ts exists and contains a named re-export of greet from ./greet.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from \"./greet\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "content": "export { greet } from \"./greet\";\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:T7-two-files-e2-e3",
+     "because": "The re-export only resolves if src/greet.ts exists and exports greet."
+    }
+   ],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789388924299
+  },
+  "id": "T7-two-files-e2-e14",
+  "at": 1789388924300
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e2-a-T7-two-files-e2-e13",
+   "intentId": "T7-two-files-e2-e13",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/index.ts",
+    "content": "export { greet } from \"./greet\";\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/index.ts exists and contains a named re-export of greet from ./greet.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from \"./greet\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-8-1789388889151-2",
+    "worldRevision": 1,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T7-two-files-e2-e15",
+  "at": 1789388931022
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-4-1789388931021",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e13",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/index.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-hrTT27/ws/src/index.ts",
+     "byteLength": 33,
+     "mtimeMs": 1789388931022,
+     "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "export { greet } from \"./greet\";\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-3-1789388931022",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "sessionRevision": 1,
+      "capturedAt": 1789388931022,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+      "byteLength": 33,
+      "mtimeMs": 1789388931022
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789388931021,
+   "completedAt": 1789388931022
+  },
+  "id": "T7-two-files-e2-e16",
+  "at": 1789388931028
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e13",
+   "description": "Create src/index.ts so that it re-exports greet from ./greet.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/index.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e17",
+  "at": 1789388931033
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-8-1789388889151-4",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388939737,
+   "worldRevision": 2,
+   "observationRevision": 4,
+   "semanticState": "directory src with 2 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": "src",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-hrTT27/ws/src",
+    "entryCount": 2,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "greet.ts",
+      "path": "src/greet.ts",
+      "kind": "file",
+      "byteLength": 76,
+      "mtimeMs": 1789388906643,
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc"
+     },
+     {
+      "name": "index.ts",
+      "path": "src/index.ts",
+      "kind": "file",
+      "byteLength": 33,
+      "mtimeMs": 1789388931022,
+      "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-4",
+    "sessionRevision": 2,
+    "capturedAt": 1789388939737,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e18",
+  "at": 1789388939739
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-4-1789388931021",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e13",
+   "verdict": "undetermined",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-8-1789388889151-4 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-3-1789388931022",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "sessionRevision": 1,
+      "capturedAt": 1789388931022,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+      "byteLength": 33,
+      "mtimeMs": 1789388931022
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-4-1789388931021:2",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "observationId": "obs-fs-session-8-1789388889151-4",
+      "sessionRevision": 2,
+      "capturedAt": 1789388939749,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-8-1789388889151-4 at world revision 2, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-8-1789388889151-4",
+   "diagnosis": {
+    "class": "InsufficientEvidence",
+    "receiptId": "receipt-4-1789388931021",
+    "actionId": "T7-two-files-e2-a-T7-two-files-e2-e13",
+    "cause": "the state examined does not cover content, so the effect is neither confirmed nor refuted",
+    "evidence": [
+     {
+      "id": "ev-3-1789388931022",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-8-1789388889151",
+       "sessionRevision": 1,
+       "capturedAt": 1789388931022,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/index.ts is 33 bytes with digest sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+      "data": {
+       "path": "src/index.ts",
+       "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+       "byteLength": 33,
+       "mtimeMs": 1789388931022
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-4-1789388931021:2",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-8-1789388889151",
+       "observationId": "obs-fs-session-8-1789388889151-4",
+       "sessionRevision": 2,
+       "capturedAt": 1789388939749,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-8-1789388889151-4 at world revision 2, taken to verify fs.write",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the question is answerable; nothing has answered it yet",
+      "expectedSuccess": 0.75,
+      "parameters": {
+       "wantPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "a capability that observes this state directly would settle it",
+      "expectedSuccess": 0.25,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "InsufficientEvidence",
+     "disposition": "retry_after_observe",
+     "code": "verification.insufficient-evidence",
+     "format": "not enough evidence to decide whether {operation} took effect",
+     "variables": {
+      "operation": "fs.write",
+      "capabilityId": "fs.write"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789388939749
+  },
+  "id": "T7-two-files-e2-e19",
+  "at": 1789388939749
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-4-1789388931021:2",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-4",
+    "sessionRevision": 2,
+    "capturedAt": 1789388939749,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-8-1789388889151-4 at world revision 2, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e20",
+  "at": 1789388939752
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e13",
+   "description": "Create src/index.ts so that it re-exports greet from ./greet.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-3-1789388931022",
+    "ev:receipt-4-1789388931021:2"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/index.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e21",
+  "at": 1789388939756
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 10,
+   "enteredAt": 1789388939762
+  },
+  "id": "T7-two-files-e2-e22",
+  "at": 1789388939762
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "InsufficientEvidence",
+   "receiptId": "receipt-4-1789388931021",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e13",
+   "cause": "the state examined does not cover content, so the effect is neither confirmed nor refuted",
+   "evidence": [
+    {
+     "id": "ev-3-1789388931022",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "sessionRevision": 1,
+      "capturedAt": 1789388931022,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+      "byteLength": 33,
+      "mtimeMs": 1789388931022
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-4-1789388931021:2",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-8-1789388889151",
+      "observationId": "obs-fs-session-8-1789388889151-4",
+      "sessionRevision": 2,
+      "capturedAt": 1789388939749,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-8-1789388889151-4 at world revision 2, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the question is answerable; nothing has answered it yet",
+     "expectedSuccess": 0.75,
+     "parameters": {
+      "wantPaths": [
+       "content"
+      ]
+     }
+    },
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "a capability that observes this state directly would settle it",
+     "expectedSuccess": 0.25,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "InsufficientEvidence",
+    "disposition": "retry_after_observe",
+    "code": "verification.insufficient-evidence",
+    "format": "not enough evidence to decide whether {operation} took effect",
+    "variables": {
+     "operation": "fs.write",
+     "capabilityId": "fs.write"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "T7-two-files-e2-e23",
+  "at": 1789388939766
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the question is answerable; nothing has answered it yet",
+  "id": "T7-two-files-e2-e24",
+  "at": 1789388939770
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e25",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Read the current contents of src/index.ts so the re-export of greet from ./greet can be checked against its actual text",
+   "expected": {
+    "description": "src/index.ts exists, and its content re-exports greet from ./greet. The 33-byte size already matches the text that was written, but the content has not been read, so c2 could not be checked. This read supplies it.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s*\\{\\s*greet\\s*\\}\\s*from\\s*[\"']\\./greet[\"']"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789388954450
+  },
+  "id": "T7-two-files-e2-e26",
+  "at": 1789388954450
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-8-1789388889151-5",
+   "sessionId": "fs-session-8-1789388889151",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789388954458,
+   "worldRevision": 2,
+   "observationRevision": 5,
+   "semanticState": "file src/index.ts, 33 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/index.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-hrTT27/ws/src/index.ts",
+    "byteLength": 33,
+    "mtimeMs": 1789388931022,
+    "digest": "sha256:7158ac314915c4b5750b0f887bef223ec8fd1e7de02137bfe64386718f55758b",
+    "binary": false,
+    "inline": true,
+    "content": "export { greet } from \"./greet\";\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export { greet } from \"./greet\";\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-5",
+    "sessionRevision": 2,
+    "capturedAt": 1789388954458,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e27",
+  "at": 1789388954459
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-8-1789388889151-5:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-8-1789388889151",
+    "observationId": "obs-fs-session-8-1789388889151-5",
+    "sessionRevision": 2,
+    "capturedAt": 1789388954463,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-8-1789388889151-5 at world revision 2, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e28",
+  "at": 1789388954463
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789388906643",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789388889151",
+        "sessionRevision": 0,
+        "capturedAt": 1789388906643,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+       "data": {
+        "path": "src/greet.ts",
+        "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+        "byteLength": 76,
+        "mtimeMs": 1789388906643
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789388906642:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789388889151",
+        "observationId": "obs-fs-session-8-1789388889151-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789388915455,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-8-1789388889151-2 at world revision 1, taken to verify fs.write",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-8-1789388889151-5:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-8-1789388889151",
+        "observationId": "obs-fs-session-8-1789388889151-5",
+        "sessionRevision": 2,
+        "capturedAt": 1789388954463,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-8-1789388889151-5 at world revision 2, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789388954467
+  },
+  "id": "T7-two-files-e2-e29",
+  "at": 1789388954467
+ }
+]

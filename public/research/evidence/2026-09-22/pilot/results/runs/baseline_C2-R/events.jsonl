@@ -1,0 +1,8 @@
+{"adapter": "langgraph", "logical_run_id": "bl:C2-R", "phase": 1, "process_id": 33235, "ts": 1790083920.438893, "type": "phase.start"}
+{"logical_run_id": "bl:C2-R", "ordinal_global": 1, "process_id": 33235, "response_id": "A", "ts": 1790083920.446368, "type": "model.call"}
+{"budget_remaining_runtime_view": 2, "effect_id": "bl:C2-R:e1", "logical_run_id": "bl:C2-R", "process_id": 33235, "proposal_id": "A", "ts": 1790083920.44811, "type": "effect.committed"}
+{"logical_run_id": "bl:C2-R", "ordinal_global": 2, "process_id": 33235, "response_id": "B", "ts": 1790083920.449242, "type": "model.call"}
+{"budget_remaining_runtime_view": 1, "effect_id": "bl:C2-R:e2", "logical_run_id": "bl:C2-R", "process_id": 33235, "proposal_id": "B", "ts": 1790083920.450433, "type": "effect.committed"}
+{"logical_run_id": "bl:C2-R", "process_id": 33235, "ts": 1790083920.451013, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33235, "ts": 1790083920.4515, "type": "faultpoint.skipped"}
+{"logical_run_id": "bl:C2-R", "phase": 1, "process_id": 33235, "ts": 1790083920.4516962, "type": "phase.end"}

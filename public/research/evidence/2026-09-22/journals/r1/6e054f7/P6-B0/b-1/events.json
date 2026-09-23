@@ -1,0 +1,1276 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-b-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "b-e2-e1",
+  "at": 1789459809537
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789459809541
+  },
+  "id": "b-e2-e2",
+  "at": 1789459809541
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "b-e2-e3",
+   "goalId": "r1-T8-approved-rewrite-b-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so its existing settings are known before rewriting it",
+   "expected": {
+    "description": "config.json exists and its current JSON content is returned, showing its top-level keys and current debug value, so a rewrite can keep every other setting.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789459818546
+  },
+  "id": "b-e2-e4",
+  "at": 1789459818546
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789459809532-1",
+   "sessionId": "fs-session-5-1789459809532",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789459818563,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-b-81bvWM/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789459809462,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789459809532",
+    "observationId": "obs-fs-session-5-1789459809532-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789459818563,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "b-e2-e5",
+  "at": 1789459818564
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-5-1789459809532-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789459809532",
+    "observationId": "obs-fs-session-5-1789459809532-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789459818567,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-5-1789459809532-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "b-e2-e6",
+  "at": 1789459818567
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789459818571
+  },
+  "id": "b-e2-e7",
+  "at": 1789459818571
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "b-e2-e8",
+   "goalId": "r1-T8-approved-rewrite-b-g",
+   "desiredEffect": "Rewrite config.json with its top-level keys in alphabetical order and debug set to false, keeping every other setting unchanged.",
+   "expected": {
+    "description": "config.json holds the same settings as before (features, name, owner, port unchanged). Only debug changes, from true to false. The top-level keys appear in the order debug, features, name, owner, port.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789459830741
+  },
+  "id": "b-e2-e9",
+  "at": 1789459830742
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789459809532-2",
+   "sessionId": "fs-session-5-1789459809532",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789459837283,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-b-81bvWM/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789459809462,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789459809532",
+    "observationId": "obs-fs-session-5-1789459809532-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789459837283,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "b-e2-e10",
+  "at": 1789459837284
+ },
+ {
+  "type": "authority.escalated",
+  "report": {
+   "intentId": "b-e2-e8",
+   "decision": "escalate",
+   "effect": {
+    "capabilityId": "fs.write",
+    "effectClass": "reversible-write",
+    "environmentKind": "filesystem",
+    "semanticEffect": "filesystem-mutation",
+    "resources": [
+     "config.json in the workspace root",
+     "config.json"
+    ],
+    "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 8080\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+    "resourceBindings": [
+     {
+      "resource": "config.json",
+      "identity": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+      "fromObservation": "obs-fs-session-5-1789459809532-2"
+     }
+    ]
+   },
+   "rulings": [
+    {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    }
+   ],
+   "decidedBy": {
+    "source": "envelope-default",
+    "ruleId": "envelope:the mission author:otherwise",
+    "verdict": "approve",
+    "on": [],
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+   },
+   "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+  },
+  "id": "b-e2-e11",
+  "at": 1789459837295
+ },
+ {
+  "type": "goal.suspended",
+  "stop": "asked-user",
+  "question": {
+   "kind": "authority",
+   "id": "q:auth:[\"fs.write\",[\"config.json\",\"config.json in the workspace root\"],\"[\\\"fs.write\\\",{\\\"content\\\":\\\"{\\\\n  \\\\\\\"debug\\\\\\\": false,\\\\n  \\\\\\\"features\\\\\\\": [\\\\\\\"search\\\\\\\", \\\\\\\"export\\\\\\\"],\\\\n  \\\\\\\"name\\\\\\\": \\\\\\\"demo-service\\\\\\\",\\\\n  \\\\\\\"owner\\\\\\\": \\\\\\\"platform-team\\\\\\\",\\\\n  \\\\\\\"port\\\\\\\": 8080\\\\n}\\\\n\\\",\\\"overwrite\\\":true,\\\"path\\\":\\\"config.json\\\"}]\"]",
+   "askedAt": 1789459837299,
+   "report": {
+    "intentId": "b-e2-e8",
+    "decision": "escalate",
+    "effect": {
+     "capabilityId": "fs.write",
+     "effectClass": "reversible-write",
+     "environmentKind": "filesystem",
+     "semanticEffect": "filesystem-mutation",
+     "resources": [
+      "config.json in the workspace root",
+      "config.json"
+     ],
+     "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 8080\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+     "resourceBindings": [
+      {
+       "resource": "config.json",
+       "identity": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+       "fromObservation": "obs-fs-session-5-1789459809532-2"
+      }
+     ]
+    },
+    "rulings": [
+     {
+      "source": "envelope-default",
+      "ruleId": "envelope:the mission author:otherwise",
+      "verdict": "approve",
+      "on": [],
+      "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+     }
+    ],
+    "decidedBy": {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    },
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+   }
+  },
+  "reason": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]",
+  "id": "b-e2-e12",
+  "at": 1789459837299
+ },
+ {
+  "type": "harness.answered",
+  "__answered": true
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-b-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "b-e7-e2",
+  "at": 1789459837382
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 8,
+   "enteredAt": 1789459837386
+  },
+  "id": "b-e7-e3",
+  "at": 1789459837386
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "b-e7-e4",
+   "goalId": "r1-T8-approved-rewrite-b-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so its existing settings are known before rewriting it",
+   "expected": {
+    "description": "config.json exists and its content is returned. The content should be a JSON object, so the rewrite can keep every existing setting, set debug to false and sort the top-level keys.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^\\s*\\{"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789459846608
+  },
+  "id": "b-e7-e5",
+  "at": 1789459846608
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789459837373-1",
+   "sessionId": "fs-session-6-1789459837373",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789459846621,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-b-81bvWM/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789459809462,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789459837373",
+    "observationId": "obs-fs-session-6-1789459837373-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789459846621,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "b-e7-e6",
+  "at": 1789459846621
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-6-1789459837373-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789459837373",
+    "observationId": "obs-fs-session-6-1789459837373-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789459846626,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-6-1789459837373-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "b-e7-e7",
+  "at": 1789459846626
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 10,
+   "enteredAt": 1789459846631
+  },
+  "id": "b-e7-e8",
+  "at": 1789459846631
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "b-e7-e9",
+   "goalId": "r1-T8-approved-rewrite-b-g",
+   "desiredEffect": "Rewrite config.json with its top-level keys in alphabetical order and debug set to false, keeping every other setting unchanged.",
+   "expected": {
+    "description": "config.json now lists the keys in the order debug, features, name, owner, port. debug is false. name, port, features and owner keep their original values.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\":\\s*false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^\\{\\s*\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"[\\s\\S]*\\}\\s*$"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789459857170
+  },
+  "id": "b-e7-e10",
+  "at": 1789459857170
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "b-e7-a-b-e7-e9",
+   "intentId": "b-e7-e9",
+   "sessionId": "fs-session-6-1789459837373",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true
+   },
+   "expected": {
+    "description": "config.json now lists the keys in the order debug, features, name, owner, port. debug is false. name, port, features and owner keep their original values.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\":\\s*false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^\\{\\s*\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"[\\s\\S]*\\}\\s*$"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-6-1789459837373-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "authorisedBy": "q:auth:[\"fs.write\",[\"config.json\",\"config.json in the workspace root\"],\"[\\\"fs.write\\\",{\\\"content\\\":\\\"{\\\\n  \\\\\\\"debug\\\\\\\": false,\\\\n  \\\\\\\"features\\\\\\\": [\\\\\\\"search\\\\\\\", \\\\\\\"export\\\\\\\"],\\\\n  \\\\\\\"name\\\\\\\": \\\\\\\"demo-service\\\\\\\",\\\\n  \\\\\\\"owner\\\\\\\": \\\\\\\"platform-team\\\\\\\",\\\\n  \\\\\\\"port\\\\\\\": 8080\\\\n}\\\\n\\\",\\\"overwrite\\\":true,\\\"path\\\":\\\"config.json\\\"}]\"]",
+  "id": "b-e7-e11",
+  "at": 1789459857186
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-1-1789459857185",
+   "actionId": "b-e7-a-b-e7-e9",
+   "sessionId": "fs-session-6-1789459837373",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "refused",
+   "cancelled": false,
+   "failure": {
+    "class": "StaleObservation",
+    "disposition": "retry_after_observe",
+    "code": "fs.write.stale-basis",
+    "format": "{path} changed since observation {observationId}; a whole-file write would destroy content that was never read",
+    "variables": {
+     "path": "config.json",
+     "observationId": "obs-fs-session-6-1789459837373-1",
+     "basisWorldRevision": 0,
+     "sessionWorldRevision": 0,
+     "lastWrittenAtRevision": null,
+     "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+    },
+    "artifacts": [],
+    "evidence": []
+   },
+   "artifacts": [],
+   "evidence": [],
+   "worldRevisionAfter": 0,
+   "startedAt": 1789459857185,
+   "completedAt": 1789459857186
+  },
+  "id": "b-e7-e12",
+  "at": 1789459857193
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:b-e7-e9",
+   "description": "Rewrite config.json with its top-level keys in alphabetical order and debug set to false, keeping every other setting unchanged.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": []
+  },
+  "id": "b-e7-e13",
+  "at": 1789459857197
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789459837373-2",
+   "sessionId": "fs-session-6-1789459837373",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789459864232,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-b-81bvWM/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789459846627,
+    "digest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789459837373",
+    "observationId": "obs-fs-session-6-1789459837373-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789459864232,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "b-e7-e14",
+  "at": 1789459864233
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-1-1789459857185",
+   "actionId": "b-e7-a-b-e7-e9",
+   "verdict": "failed",
+   "assertions": [
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "matches",
+     "expected": "\"debug\":\\s*false",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"name\": \"demo-service\"",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"port\": 8080",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"features\": [\"search\", \"export\"]",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"owner\": \"platform-team\"",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "matches",
+     "expected": "^\\{\\s*\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"[\\s\\S]*\\}\\s*$",
+     "actual": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev:receipt-1-1789459857185:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-6-1789459837373",
+      "observationId": "obs-fs-session-6-1789459837373-2",
+      "sessionRevision": 0,
+      "capturedAt": 1789459864242,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-6-1789459837373-2 at world revision 0, taken to verify fs.write",
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-1-1789459857185:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-6-1789459837373",
+      "capturedAt": 1789459864242,
+      "source": "refusal:fs.write"
+     },
+     "summary": "the provider refused fs.write",
+     "data": {
+      "path": "config.json",
+      "observationId": "obs-fs-session-6-1789459837373-1",
+      "basisWorldRevision": 0,
+      "sessionWorldRevision": 0,
+      "lastWrittenAtRevision": null,
+      "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-6-1789459837373-2",
+   "diagnosis": {
+    "class": "StaleObservation",
+    "receiptId": "receipt-1-1789459857185",
+    "actionId": "b-e7-a-b-e7-e9",
+    "cause": "the action was compiled against an earlier observation, which no longer describes the environment",
+    "evidence": [
+     {
+      "id": "ev:receipt-1-1789459857185:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-6-1789459837373",
+       "observationId": "obs-fs-session-6-1789459837373-2",
+       "sessionRevision": 0,
+       "capturedAt": 1789459864242,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-6-1789459837373-2 at world revision 0, taken to verify fs.write",
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-1-1789459857185:2",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-6-1789459837373",
+       "capturedAt": 1789459864242,
+       "source": "refusal:fs.write"
+      },
+      "summary": "the provider refused fs.write",
+      "data": {
+       "path": "config.json",
+       "observationId": "obs-fs-session-6-1789459837373-1",
+       "basisWorldRevision": 0,
+       "sessionWorldRevision": 0,
+       "lastWrittenAtRevision": null,
+       "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "action-basis:b-e7-a-b-e7-e9"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the compiled action rests on a world that has moved; look again first",
+      "expectedSuccess": 0.8,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "retrying identically repeats the same stale grounding",
+      "expectedSuccess": 0.1,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.85,
+    "detail": {
+     "class": "StaleObservation",
+     "disposition": "retry_after_observe",
+     "code": "fs.write.stale-basis",
+     "format": "{path} changed since observation {observationId}; a whole-file write would destroy content that was never read",
+     "variables": {
+      "path": "config.json",
+      "observationId": "obs-fs-session-6-1789459837373-1",
+      "basisWorldRevision": 0,
+      "sessionWorldRevision": 0,
+      "lastWrittenAtRevision": null,
+      "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789459864243
+  },
+  "id": "b-e7-e15",
+  "at": 1789459864243
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-1-1789459857185:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789459837373",
+    "observationId": "obs-fs-session-6-1789459837373-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789459864242,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-6-1789459837373-2 at world revision 0, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "b-e7-e16",
+  "at": 1789459864248
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:b-e7-e9",
+   "description": "Rewrite config.json with its top-level keys in alphabetical order and debug set to false, keeping every other setting unchanged.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev:receipt-1-1789459857185:1",
+    "ev:receipt-1-1789459857185:2"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config.json"
+   ]
+  },
+  "id": "b-e7-e17",
+  "at": 1789459864253
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "StaleObservation",
+   "receiptId": "receipt-1-1789459857185",
+   "actionId": "b-e7-a-b-e7-e9",
+   "cause": "the action was compiled against an earlier observation, which no longer describes the environment",
+   "evidence": [
+    {
+     "id": "ev:receipt-1-1789459857185:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-6-1789459837373",
+      "observationId": "obs-fs-session-6-1789459837373-2",
+      "sessionRevision": 0,
+      "capturedAt": 1789459864242,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-6-1789459837373-2 at world revision 0, taken to verify fs.write",
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-1-1789459857185:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-6-1789459837373",
+      "capturedAt": 1789459864242,
+      "source": "refusal:fs.write"
+     },
+     "summary": "the provider refused fs.write",
+     "data": {
+      "path": "config.json",
+      "observationId": "obs-fs-session-6-1789459837373-1",
+      "basisWorldRevision": 0,
+      "sessionWorldRevision": 0,
+      "lastWrittenAtRevision": null,
+      "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+     },
+     "artifacts": []
+    }
+   ],
+   "invalidates": [
+    "action-basis:b-e7-a-b-e7-e9"
+   ],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the compiled action rests on a world that has moved; look again first",
+     "expectedSuccess": 0.8,
+     "parameters": {}
+    },
+    {
+     "action": "RETRY",
+     "rationale": "retrying identically repeats the same stale grounding",
+     "expectedSuccess": 0.1,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.85,
+   "detail": {
+    "class": "StaleObservation",
+    "disposition": "retry_after_observe",
+    "code": "fs.write.stale-basis",
+    "format": "{path} changed since observation {observationId}; a whole-file write would destroy content that was never read",
+    "variables": {
+     "path": "config.json",
+     "observationId": "obs-fs-session-6-1789459837373-1",
+     "basisWorldRevision": 0,
+     "sessionWorldRevision": 0,
+     "lastWrittenAtRevision": null,
+     "currentDigest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "b-e7-e18",
+  "at": 1789459864257
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the compiled action rests on a world that has moved; look again first",
+  "id": "b-e7-e19",
+  "at": 1789459864261
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "b-e7-e20",
+   "goalId": "r1-T8-approved-rewrite-b-g",
+   "desiredEffect": "Replace config.json with its current settings, with top-level keys in alphabetical order and debug false. This uses the latest read, where port is 9090, not the stale 8080 from the refused attempt.",
+   "expected": {
+    "description": "config.json holds the same settings as the latest observation: name demo-service, port 9090, features [search, export] and owner platform-team. Its keys are ordered debug, features, name, owner, port, and debug is false.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "equals",
+      "value": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 9090\n}\n"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 9090"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 9090\n}\n",
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789459879602
+  },
+  "id": "b-e7-e21",
+  "at": 1789459879602
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789459837373-3",
+   "sessionId": "fs-session-6-1789459837373",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789459886715,
+   "worldRevision": 0,
+   "observationRevision": 3,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-b-81bvWM/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789459846627,
+    "digest": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 9090,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789459837373",
+    "observationId": "obs-fs-session-6-1789459837373-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789459886715,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "b-e7-e22",
+  "at": 1789459886716
+ },
+ {
+  "type": "authority.escalated",
+  "report": {
+   "intentId": "b-e7-e20",
+   "decision": "escalate",
+   "effect": {
+    "capabilityId": "fs.write",
+    "effectClass": "reversible-write",
+    "environmentKind": "filesystem",
+    "semanticEffect": "filesystem-mutation",
+    "resources": [
+     "config.json in the workspace root",
+     "config.json"
+    ],
+    "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 9090\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+    "resourceBindings": [
+     {
+      "resource": "config.json",
+      "identity": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f",
+      "fromObservation": "obs-fs-session-6-1789459837373-3"
+     }
+    ]
+   },
+   "rulings": [
+    {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    }
+   ],
+   "decidedBy": {
+    "source": "envelope-default",
+    "ruleId": "envelope:the mission author:otherwise",
+    "verdict": "approve",
+    "on": [],
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+   },
+   "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+  },
+  "id": "b-e7-e23",
+  "at": 1789459886724
+ },
+ {
+  "type": "goal.suspended",
+  "stop": "asked-user",
+  "question": {
+   "kind": "authority",
+   "id": "q:auth:[\"fs.write\",[\"config.json\",\"config.json in the workspace root\"],\"[\\\"fs.write\\\",{\\\"content\\\":\\\"{\\\\n  \\\\\\\"debug\\\\\\\": false,\\\\n  \\\\\\\"features\\\\\\\": [\\\\\\\"search\\\\\\\", \\\\\\\"export\\\\\\\"],\\\\n  \\\\\\\"name\\\\\\\": \\\\\\\"demo-service\\\\\\\",\\\\n  \\\\\\\"owner\\\\\\\": \\\\\\\"platform-team\\\\\\\",\\\\n  \\\\\\\"port\\\\\\\": 9090\\\\n}\\\\n\\\",\\\"overwrite\\\":true,\\\"path\\\":\\\"config.json\\\"}]\"]",
+   "askedAt": 1789459886730,
+   "report": {
+    "intentId": "b-e7-e20",
+    "decision": "escalate",
+    "effect": {
+     "capabilityId": "fs.write",
+     "effectClass": "reversible-write",
+     "environmentKind": "filesystem",
+     "semanticEffect": "filesystem-mutation",
+     "resources": [
+      "config.json in the workspace root",
+      "config.json"
+     ],
+     "occurrence": "[\"fs.write\",{\"content\":\"{\\n  \\\"debug\\\": false,\\n  \\\"features\\\": [\\\"search\\\", \\\"export\\\"],\\n  \\\"name\\\": \\\"demo-service\\\",\\n  \\\"owner\\\": \\\"platform-team\\\",\\n  \\\"port\\\": 9090\\n}\\n\",\"overwrite\":true,\"path\":\"config.json\"}]",
+     "resourceBindings": [
+      {
+       "resource": "config.json",
+       "identity": "sha256:bcf56be09054748605dcb44a2be5e3499e8b056d657c53a15aca2e290aafa44f",
+       "fromObservation": "obs-fs-session-6-1789459837373-3"
+      }
+     ]
+    },
+    "rulings": [
+     {
+      "source": "envelope-default",
+      "ruleId": "envelope:the mission author:otherwise",
+      "verdict": "approve",
+      "on": [],
+      "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+     }
+    ],
+    "decidedBy": {
+     "source": "envelope-default",
+     "ruleId": "envelope:the mission author:otherwise",
+     "verdict": "approve",
+     "on": [],
+     "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\""
+    },
+    "because": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]"
+   },
+   "routing": {
+    "runnerUp": "repo.stage",
+    "margin": 0.012755102040816327,
+    "decidedByHarm": false
+   }
+  },
+  "reason": "no grant in \"the mission author\"'s envelope covers this effect, and its default is \"approve\" [envelope:the mission author:otherwise]",
+  "id": "b-e7-e24",
+  "at": 1789459886730
+ }
+]

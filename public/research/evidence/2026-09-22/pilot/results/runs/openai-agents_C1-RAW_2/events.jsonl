@@ -1,0 +1,8 @@
+{"adapter": "openai-agents", "logical_run_id": "openai-agents:C1-RAW:2", "phase": 1, "process_id": 68418, "ts": 1790085896.324854, "type": "phase.start"}
+{"call_id": "call-A", "logical_run_id": "openai-agents:C1-RAW:2", "pending_interruptions": 1, "process_id": 68418, "proposal_id": "A", "ts": 1790085896.330234, "type": "proposal.presented"}
+{"logical_run_id": "openai-agents:C1-RAW:2", "process_id": 68418, "ts": 1790085896.330476, "type": "wait.entered"}
+{"by": "harness-third-party", "logical_run_id": "openai-agents:C1-RAW:2", "process_id": 68418, "resource": "target", "to_protected": true, "to_version": 2, "ts": 1790085896.331278, "type": "foreign.mutation"}
+{"for_call_id": "call-A", "granted_by": "harness-operator", "logical_run_id": "openai-agents:C1-RAW:2", "process_id": 68418, "ts": 1790085896.331957, "type": "approval.granted"}
+{"effect_id": "openai-agents:C1-RAW:2:e1", "logical_run_id": "openai-agents:C1-RAW:2", "process_id": 68418, "proposal_id": "call-A", "ts": 1790085896.335712, "type": "effect.committed"}
+{"logical_run_id": "openai-agents:C1-RAW:2", "process_id": 68418, "ts": 1790085896.337447, "type": "run.finished"}
+{"logical_run_id": "openai-agents:C1-RAW:2", "phase": 1, "process_id": 68418, "ts": 1790085896.3377018, "type": "phase.end"}

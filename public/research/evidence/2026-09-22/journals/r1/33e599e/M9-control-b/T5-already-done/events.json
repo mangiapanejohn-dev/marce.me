@@ -1,0 +1,229 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T5-already-done-g",
+   "objective": "Make sure notes.txt in the workspace root contains the line: hello from the mission",
+   "originalRequest": "Make sure notes.txt in the workspace root contains the line: hello from the mission",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "notes.txt contains the line \"hello from the mission\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T5-already-done-e2-e1",
+  "at": 1789735418935
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789735418939
+  },
+  "id": "T5-already-done-e2-e2",
+  "at": 1789735418939
+ },
+ {
+  "id": "T5-already-done-e2-m1",
+  "at": 1789735418942,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T5-already-done-e2-m2",
+  "at": 1789735437177,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T5-already-done-e2-e3",
+   "goalId": "r1-T5-already-done-g",
+   "desiredEffect": "Read the current contents of notes.txt in the workspace root so I can tell whether the required line is already present before changing anything.",
+   "expected": {
+    "description": "The observation reports on notes.txt at the workspace root, either returning its text content or reporting that the path does not exist. Either outcome is informative: it tells me whether the line 'hello from the mission' is already there or whether the file must be created or appended to.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "notes.txt"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "notes.txt at the workspace root",
+   "parameters": {
+    "path": "notes.txt",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735437182
+  },
+  "id": "T5-already-done-e2-e4",
+  "at": 1789735437182
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-6-1789735418930-1",
+   "sessionId": "fs-session-6-1789735418930",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735437188,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file notes.txt, 23 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "notes.txt",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T5-already-done-Nt5nKj/ws/notes.txt",
+    "byteLength": 23,
+    "mtimeMs": 1789735418873,
+    "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+    "binary": false,
+    "inline": true,
+    "content": "hello from the mission\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "hello from the mission\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789735418930",
+    "observationId": "obs-fs-session-6-1789735418930-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789735437188,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T5-already-done-e2-e5",
+  "at": 1789735437190
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-6-1789735418930-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-6-1789735418930",
+    "observationId": "obs-fs-session-6-1789735418930-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789735437194,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-6-1789735418930-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T5-already-done-e2-e6",
+  "at": 1789735437194
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789735437198
+  },
+  "id": "T5-already-done-e2-e7",
+  "at": 1789735437198
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-6-1789735418930-1:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-6-1789735418930",
+        "observationId": "obs-fs-session-6-1789735418930-1",
+        "sessionRevision": 0,
+        "capturedAt": 1789735437194,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-6-1789735418930-1 at world revision 0, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789735437203
+  },
+  "id": "T5-already-done-e2-e8",
+  "at": 1789735437203
+ }
+]

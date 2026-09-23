@@ -1,0 +1,9 @@
+wording,arm,established,cannot_tell,not_established,same_as_state_baseline
+W0_len_control,S,10,11,0,21
+W0_len_control,F,10,11,0,21
+W1_orig,S,10,10,1,20
+W1_orig,F,0,3,18,3
+W2_made_it_so,S,10,11,0,21
+W2_made_it_so,F,0,0,21,0
+W3_session,S,10,9,2,19
+W3_session,F,0,3,18,3

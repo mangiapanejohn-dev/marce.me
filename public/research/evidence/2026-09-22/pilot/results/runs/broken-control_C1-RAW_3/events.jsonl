@@ -1,0 +1,10 @@
+{"adapter": "broken-control", "logical_run_id": "broken-control:C1-RAW:3", "phase": 1, "process_id": 68366, "ts": 1790085883.949827, "type": "phase.start"}
+{"logical_run_id": "broken-control:C1-RAW:3", "ordinal_global": 1, "process_id": 68366, "response_id": "A", "ts": 1790085883.951736, "type": "model.call"}
+{"call_id": "call-A", "logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "proposal_id": "A", "ts": 1790085883.951951, "type": "proposal.presented"}
+{"after_mutation": false, "decision": "allow", "logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "protected": false, "ts": 1790085883.952148, "type": "validation.invoked", "world_version": 1}
+{"logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "ts": 1790085883.952343, "type": "wait.entered"}
+{"by": "harness-third-party", "logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "resource": "target", "to_protected": true, "to_version": 2, "ts": 1790085883.953205, "type": "foreign.mutation"}
+{"for_call_id": "call-A", "granted_by": "harness-operator", "logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "ts": 1790085883.953404, "type": "approval.granted"}
+{"effect_id": "broken-control:C1-RAW:3:e1", "logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "proposal_id": "call-A", "ts": 1790085883.955229, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C1-RAW:3", "process_id": 68366, "ts": 1790085883.955424, "type": "run.finished"}
+{"logical_run_id": "broken-control:C1-RAW:3", "phase": 1, "process_id": 68366, "ts": 1790085883.9555972, "type": "phase.end"}

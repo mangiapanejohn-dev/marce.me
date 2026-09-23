@@ -1,0 +1,687 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T3-fix-typo-g",
+   "objective": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "originalRequest": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T3-fix-typo-e2-e1",
+  "at": 1789809891583
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789809891587
+  },
+  "id": "T3-fix-typo-e2-e2",
+  "at": 1789809891587
+ },
+ {
+  "id": "T3-fix-typo-e2-m1",
+  "at": 1789809891590,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T3-fix-typo-e2-m2",
+  "at": 1789809899580,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e2-e3",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Read docs/guide.md so I can see every occurrence of the misspelling \"recieve\" and its exact surrounding text before editing.",
+   "expected": {
+    "description": "The file docs/guide.md is read and its full text content is returned, showing where \"recieve\" appears.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809899586
+  },
+  "id": "T3-fix-typo-e2-e4",
+  "at": 1789809899586
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-11-1789809891577-1",
+   "sessionId": "fs-session-11-1789809891577",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809899592,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file docs/guide.md, 341 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T3-fix-typo-pjywzg/ws/docs/guide.md",
+    "byteLength": 341,
+    "mtimeMs": 1789809891509,
+    "digest": "sha256:f0bed43bdef1a330449aa8a3c3bc863beb5a5901bbe628b25dd0669d043a3880",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789809891577",
+    "observationId": "obs-fs-session-11-1789809891577-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789809899592,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T3-fix-typo-e2-e5",
+  "at": 1789809899593
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-11-1789809891577-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789809891577",
+    "observationId": "obs-fs-session-11-1789809891577-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789809899596,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-11-1789809891577-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T3-fix-typo-e2-e6",
+  "at": 1789809899596
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789809899599
+  },
+  "id": "T3-fix-typo-e2-e7",
+  "at": 1789809899599
+ },
+ {
+  "id": "T3-fix-typo-e2-m3",
+  "at": 1789809899602,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T3-fix-typo-e2-m4",
+  "at": 1789809909857,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e2-e8",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Replace every misspelled \"recieve\" in docs/guide.md with \"receive\", leaving the rest of the file untouched.",
+   "expected": {
+    "description": "docs/guide.md contains three corrected spellings of \"receive\" and no remaining instance of \"recieve\"; all other text is unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "configure the endpoint you want to receive events from."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "If you do not receive an event within the timeout, the broker retries twice."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Events are delivered at least once; handlers must be idempotent."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "recieve",
+      "replace": "receive",
+      "expectedOccurrences": 3
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809909861
+  },
+  "id": "T3-fix-typo-e2-e9",
+  "at": 1789809909861
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T3-fix-typo-e2-a-T3-fix-typo-e2-e8",
+   "intentId": "T3-fix-typo-e2-e8",
+   "sessionId": "fs-session-11-1789809891577",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "recieve",
+      "replace": "receive",
+      "expectedOccurrences": 3
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "docs/guide.md contains three corrected spellings of \"receive\" and no remaining instance of \"recieve\"; all other text is unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "configure the endpoint you want to receive events from."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "If you do not receive an event within the timeout, the broker retries twice."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Events are delivered at least once; handlers must be idempotent."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-11-1789809891577-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T3-fix-typo-e2-e10",
+  "at": 1789809909868
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789809909866",
+   "actionId": "T3-fix-typo-e2-a-T3-fix-typo-e2-e8",
+   "sessionId": "fs-session-11-1789809891577",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "docs/guide.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T3-fix-typo-pjywzg/ws/docs/guide.md",
+     "byteLength": 341,
+     "mtimeMs": 1789809909868,
+     "digest": "sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:f0bed43bdef1a330449aa8a3c3bc863beb5a5901bbe628b25dd0669d043a3880",
+     "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789809909868",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789809891577",
+      "sessionRevision": 0,
+      "capturedAt": 1789809909868,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "docs/guide.md is 341 bytes with digest sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+     "data": {
+      "path": "docs/guide.md",
+      "digest": "sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+      "byteLength": 341,
+      "mtimeMs": 1789809909868
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789809909866,
+   "completedAt": 1789809909868
+  },
+  "id": "T3-fix-typo-e2-e11",
+  "at": 1789809909873
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T3-fix-typo-e2-e8",
+   "description": "Replace every misspelled \"recieve\" in docs/guide.md with \"receive\", leaving the rest of the file untouched.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "docs/guide.md"
+   ]
+  },
+  "id": "T3-fix-typo-e2-e12",
+  "at": 1789809909878
+ },
+ {
+  "id": "T3-fix-typo-e2-m5",
+  "at": 1789809909883,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T3-fix-typo-e2-m6",
+  "at": 1789809920332,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-11-1789809891577-2",
+   "sessionId": "fs-session-11-1789809891577",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809920339,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file docs/guide.md, 341 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T3-fix-typo-pjywzg/ws/docs/guide.md",
+    "byteLength": 341,
+    "mtimeMs": 1789809909868,
+    "digest": "sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789809891577",
+    "observationId": "obs-fs-session-11-1789809891577-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789809920339,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T3-fix-typo-e2-e13",
+  "at": 1789809920340
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789809909866",
+   "actionId": "T3-fix-typo-e2-a-T3-fix-typo-e2-e8",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "configure the endpoint you want to receive events from.",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "Each subscriber will receive a copy of every event published to its topic.",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "If you do not receive an event within the timeout, the broker retries twice.",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "Events are delivered at least once; handlers must be idempotent.",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "changed",
+     "expected": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not receive an event within the timeout, the broker retries twice.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789809909868",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789809891577",
+      "sessionRevision": 0,
+      "capturedAt": 1789809909868,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "docs/guide.md is 341 bytes with digest sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+     "data": {
+      "path": "docs/guide.md",
+      "digest": "sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+      "byteLength": 341,
+      "mtimeMs": 1789809909868
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789809909866:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789809891577",
+      "observationId": "obs-fs-session-11-1789809891577-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789809920343,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-11-1789809891577-2 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-11-1789809891577-2",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-2-1789809909866",
+    "actionId": "T3-fix-typo-e2-a-T3-fix-typo-e2-e8",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-1-1789809909868",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-11-1789809891577",
+       "sessionRevision": 0,
+       "capturedAt": 1789809909868,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "docs/guide.md is 341 bytes with digest sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+      "data": {
+       "path": "docs/guide.md",
+       "digest": "sha256:6b9ec0d8120cc613464c04cea2fcf6b75cbcba66183c40a2d0cee9de6d12dd5a",
+       "byteLength": 341,
+       "mtimeMs": 1789809909868
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-2-1789809909866:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-11-1789809891577",
+       "observationId": "obs-fs-session-11-1789809891577-2",
+       "sessionRevision": 1,
+       "capturedAt": 1789809920343,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-11-1789809891577-2 at world revision 1, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789809920344
+  },
+  "id": "T3-fix-typo-e2-e14",
+  "at": 1789809920344
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789809909866:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789809891577",
+    "observationId": "obs-fs-session-11-1789809891577-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789809920343,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-11-1789809891577-2 at world revision 1, taken to verify fs.patch",
+   "artifacts": []
+  },
+  "id": "T3-fix-typo-e2-e15",
+  "at": 1789809920348
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:receipt-2-1789809909866:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-11-1789809891577",
+        "observationId": "obs-fs-session-11-1789809891577-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789809920343,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-11-1789809891577-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789809920353
+  },
+  "id": "T3-fix-typo-e2-e16",
+  "at": 1789809920353
+ }
+]

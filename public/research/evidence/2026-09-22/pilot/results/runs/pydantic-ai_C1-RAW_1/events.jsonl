@@ -1,0 +1,8 @@
+{"adapter": "pydantic-ai", "logical_run_id": "pydantic-ai:C1-RAW:1", "phase": 1, "process_id": 68454, "ts": 1790085908.9538188, "type": "phase.start"}
+{"call_id": "call-A", "logical_run_id": "pydantic-ai:C1-RAW:1", "output_kind": "DeferredToolRequests", "pending_approvals": 1, "process_id": 68454, "proposal_id": "A", "ts": 1790085908.96717, "type": "proposal.presented"}
+{"logical_run_id": "pydantic-ai:C1-RAW:1", "process_id": 68454, "ts": 1790085908.9676, "type": "wait.entered"}
+{"by": "harness-third-party", "logical_run_id": "pydantic-ai:C1-RAW:1", "process_id": 68454, "resource": "target", "to_protected": true, "to_version": 2, "ts": 1790085908.9684632, "type": "foreign.mutation"}
+{"for_call_id": "call-A", "granted_by": "harness-operator", "logical_run_id": "pydantic-ai:C1-RAW:1", "process_id": 68454, "ts": 1790085908.968683, "type": "approval.granted"}
+{"effect_id": "pydantic-ai:C1-RAW:1:e1", "logical_run_id": "pydantic-ai:C1-RAW:1", "process_id": 68454, "proposal_id": "call-A", "ts": 1790085908.9726532, "type": "effect.committed"}
+{"logical_run_id": "pydantic-ai:C1-RAW:1", "process_id": 68454, "ts": 1790085908.9745831, "type": "run.finished"}
+{"logical_run_id": "pydantic-ai:C1-RAW:1", "phase": 1, "process_id": 68454, "ts": 1790085908.974795, "type": "phase.end"}

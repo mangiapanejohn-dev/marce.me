@@ -1,0 +1,423 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T3-fix-typo-g",
+   "objective": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "originalRequest": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T3-fix-typo-e2-e1",
+  "at": 1789386417276
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789386417280
+  },
+  "id": "T3-fix-typo-e2-e2",
+  "at": 1789386417280
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e2-e3",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Read the current contents of docs/guide.md so every occurrence of the misspelling can be located and corrected exactly, without touching anything else.",
+   "expected": {
+    "description": "The file exists and its full content is returned. That gives a fresh basis for an exact-match patch replacing each \"recieve\" with \"receive\".",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386430237
+  },
+  "id": "T3-fix-typo-e2-e4",
+  "at": 1789386430238
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-3-1789386417272-1",
+   "sessionId": "fs-session-3-1789386417272",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789386430244,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file docs/guide.md, 341 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T3-fix-typo-4RnT8m/ws/docs/guide.md",
+    "byteLength": 341,
+    "mtimeMs": 1789386417202,
+    "digest": "sha256:f0bed43bdef1a330449aa8a3c3bc863beb5a5901bbe628b25dd0669d043a3880",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-3-1789386417272",
+    "observationId": "obs-fs-session-3-1789386417272-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789386430244,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T3-fix-typo-e2-e5",
+  "at": 1789386430245
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e2-e6",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Replace each of the three occurrences of the misspelling \"recieve\" in docs/guide.md with \"receive\", leaving all other content untouched.",
+   "expected": {
+    "description": "docs/guide.md contains no occurrence of \"recieve\" and instead reads \"receive\" in the three places it was misspelled; the rest of the file is unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*$"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "configure the endpoint you want to receive events from."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "If you do not receive an event within the timeout, the broker retries twice."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Events are delivered at least once; handlers must be idempotent."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "recieve",
+      "replace": "receive",
+      "expectedOccurrences": 3
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386444436
+  },
+  "id": "T3-fix-typo-e2-e7",
+  "at": 1789386444436
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "intent could not be compiled for the selected route fs.write: invalid-args — content: required and absent; edits: not declared, and additionalProperties is false; atomic: not declared, and additionalProperties is false",
+  "id": "T3-fix-typo-e2-e8",
+  "at": 1789386444446
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T3-fix-typo-g",
+   "objective": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "originalRequest": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T3-fix-typo-e5-e1",
+  "at": 1789386444548
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789386444551
+  },
+  "id": "T3-fix-typo-e5-e2",
+  "at": 1789386444551
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e5-e3",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Read the current contents of docs/guide.md so every occurrence of the misspelling \"recieve\" can be located and corrected exactly, with nothing else changed.",
+   "expected": {
+    "description": "The file exists and its full content is returned. The content should show whether \"recieve\" appears and where, so a precise patch can follow.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386458807
+  },
+  "id": "T3-fix-typo-e5-e4",
+  "at": 1789386458807
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-4-1789386444542-1",
+   "sessionId": "fs-session-4-1789386444542",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789386458816,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file docs/guide.md, 341 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T3-fix-typo-4RnT8m/ws/docs/guide.md",
+    "byteLength": 341,
+    "mtimeMs": 1789386417202,
+    "digest": "sha256:f0bed43bdef1a330449aa8a3c3bc863beb5a5901bbe628b25dd0669d043a3880",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\nEvents are delivered at least once; handlers must be idempotent.\n\n## Errors\n\nIf you do not recieve an event within the timeout, the broker retries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789386444542",
+    "observationId": "obs-fs-session-4-1789386444542-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789386458816,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T3-fix-typo-e5-e5",
+  "at": 1789386458818
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T3-fix-typo-e5-e6",
+   "goalId": "r1-T3-fix-typo-g",
+   "desiredEffect": "Replace each of the three occurrences of the misspelling \"recieve\" in docs/guide.md with \"receive\", leaving all other content untouched.",
+   "expected": {
+    "description": "docs/guide.md contains \"receive\" in the three places where \"recieve\" used to be. No other text changes.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*$"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "configure the endpoint you want to receive events from."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "If you do not receive an event within the timeout, the broker retries twice."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "recieve",
+      "replace": "receive",
+      "expectedOccurrences": 3
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386472432
+  },
+  "id": "T3-fix-typo-e5-e7",
+  "at": 1789386472432
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "intent could not be compiled for the selected route fs.write: invalid-args — content: required and absent; edits: not declared, and additionalProperties is false; atomic: not declared, and additionalProperties is false",
+  "id": "T3-fix-typo-e5-e8",
+  "at": 1789386472438
+ }
+]

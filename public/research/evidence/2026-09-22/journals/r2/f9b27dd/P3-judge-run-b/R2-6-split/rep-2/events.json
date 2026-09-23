@@ -1,0 +1,4320 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-6-split-g",
+   "objective": "Split notes.md by its three sections into notes/onboarding.md, notes/releases.md and notes/on-call.md, each holding its section heading and text. Then replace notes.md with an index: the \"# Team notes\" heading and a link to each of the three files.",
+   "originalRequest": "Split notes.md by its three sections into notes/onboarding.md, notes/releases.md and notes/on-call.md, each holding its section heading and text. Then replace notes.md with an index: the \"# Team notes\" heading and a link to each of the three files.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "each section of the old notes.md is its own file under notes/",
+     "kind": "observable",
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "notes.md is an index linking the three files",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-6-split-e2-e1",
+  "at": 1789809042010
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789809042014
+  },
+  "id": "R2-6-split-e2-e2",
+  "at": 1789809042014
+ },
+ {
+  "id": "R2-6-split-e2-m1",
+  "at": 1789809042020,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m2",
+  "at": 1789809052323,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e3",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Read the current notes.md so I can see its three sections and their exact text before splitting it.",
+   "expected": {
+    "description": "notes.md exists and its full text is returned, showing the '# Team notes' heading and three section headings with their bodies.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "notes.md at the session root",
+   "parameters": {
+    "path": "notes.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789809052331
+  },
+  "id": "R2-6-split-e2-e4",
+  "at": 1789809052331
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-17-1789809042005-1",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809052336,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file notes.md, 238 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "notes.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes.md",
+    "byteLength": 238,
+    "mtimeMs": 1789809041945,
+    "digest": "sha256:7d1db87b969fe42a7e0f47cee2bf034414f74732287eace9af9d9156827877bf",
+    "binary": false,
+    "inline": true,
+    "content": "# Team notes\n\n## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n\n## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n\n## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Team notes\n\n## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n\n## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n\n## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789809052336,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e2-e5",
+  "at": 1789809052337
+ },
+ {
+  "id": "R2-6-split-e2-m3",
+  "at": 1789809052341,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m4",
+  "at": 1789809061113,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows the contents of the old notes.md (sections Onboarding, Releases, On-call); it contains no listing or reads of the notes/ directory to show whether corresponding files exist.",
+  "evidence": [
+   "ev:obs-fs-session-17-1789809042005-1:read"
+  ],
+  "id": "R2-6-split-e2-e6",
+  "at": 1789809061116
+ },
+ {
+  "id": "R2-6-split-e2-m5",
+  "at": 1789809061121,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m6",
+  "at": 1789809073514,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c2",
+  "verdict": "not-established",
+  "because": "The observed notes.md contains full prose sections (Onboarding, Releases, On-call) with no links or references to any other files, so it is not an index linking three files.",
+  "evidence": [
+   "ev:obs-fs-session-17-1789809042005-1:read"
+  ],
+  "id": "R2-6-split-e2-e7",
+  "at": 1789809073520
+ },
+ {
+  "id": "R2-6-split-e2-m7",
+  "at": 1789809073526,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m8",
+  "at": 1789809093363,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e8",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Create notes/onboarding.md holding the Onboarding section heading and its text.",
+   "expected": {
+    "description": "notes/onboarding.md exists and contains the Onboarding heading and its paragraph.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Read the handbook first. Ask your buddy for repository access."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes/onboarding.md",
+   "parameters": {
+    "path": "notes/onboarding.md",
+    "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809093368
+  },
+  "id": "R2-6-split-e2-e9",
+  "at": 1789809093368
+ },
+ {
+  "id": "R2-6-split-e2-m9",
+  "at": 1789809093374,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m10",
+  "at": 1789809100573,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-6-split-e2-a-R2-6-split-e2-e8",
+   "intentId": "R2-6-split-e2-e8",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "notes/onboarding.md",
+    "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "notes/onboarding.md exists and contains the Onboarding heading and its paragraph.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Read the handbook first. Ask your buddy for repository access."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-17-1789809042005-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-6-split-e2-e10",
+  "at": 1789809100585
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789809100584",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e8",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "notes/onboarding.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/onboarding.md",
+     "byteLength": 78,
+     "mtimeMs": 1789809100585,
+     "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789809100585",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 0,
+      "capturedAt": 1789809100585,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/onboarding.md is 78 bytes with digest sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+     "data": {
+      "path": "notes/onboarding.md",
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789809100584,
+   "completedAt": 1789809100585
+  },
+  "id": "R2-6-split-e2-e11",
+  "at": 1789809100590
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e8",
+   "description": "Create notes/onboarding.md holding the Onboarding section heading and its text.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/onboarding.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e12",
+  "at": 1789809100594
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789809100584",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e8",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "path",
+     "operator": "equals",
+     "expected": "notes/onboarding.md",
+     "actual": "notes/onboarding.md"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "## Onboarding",
+     "actual": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "Read the handbook first. Ask your buddy for repository access.",
+     "actual": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789809100585",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 0,
+      "capturedAt": 1789809100585,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/onboarding.md is 78 bytes with digest sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+     "data": {
+      "path": "notes/onboarding.md",
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789809100584:1",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-17-1789809042005",
+      "capturedAt": 1789809100598,
+      "source": "result:fs.write"
+     },
+     "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+     "data": {
+      "path": "notes/onboarding.md",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/onboarding.md",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585,
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": true,
+      "encoding": "utf8",
+      "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "confidence": 0.75,
+   "decidedAt": 1789809100598
+  },
+  "id": "R2-6-split-e2-e13",
+  "at": 1789809100598
+ },
+ {
+  "id": "R2-6-split-e2-m11",
+  "at": 1789809100602,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m12",
+  "at": 1789809110536,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "Evidence shows notes/onboarding.md written, but the old notes.md has three sections (Onboarding, Releases, On-call) and nothing in the evidence covers whether files for Releases and On-call exist under notes/.",
+  "evidence": [
+   "ev-1-1789809100585",
+   "ev:receipt-2-1789809100584:1",
+   "obs-fs-session-17-1789809042005-1"
+  ],
+  "id": "R2-6-split-e2-e14",
+  "at": 1789809110542
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789809100585",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "sessionRevision": 0,
+    "capturedAt": 1789809100585,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "notes/onboarding.md is 78 bytes with digest sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+   "data": {
+    "path": "notes/onboarding.md",
+    "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+    "byteLength": 78,
+    "mtimeMs": 1789809100585
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e15",
+  "at": 1789809110546
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789809100584:1",
+   "provenance": {
+    "trust": "asserted",
+    "sessionId": "fs-session-17-1789809042005",
+    "capturedAt": 1789809100598,
+    "source": "result:fs.write"
+   },
+   "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+   "data": {
+    "path": "notes/onboarding.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/onboarding.md",
+    "byteLength": 78,
+    "mtimeMs": 1789809100585,
+    "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+    "binary": false,
+    "inline": true,
+    "exists": true,
+    "created": true,
+    "encoding": "utf8",
+    "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e16",
+  "at": 1789809110549
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e8",
+   "description": "Create notes/onboarding.md holding the Onboarding section heading and its text.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789809100585",
+    "ev:receipt-2-1789809100584:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/onboarding.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e17",
+  "at": 1789809110553
+ },
+ {
+  "id": "R2-6-split-e2-m13",
+  "at": 1789809110557,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m14",
+  "at": 1789809119786,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e18",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Write the Releases section of the old notes.md into its own file under notes/.",
+   "expected": {
+    "description": "notes/releases.md exists and holds the Releases heading and its paragraph verbatim from the original notes.md.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "We release every second Tuesday. Freeze starts the Friday before."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes/releases.md",
+   "parameters": {
+    "path": "notes/releases.md",
+    "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:R2-6-split-e2-e8",
+     "because": "The notes/ directory and the split convention are established by the onboarding file being written first."
+    }
+   ],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809119795
+  },
+  "id": "R2-6-split-e2-e19",
+  "at": 1789809119795
+ },
+ {
+  "id": "R2-6-split-e2-m15",
+  "at": 1789809119800,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m16",
+  "at": 1789809126509,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-6-split-e2-a-R2-6-split-e2-e18",
+   "intentId": "R2-6-split-e2-e18",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "notes/releases.md",
+    "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "notes/releases.md exists and holds the Releases heading and its paragraph verbatim from the original notes.md.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "We release every second Tuesday. Freeze starts the Friday before."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-17-1789809042005-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-6-split-e2-e20",
+  "at": 1789809126521
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-4-1789809126519",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e18",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "notes/releases.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/releases.md",
+     "byteLength": 79,
+     "mtimeMs": 1789809126521,
+     "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-3-1789809126521",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 1,
+      "capturedAt": 1789809126521,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/releases.md is 79 bytes with digest sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+     "data": {
+      "path": "notes/releases.md",
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789809126519,
+   "completedAt": 1789809126521
+  },
+  "id": "R2-6-split-e2-e21",
+  "at": 1789809126526
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e18",
+   "description": "Write the Releases section of the old notes.md into its own file under notes/.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/releases.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e22",
+  "at": 1789809126530
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-4-1789809126519",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e18",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "path",
+     "operator": "equals",
+     "expected": "notes/releases.md",
+     "actual": "notes/releases.md"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "## Releases",
+     "actual": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "We release every second Tuesday. Freeze starts the Friday before.",
+     "actual": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-3-1789809126521",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 1,
+      "capturedAt": 1789809126521,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/releases.md is 79 bytes with digest sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+     "data": {
+      "path": "notes/releases.md",
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-4-1789809126519:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-17-1789809042005",
+      "capturedAt": 1789809126536,
+      "source": "result:fs.write"
+     },
+     "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+     "data": {
+      "path": "notes/releases.md",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/releases.md",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521,
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": true,
+      "encoding": "utf8",
+      "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "confidence": 0.75,
+   "decidedAt": 1789809126536
+  },
+  "id": "R2-6-split-e2-e23",
+  "at": 1789809126536
+ },
+ {
+  "id": "R2-6-split-e2-m17",
+  "at": 1789809126541,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m18",
+  "at": 1789809135267,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "Evidence shows only notes/releases.md written, while the observed notes.md contains three sections (Onboarding, Releases, On-call) — nothing covers whether onboarding and on-call files exist under notes/.",
+  "evidence": [
+   "ev-3-1789809126521",
+   "ev:receipt-4-1789809126519:2",
+   "obs-fs-session-17-1789809042005-1"
+  ],
+  "id": "R2-6-split-e2-e24",
+  "at": 1789809135274
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789809126521",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "sessionRevision": 1,
+    "capturedAt": 1789809126521,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "notes/releases.md is 79 bytes with digest sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+   "data": {
+    "path": "notes/releases.md",
+    "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+    "byteLength": 79,
+    "mtimeMs": 1789809126521
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e25",
+  "at": 1789809135278
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-4-1789809126519:2",
+   "provenance": {
+    "trust": "asserted",
+    "sessionId": "fs-session-17-1789809042005",
+    "capturedAt": 1789809126536,
+    "source": "result:fs.write"
+   },
+   "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+   "data": {
+    "path": "notes/releases.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/releases.md",
+    "byteLength": 79,
+    "mtimeMs": 1789809126521,
+    "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+    "binary": false,
+    "inline": true,
+    "exists": true,
+    "created": true,
+    "encoding": "utf8",
+    "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e26",
+  "at": 1789809135281
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e18",
+   "description": "Write the Releases section of the old notes.md into its own file under notes/.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-3-1789809126521",
+    "ev:receipt-4-1789809126519:2"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/releases.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e27",
+  "at": 1789809135286
+ },
+ {
+  "id": "R2-6-split-e2-m19",
+  "at": 1789809135290,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m20",
+  "at": 1789809148646,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e28",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Create notes/on-call.md holding the On-call section heading and its text.",
+   "expected": {
+    "description": "notes/on-call.md exists and contains the On-call heading and its paragraph, completing the third of the three section files under notes/.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Rotation is weekly. Hand over in the Monday standup."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes/on-call.md",
+   "parameters": {
+    "path": "notes/on-call.md",
+    "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809148651
+  },
+  "id": "R2-6-split-e2-e29",
+  "at": 1789809148651
+ },
+ {
+  "id": "R2-6-split-e2-m21",
+  "at": 1789809148655,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m22",
+  "at": 1789809157622,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-6-split-e2-a-R2-6-split-e2-e28",
+   "intentId": "R2-6-split-e2-e28",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "notes/on-call.md",
+    "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "notes/on-call.md exists and contains the On-call heading and its paragraph, completing the third of the three section files under notes/.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Rotation is weekly. Hand over in the Monday standup."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-17-1789809042005-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-6-split-e2-e30",
+  "at": 1789809157631
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-6-1789809157630",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e28",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "notes/on-call.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/on-call.md",
+     "byteLength": 65,
+     "mtimeMs": 1789809157631,
+     "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n"
+    },
+    "worldRevision": 3
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-5-1789809157631",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 2,
+      "capturedAt": 1789809157631,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/on-call.md is 65 bytes with digest sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+     "data": {
+      "path": "notes/on-call.md",
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 3,
+   "startedAt": 1789809157630,
+   "completedAt": 1789809157631
+  },
+  "id": "R2-6-split-e2-e31",
+  "at": 1789809157636
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e28",
+   "description": "Create notes/on-call.md holding the On-call section heading and its text.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/on-call.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e32",
+  "at": 1789809157640
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-6-1789809157630",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e28",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "path",
+     "operator": "equals",
+     "expected": "notes/on-call.md",
+     "actual": "notes/on-call.md"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "## On-call",
+     "actual": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "Rotation is weekly. Hand over in the Monday standup.",
+     "actual": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-5-1789809157631",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 2,
+      "capturedAt": 1789809157631,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes/on-call.md is 65 bytes with digest sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+     "data": {
+      "path": "notes/on-call.md",
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-6-1789809157630:3",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-17-1789809042005",
+      "capturedAt": 1789809157644,
+      "source": "result:fs.write"
+     },
+     "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+     "data": {
+      "path": "notes/on-call.md",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/on-call.md",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631,
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": true,
+      "encoding": "utf8",
+      "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "confidence": 0.75,
+   "decidedAt": 1789809157644
+  },
+  "id": "R2-6-split-e2-e33",
+  "at": 1789809157644
+ },
+ {
+  "id": "R2-6-split-e2-m23",
+  "at": 1789809157649,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m24",
+  "at": 1789809168194,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows notes.md has three sections (Onboarding, Releases, On-call) and confirms notes/on-call.md exists with the On-call content, but says nothing about whether notes/onboarding.md and notes/releases.md were created.",
+  "evidence": [
+   "ev-5-1789809157631",
+   "ev:receipt-6-1789809157630:3",
+   "obs-fs-session-17-1789809042005-1"
+  ],
+  "id": "R2-6-split-e2-e34",
+  "at": 1789809168199
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-5-1789809157631",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "sessionRevision": 2,
+    "capturedAt": 1789809157631,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "notes/on-call.md is 65 bytes with digest sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+   "data": {
+    "path": "notes/on-call.md",
+    "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+    "byteLength": 65,
+    "mtimeMs": 1789809157631
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e35",
+  "at": 1789809168202
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-6-1789809157630:3",
+   "provenance": {
+    "trust": "asserted",
+    "sessionId": "fs-session-17-1789809042005",
+    "capturedAt": 1789809157644,
+    "source": "result:fs.write"
+   },
+   "summary": "the provider result for fs.write decided 3 of 3 assertion(s)",
+   "data": {
+    "path": "notes/on-call.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes/on-call.md",
+    "byteLength": 65,
+    "mtimeMs": 1789809157631,
+    "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+    "binary": false,
+    "inline": true,
+    "exists": true,
+    "created": true,
+    "encoding": "utf8",
+    "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e36",
+  "at": 1789809168206
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e28",
+   "description": "Create notes/on-call.md holding the On-call section heading and its text.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-5-1789809157631",
+    "ev:receipt-6-1789809157630:3"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes/on-call.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e37",
+  "at": 1789809168210
+ },
+ {
+  "id": "R2-6-split-e2-m25",
+  "at": 1789809168214,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m26",
+  "at": 1789809181045,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e38",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Replace notes.md with an index page containing only the top-level heading and markdown links to the three split section files.",
+   "expected": {
+    "description": "notes.md now holds the \"# Team notes\" heading and a link to each of notes/onboarding.md, notes/releases.md and notes/on-call.md, with the section prose removed since it now lives in the split files.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "absent",
+      "value": "Read the handbook first. Ask your buddy for repository access."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": false,
+    "satisfiableByResult": true
+   },
+   "target": "notes.md",
+   "parameters": {
+    "path": "notes.md",
+    "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+    "encoding": "utf8",
+    "overwrite": true,
+    "createParents": false
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:R2-6-split-e2-e8",
+     "because": "the Onboarding section text must already be saved in notes/onboarding.md before it is removed from notes.md"
+    },
+    {
+     "kind": "dependency-verified",
+     "subject": "task:R2-6-split-e2-e18",
+     "because": "the Releases section text must already be saved in notes/releases.md before it is removed from notes.md"
+    },
+    {
+     "kind": "dependency-verified",
+     "subject": "task:R2-6-split-e2-e28",
+     "because": "the On-call section text must already be saved in notes/on-call.md before it is removed from notes.md"
+    }
+   ],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789809181054
+  },
+  "id": "R2-6-split-e2-e39",
+  "at": 1789809181055
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-6-split-e2-a-R2-6-split-e2-e38",
+   "intentId": "R2-6-split-e2-e38",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "notes.md",
+    "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+    "encoding": "utf8",
+    "overwrite": true,
+    "createParents": false
+   },
+   "expected": {
+    "description": "notes.md now holds the \"# Team notes\" heading and a link to each of notes/onboarding.md, notes/releases.md and notes/on-call.md, with the section prose removed since it now lives in the split files.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "absent",
+      "value": "Read the handbook first. Ask your buddy for repository access."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": false,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-17-1789809042005-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-6-split-e2-e40",
+  "at": 1789809181062
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-8-1789809181060",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e38",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "notes.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes.md",
+     "byteLength": 112,
+     "mtimeMs": 1789809181062,
+     "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n"
+    },
+    "worldRevision": 4
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-7-1789809181062",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 3,
+      "capturedAt": 1789809181062,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes.md is 112 bytes with digest sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+     "data": {
+      "path": "notes.md",
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 4,
+   "startedAt": 1789809181060,
+   "completedAt": 1789809181062
+  },
+  "id": "R2-6-split-e2-e41",
+  "at": 1789809181074
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e38",
+   "description": "Replace notes.md with an index page containing only the top-level heading and markdown links to the three split section files.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e42",
+  "at": 1789809181081
+ },
+ {
+  "id": "R2-6-split-e2-m27",
+  "at": 1789809181086,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m28",
+  "at": 1789809188660,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-17-1789809042005-8",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809188667,
+   "worldRevision": 4,
+   "observationRevision": 8,
+   "semanticState": "directory . with 5 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws",
+    "entryCount": 5,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "notes",
+      "path": "notes",
+      "kind": "directory",
+      "byteLength": 160,
+      "mtimeMs": 1789809157631
+     },
+     {
+      "name": "notes.md",
+      "path": "notes.md",
+      "kind": "file",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062,
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "on-call.md",
+      "path": "notes/on-call.md",
+      "kind": "file",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631,
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "onboarding.md",
+      "path": "notes/onboarding.md",
+      "kind": "file",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585,
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "releases.md",
+      "path": "notes/releases.md",
+      "kind": "file",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521,
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-8",
+    "sessionRevision": 4,
+    "capturedAt": 1789809188667,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e2-e43",
+  "at": 1789809188669
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-8-1789809181060",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e38",
+   "verdict": "undetermined",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-17-1789809042005-8 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-17-1789809042005-8 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-17-1789809042005-8 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-17-1789809042005-8 structured state"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "absent",
+     "expected": "Read the handbook first. Ask your buddy for repository access."
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "changed",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-17-1789809042005-8 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-7-1789809181062",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 3,
+      "capturedAt": 1789809181062,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes.md is 112 bytes with digest sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+     "data": {
+      "path": "notes.md",
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-8-1789809181060:4",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-8",
+      "sessionRevision": 4,
+      "capturedAt": 1789809188673,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-17-1789809042005-8 at world revision 4, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-17-1789809042005-8",
+   "diagnosis": {
+    "class": "InsufficientEvidence",
+    "receiptId": "receipt-8-1789809181060",
+    "actionId": "R2-6-split-e2-a-R2-6-split-e2-e38",
+    "cause": "the state examined does not cover content, content, content, content, content, so the effect is neither confirmed nor refuted",
+    "evidence": [
+     {
+      "id": "ev-7-1789809181062",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-17-1789809042005",
+       "sessionRevision": 3,
+       "capturedAt": 1789809181062,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "notes.md is 112 bytes with digest sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "data": {
+       "path": "notes.md",
+       "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+       "byteLength": 112,
+       "mtimeMs": 1789809181062
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-8-1789809181060:4",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-17-1789809042005",
+       "observationId": "obs-fs-session-17-1789809042005-8",
+       "sessionRevision": 4,
+       "capturedAt": 1789809188673,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-17-1789809042005-8 at world revision 4, taken to verify fs.write",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the question is answerable; nothing has answered it yet",
+      "expectedSuccess": 0.75,
+      "parameters": {
+       "wantPaths": [
+        "content",
+        "content",
+        "content",
+        "content",
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "a capability that observes this state directly would settle it",
+      "expectedSuccess": 0.25,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "InsufficientEvidence",
+     "disposition": "retry_after_observe",
+     "code": "verification.insufficient-evidence",
+     "format": "not enough evidence to decide whether {operation} took effect",
+     "variables": {
+      "operation": "fs.write",
+      "capabilityId": "fs.write"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789809188673
+  },
+  "id": "R2-6-split-e2-e44",
+  "at": 1789809188673
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-6-split-e2-e38",
+   "description": "Replace notes.md with an index page containing only the top-level heading and markdown links to the three split section files.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-7-1789809181062",
+    "ev:receipt-8-1789809181060:4"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes.md"
+   ]
+  },
+  "id": "R2-6-split-e2-e45",
+  "at": 1789809188678
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "InsufficientEvidence",
+   "receiptId": "receipt-8-1789809181060",
+   "actionId": "R2-6-split-e2-a-R2-6-split-e2-e38",
+   "cause": "the state examined does not cover content, content, content, content, content, so the effect is neither confirmed nor refuted",
+   "evidence": [
+    {
+     "id": "ev-7-1789809181062",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "sessionRevision": 3,
+      "capturedAt": 1789809181062,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes.md is 112 bytes with digest sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+     "data": {
+      "path": "notes.md",
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-8-1789809181060:4",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-8",
+      "sessionRevision": 4,
+      "capturedAt": 1789809188673,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-17-1789809042005-8 at world revision 4, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the question is answerable; nothing has answered it yet",
+     "expectedSuccess": 0.75,
+     "parameters": {
+      "wantPaths": [
+       "content",
+       "content",
+       "content",
+       "content",
+       "content"
+      ]
+     }
+    },
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "a capability that observes this state directly would settle it",
+     "expectedSuccess": 0.25,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "InsufficientEvidence",
+    "disposition": "retry_after_observe",
+    "code": "verification.insufficient-evidence",
+    "format": "not enough evidence to decide whether {operation} took effect",
+    "variables": {
+     "operation": "fs.write",
+     "capabilityId": "fs.write"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "R2-6-split-e2-e46",
+  "at": 1789809188682
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the question is answerable; nothing has answered it yet",
+  "id": "R2-6-split-e2-e47",
+  "at": 1789809188686
+ },
+ {
+  "id": "R2-6-split-e2-m29",
+  "at": 1789809188690,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m30",
+  "at": 1789809203317,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e48",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Re-read the workspace tree so current evidence shows both the three split section files under notes/ and the rewritten index at notes.md",
+   "expected": {
+    "description": "The listing shows notes/onboarding.md, notes/releases.md and notes/on-call.md each carrying their own section heading and text, and notes.md carrying only the '# Team notes' heading plus markdown links to the three files.",
+    "assertions": [
+     {
+      "path": "entries",
+      "operator": "exists"
+     },
+     {
+      "path": "entries[?(@.path=='notes/onboarding.md')].content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "entries[?(@.path=='notes/releases.md')].content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "entries[?(@.path=='notes/on-call.md')].content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "entries[?(@.path=='notes.md')].content",
+      "operator": "contains",
+      "value": "[Onboarding](notes/onboarding.md)"
+     },
+     {
+      "path": "entries[?(@.path=='notes.md')].content",
+      "operator": "contains",
+      "value": "[Releases](notes/releases.md)"
+     },
+     {
+      "path": "entries[?(@.path=='notes.md')].content",
+      "operator": "contains",
+      "value": "[On-call](notes/on-call.md)"
+     },
+     {
+      "path": "entries[?(@.path=='notes.md')].content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the session root, two levels deep, with file contents",
+   "parameters": {
+    "path": ".",
+    "depth": 2,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 100
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789809203323
+  },
+  "id": "R2-6-split-e2-e49",
+  "at": 1789809203323
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-17-1789809042005-9",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809203328,
+   "worldRevision": 4,
+   "observationRevision": 9,
+   "semanticState": "directory . with 5 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws",
+    "entryCount": 5,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "notes",
+      "path": "notes",
+      "kind": "directory",
+      "byteLength": 160,
+      "mtimeMs": 1789809157631
+     },
+     {
+      "name": "notes.md",
+      "path": "notes.md",
+      "kind": "file",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062,
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "on-call.md",
+      "path": "notes/on-call.md",
+      "kind": "file",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631,
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "onboarding.md",
+      "path": "notes/onboarding.md",
+      "kind": "file",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585,
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "releases.md",
+      "path": "notes/releases.md",
+      "kind": "file",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521,
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-9",
+    "sessionRevision": 4,
+    "capturedAt": 1789809203328,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e2-e50",
+  "at": 1789809203331
+ },
+ {
+  "id": "R2-6-split-e2-m31",
+  "at": 1789809203335,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m32",
+  "at": 1789809212456,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The observation shows notes/ containing onboarding.md, releases.md and on-call.md plus a rewritten index notes.md, but the evidence contains no copy of the original notes.md, so there is no way to confirm its sections are exactly these three.",
+  "evidence": [
+   "ev:obs-fs-session-17-1789809042005-9:read"
+  ],
+  "id": "R2-6-split-e2-e51",
+  "at": 1789809212463
+ },
+ {
+  "id": "R2-6-split-e2-m33",
+  "at": 1789809212467,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m34",
+  "at": 1789809219487,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c2",
+  "verdict": "established",
+  "because": "notes.md contains a '# Team notes' list with markdown links to notes/onboarding.md, notes/releases.md, and notes/on-call.md, and the directory listing confirms all three of those files exist at those paths.",
+  "evidence": [
+   "ev:obs-fs-session-17-1789809042005-9:read"
+  ],
+  "id": "R2-6-split-e2-e52",
+  "at": 1789809219494
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-17-1789809042005-9:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-9",
+    "sessionRevision": 4,
+    "capturedAt": 1789809203335,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-17-1789809042005-9 at world revision 4, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e53",
+  "at": 1789809219498
+ },
+ {
+  "id": "R2-6-split-e2-m35",
+  "at": 1789809219503,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m36",
+  "at": 1789809238339,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e54",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Collect one fresh piece of evidence showing that every section heading from the original notes.md now lives in its own file under notes/, and that no section text remains unsplit.",
+   "expected": {
+    "description": "The search returns exactly the three second-level section headings — ## Onboarding, ## Releases and ## On-call — each cited from its own file under notes/ together with that section's body text, plus the single top-level '# Team notes' heading now cited from notes.md only. This demonstrates that the three sections of the old notes.md were each split into their own file and that notes.md retains no section bodies.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the workspace tree, searched for markdown section headings",
+   "parameters": {
+    "query": "^#{1,2} ",
+    "regex": true,
+    "path": ".",
+    "contextLines": 3,
+    "maxResults": 50
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809238346
+  },
+  "id": "R2-6-split-e2-e55",
+  "at": 1789809238346
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-17-1789809042005-10",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "repo.search",
+   "observedAt": 1789809238351,
+   "worldRevision": 4,
+   "observationRevision": 10,
+   "semanticState": "4 matches for \"^#{1,2} \" across 4 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "^#{1,2} ",
+    "regex": true,
+    "root": ".",
+    "matches": [
+     {
+      "path": "notes.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "# Team notes",
+      "matchText": "# ",
+      "before": [],
+      "after": [
+       "",
+       "- [Onboarding](notes/onboarding.md)",
+       "- [Releases](notes/releases.md)"
+      ]
+     },
+     {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "Rotation is weekly. Hand over in the Monday standup.",
+       ""
+      ]
+     },
+     {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "Read the handbook first. Ask your buddy for repository access.",
+       ""
+      ]
+     },
+     {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "We release every second Tuesday. Freeze starts the Friday before.",
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 4,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-10",
+    "sessionRevision": 4,
+    "capturedAt": 1789809238351,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-9-1789809238351",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-10",
+      "sessionRevision": 4,
+      "capturedAt": 1789809238351,
+      "source": "filesystem:search"
+     },
+     "summary": "notes.md:1:1: # Team notes",
+     "data": {
+      "path": "notes.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "# Team notes",
+      "matchText": "# ",
+      "before": [],
+      "after": [
+       "",
+       "- [Onboarding](notes/onboarding.md)",
+       "- [Releases](notes/releases.md)"
+      ],
+      "query": "^#{1,2} "
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-10-1789809238351",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-10",
+      "sessionRevision": 4,
+      "capturedAt": 1789809238351,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/on-call.md:1:1: ## On-call",
+     "data": {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "Rotation is weekly. Hand over in the Monday standup.",
+       ""
+      ],
+      "query": "^#{1,2} "
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-11-1789809238351",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-10",
+      "sessionRevision": 4,
+      "capturedAt": 1789809238351,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/onboarding.md:1:1: ## Onboarding",
+     "data": {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "Read the handbook first. Ask your buddy for repository access.",
+       ""
+      ],
+      "query": "^#{1,2} "
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-12-1789809238351",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-10",
+      "sessionRevision": 4,
+      "capturedAt": 1789809238351,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/releases.md:1:1: ## Releases",
+     "data": {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## ",
+      "before": [],
+      "after": [
+       "",
+       "We release every second Tuesday. Freeze starts the Friday before.",
+       ""
+      ],
+      "query": "^#{1,2} "
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-6-split-e2-e56",
+  "at": 1789809238354
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-9-1789809238351",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-10",
+    "sessionRevision": 4,
+    "capturedAt": 1789809238351,
+    "source": "filesystem:search"
+   },
+   "summary": "notes.md:1:1: # Team notes",
+   "data": {
+    "path": "notes.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "# Team notes",
+    "matchText": "# ",
+    "before": [],
+    "after": [
+     "",
+     "- [Onboarding](notes/onboarding.md)",
+     "- [Releases](notes/releases.md)"
+    ],
+    "query": "^#{1,2} "
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e57",
+  "at": 1789809238358
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-10-1789809238351",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-10",
+    "sessionRevision": 4,
+    "capturedAt": 1789809238351,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/on-call.md:1:1: ## On-call",
+   "data": {
+    "path": "notes/on-call.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## On-call",
+    "matchText": "## ",
+    "before": [],
+    "after": [
+     "",
+     "Rotation is weekly. Hand over in the Monday standup.",
+     ""
+    ],
+    "query": "^#{1,2} "
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e58",
+  "at": 1789809238361
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-11-1789809238351",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-10",
+    "sessionRevision": 4,
+    "capturedAt": 1789809238351,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/onboarding.md:1:1: ## Onboarding",
+   "data": {
+    "path": "notes/onboarding.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Onboarding",
+    "matchText": "## ",
+    "before": [],
+    "after": [
+     "",
+     "Read the handbook first. Ask your buddy for repository access.",
+     ""
+    ],
+    "query": "^#{1,2} "
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e59",
+  "at": 1789809238364
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-12-1789809238351",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-10",
+    "sessionRevision": 4,
+    "capturedAt": 1789809238351,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/releases.md:1:1: ## Releases",
+   "data": {
+    "path": "notes/releases.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Releases",
+    "matchText": "## ",
+    "before": [],
+    "after": [
+     "",
+     "We release every second Tuesday. Freeze starts the Friday before.",
+     ""
+    ],
+    "query": "^#{1,2} "
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e60",
+  "at": 1789809238367
+ },
+ {
+  "id": "R2-6-split-e2-m37",
+  "at": 1789809238372,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m38",
+  "at": 1789809252363,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows the current state — notes/ holds one section per file (on-call.md, onboarding.md, releases.md) and notes.md is now an index — but nothing in it records the old notes.md's original content, so whether every former section became its own file cannot be checked.",
+  "evidence": [
+   "ev-10-1789809238351",
+   "ev-11-1789809238351",
+   "ev-12-1789809238351",
+   "ev-9-1789809238351",
+   "ev:obs-fs-session-17-1789809042005-10:read",
+   "obs-fs-session-17-1789809042005-9"
+  ],
+  "id": "R2-6-split-e2-e61",
+  "at": 1789809252370
+ },
+ {
+  "id": "R2-6-split-e2-m39",
+  "at": 1789809252375,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m40",
+  "at": 1789809270002,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e2-e62",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Show, in one observation, that every section of the original notes.md — heading plus body text — now lives in its own file under notes/, by finding each original section's body sentence and its heading in a separate file.",
+   "expected": {
+    "description": "The search returns matches in exactly three files under notes/ — onboarding.md, releases.md, on-call.md — each containing its own section heading together with that section's original body sentence from the old notes.md, demonstrating that all three former sections became their own files with heading and text intact.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/on-call.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Read the handbook first. Ask your buddy for repository access."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "We release every second Tuesday. Freeze starts the Friday before."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Rotation is weekly. Hand over in the Monday standup."
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the notes/ directory, searched for the original section headings and body text of the pre-split notes.md",
+   "parameters": {
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$",
+    "regex": true,
+    "path": "notes",
+    "contextLines": 3,
+    "maxResults": 50
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809270008
+  },
+  "id": "R2-6-split-e2-e63",
+  "at": 1789809270008
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-17-1789809042005-11",
+   "sessionId": "fs-session-17-1789809042005",
+   "capabilityId": "repo.search",
+   "observedAt": 1789809270014,
+   "worldRevision": 4,
+   "observationRevision": 11,
+   "semanticState": "6 matches for \"^(## (Onboarding|Releases|On-call)|Read the handbook first\\\\. Ask your buddy for repository access\\\\.|We release every second Tuesday\\\\. Freeze starts the Friday before\\\\.|Rotation is weekly\\\\. Hand over in the Monday standup\\\\.)$\" across 3 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$",
+    "regex": true,
+    "root": "notes",
+    "matches": [
+     {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## On-call",
+      "before": [],
+      "after": [
+       "",
+       "Rotation is weekly. Hand over in the Monday standup.",
+       ""
+      ]
+     },
+     {
+      "path": "notes/on-call.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "Rotation is weekly. Hand over in the Monday standup.",
+      "matchText": "Rotation is weekly. Hand over in the Monday standup.",
+      "before": [
+       "## On-call",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## Onboarding",
+      "before": [],
+      "after": [
+       "",
+       "Read the handbook first. Ask your buddy for repository access.",
+       ""
+      ]
+     },
+     {
+      "path": "notes/onboarding.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "Read the handbook first. Ask your buddy for repository access.",
+      "matchText": "Read the handbook first. Ask your buddy for repository access.",
+      "before": [
+       "## Onboarding",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## Releases",
+      "before": [],
+      "after": [
+       "",
+       "We release every second Tuesday. Freeze starts the Friday before.",
+       ""
+      ]
+     },
+     {
+      "path": "notes/releases.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "We release every second Tuesday. Freeze starts the Friday before.",
+      "matchText": "We release every second Tuesday. Freeze starts the Friday before.",
+      "before": [
+       "## Releases",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 3,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-13-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/on-call.md:1:1: ## On-call",
+     "data": {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## On-call",
+      "before": [],
+      "after": [
+       "",
+       "Rotation is weekly. Hand over in the Monday standup.",
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-14-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/on-call.md:3:1: Rotation is weekly. Hand over in the Monday standup.",
+     "data": {
+      "path": "notes/on-call.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "Rotation is weekly. Hand over in the Monday standup.",
+      "matchText": "Rotation is weekly. Hand over in the Monday standup.",
+      "before": [
+       "## On-call",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-15-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/onboarding.md:1:1: ## Onboarding",
+     "data": {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## Onboarding",
+      "before": [],
+      "after": [
+       "",
+       "Read the handbook first. Ask your buddy for repository access.",
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-16-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/onboarding.md:3:1: Read the handbook first. Ask your buddy for repository access.",
+     "data": {
+      "path": "notes/onboarding.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "Read the handbook first. Ask your buddy for repository access.",
+      "matchText": "Read the handbook first. Ask your buddy for repository access.",
+      "before": [
+       "## Onboarding",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-17-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/releases.md:1:1: ## Releases",
+     "data": {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## Releases",
+      "before": [],
+      "after": [
+       "",
+       "We release every second Tuesday. Freeze starts the Friday before.",
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-18-1789809270014",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-17-1789809042005",
+      "observationId": "obs-fs-session-17-1789809042005-11",
+      "sessionRevision": 4,
+      "capturedAt": 1789809270014,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/releases.md:3:1: We release every second Tuesday. Freeze starts the Friday before.",
+     "data": {
+      "path": "notes/releases.md",
+      "line": 3,
+      "column": 1,
+      "lineText": "We release every second Tuesday. Freeze starts the Friday before.",
+      "matchText": "We release every second Tuesday. Freeze starts the Friday before.",
+      "before": [
+       "## Releases",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-6-split-e2-e64",
+  "at": 1789809270017
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-13-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/on-call.md:1:1: ## On-call",
+   "data": {
+    "path": "notes/on-call.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## On-call",
+    "matchText": "## On-call",
+    "before": [],
+    "after": [
+     "",
+     "Rotation is weekly. Hand over in the Monday standup.",
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e65",
+  "at": 1789809270022
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-14-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/on-call.md:3:1: Rotation is weekly. Hand over in the Monday standup.",
+   "data": {
+    "path": "notes/on-call.md",
+    "line": 3,
+    "column": 1,
+    "lineText": "Rotation is weekly. Hand over in the Monday standup.",
+    "matchText": "Rotation is weekly. Hand over in the Monday standup.",
+    "before": [
+     "## On-call",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e66",
+  "at": 1789809270026
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-15-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/onboarding.md:1:1: ## Onboarding",
+   "data": {
+    "path": "notes/onboarding.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Onboarding",
+    "matchText": "## Onboarding",
+    "before": [],
+    "after": [
+     "",
+     "Read the handbook first. Ask your buddy for repository access.",
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e67",
+  "at": 1789809270030
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-16-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/onboarding.md:3:1: Read the handbook first. Ask your buddy for repository access.",
+   "data": {
+    "path": "notes/onboarding.md",
+    "line": 3,
+    "column": 1,
+    "lineText": "Read the handbook first. Ask your buddy for repository access.",
+    "matchText": "Read the handbook first. Ask your buddy for repository access.",
+    "before": [
+     "## Onboarding",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e68",
+  "at": 1789809270034
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-17-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/releases.md:1:1: ## Releases",
+   "data": {
+    "path": "notes/releases.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Releases",
+    "matchText": "## Releases",
+    "before": [],
+    "after": [
+     "",
+     "We release every second Tuesday. Freeze starts the Friday before.",
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e69",
+  "at": 1789809270038
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-18-1789809270014",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-17-1789809042005",
+    "observationId": "obs-fs-session-17-1789809042005-11",
+    "sessionRevision": 4,
+    "capturedAt": 1789809270014,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/releases.md:3:1: We release every second Tuesday. Freeze starts the Friday before.",
+   "data": {
+    "path": "notes/releases.md",
+    "line": 3,
+    "column": 1,
+    "lineText": "We release every second Tuesday. Freeze starts the Friday before.",
+    "matchText": "We release every second Tuesday. Freeze starts the Friday before.",
+    "before": [
+     "## Releases",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "^(## (Onboarding|Releases|On-call)|Read the handbook first\\. Ask your buddy for repository access\\.|We release every second Tuesday\\. Freeze starts the Friday before\\.|Rotation is weekly\\. Hand over in the Monday standup\\.)$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e2-e70",
+  "at": 1789809270043
+ },
+ {
+  "id": "R2-6-split-e2-m41",
+  "at": 1789809270047,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e2-m42",
+  "at": 1789809281238,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows notes/ now holds three single-section files (onboarding, releases, on-call) and notes.md is an index, but no observation captures the original notes.md content, so whether those three were all its sections cannot be confirmed.",
+  "evidence": [
+   "ev-13-1789809270014",
+   "ev-14-1789809270014",
+   "ev-15-1789809270014",
+   "ev-16-1789809270014",
+   "ev-17-1789809270014",
+   "ev-18-1789809270014",
+   "ev:obs-fs-session-17-1789809042005-11:read",
+   "obs-fs-session-17-1789809042005-10",
+   "obs-fs-session-17-1789809042005-9"
+  ],
+  "id": "R2-6-split-e2-e71",
+  "at": 1789809281249
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "the proposer's reply could not be used: transport-failed — the port’s own call ceiling was reached",
+  "id": "R2-6-split-e2-e72",
+  "at": 1789809281255
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-6-split-g",
+   "objective": "Split notes.md by its three sections into notes/onboarding.md, notes/releases.md and notes/on-call.md, each holding its section heading and text. Then replace notes.md with an index: the \"# Team notes\" heading and a link to each of the three files.",
+   "originalRequest": "Split notes.md by its three sections into notes/onboarding.md, notes/releases.md and notes/on-call.md, each holding its section heading and text. Then replace notes.md with an index: the \"# Team notes\" heading and a link to each of the three files.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "each section of the old notes.md is its own file under notes/",
+     "kind": "observable",
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "notes.md is an index linking the three files",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-6-split-e5-e1",
+  "at": 1789809281339
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789809281344
+  },
+  "id": "R2-6-split-e5-e2",
+  "at": 1789809281344
+ },
+ {
+  "id": "R2-6-split-e5-m1",
+  "at": 1789809281347,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m2",
+  "at": 1789809291048,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e5-e3",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Read the current contents of notes.md so I can see its three sections verbatim before splitting them.",
+   "expected": {
+    "description": "notes.md exists and its full text is returned, showing a '# Team notes' heading and three section headings with their bodies.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes.md at the session root",
+   "parameters": {
+    "path": "notes.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789809291053
+  },
+  "id": "R2-6-split-e5-e4",
+  "at": 1789809291053
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-18-1789809281335-1",
+   "sessionId": "fs-session-18-1789809281335",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809291057,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file notes.md, 112 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "notes.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes.md",
+    "byteLength": 112,
+    "mtimeMs": 1789809181062,
+    "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+    "binary": false,
+    "inline": true,
+    "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789809291057,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e5-e5",
+  "at": 1789809291058
+ },
+ {
+  "id": "R2-6-split-e5-m3",
+  "at": 1789809291063,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m4",
+  "at": 1789809298427,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows only the rewritten notes.md containing three links; it does not show the old notes.md's sections nor the existence or contents of notes/onboarding.md, notes/releases.md, and notes/on-call.md.",
+  "evidence": [
+   "ev:obs-fs-session-18-1789809281335-1:read"
+  ],
+  "id": "R2-6-split-e5-e6",
+  "at": 1789809298432
+ },
+ {
+  "id": "R2-6-split-e5-m5",
+  "at": 1789809298437,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m6",
+  "at": 1789809305840,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c2",
+  "verdict": "established",
+  "because": "The read of notes.md shows a heading and three markdown links to notes/onboarding.md, notes/releases.md, and notes/on-call.md, i.e. an index of the three files.",
+  "evidence": [
+   "ev:obs-fs-session-18-1789809281335-1:read"
+  ],
+  "id": "R2-6-split-e5-e7",
+  "at": 1789809305844
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-18-1789809281335-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789809291063,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-18-1789809281335-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-6-split-e5-e8",
+  "at": 1789809305848
+ },
+ {
+  "id": "R2-6-split-e5-m7",
+  "at": 1789809305852,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m8",
+  "at": 1789809315456,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e5-e9",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Read the notes/ directory so the three split section files and their contents are visible as evidence.",
+   "expected": {
+    "description": "The notes/ directory listing shows onboarding.md, releases.md and on-call.md, each a non-empty text file carrying its own section heading and body text from the original notes.md.",
+    "assertions": [
+     {
+      "path": "entries",
+      "operator": "exists"
+     },
+     {
+      "path": "entries",
+      "operator": "contains",
+      "value": "onboarding.md"
+     },
+     {
+      "path": "entries",
+      "operator": "contains",
+      "value": "releases.md"
+     },
+     {
+      "path": "entries",
+      "operator": "contains",
+      "value": "on-call.md"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes/ directory containing onboarding.md, releases.md and on-call.md",
+   "parameters": {
+    "path": "notes",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 100
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809315461
+  },
+  "id": "R2-6-split-e5-e10",
+  "at": 1789809315461
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-18-1789809281335-2",
+   "sessionId": "fs-session-18-1789809281335",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809315465,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "directory notes with 3 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": "notes",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws/notes",
+    "entryCount": 3,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "on-call.md",
+      "path": "notes/on-call.md",
+      "kind": "file",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631,
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "onboarding.md",
+      "path": "notes/onboarding.md",
+      "kind": "file",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585,
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "releases.md",
+      "path": "notes/releases.md",
+      "kind": "file",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521,
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789809315465,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e5-e11",
+  "at": 1789809315467
+ },
+ {
+  "id": "R2-6-split-e5-m9",
+  "at": 1789809315471,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m10",
+  "at": 1789809327606,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows notes/ containing three section files and the rewritten notes.md index linking to them, but never shows the original notes.md content, so there is no basis to confirm its sections were exactly these three.",
+  "evidence": [
+   "ev:obs-fs-session-18-1789809281335-2:read",
+   "obs-fs-session-18-1789809281335-1"
+  ],
+  "id": "R2-6-split-e5-e12",
+  "at": 1789809327615
+ },
+ {
+  "id": "R2-6-split-e5-m11",
+  "at": 1789809327620,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m12",
+  "at": 1789809341032,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e5-e13",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Show the whole workspace tree with file contents so the split's provenance can be checked — whether any backup or leftover copy of the original notes.md exists, and that no section text remains anywhere outside notes/",
+   "expected": {
+    "description": "A recursive listing of the session root showing notes.md as the index and notes/ holding onboarding.md, releases.md and on-call.md, plus any remaining backup or original copy of notes.md that would evidence the original three sections",
+    "assertions": [
+     {
+      "path": "entries",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes.md"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the session root directory",
+   "parameters": {
+    "path": ".",
+    "depth": 3,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 200
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809341042
+  },
+  "id": "R2-6-split-e5-e14",
+  "at": 1789809341042
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-18-1789809281335-3",
+   "sessionId": "fs-session-18-1789809281335",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809341048,
+   "worldRevision": 0,
+   "observationRevision": 3,
+   "semanticState": "directory . with 5 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-6-split-QctI18/ws",
+    "entryCount": 5,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "notes",
+      "path": "notes",
+      "kind": "directory",
+      "byteLength": 160,
+      "mtimeMs": 1789809157631
+     },
+     {
+      "name": "notes.md",
+      "path": "notes.md",
+      "kind": "file",
+      "byteLength": 112,
+      "mtimeMs": 1789809181062,
+      "digest": "sha256:58c6634191ead845318daaf6f506fb54afaeb9041c6e17bb3867a11595e7ad77",
+      "content": "# Team notes\n\n- [Onboarding](notes/onboarding.md)\n- [Releases](notes/releases.md)\n- [On-call](notes/on-call.md)\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "on-call.md",
+      "path": "notes/on-call.md",
+      "kind": "file",
+      "byteLength": 65,
+      "mtimeMs": 1789809157631,
+      "digest": "sha256:05a3c2172e6aa6eefff753d93b6f2582696d1f10108e9922c056092ce5b3ff88",
+      "content": "## On-call\n\nRotation is weekly. Hand over in the Monday standup.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "onboarding.md",
+      "path": "notes/onboarding.md",
+      "kind": "file",
+      "byteLength": 78,
+      "mtimeMs": 1789809100585,
+      "digest": "sha256:ab0d32da32636458752cbcff22df7fea92f663d847b8dad4b95fda841d34d30d",
+      "content": "## Onboarding\n\nRead the handbook first. Ask your buddy for repository access.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "releases.md",
+      "path": "notes/releases.md",
+      "kind": "file",
+      "byteLength": 79,
+      "mtimeMs": 1789809126521,
+      "digest": "sha256:a20cc79e5ccd1a59f2b146de0f26fd523024e4547eb9022cff380d9037180ca9",
+      "content": "## Releases\n\nWe release every second Tuesday. Freeze starts the Friday before.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789809341048,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-6-split-e5-e15",
+  "at": 1789809341051
+ },
+ {
+  "id": "R2-6-split-e5-m13",
+  "at": 1789809341056,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m14",
+  "at": 1789809354974,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows notes/ containing onboarding.md, releases.md and on-call.md plus the rewritten index notes.md, but the original notes.md content is nowhere in the evidence, so there is no way to confirm those three are all of its sections.",
+  "evidence": [
+   "ev:obs-fs-session-18-1789809281335-3:read",
+   "obs-fs-session-18-1789809281335-2",
+   "obs-fs-session-18-1789809281335-1"
+  ],
+  "id": "R2-6-split-e5-e16",
+  "at": 1789809354984
+ },
+ {
+  "id": "R2-6-split-e5-m15",
+  "at": 1789809354989,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m16",
+  "at": 1789809374000,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e5-e17",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Enumerate every markdown heading left in the workspace, so the record shows that the three section headings from the old notes.md (Onboarding, Releases, On-call) now each live in their own file under notes/, and that the only remaining top-level heading is the index's \"# Team notes\".",
+   "expected": {
+    "description": "The search returns exactly four headings: \"# Team notes\" in notes.md, and \"## Onboarding\", \"## Releases\", \"## On-call\" each cited from notes/onboarding.md, notes/releases.md and notes/on-call.md respectively — evidence that each section of the old notes.md is its own file and no section text was left behind or duplicated.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Onboarding"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## Releases"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## On-call"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "# Team notes"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/onboarding.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/releases.md"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "notes/on-call.md"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "all markdown files under the session root",
+   "parameters": {
+    "query": "^#{1,2} .*$",
+    "regex": true,
+    "path": ".",
+    "contextLines": 1,
+    "maxResults": 100
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809374006
+  },
+  "id": "R2-6-split-e5-e18",
+  "at": 1789809374007
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-18-1789809281335-4",
+   "sessionId": "fs-session-18-1789809281335",
+   "capabilityId": "repo.search",
+   "observedAt": 1789809374013,
+   "worldRevision": 0,
+   "observationRevision": 4,
+   "semanticState": "4 matches for \"^#{1,2} .*$\" across 4 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "^#{1,2} .*$",
+    "regex": true,
+    "root": ".",
+    "matches": [
+     {
+      "path": "notes.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "# Team notes",
+      "matchText": "# Team notes",
+      "before": [],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## On-call",
+      "before": [],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## Onboarding",
+      "before": [],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## Releases",
+      "before": [],
+      "after": [
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 4,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789809374013,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-1-1789809374013",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-18-1789809281335",
+      "observationId": "obs-fs-session-18-1789809281335-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789809374013,
+      "source": "filesystem:search"
+     },
+     "summary": "notes.md:1:1: # Team notes",
+     "data": {
+      "path": "notes.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "# Team notes",
+      "matchText": "# Team notes",
+      "before": [],
+      "after": [
+       ""
+      ],
+      "query": "^#{1,2} .*$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-2-1789809374013",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-18-1789809281335",
+      "observationId": "obs-fs-session-18-1789809281335-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789809374013,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/on-call.md:1:1: ## On-call",
+     "data": {
+      "path": "notes/on-call.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## On-call",
+      "matchText": "## On-call",
+      "before": [],
+      "after": [
+       ""
+      ],
+      "query": "^#{1,2} .*$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-3-1789809374013",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-18-1789809281335",
+      "observationId": "obs-fs-session-18-1789809281335-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789809374013,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/onboarding.md:1:1: ## Onboarding",
+     "data": {
+      "path": "notes/onboarding.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Onboarding",
+      "matchText": "## Onboarding",
+      "before": [],
+      "after": [
+       ""
+      ],
+      "query": "^#{1,2} .*$"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-4-1789809374013",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-18-1789809281335",
+      "observationId": "obs-fs-session-18-1789809281335-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789809374013,
+      "source": "filesystem:search"
+     },
+     "summary": "notes/releases.md:1:1: ## Releases",
+     "data": {
+      "path": "notes/releases.md",
+      "line": 1,
+      "column": 1,
+      "lineText": "## Releases",
+      "matchText": "## Releases",
+      "before": [],
+      "after": [
+       ""
+      ],
+      "query": "^#{1,2} .*$"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-6-split-e5-e19",
+  "at": 1789809374016
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789809374013",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789809374013,
+    "source": "filesystem:search"
+   },
+   "summary": "notes.md:1:1: # Team notes",
+   "data": {
+    "path": "notes.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "# Team notes",
+    "matchText": "# Team notes",
+    "before": [],
+    "after": [
+     ""
+    ],
+    "query": "^#{1,2} .*$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e5-e20",
+  "at": 1789809374021
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789809374013",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789809374013,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/on-call.md:1:1: ## On-call",
+   "data": {
+    "path": "notes/on-call.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## On-call",
+    "matchText": "## On-call",
+    "before": [],
+    "after": [
+     ""
+    ],
+    "query": "^#{1,2} .*$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e5-e21",
+  "at": 1789809374024
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789809374013",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789809374013,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/onboarding.md:1:1: ## Onboarding",
+   "data": {
+    "path": "notes/onboarding.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Onboarding",
+    "matchText": "## Onboarding",
+    "before": [],
+    "after": [
+     ""
+    ],
+    "query": "^#{1,2} .*$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e5-e22",
+  "at": 1789809374028
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-4-1789809374013",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-18-1789809281335",
+    "observationId": "obs-fs-session-18-1789809281335-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789809374013,
+    "source": "filesystem:search"
+   },
+   "summary": "notes/releases.md:1:1: ## Releases",
+   "data": {
+    "path": "notes/releases.md",
+    "line": 1,
+    "column": 1,
+    "lineText": "## Releases",
+    "matchText": "## Releases",
+    "before": [],
+    "after": [
+     ""
+    ],
+    "query": "^#{1,2} .*$"
+   },
+   "artifacts": []
+  },
+  "id": "R2-6-split-e5-e23",
+  "at": 1789809374032
+ },
+ {
+  "id": "R2-6-split-e5-m17",
+  "at": 1789809374036,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m18",
+  "at": 1789809385470,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows the current state — notes.md as a three-link index and three section files in notes/ — with no record of the original notes.md contents (no git history or prior read), so whether every old section became its own file cannot be checked.",
+  "evidence": [
+   "ev-1-1789809374013",
+   "ev-2-1789809374013",
+   "ev-3-1789809374013",
+   "ev-4-1789809374013",
+   "ev:obs-fs-session-18-1789809281335-4:read",
+   "obs-fs-session-18-1789809281335-3",
+   "obs-fs-session-18-1789809281335-2",
+   "obs-fs-session-18-1789809281335-1"
+  ],
+  "id": "R2-6-split-e5-e24",
+  "at": 1789809385481
+ },
+ {
+  "id": "R2-6-split-e5-m19",
+  "at": 1789809385487,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-6-split-e5-m20",
+  "at": 1789809399636,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-6-split-e5-e25",
+   "goalId": "r1-R2-6-split-g",
+   "desiredEffect": "Recover the original notes.md content from version history so it can be compared against the three new section files, proving every old section became its own file.",
+   "expected": {
+    "description": "The diff shows notes.md as modified, with the removed lines carrying the original three section headings (## Onboarding, ## Releases, ## On-call) and their text, alongside the newly added notes/onboarding.md, notes/releases.md and notes/on-call.md — establishing that each old section now lives in its own file and nothing was dropped.",
+    "assertions": [
+     {
+      "path": "files",
+      "operator": "exists"
+     },
+     {
+      "path": "patch",
+      "operator": "contains",
+      "value": "notes.md"
+     },
+     {
+      "path": "patch",
+      "operator": "contains",
+      "value": "Onboarding"
+     },
+     {
+      "path": "patch",
+      "operator": "contains",
+      "value": "Releases"
+     },
+     {
+      "path": "patch",
+      "operator": "contains",
+      "value": "On-call"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the change between HEAD and the working tree, focused on notes.md and notes/",
+   "parameters": {
+    "ref": "HEAD",
+    "includePatch": true,
+    "maxPatchBytes": 65536
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809399642
+  },
+  "id": "R2-6-split-e5-e26",
+  "at": 1789809399642
+ },
+ {
+  "type": "authority.refused",
+  "report": {
+   "intentId": "observe:repo.diff",
+   "decision": "refuse",
+   "effect": {
+    "capabilityId": "repo.diff",
+    "effectClass": "read",
+    "environmentKind": "repo",
+    "resources": []
+   },
+   "rulings": [
+    {
+     "source": "protected-invariant",
+     "ruleId": "runtime:session-provider-mismatch",
+     "verdict": "deny",
+     "on": [
+      "capability=repo.diff",
+      "session=fs-session-18-1789809281335"
+     ],
+     "because": "\"repo.diff\" belongs to provider \"mobius.repo\" but the request names a session owned by \"mobius.filesystem\""
+    }
+   ],
+   "decidedBy": {
+    "source": "protected-invariant",
+    "ruleId": "runtime:session-provider-mismatch",
+    "verdict": "deny",
+    "on": [
+     "capability=repo.diff",
+     "session=fs-session-18-1789809281335"
+    ],
+    "because": "\"repo.diff\" belongs to provider \"mobius.repo\" but the request names a session owned by \"mobius.filesystem\""
+   },
+   "because": "\"repo.diff\" belongs to provider \"mobius.repo\" but the request names a session owned by \"mobius.filesystem\" [runtime:session-provider-mismatch]"
+  },
+  "id": "R2-6-split-e5-e27",
+  "at": 1789809399647
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "refused",
+  "reason": "\"repo.diff\" belongs to provider \"mobius.repo\" but the request names a session owned by \"mobius.filesystem\" [runtime:session-provider-mismatch]",
+  "id": "R2-6-split-e5-e28",
+  "at": 1789809399652
+ }
+]

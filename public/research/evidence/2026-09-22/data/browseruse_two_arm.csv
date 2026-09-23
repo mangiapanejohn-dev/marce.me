@@ -1,0 +1,26 @@
+tid,passed,A,B,nshots,instruction,crit_shape,universal
+data__qwen__handshake-career-exploration__task_h150,True,cannot-tell,cannot-tell,3,Add the city where Palantir is headquartered to your preferred locatio,STATE,False
+data__qwen__handshake-career-exploration__task_m7,True,cannot-tell,cannot-tell,3,"Add 'Boston, MA' and 'Denver, CO' to your preferred locations in caree",STATE,False
+data__qwen__handshake-career-exploration__task_h149,True,cannot-tell,cannot-tell,3,RSVP to every upcoming Workshop event on the platform. Then follow the,STATE,True
+data__qwen__paypal-my-wallet__task_m16,True,cannot-tell,established,3,Pay just the minimum amount due on PayPal Credit.,STATE,False
+data__gemini__xero-invoicing__task_h24,True,cannot-tell,cannot-tell,3,Change all active repeating invoices to use the Professional Services ,STATE,True
+data__gemini__xero-invoicing__task_e2,True,cannot-tell,established,3,Void the Sapphire Bay Resort invoice.,STATE,False
+data__qwen__superhuman-general__task_e6,True,cannot-tell,established,3,Disable read receipts.,STATE,False
+data__qwen__linear-account-settings__task_h33,True,cannot-tell,cannot-tell,3,Create a new API key with a label matching your role at the Acme Corp ,STATE,False
+data__gemini__xero-invoicing__task_e7,True,established,established,3,Delete the Horizon Media declined quote.,TRANS,False
+data__gemini__handshake-career-exploration__task_e4,True,established,established,3,Remove the Meta ML Engineer Intern from your saved jobs.,TRANS,False
+data__qwen__handshake-career-exploration__task_h103,True,cannot-tell,established,3,Your only approved upcoming appointment is with a career counselor. Sc,STATE,True
+data__kimi__linear-account-settings__task_e15,True,cannot-tell,established,3,Disable spell check.,STATE,False
+data__gemini__paypal-my-wallet__task_h1,True,established,established,3,Convert 200 euros to Japanese yen.,STATE,False
+data__gemini__gmail-accounts-and-contacts__task_m9,True,cannot-tell,established,3,Update Tom Bradley's email to 'tom@newrealty.com' and change his job t,STATE,False
+data__gemini__elation-prescriptions__task_h24,True,cannot-tell,established,3,The patient is on two blood pressure medications that should not be us,TRANS,False
+data__qwen__elation-prescriptions__task_h42,True,cannot-tell,not-established,3,Approve every pending refill request that comes from CVS. For any pend,STATE,True
+data__qwen__handshake-career-exploration__task_h156,True,cannot-tell,cannot-tell,3,The highest-paid active internship on Handshake by hourly rate is from,STATE,True
+data__gemini__paypal-my-wallet__task_h76,True,cannot-tell,established,3,Remove the confirmed bank account that was used least recently.,TRANS,True
+data__gemini__elation-clinical-records__task_h56,True,cannot-tell,cannot-tell,3,Find the only template that has a Place of Service (POS) value of '02',TRANS,True
+data__qwen__xero-invoicing__task_h51,True,cannot-tell,cannot-tell,3,Enable tax number display on every branding theme and disable payment ,TRANS,True
+data__gemini__figma-slides__task_m4,True,cannot-tell,cannot-tell,3,Add a fade-in animation to the Action Items text on the Next Steps sli,STATE,False
+data__gemini__figma-slides__task_e16,True,not-established,established,3,Remove the Brand Assets 2025 library.,STATE,False
+data__gemini__elation-prescriptions__task_e13,True,cannot-tell,established,3,Delete the custom sig 'Take 2 tablets by mouth once daily'.,TRANS,False
+data__gemini__xero-invoicing__task_h26,True,cannot-tell,established,3,Accept the Metro Fabrication factory automation quote and then create ,STATE,False
+data__kimi__figma-text-and-typography__task_m7,True,cannot-tell,established,3,Change the default font to Roboto and the default size to 14.,STATE,False

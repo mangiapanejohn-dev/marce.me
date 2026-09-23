@@ -1,0 +1,15 @@
+{"adapter": "broken-control", "logical_run_id": "broken-control:C2-R:2", "phase": 1, "process_id": 33284, "ts": 1790083962.3249788, "type": "phase.start"}
+{"logical_run_id": "broken-control:C2-R:2", "ordinal_global": 1, "process_id": 33284, "response_id": "A", "ts": 1790083962.327112, "type": "model.call"}
+{"budget_remaining_runtime_view": 2, "effect_id": "broken-control:C2-R:2:e1", "logical_run_id": "broken-control:C2-R:2", "process_id": 33284, "proposal_id": "A", "ts": 1790083962.3287601, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C2-R:2", "ordinal_global": 2, "process_id": 33284, "response_id": "B", "ts": 1790083962.329959, "type": "model.call"}
+{"budget_remaining_runtime_view": 1, "effect_id": "broken-control:C2-R:2:e2", "logical_run_id": "broken-control:C2-R:2", "process_id": 33284, "proposal_id": "B", "ts": 1790083962.331142, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C2-R:2", "process_id": 33284, "ts": 1790083962.331863, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33284, "ts": 1790083962.3320599, "type": "faultpoint.reached"}
+{"adapter": "broken-control", "logical_run_id": "broken-control:C2-R:2", "phase": 2, "process_id": 33285, "ts": 1790083962.3752909, "type": "phase.start"}
+{"logical_run_id": "broken-control:C2-R:2", "process_id": 33285, "to": 3, "ts": 1790083962.375942, "type": "budget.reset_on_resume"}
+{"logical_run_id": "broken-control:C2-R:2", "ordinal_global": 3, "process_id": 33285, "response_id": "C", "ts": 1790083962.376794, "type": "model.call"}
+{"budget_remaining_runtime_view": 2, "effect_id": "broken-control:C2-R:2:e3", "logical_run_id": "broken-control:C2-R:2", "process_id": 33285, "proposal_id": "C", "ts": 1790083962.378051, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C2-R:2", "ordinal_global": 4, "process_id": 33285, "response_id": "D", "ts": 1790083962.379223, "type": "model.call"}
+{"budget_remaining_runtime_view": 1, "effect_id": "broken-control:C2-R:2:e4", "logical_run_id": "broken-control:C2-R:2", "process_id": 33285, "proposal_id": "D", "ts": 1790083962.380363, "type": "effect.committed"}
+{"logical_run_id": "broken-control:C2-R:2", "process_id": 33285, "ts": 1790083962.381047, "type": "run.finished"}
+{"logical_run_id": "broken-control:C2-R:2", "phase": 2, "process_id": 33285, "ts": 1790083962.381218, "type": "phase.end"}

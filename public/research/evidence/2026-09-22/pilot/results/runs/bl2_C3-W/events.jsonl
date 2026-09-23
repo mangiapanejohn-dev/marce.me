@@ -1,0 +1,8 @@
+{"logical_run_id": "bl2:C3-W", "ordinal_global": 1, "process_id": 33266, "response_id": "A", "ts": 1790083946.267252, "type": "model.call"}
+{"logical_run_id": "bl2:C3-W", "process_id": 33266, "proposal_id": "A", "ts": 1790083946.267458, "type": "proposal.presented"}
+{"logical_run_id": "bl2:C3-W", "process_id": 33266, "ts": 1790083946.2679412, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33266, "ts": 1790083946.268321, "type": "faultpoint.skipped"}
+{"for_proposal_id": "A", "granted_by": "harness-operator", "logical_run_id": "bl2:C3-W", "process_id": 33266, "ts": 1790083946.2685921, "type": "approval.granted"}
+{"logical_run_id": "bl2:C3-W", "process_id": 33266, "ts": 1790083946.2700312, "type": "wait.entered"}
+{"effect_id": "bl2:C3-W:e1", "logical_run_id": "bl2:C3-W", "process_id": 33266, "proposal_id": "A", "ts": 1790083946.272005, "type": "effect.committed"}
+{"logical_run_id": "bl2:C3-W", "process_id": 33266, "ts": 1790083946.272726, "type": "run.finished"}

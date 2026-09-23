@@ -1,0 +1,1554 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T7-two-files-g",
+   "objective": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "originalRequest": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "src/greet.ts exports greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+(function\\s+greet|const\\s+greet)"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/index.ts re-exports greet from ./greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export[^;\\n]*greet[^;\\n]*from\\s*['\"]\\./greet(\\.js|\\.ts)?['\"]"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T7-two-files-e2-e1",
+  "at": 1789810452720
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789810452724
+  },
+  "id": "T7-two-files-e2-e2",
+  "at": 1789810452724
+ },
+ {
+  "id": "T7-two-files-e2-m1",
+  "at": 1789810452728,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m2",
+  "at": 1789810462399,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e3",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create the greet module file that exports a greet function returning the greeting string.",
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "src/greet.ts"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/greet.ts",
+   "parameters": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789810462403
+  },
+  "id": "T7-two-files-e2-e4",
+  "at": 1789810462403
+ },
+ {
+  "id": "T7-two-files-e2-m3",
+  "at": 1789810462407,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m4",
+  "at": 1789810470620,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "intentId": "T7-two-files-e2-e3",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "src/greet.ts"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation"
+  },
+  "id": "T7-two-files-e2-e5",
+  "at": 1789810470632
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789810470630",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/greet.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-CNNC21/ws/src/greet.ts",
+     "byteLength": 76,
+     "mtimeMs": 1789810470631,
+     "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789810470631",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 0,
+      "capturedAt": 1789810470631,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789810470631
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789810470630,
+   "completedAt": 1789810470631
+  },
+  "id": "T7-two-files-e2-e6",
+  "at": 1789810470635
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the greet module file that exports a greet function returning the greeting string.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e7",
+  "at": 1789810470640
+ },
+ {
+  "id": "T7-two-files-e2-m5",
+  "at": 1789810470644,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m6",
+  "at": 1789810477745,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-23-1789810452715-3",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "repo.search",
+   "observedAt": 1789810477761,
+   "worldRevision": 1,
+   "observationRevision": 3,
+   "semanticState": "1 match for \"greet\" across 1 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "greet",
+    "regex": false,
+    "root": ".",
+    "matches": [
+     {
+      "path": "src/greet.ts",
+      "line": 1,
+      "column": 17,
+      "lineText": "export function greet(name: string): string {",
+      "matchText": "greet",
+      "before": [],
+      "after": [
+       "  return `Hello, ${name}!`;",
+       "}",
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 1,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789810477761,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-3-1789810477761",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789810477761,
+      "source": "filesystem:search"
+     },
+     "summary": "src/greet.ts:1:17: export function greet(name: string): string {",
+     "data": {
+      "path": "src/greet.ts",
+      "line": 1,
+      "column": 17,
+      "lineText": "export function greet(name: string): string {",
+      "matchText": "greet",
+      "before": [],
+      "after": [
+       "  return `Hello, ${name}!`;",
+       "}",
+       ""
+      ],
+      "query": "greet"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "T7-two-files-e2-e8",
+  "at": 1789810477762
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789810470630",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "verdict": "undetermined",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "path",
+     "operator": "contains",
+     "reason": "\"path\" is not covered by the state examined in observation obs-fs-session-23-1789810452715-3 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-23-1789810452715-3 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-23-1789810452715-3 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789810470631",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 0,
+      "capturedAt": 1789810470631,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789810470631
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-3-1789810477761",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789810477761,
+      "source": "filesystem:search"
+     },
+     "summary": "src/greet.ts:1:17: export function greet(name: string): string {",
+     "data": {
+      "path": "src/greet.ts",
+      "line": 1,
+      "column": 17,
+      "lineText": "export function greet(name: string): string {",
+      "matchText": "greet",
+      "before": [],
+      "after": [
+       "  return `Hello, ${name}!`;",
+       "}",
+       ""
+      ],
+      "query": "greet"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789810470630:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789810477765,
+      "source": "observation:repo.search"
+     },
+     "summary": "observation obs-fs-session-23-1789810452715-3 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-23-1789810452715-3",
+   "diagnosis": {
+    "class": "InsufficientEvidence",
+    "receiptId": "receipt-2-1789810470630",
+    "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+    "cause": "the state examined does not cover path, content, content, so the effect is neither confirmed nor refuted",
+    "evidence": [
+     {
+      "id": "ev-1-1789810470631",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-23-1789810452715",
+       "sessionRevision": 0,
+       "capturedAt": 1789810470631,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "data": {
+       "path": "src/greet.ts",
+       "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+       "byteLength": 76,
+       "mtimeMs": 1789810470631
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev-3-1789810477761",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-23-1789810452715",
+       "observationId": "obs-fs-session-23-1789810452715-3",
+       "sessionRevision": 1,
+       "capturedAt": 1789810477761,
+       "source": "filesystem:search"
+      },
+      "summary": "src/greet.ts:1:17: export function greet(name: string): string {",
+      "data": {
+       "path": "src/greet.ts",
+       "line": 1,
+       "column": 17,
+       "lineText": "export function greet(name: string): string {",
+       "matchText": "greet",
+       "before": [],
+       "after": [
+        "  return `Hello, ${name}!`;",
+        "}",
+        ""
+       ],
+       "query": "greet"
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-2-1789810470630:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-23-1789810452715",
+       "observationId": "obs-fs-session-23-1789810452715-3",
+       "sessionRevision": 1,
+       "capturedAt": 1789810477765,
+       "source": "observation:repo.search"
+      },
+      "summary": "observation obs-fs-session-23-1789810452715-3 at world revision 1, taken to verify fs.write",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the question is answerable; nothing has answered it yet",
+      "expectedSuccess": 0.75,
+      "parameters": {
+       "wantPaths": [
+        "path",
+        "content",
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "a capability that observes this state directly would settle it",
+      "expectedSuccess": 0.25,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "InsufficientEvidence",
+     "disposition": "retry_after_observe",
+     "code": "verification.insufficient-evidence",
+     "format": "not enough evidence to decide whether {operation} took effect",
+     "variables": {
+      "operation": "fs.write",
+      "capabilityId": "fs.write"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789810477765
+  },
+  "id": "T7-two-files-e2-e9",
+  "at": 1789810477765
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789810477761",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789810477761,
+    "source": "filesystem:search"
+   },
+   "summary": "src/greet.ts:1:17: export function greet(name: string): string {",
+   "data": {
+    "path": "src/greet.ts",
+    "line": 1,
+    "column": 17,
+    "lineText": "export function greet(name: string): string {",
+    "matchText": "greet",
+    "before": [],
+    "after": [
+     "  return `Hello, ${name}!`;",
+     "}",
+     ""
+    ],
+    "query": "greet"
+   },
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e10",
+  "at": 1789810477769
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789810470630:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789810477765,
+    "source": "observation:repo.search"
+   },
+   "summary": "observation obs-fs-session-23-1789810452715-3 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e11",
+  "at": 1789810477773
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the greet module file that exports a greet function returning the greeting string.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789810470631",
+    "ev-3-1789810477761",
+    "ev:receipt-2-1789810470630:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e12",
+  "at": 1789810477778
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "InsufficientEvidence",
+   "receiptId": "receipt-2-1789810470630",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "cause": "the state examined does not cover path, content, content, so the effect is neither confirmed nor refuted",
+   "evidence": [
+    {
+     "id": "ev-1-1789810470631",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 0,
+      "capturedAt": 1789810470631,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789810470631
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-3-1789810477761",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789810477761,
+      "source": "filesystem:search"
+     },
+     "summary": "src/greet.ts:1:17: export function greet(name: string): string {",
+     "data": {
+      "path": "src/greet.ts",
+      "line": 1,
+      "column": 17,
+      "lineText": "export function greet(name: string): string {",
+      "matchText": "greet",
+      "before": [],
+      "after": [
+       "  return `Hello, ${name}!`;",
+       "}",
+       ""
+      ],
+      "query": "greet"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789810470630:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789810477765,
+      "source": "observation:repo.search"
+     },
+     "summary": "observation obs-fs-session-23-1789810452715-3 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the question is answerable; nothing has answered it yet",
+     "expectedSuccess": 0.75,
+     "parameters": {
+      "wantPaths": [
+       "path",
+       "content",
+       "content"
+      ]
+     }
+    },
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "a capability that observes this state directly would settle it",
+     "expectedSuccess": 0.25,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "InsufficientEvidence",
+    "disposition": "retry_after_observe",
+    "code": "verification.insufficient-evidence",
+    "format": "not enough evidence to decide whether {operation} took effect",
+    "variables": {
+     "operation": "fs.write",
+     "capabilityId": "fs.write"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "T7-two-files-e2-e13",
+  "at": 1789810477782
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the question is answerable; nothing has answered it yet",
+  "id": "T7-two-files-e2-e14",
+  "at": 1789810477787
+ },
+ {
+  "id": "T7-two-files-e2-m7",
+  "at": 1789810477792,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m8",
+  "at": 1789810495329,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e15",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create the package entry point that re-exports greet from the ./greet module.",
+   "expected": {
+    "description": "src/index.ts exists and contains a re-export of greet from './greet', so both the greet module and the entry point are in place for a content observation of src/ to confirm.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "src/index.ts"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from './greet'"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "content": "export { greet } from './greet';\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789810495334
+  },
+  "id": "T7-two-files-e2-e16",
+  "at": 1789810495334
+ },
+ {
+  "id": "T7-two-files-e2-m9",
+  "at": 1789810495339,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m10",
+  "at": 1789810503127,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e2-a-T7-two-files-e2-e15",
+   "intentId": "T7-two-files-e2-e15",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/index.ts",
+    "content": "export { greet } from './greet';\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/index.ts exists and contains a re-export of greet from './greet', so both the greet module and the entry point are in place for a content observation of src/ to confirm.",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "src/index.ts"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from './greet'"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-23-1789810452715-3",
+    "worldRevision": 1,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T7-two-files-e2-e17",
+  "at": 1789810503142
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-5-1789810503139",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e15",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/index.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-CNNC21/ws/src/index.ts",
+     "byteLength": 33,
+     "mtimeMs": 1789810503141,
+     "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "export { greet } from './greet';\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-4-1789810503141",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 1,
+      "capturedAt": 1789810503141,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+      "byteLength": 33,
+      "mtimeMs": 1789810503141
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789810503139,
+   "completedAt": 1789810503141
+  },
+  "id": "T7-two-files-e2-e18",
+  "at": 1789810503146
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e15",
+   "description": "Create the package entry point that re-exports greet from the ./greet module.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/index.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e19",
+  "at": 1789810503150
+ },
+ {
+  "id": "T7-two-files-e2-m11",
+  "at": 1789810503156,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m12",
+  "at": 1789810509379,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-23-1789810452715-6",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789810509386,
+   "worldRevision": 2,
+   "observationRevision": 6,
+   "semanticState": "directory . with 3 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-CNNC21/ws",
+    "entryCount": 3,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "src",
+      "path": "src",
+      "kind": "directory",
+      "byteLength": 128,
+      "mtimeMs": 1789810503140
+     },
+     {
+      "name": "greet.ts",
+      "path": "src/greet.ts",
+      "kind": "file",
+      "byteLength": 76,
+      "mtimeMs": 1789810470631,
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "index.ts",
+      "path": "src/index.ts",
+      "kind": "file",
+      "byteLength": 33,
+      "mtimeMs": 1789810503141,
+      "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+      "content": "export { greet } from './greet';\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-6",
+    "sessionRevision": 2,
+    "capturedAt": 1789810509386,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e20",
+  "at": 1789810509389
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-5-1789810503139",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e15",
+   "verdict": "failed",
+   "assertions": [
+    {
+     "status": "violated",
+     "path": "path",
+     "operator": "contains",
+     "expected": "src/index.ts",
+     "actual": "."
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-23-1789810452715-6 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-4-1789810503141",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 1,
+      "capturedAt": 1789810503141,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+      "byteLength": 33,
+      "mtimeMs": 1789810503141
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-5-1789810503139:2",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-6",
+      "sessionRevision": 2,
+      "capturedAt": 1789810509393,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-23-1789810452715-6 at world revision 2, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-23-1789810452715-6",
+   "diagnosis": {
+    "class": "VerificationMismatch",
+    "receiptId": "receipt-5-1789810503139",
+    "actionId": "T7-two-files-e2-a-T7-two-files-e2-e15",
+    "cause": "expected and actual disagree at path: the action reported success and the state does not show it",
+    "evidence": [
+     {
+      "id": "ev-4-1789810503141",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-23-1789810452715",
+       "sessionRevision": 1,
+       "capturedAt": 1789810503141,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/index.ts is 33 bytes with digest sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+      "data": {
+       "path": "src/index.ts",
+       "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+       "byteLength": 33,
+       "mtimeMs": 1789810503141
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-5-1789810503139:2",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-23-1789810452715",
+       "observationId": "obs-fs-session-23-1789810452715-6",
+       "sessionRevision": 2,
+       "capturedAt": 1789810509393,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-23-1789810452715-6 at world revision 2, taken to verify fs.write",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:path"
+    ],
+    "recovery": [
+     {
+      "action": "RETRY",
+      "rationale": "the operation may not have taken effect at all",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     },
+     {
+      "action": "REPLAN_FRONTIER",
+      "rationale": "the expectation itself may be wrong about this environment",
+      "expectedSuccess": 0.3,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.6,
+    "detail": {
+     "class": "VerificationMismatch",
+     "disposition": "retry_after_observe",
+     "code": "verification.mismatch",
+     "format": "expected and actual disagree after {operation}",
+     "variables": {
+      "operation": "fs.write",
+      "capabilityId": "fs.write"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789810509393
+  },
+  "id": "T7-two-files-e2-e21",
+  "at": 1789810509393
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-5-1789810503139:2",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-6",
+    "sessionRevision": 2,
+    "capturedAt": 1789810509393,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-23-1789810452715-6 at world revision 2, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e22",
+  "at": 1789810509397
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e15",
+   "description": "Create the package entry point that re-exports greet from the ./greet module.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-4-1789810503141",
+    "ev:receipt-5-1789810503139:2"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/index.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e23",
+  "at": 1789810509400
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 10,
+   "enteredAt": 1789810509404
+  },
+  "id": "T7-two-files-e2-e24",
+  "at": 1789810509404
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "VerificationMismatch",
+   "receiptId": "receipt-5-1789810503139",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e15",
+   "cause": "expected and actual disagree at path: the action reported success and the state does not show it",
+   "evidence": [
+    {
+     "id": "ev-4-1789810503141",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "sessionRevision": 1,
+      "capturedAt": 1789810503141,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/index.ts is 33 bytes with digest sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+     "data": {
+      "path": "src/index.ts",
+      "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+      "byteLength": 33,
+      "mtimeMs": 1789810503141
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-5-1789810503139:2",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-23-1789810452715",
+      "observationId": "obs-fs-session-23-1789810452715-6",
+      "sessionRevision": 2,
+      "capturedAt": 1789810509393,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-23-1789810452715-6 at world revision 2, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [
+    "expectation:path"
+   ],
+   "recovery": [
+    {
+     "action": "RETRY",
+     "rationale": "the operation may not have taken effect at all",
+     "expectedSuccess": 0.35,
+     "parameters": {}
+    },
+    {
+     "action": "REPLAN_FRONTIER",
+     "rationale": "the expectation itself may be wrong about this environment",
+     "expectedSuccess": 0.3,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.6,
+   "detail": {
+    "class": "VerificationMismatch",
+    "disposition": "retry_after_observe",
+    "code": "verification.mismatch",
+    "format": "expected and actual disagree after {operation}",
+    "variables": {
+     "operation": "fs.write",
+     "capabilityId": "fs.write"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "T7-two-files-e2-e25",
+  "at": 1789810509408
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REPLAN_FRONTIER",
+  "rationale": "the expectation itself may be wrong about this environment",
+  "id": "T7-two-files-e2-e26",
+  "at": 1789810509412
+ },
+ {
+  "id": "T7-two-files-e2-m13",
+  "at": 1789810509416,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m14",
+  "at": 1789810516507,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e27",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Read src/greet.ts directly as a single file so its content is available at the top-level `content` path for checking.",
+   "expected": {
+    "description": "src/greet.ts is a file whose content declares and exports the greet function returning the template greeting.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/greet.ts",
+   "parameters": {
+    "path": "src/greet.ts",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789810516512
+  },
+  "id": "T7-two-files-e2-e28",
+  "at": 1789810516513
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-23-1789810452715-7",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789810516518,
+   "worldRevision": 2,
+   "observationRevision": 7,
+   "semanticState": "file src/greet.ts, 76 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/greet.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-CNNC21/ws/src/greet.ts",
+    "byteLength": 76,
+    "mtimeMs": 1789810470631,
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "binary": false,
+    "inline": true,
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-7",
+    "sessionRevision": 2,
+    "capturedAt": 1789810516518,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e29",
+  "at": 1789810516519
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-23-1789810452715-7:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-7",
+    "sessionRevision": 2,
+    "capturedAt": 1789810516523,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-23-1789810452715-7 at world revision 2, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e30",
+  "at": 1789810516523
+ },
+ {
+  "id": "T7-two-files-e2-m15",
+  "at": 1789810516527,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T7-two-files-e2-m16",
+  "at": 1789810554363,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e31",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Read src/index.ts directly as a file so its content is observable at the top-level `content` path and the re-export can be verified.",
+   "expected": {
+    "description": "src/index.ts exists as a text file whose content re-exports greet from './greet'.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from './greet';"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "includeContent": true,
+    "depth": 1,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789810554369
+  },
+  "id": "T7-two-files-e2-e32",
+  "at": 1789810554370
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-23-1789810452715-8",
+   "sessionId": "fs-session-23-1789810452715",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789810554374,
+   "worldRevision": 2,
+   "observationRevision": 8,
+   "semanticState": "file src/index.ts, 33 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/index.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-CNNC21/ws/src/index.ts",
+    "byteLength": 33,
+    "mtimeMs": 1789810503141,
+    "digest": "sha256:841adf29206cff9a49bbf30c96bff7f2d098aef5d5dda77c98c2677e925f3eeb",
+    "binary": false,
+    "inline": true,
+    "content": "export { greet } from './greet';\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export { greet } from './greet';\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-8",
+    "sessionRevision": 2,
+    "capturedAt": 1789810554374,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e33",
+  "at": 1789810554376
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-23-1789810452715-8:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-23-1789810452715",
+    "observationId": "obs-fs-session-23-1789810452715-8",
+    "sessionRevision": 2,
+    "capturedAt": 1789810554379,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-23-1789810452715-8 at world revision 2, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e34",
+  "at": 1789810554379
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-23-1789810452715-7:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-23-1789810452715",
+        "observationId": "obs-fs-session-23-1789810452715-7",
+        "sessionRevision": 2,
+        "capturedAt": 1789810516523,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-23-1789810452715-7 at world revision 2, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-23-1789810452715-8:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-23-1789810452715",
+        "observationId": "obs-fs-session-23-1789810452715-8",
+        "sessionRevision": 2,
+        "capturedAt": 1789810554379,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-23-1789810452715-8 at world revision 2, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789810554383
+  },
+  "id": "T7-two-files-e2-e35",
+  "at": 1789810554383
+ }
+]

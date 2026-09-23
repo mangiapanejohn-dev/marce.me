@@ -1,0 +1,502 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T1-create-g",
+   "objective": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "originalRequest": "Create a file named notes.txt in the workspace root containing the line: hello from the mission",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "notes.txt contains the line \"hello from the mission\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T1-create-e2-e1",
+  "at": 1789809401156
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789809401160
+  },
+  "id": "T1-create-e2-e2",
+  "at": 1789809401160
+ },
+ {
+  "id": "T1-create-e2-m1",
+  "at": 1789809401164,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T1-create-e2-m2",
+  "at": 1789809412967,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T1-create-e2-e3",
+   "goalId": "r1-T1-create-g",
+   "desiredEffect": "Create notes.txt in the workspace root holding the single line \"hello from the mission\".",
+   "expected": {
+    "description": "A file notes.txt exists at the workspace root whose content is the line \"hello from the mission\".",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "notes.txt"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes.txt",
+   "parameters": {
+    "path": "notes.txt",
+    "content": "hello from the mission\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789809412974
+  },
+  "id": "T1-create-e2-e4",
+  "at": 1789809412974
+ },
+ {
+  "id": "T1-create-e2-m3",
+  "at": 1789809412992,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T1-create-e2-m4",
+  "at": 1789809420407,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T1-create-e2-a-T1-create-e2-e3",
+   "intentId": "T1-create-e2-e3",
+   "sessionId": "fs-session-1-1789809401151",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "notes.txt",
+    "content": "hello from the mission\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "A file notes.txt exists at the workspace root whose content is the line \"hello from the mission\".",
+    "assertions": [
+     {
+      "path": "path",
+      "operator": "contains",
+      "value": "notes.txt"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "hello from the mission"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation"
+  },
+  "id": "T1-create-e2-e5",
+  "at": 1789809420423
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789809420420",
+   "actionId": "T1-create-e2-a-T1-create-e2-e3",
+   "sessionId": "fs-session-1-1789809401151",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "notes.txt",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T1-create-MWQV2X/ws/notes.txt",
+     "byteLength": 23,
+     "mtimeMs": 1789809420422,
+     "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "hello from the mission\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789809420422",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789809401151",
+      "sessionRevision": 0,
+      "capturedAt": 1789809420422,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes.txt is 23 bytes with digest sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+     "data": {
+      "path": "notes.txt",
+      "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+      "byteLength": 23,
+      "mtimeMs": 1789809420422
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789809420420,
+   "completedAt": 1789809420422
+  },
+  "id": "T1-create-e2-e6",
+  "at": 1789809420426
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T1-create-e2-e3",
+   "description": "Create notes.txt in the workspace root holding the single line \"hello from the mission\".",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes.txt"
+   ]
+  },
+  "id": "T1-create-e2-e7",
+  "at": 1789809420430
+ },
+ {
+  "id": "T1-create-e2-m5",
+  "at": 1789809420437,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T1-create-e2-m6",
+  "at": 1789809428429,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789809401151-3",
+   "sessionId": "fs-session-1-1789809401151",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789809428462,
+   "worldRevision": 1,
+   "observationRevision": 3,
+   "semanticState": "file notes.txt, 23 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "notes.txt",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T1-create-MWQV2X/ws/notes.txt",
+    "byteLength": 23,
+    "mtimeMs": 1789809420422,
+    "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+    "binary": false,
+    "inline": true,
+    "content": "hello from the mission\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "hello from the mission\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789809401151",
+    "observationId": "obs-fs-session-1-1789809401151-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789809428462,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T1-create-e2-e8",
+  "at": 1789809428464
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789809420420",
+   "actionId": "T1-create-e2-a-T1-create-e2-e3",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "path",
+     "operator": "contains",
+     "expected": "notes.txt",
+     "actual": "notes.txt"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "hello from the mission",
+     "actual": "hello from the mission\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789809420422",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789809401151",
+      "sessionRevision": 0,
+      "capturedAt": 1789809420422,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "notes.txt is 23 bytes with digest sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+     "data": {
+      "path": "notes.txt",
+      "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+      "byteLength": 23,
+      "mtimeMs": 1789809420422
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789809420420:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789809401151",
+      "observationId": "obs-fs-session-1-1789809401151-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789809428475,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-1-1789809401151-3 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-1-1789809401151-3",
+   "confidence": 0.9,
+   "decidedAt": 1789809428475
+  },
+  "id": "T1-create-e2-e9",
+  "at": 1789809428475
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789809420422",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789809401151",
+    "sessionRevision": 0,
+    "capturedAt": 1789809420422,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "notes.txt is 23 bytes with digest sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+   "data": {
+    "path": "notes.txt",
+    "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+    "byteLength": 23,
+    "mtimeMs": 1789809420422
+   },
+   "artifacts": []
+  },
+  "id": "T1-create-e2-e10",
+  "at": 1789809428491
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789809420420:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789809401151",
+    "observationId": "obs-fs-session-1-1789809401151-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789809428475,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-1-1789809401151-3 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T1-create-e2-e11",
+  "at": 1789809428502
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T1-create-e2-e3",
+   "description": "Create notes.txt in the workspace root holding the single line \"hello from the mission\".",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789809420422",
+    "ev:receipt-2-1789809420420:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "notes.txt"
+   ]
+  },
+  "id": "T1-create-e2-e12",
+  "at": 1789809428506
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 6,
+   "enteredAt": 1789809428512
+  },
+  "id": "T1-create-e2-e13",
+  "at": 1789809428512
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev-1-1789809420422",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-1-1789809401151",
+        "sessionRevision": 0,
+        "capturedAt": 1789809420422,
+        "source": "filesystem:post-write-stat"
+       },
+       "summary": "notes.txt is 23 bytes with digest sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+       "data": {
+        "path": "notes.txt",
+        "digest": "sha256:703b4904e8fc32b99db067d36d903e7dd4fa7a621daa07b4935d9d4d432b7a4d",
+        "byteLength": 23,
+        "mtimeMs": 1789809420422
+       },
+       "artifacts": []
+      },
+      {
+       "id": "ev:receipt-2-1789809420420:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-1-1789809401151",
+        "observationId": "obs-fs-session-1-1789809401151-3",
+        "sessionRevision": 1,
+        "capturedAt": 1789809428475,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-1-1789809401151-3 at world revision 1, taken to verify fs.write",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789809428521
+  },
+  "id": "T1-create-e2-e14",
+  "at": 1789809428521
+ }
+]

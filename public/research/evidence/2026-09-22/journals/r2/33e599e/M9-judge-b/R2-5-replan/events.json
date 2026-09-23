@@ -1,0 +1,2132 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-5-replan-g",
+   "objective": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "originalRequest": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "the file the service reads its settings from sets replicas to 3",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-5-replan-e2-e1",
+  "at": 1789734061592
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789734061597
+  },
+  "id": "R2-5-replan-e2-e2",
+  "at": 1789734061597
+ },
+ {
+  "id": "R2-5-replan-e2-m1",
+  "at": 1789734061601,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m2",
+  "at": 1789734088162,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e3",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the README to learn where the ingest service's settings file lives",
+   "expected": {
+    "description": "The README content is returned and names the file the ingest service reads its settings from",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "(?i)ingest"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "README at the repository root",
+   "parameters": {
+    "path": "README.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734088167
+  },
+  "id": "R2-5-replan-e2-e4",
+  "at": 1789734088167
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789734061586-1",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734088176,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file README.md, 60 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "README.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/README.md",
+    "byteLength": 60,
+    "mtimeMs": 1789734061524,
+    "digest": "sha256:bcf1f5ee790ebb81a3c21c93295abc8ac98d247a199a67ff2ed73d63923aeb80",
+    "binary": false,
+    "inline": true,
+    "content": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789734088176,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e5",
+  "at": 1789734088181
+ },
+ {
+  "id": "R2-5-replan-e2-m3",
+  "at": 1789734088188,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m4",
+  "at": 1789734098243,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e6",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the contents of service.yaml, the settings file the README names, so I can see how replicas is currently expressed before changing it",
+   "expected": {
+    "description": "service.yaml exists and its text content is returned, revealing the current replicas setting and surrounding structure",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "service.yaml in the session root",
+   "parameters": {
+    "path": "service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734098248
+  },
+  "id": "R2-5-replan-e2-e7",
+  "at": 1789734098248
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789734061586-2",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734098253,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file service.yaml, 84 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "service.yaml",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/service.yaml",
+    "byteLength": 84,
+    "mtimeMs": 1789734061524,
+    "digest": "sha256:9d9ad505bca960dbafb23ccb41f634e0ad89cfed519f90b23dd7a52bbb618e80",
+    "binary": false,
+    "inline": true,
+    "content": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789734098253,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e8",
+  "at": 1789734098254
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-1-1789734061586-2:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789734098258,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-1-1789734061586-2 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e2-e9",
+  "at": 1789734098258
+ },
+ {
+  "id": "R2-5-replan-e2-m5",
+  "at": 1789734098262,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m6",
+  "at": 1789734107830,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows service.yaml stating that settings moved to config/service.yaml; the contents of that actual config file, including any replicas value, were never read.",
+  "evidence": [
+   "ev:obs-fs-session-1-1789734061586-2:read"
+  ],
+  "id": "R2-5-replan-e2-e10",
+  "at": 1789734107836
+ },
+ {
+  "id": "R2-5-replan-e2-m7",
+  "at": 1789734107840,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m8",
+  "at": 1789734119566,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e11",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the real settings file at config/service.yaml so I can see its current replicas value before editing it.",
+   "expected": {
+    "description": "The file config/service.yaml exists and its contents are returned, showing the service settings including any replicas field.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config/service.yaml",
+   "parameters": {
+    "path": "config/service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734119578
+  },
+  "id": "R2-5-replan-e2-e12",
+  "at": 1789734119578
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789734061586-3",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734119613,
+   "worldRevision": 0,
+   "observationRevision": 3,
+   "semanticState": "file config/service.yaml, 25 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config/service.yaml",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+    "byteLength": 25,
+    "mtimeMs": 1789734061524,
+    "digest": "sha256:6f25e37cf5917288798e3de6cc2e293e6b090603f44a7bbd6cfbab5cab254db1",
+    "binary": false,
+    "inline": true,
+    "content": "name: ingest\nreplicas: 2\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "name: ingest\nreplicas: 2\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789734119613,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e13",
+  "at": 1789734119618
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-1-1789734061586-3:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789734119626,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-1-1789734061586-3 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e2-e14",
+  "at": 1789734119626
+ },
+ {
+  "id": "R2-5-replan-e2-m9",
+  "at": 1789734119631,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m10",
+  "at": 1789734143987,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "not-established",
+  "because": "The only configuration evidence, config/service.yaml for the service named 'ingest', sets replicas: 2 rather than 3.",
+  "evidence": [
+   "ev:obs-fs-session-1-1789734061586-3:read"
+  ],
+  "id": "R2-5-replan-e2-e15",
+  "at": 1789734143993
+ },
+ {
+  "id": "R2-5-replan-e2-m11",
+  "at": 1789734143997,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m12",
+  "at": 1789734156734,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e16",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Change the replica count in the file the service actually reads its settings from to 3",
+   "expected": {
+    "description": "config/service.yaml — the live settings file, which the stale root service.yaml redirects to — declares replicas: 3 for the ingest service instead of 2.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "absent",
+      "value": "replicas: 2"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "name: ingest"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config/service.yaml",
+   "parameters": {
+    "path": "config/service.yaml",
+    "edits": [
+     {
+      "find": "replicas: 2",
+      "replace": "replicas: 3",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734156740
+  },
+  "id": "R2-5-replan-e2-e17",
+  "at": 1789734156741
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-5-replan-e2-a-R2-5-replan-e2-e16",
+   "intentId": "R2-5-replan-e2-e16",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "config/service.yaml",
+    "edits": [
+     {
+      "find": "replicas: 2",
+      "replace": "replicas: 3",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "config/service.yaml — the live settings file, which the stale root service.yaml redirects to — declares replicas: 3 for the ingest service instead of 2.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "absent",
+      "value": "replicas: 2"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "name: ingest"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-1-1789734061586-3",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-5-replan-e2-e18",
+  "at": 1789734156753
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789734156748",
+   "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e16",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "config/service.yaml",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+     "byteLength": 25,
+     "mtimeMs": 1789734156752,
+     "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:6f25e37cf5917288798e3de6cc2e293e6b090603f44a7bbd6cfbab5cab254db1",
+     "content": "name: ingest\nreplicas: 3\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789734156752",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "sessionRevision": 0,
+      "capturedAt": 1789734156752,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "data": {
+      "path": "config/service.yaml",
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "byteLength": 25,
+      "mtimeMs": 1789734156752
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789734156748,
+   "completedAt": 1789734156753
+  },
+  "id": "R2-5-replan-e2-e19",
+  "at": 1789734156757
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-5-replan-e2-e16",
+   "description": "Change the replica count in the file the service actually reads its settings from to 3",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config/service.yaml"
+   ]
+  },
+  "id": "R2-5-replan-e2-e20",
+  "at": 1789734156762
+ },
+ {
+  "id": "R2-5-replan-e2-m13",
+  "at": 1789734156767,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m14",
+  "at": 1789734184652,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789734061586-4",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734184666,
+   "worldRevision": 1,
+   "observationRevision": 4,
+   "semanticState": "directory . with 4 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws",
+    "entryCount": 4,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "README.md",
+      "path": "README.md",
+      "kind": "file",
+      "byteLength": 60,
+      "mtimeMs": 1789734061524,
+      "digest": "sha256:bcf1f5ee790ebb81a3c21c93295abc8ac98d247a199a67ff2ed73d63923aeb80"
+     },
+     {
+      "name": "config",
+      "path": "config",
+      "kind": "directory",
+      "byteLength": 96,
+      "mtimeMs": 1789734061524
+     },
+     {
+      "name": "service.yaml",
+      "path": "service.yaml",
+      "kind": "file",
+      "byteLength": 84,
+      "mtimeMs": 1789734061524,
+      "digest": "sha256:9d9ad505bca960dbafb23ccb41f634e0ad89cfed519f90b23dd7a52bbb618e80"
+     },
+     {
+      "name": "service.yaml",
+      "path": "config/service.yaml",
+      "kind": "file",
+      "byteLength": 25,
+      "mtimeMs": 1789734156752,
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789734061586",
+    "observationId": "obs-fs-session-1-1789734061586-4",
+    "sessionRevision": 1,
+    "capturedAt": 1789734184666,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e2-e21",
+  "at": 1789734184671
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789734156748",
+   "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e16",
+   "verdict": "undetermined",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-1-1789734061586-4 structured state"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "absent",
+     "expected": "replicas: 2"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-1-1789734061586-4 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "changed",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-1-1789734061586-4 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789734156752",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "sessionRevision": 0,
+      "capturedAt": 1789734156752,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "data": {
+      "path": "config/service.yaml",
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "byteLength": 25,
+      "mtimeMs": 1789734156752
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789734156748:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "observationId": "obs-fs-session-1-1789734061586-4",
+      "sessionRevision": 1,
+      "capturedAt": 1789734184675,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-1-1789734061586-4 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-1-1789734061586-4",
+   "diagnosis": {
+    "class": "InsufficientEvidence",
+    "receiptId": "receipt-2-1789734156748",
+    "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e16",
+    "cause": "the state examined does not cover content, content, content, so the effect is neither confirmed nor refuted",
+    "evidence": [
+     {
+      "id": "ev-1-1789734156752",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-1-1789734061586",
+       "sessionRevision": 0,
+       "capturedAt": 1789734156752,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "data": {
+       "path": "config/service.yaml",
+       "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+       "byteLength": 25,
+       "mtimeMs": 1789734156752
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-2-1789734156748:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-1-1789734061586",
+       "observationId": "obs-fs-session-1-1789734061586-4",
+       "sessionRevision": 1,
+       "capturedAt": 1789734184675,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-1-1789734061586-4 at world revision 1, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the question is answerable; nothing has answered it yet",
+      "expectedSuccess": 0.75,
+      "parameters": {
+       "wantPaths": [
+        "content",
+        "content",
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "a capability that observes this state directly would settle it",
+      "expectedSuccess": 0.25,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "InsufficientEvidence",
+     "disposition": "retry_after_observe",
+     "code": "verification.insufficient-evidence",
+     "format": "not enough evidence to decide whether {operation} took effect",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789734184676
+  },
+  "id": "R2-5-replan-e2-e22",
+  "at": 1789734184676
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-5-replan-e2-e16",
+   "description": "Change the replica count in the file the service actually reads its settings from to 3",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789734156752",
+    "ev:receipt-2-1789734156748:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config/service.yaml"
+   ]
+  },
+  "id": "R2-5-replan-e2-e23",
+  "at": 1789734184682
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "InsufficientEvidence",
+   "receiptId": "receipt-2-1789734156748",
+   "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e16",
+   "cause": "the state examined does not cover content, content, content, so the effect is neither confirmed nor refuted",
+   "evidence": [
+    {
+     "id": "ev-1-1789734156752",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "sessionRevision": 0,
+      "capturedAt": 1789734156752,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "data": {
+      "path": "config/service.yaml",
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "byteLength": 25,
+      "mtimeMs": 1789734156752
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789734156748:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "observationId": "obs-fs-session-1-1789734061586-4",
+      "sessionRevision": 1,
+      "capturedAt": 1789734184675,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-1-1789734061586-4 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the question is answerable; nothing has answered it yet",
+     "expectedSuccess": 0.75,
+     "parameters": {
+      "wantPaths": [
+       "content",
+       "content",
+       "content"
+      ]
+     }
+    },
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "a capability that observes this state directly would settle it",
+     "expectedSuccess": 0.25,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "InsufficientEvidence",
+    "disposition": "retry_after_observe",
+    "code": "verification.insufficient-evidence",
+    "format": "not enough evidence to decide whether {operation} took effect",
+    "variables": {
+     "operation": "fs.patch",
+     "capabilityId": "fs.patch"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "R2-5-replan-e2-e24",
+  "at": 1789734184687
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the question is answerable; nothing has answered it yet",
+  "id": "R2-5-replan-e2-e25",
+  "at": 1789734184691
+ },
+ {
+  "id": "R2-5-replan-e2-m15",
+  "at": 1789734184695,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m16",
+  "at": 1789734210937,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e26",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Make the file the ingest service actually reads its settings from (config/service.yaml, per the note in the stale root service.yaml) declare replicas: 3, writing the full intended content so the result is unambiguous and self-verifying.",
+   "expected": {
+    "description": "config/service.yaml exists and contains exactly 'name: ingest' and 'replicas: 3', with no remaining 'replicas: 2'. The root service.yaml is explicitly no longer read, so it is deliberately left untouched.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "config/service.yaml"
+     },
+     {
+      "path": "digest",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config/service.yaml — the live settings file for the ingest service",
+   "parameters": {
+    "path": "config/service.yaml",
+    "content": "name: ingest\nreplicas: 3\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734210947
+  },
+  "id": "R2-5-replan-e2-e27",
+  "at": 1789734210947
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-5-replan-e2-a-R2-5-replan-e2-e26",
+   "intentId": "R2-5-replan-e2-e26",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "config/service.yaml",
+    "content": "name: ingest\nreplicas: 3\n",
+    "encoding": "utf8",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "config/service.yaml exists and contains exactly 'name: ingest' and 'replicas: 3', with no remaining 'replicas: 2'. The root service.yaml is explicitly no longer read, so it is deliberately left untouched.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "config/service.yaml"
+     },
+     {
+      "path": "digest",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-1-1789734061586-4",
+    "worldRevision": 1,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-5-replan-e2-e28",
+  "at": 1789734210956
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-4-1789734210954",
+   "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e26",
+   "sessionId": "fs-session-1-1789734061586",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "config/service.yaml",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+     "byteLength": 25,
+     "mtimeMs": 1789734210956,
+     "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "content": "name: ingest\nreplicas: 3\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-3-1789734210956",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "sessionRevision": 1,
+      "capturedAt": 1789734210956,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "data": {
+      "path": "config/service.yaml",
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "byteLength": 25,
+      "mtimeMs": 1789734210956
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789734210954,
+   "completedAt": 1789734210956
+  },
+  "id": "R2-5-replan-e2-e29",
+  "at": 1789734210961
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-5-replan-e2-e26",
+   "description": "Make the file the ingest service actually reads its settings from (config/service.yaml, per the note in the stale root service.yaml) declare replicas: 3, writing the full intended content so the result is unambiguous and self-verifying.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "config/service.yaml"
+   ]
+  },
+  "id": "R2-5-replan-e2-e30",
+  "at": 1789734210965
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-4-1789734210954",
+   "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e26",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "replicas: 3",
+     "actual": "name: ingest\nreplicas: 3\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "name: ingest\nreplicas: 3\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "path",
+     "operator": "equals",
+     "expected": "config/service.yaml",
+     "actual": "config/service.yaml"
+    },
+    {
+     "status": "satisfied",
+     "path": "digest",
+     "operator": "exists",
+     "actual": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-3-1789734210956",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789734061586",
+      "sessionRevision": 1,
+      "capturedAt": 1789734210956,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+     "data": {
+      "path": "config/service.yaml",
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "byteLength": 25,
+      "mtimeMs": 1789734210956
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-4-1789734210954:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-1-1789734061586",
+      "capturedAt": 1789734210974,
+      "source": "result:fs.write"
+     },
+     "summary": "the provider result for fs.write decided 4 of 4 assertion(s)",
+     "data": {
+      "path": "config/service.yaml",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+      "byteLength": 25,
+      "mtimeMs": 1789734210956,
+      "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": false,
+      "encoding": "utf8",
+      "content": "name: ingest\nreplicas: 3\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-4-1789734210954",
+    "actionId": "R2-5-replan-e2-a-R2-5-replan-e2-e26",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-3-1789734210956",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-1-1789734061586",
+       "sessionRevision": 1,
+       "capturedAt": 1789734210956,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "config/service.yaml is 25 bytes with digest sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+      "data": {
+       "path": "config/service.yaml",
+       "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+       "byteLength": 25,
+       "mtimeMs": 1789734210956
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-4-1789734210954:2",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-1-1789734061586",
+       "capturedAt": 1789734210974,
+       "source": "result:fs.write"
+      },
+      "summary": "the provider result for fs.write decided 4 of 4 assertion(s)",
+      "data": {
+       "path": "config/service.yaml",
+       "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+       "byteLength": 25,
+       "mtimeMs": 1789734210956,
+       "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+       "binary": false,
+       "inline": true,
+       "exists": true,
+       "created": false,
+       "encoding": "utf8",
+       "content": "name: ingest\nreplicas: 3\n"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.write",
+      "capabilityId": "fs.write"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.75,
+   "decidedAt": 1789734210974
+  },
+  "id": "R2-5-replan-e2-e31",
+  "at": 1789734210974
+ },
+ {
+  "id": "R2-5-replan-e2-m17",
+  "at": 1789734210979,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e2-m18",
+  "at": 1789734237675,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e2-e32",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read back config/service.yaml fresh from disk so the current replica setting is observed directly rather than from a possibly stale earlier read.",
+   "expected": {
+    "description": "config/service.yaml exists and its current content declares the ingest service with replicas: 3, no longer 2.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "name: ingest"
+     },
+     {
+      "path": "content",
+      "operator": "absent",
+      "value": "replicas: 2"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config/service.yaml, the file the ingest service actually reads its settings from",
+   "parameters": {
+    "path": "config/service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734237683
+  },
+  "id": "R2-5-replan-e2-e33",
+  "at": 1789734237683
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "R2-5-replan-e2-e34",
+  "at": 1789734237687
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-5-replan-g",
+   "objective": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "originalRequest": "Set the ingest service to run 3 replicas. The README says where its settings live.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "the file the service reads its settings from sets replicas to 3",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-5-replan-e5-e1",
+  "at": 1789734237761
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789734237765
+  },
+  "id": "R2-5-replan-e5-e2",
+  "at": 1789734237765
+ },
+ {
+  "id": "R2-5-replan-e5-m1",
+  "at": 1789734237768,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m2",
+  "at": 1789734252579,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e5-e3",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the README at the project root to learn which file the ingest service reads its settings from",
+   "expected": {
+    "description": "The README content is returned and names the configuration file the ingest service reads its settings from",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "(?i)ingest"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "README at the session root",
+   "parameters": {
+    "path": "README.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734252584
+  },
+  "id": "R2-5-replan-e5-e4",
+  "at": 1789734252584
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789734237755-1",
+   "sessionId": "fs-session-2-1789734237755",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734252588,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file README.md, 60 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "README.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/README.md",
+    "byteLength": 60,
+    "mtimeMs": 1789734061524,
+    "digest": "sha256:bcf1f5ee790ebb81a3c21c93295abc8ac98d247a199a67ff2ed73d63923aeb80",
+    "binary": false,
+    "inline": true,
+    "content": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# ingest\n\nThe service reads its settings from service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789734252588,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e5-e5",
+  "at": 1789734252589
+ },
+ {
+  "id": "R2-5-replan-e5-m3",
+  "at": 1789734252593,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m4",
+  "at": 1789734273379,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e5-e6",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the contents of service.yaml so I can see how replicas is currently set before changing it",
+   "expected": {
+    "description": "service.yaml is read back as text, revealing its current settings including any replicas field",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "service.yaml in the session root",
+   "parameters": {
+    "path": "service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734273385
+  },
+  "id": "R2-5-replan-e5-e7",
+  "at": 1789734273385
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789734237755-2",
+   "sessionId": "fs-session-2-1789734237755",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734273388,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file service.yaml, 84 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "service.yaml",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/service.yaml",
+    "byteLength": 84,
+    "mtimeMs": 1789734061524,
+    "digest": "sha256:9d9ad505bca960dbafb23ccb41f634e0ad89cfed519f90b23dd7a52bbb618e80",
+    "binary": false,
+    "inline": true,
+    "content": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# This file is no longer read. The service's settings moved to config/service.yaml.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789734273388,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e5-e8",
+  "at": 1789734273389
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789734237755-2:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789734273393,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789734237755-2 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e5-e9",
+  "at": 1789734273393
+ },
+ {
+  "id": "R2-5-replan-e5-m5",
+  "at": 1789734273397,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m6",
+  "at": 1789734294339,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows service.yaml stating settings moved to config/service.yaml; the contents of that actual config file, including any replicas value, were never read.",
+  "evidence": [
+   "ev:obs-fs-session-2-1789734237755-2:read"
+  ],
+  "id": "R2-5-replan-e5-e10",
+  "at": 1789734294345
+ },
+ {
+  "id": "R2-5-replan-e5-m7",
+  "at": 1789734294349,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m8",
+  "at": 1789734332850,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e5-e11",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Read the real settings file at config/service.yaml so I can see its current replicas value before editing it.",
+   "expected": {
+    "description": "config/service.yaml exists and its text content is returned, revealing whether a replicas setting is present and what value it holds.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config/service.yaml",
+   "parameters": {
+    "path": "config/service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734332854
+  },
+  "id": "R2-5-replan-e5-e12",
+  "at": 1789734332854
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789734237755-3",
+   "sessionId": "fs-session-2-1789734237755",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789734332859,
+   "worldRevision": 0,
+   "observationRevision": 3,
+   "semanticState": "file config/service.yaml, 25 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config/service.yaml",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-5-replan-7Noiqc/ws/config/service.yaml",
+    "byteLength": 25,
+    "mtimeMs": 1789734210956,
+    "digest": "sha256:1251b66fef3b566613ccf0525d604900c3196c1c811cb5e0b9adb13b58ec28bf",
+    "binary": false,
+    "inline": true,
+    "content": "name: ingest\nreplicas: 3\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "name: ingest\nreplicas: 3\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789734332859,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-5-replan-e5-e13",
+  "at": 1789734332860
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789734237755-3:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789734332864,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789734237755-3 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e5-e14",
+  "at": 1789734332865
+ },
+ {
+  "id": "R2-5-replan-e5-m9",
+  "at": 1789734332868,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m10",
+  "at": 1789734347097,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence shows config/service.yaml contains replicas: 3, but nothing in it establishes that config/service.yaml is the file the service actually reads its settings from.",
+  "evidence": [
+   "ev:obs-fs-session-2-1789734237755-3:read"
+  ],
+  "id": "R2-5-replan-e5-e15",
+  "at": 1789734347102
+ },
+ {
+  "id": "R2-5-replan-e5-m11",
+  "at": 1789734347106,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m12",
+  "at": 1789734382445,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e5-e16",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Find every reference to a settings file anywhere in the project, so the chain from the README's pointer to the file actually read is established by evidence rather than assumed.",
+   "expected": {
+    "description": "The search returns the cited occurrences of 'service.yaml' across the project, including the README's pointer, the redirect note inside the top-level service.yaml declaring that settings moved to config/service.yaml, and any source or manifest file that loads a settings path — together showing which file the ingest service actually reads.",
+    "assertions": [
+     {
+      "path": "matches",
+      "operator": "exists"
+     },
+     {
+      "path": "matches",
+      "operator": "contains",
+      "value": "config/service.yaml"
+     },
+     {
+      "path": "matches",
+      "operator": "contains",
+      "value": "README.md"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "all files under the session root mentioning service.yaml",
+   "parameters": {
+    "query": "service\\.yaml",
+    "regex": true,
+    "ignoreCase": true,
+    "path": ".",
+    "contextLines": 3,
+    "maxResults": 200
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734382453
+  },
+  "id": "R2-5-replan-e5-e17",
+  "at": 1789734382453
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789734237755-4",
+   "sessionId": "fs-session-2-1789734237755",
+   "capabilityId": "repo.search",
+   "observedAt": 1789734382462,
+   "worldRevision": 0,
+   "observationRevision": 4,
+   "semanticState": "2 matches for \"service\\\\.yaml\" across 3 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "service\\.yaml",
+    "regex": true,
+    "root": ".",
+    "matches": [
+     {
+      "path": "README.md",
+      "line": 3,
+      "column": 37,
+      "lineText": "The service reads its settings from service.yaml.",
+      "matchText": "service.yaml",
+      "before": [
+       "# ingest",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "service.yaml",
+      "line": 1,
+      "column": 71,
+      "lineText": "# This file is no longer read. The service's settings moved to config/service.yaml.",
+      "matchText": "service.yaml",
+      "before": [],
+      "after": [
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 3,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789734382462,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-1-1789734382462",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789734237755",
+      "observationId": "obs-fs-session-2-1789734237755-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789734382462,
+      "source": "filesystem:search"
+     },
+     "summary": "README.md:3:37: The service reads its settings from service.yaml.",
+     "data": {
+      "path": "README.md",
+      "line": 3,
+      "column": 37,
+      "lineText": "The service reads its settings from service.yaml.",
+      "matchText": "service.yaml",
+      "before": [
+       "# ingest",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "service\\.yaml"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-2-1789734382462",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789734237755",
+      "observationId": "obs-fs-session-2-1789734237755-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789734382462,
+      "source": "filesystem:search"
+     },
+     "summary": "service.yaml:1:71: # This file is no longer read. The service's settings moved to config/service.yaml.",
+     "data": {
+      "path": "service.yaml",
+      "line": 1,
+      "column": 71,
+      "lineText": "# This file is no longer read. The service's settings moved to config/service.yaml.",
+      "matchText": "service.yaml",
+      "before": [],
+      "after": [
+       ""
+      ],
+      "query": "service\\.yaml"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-5-replan-e5-e18",
+  "at": 1789734382466
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789734382462",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789734382462,
+    "source": "filesystem:search"
+   },
+   "summary": "README.md:3:37: The service reads its settings from service.yaml.",
+   "data": {
+    "path": "README.md",
+    "line": 3,
+    "column": 37,
+    "lineText": "The service reads its settings from service.yaml.",
+    "matchText": "service.yaml",
+    "before": [
+     "# ingest",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "service\\.yaml"
+   },
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e5-e19",
+  "at": 1789734382469
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789734382462",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789734237755",
+    "observationId": "obs-fs-session-2-1789734237755-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789734382462,
+    "source": "filesystem:search"
+   },
+   "summary": "service.yaml:1:71: # This file is no longer read. The service's settings moved to config/service.yaml.",
+   "data": {
+    "path": "service.yaml",
+    "line": 1,
+    "column": 71,
+    "lineText": "# This file is no longer read. The service's settings moved to config/service.yaml.",
+    "matchText": "service.yaml",
+    "before": [],
+    "after": [
+     ""
+    ],
+    "query": "service\\.yaml"
+   },
+   "artifacts": []
+  },
+  "id": "R2-5-replan-e5-e20",
+  "at": 1789734382473
+ },
+ {
+  "id": "R2-5-replan-e5-m13",
+  "at": 1789734382476,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m14",
+  "at": 1789734398883,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The search only reveals that the real settings file is config/service.yaml (the root service.yaml is stale) and shows no contents of config/service.yaml, so the replicas value is not covered by the evidence.",
+  "evidence": [
+   "ev-1-1789734382462",
+   "ev-2-1789734382462"
+  ],
+  "id": "R2-5-replan-e5-e21",
+  "at": 1789734398891
+ },
+ {
+  "id": "R2-5-replan-e5-m15",
+  "at": 1789734398896,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-5-replan-e5-m16",
+  "at": 1789734416876,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-5-replan-e5-e22",
+   "goalId": "r1-R2-5-replan-g",
+   "desiredEffect": "Confirm directly that config/service.yaml — the file the ingest service actually reads, per the pointer in the stale root service.yaml — sets replicas to 3.",
+   "expected": {
+    "description": "Reading config/service.yaml returns its full text, which declares the ingest service with replicas set to 3, supplying the direct content evidence the judge found missing.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "replicas: 3"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "name: ingest"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config/service.yaml",
+   "parameters": {
+    "path": "config/service.yaml",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789734416882
+  },
+  "id": "R2-5-replan-e5-e23",
+  "at": 1789734416882
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "R2-5-replan-e5-e24",
+  "at": 1789734416889
+ }
+]

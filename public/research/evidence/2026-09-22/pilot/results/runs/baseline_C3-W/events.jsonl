@@ -1,0 +1,6 @@
+{"adapter": "langgraph", "logical_run_id": "bl:C3-W", "phase": 1, "process_id": 33240, "ts": 1790083920.825788, "type": "phase.start"}
+{"logical_run_id": "bl:C3-W", "ordinal_global": 1, "process_id": 33240, "response_id": "A", "ts": 1790083920.832217, "type": "model.call"}
+{"logical_run_id": "bl:C3-W", "process_id": 33240, "proposal_id": "A", "ts": 1790083920.832427, "type": "proposal.presented"}
+{"logical_run_id": "bl:C3-W", "process_id": 33240, "ts": 1790083920.833091, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33240, "ts": 1790083920.833546, "type": "faultpoint.skipped"}
+{"logical_run_id": "bl:C3-W", "phase": 1, "process_id": 33240, "ts": 1790083920.83374, "type": "phase.end"}

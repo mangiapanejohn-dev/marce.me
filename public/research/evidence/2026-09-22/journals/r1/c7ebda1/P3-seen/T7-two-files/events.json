@@ -1,0 +1,955 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T7-two-files-g",
+   "objective": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "originalRequest": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "src/greet.ts exports greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+(function\\s+greet|const\\s+greet)"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/index.ts re-exports greet from ./greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export[^;\\n]*greet[^;\\n]*from\\s*['\"]\\./greet(\\.js|\\.ts)?['\"]"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T7-two-files-e2-e1",
+  "at": 1789386758552
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789386758556
+  },
+  "id": "T7-two-files-e2-e2",
+  "at": 1789386758556
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e3",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string that returns `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/greet.ts",
+   "parameters": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386767460
+  },
+  "id": "T7-two-files-e2-e4",
+  "at": 1789386767460
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "intentId": "T7-two-files-e2-e3",
+   "sessionId": "fs-session-10-1789386758547",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/greet.ts exists and exports a function greet(name: string): string that returns `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation"
+  },
+  "id": "T7-two-files-e2-e5",
+  "at": 1789386774600
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789386774597",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "sessionId": "fs-session-10-1789386758547",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/greet.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-9LO00X/ws/src/greet.ts",
+     "byteLength": 76,
+     "mtimeMs": 1789386774599,
+     "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": true,
+     "encoding": "utf8",
+     "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789386774599",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-10-1789386758547",
+      "sessionRevision": 0,
+      "capturedAt": 1789386774599,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789386774599
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789386774597,
+   "completedAt": 1789386774600
+  },
+  "id": "T7-two-files-e2-e6",
+  "at": 1789386774610
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e7",
+  "at": 1789386774619
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-10-1789386758547-2",
+   "sessionId": "fs-session-10-1789386758547",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789386781765,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file src/greet.ts, 76 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/greet.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-9LO00X/ws/src/greet.ts",
+    "byteLength": 76,
+    "mtimeMs": 1789386774599,
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "binary": false,
+    "inline": true,
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-10-1789386758547",
+    "observationId": "obs-fs-session-10-1789386758547-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789386781765,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e2-e8",
+  "at": 1789386781766
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789386774597",
+   "actionId": "T7-two-files-e2-a-T7-two-files-e2-e3",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "export function greet(name: string): string",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "return `Hello, ${name}!`;",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789386774599",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-10-1789386758547",
+      "sessionRevision": 0,
+      "capturedAt": 1789386774599,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789386774599
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789386774597:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-10-1789386758547",
+      "observationId": "obs-fs-session-10-1789386758547-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789386781772,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-10-1789386758547-2 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-10-1789386758547-2",
+   "confidence": 0.9,
+   "decidedAt": 1789386781772
+  },
+  "id": "T7-two-files-e2-e9",
+  "at": 1789386781772
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789386774599",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-10-1789386758547",
+    "sessionRevision": 0,
+    "capturedAt": 1789386774599,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+   "data": {
+    "path": "src/greet.ts",
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "byteLength": 76,
+    "mtimeMs": 1789386774599
+   },
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e10",
+  "at": 1789386781779
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789386774597:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-10-1789386758547",
+    "observationId": "obs-fs-session-10-1789386758547-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789386781772,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-10-1789386758547-2 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e2-e11",
+  "at": 1789386781782
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e2-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789386774599",
+    "ev:receipt-2-1789386774597:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e2-e12",
+  "at": 1789386781786
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e2-e13",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create src/index.ts so that it re-exports greet from ./greet.",
+   "expected": {
+    "description": "src/index.ts exists and its content re-exports greet from ./greet.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from \"./greet\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "content": "export { greet } from \"./greet\";\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:T7-two-files-e2-e3",
+     "because": "The re-export points at src/greet.ts, so that file must exist and export greet first."
+    }
+   ],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789386790929
+  },
+  "id": "T7-two-files-e2-e14",
+  "at": 1789386790931
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "intent could not be compiled for the selected route fs.mkdir: invalid-args — content: not declared, and additionalProperties is false; createParents: not declared, and additionalProperties is false; overwrite: not declared, and additionalProperties is false",
+  "id": "T7-two-files-e2-e15",
+  "at": 1789386790937
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T7-two-files-g",
+   "objective": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "originalRequest": "Create src/greet.ts exporting a function greet(name: string): string that returns `Hello, ${name}!`, and create src/index.ts that re-exports greet from ./greet.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "src/greet.ts exports greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+(function\\s+greet|const\\s+greet)"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/index.ts re-exports greet from ./greet",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export[^;\\n]*greet[^;\\n]*from\\s*['\"]\\./greet(\\.js|\\.ts)?['\"]"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T7-two-files-e5-e1",
+  "at": 1789386791026
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789386791029
+  },
+  "id": "T7-two-files-e5-e2",
+  "at": 1789386791029
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e5-e3",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "expected": {
+    "description": "src/greet.ts exists and exports greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/greet.ts",
+   "parameters": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789386801826
+  },
+  "id": "T7-two-files-e5-e4",
+  "at": 1789386801827
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-11-1789386791022-1",
+   "sessionId": "fs-session-11-1789386791022",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789386811328,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file src/greet.ts, 76 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/greet.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-9LO00X/ws/src/greet.ts",
+    "byteLength": 76,
+    "mtimeMs": 1789386774599,
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "binary": false,
+    "inline": true,
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789386791022",
+    "observationId": "obs-fs-session-11-1789386791022-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789386811328,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e5-e5",
+  "at": 1789386811330
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T7-two-files-e5-a-T7-two-files-e5-e3",
+   "intentId": "T7-two-files-e5-e3",
+   "sessionId": "fs-session-11-1789386791022",
+   "capabilityId": "fs.write",
+   "operation": "fs.write",
+   "args": {
+    "path": "src/greet.ts",
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "expected": {
+    "description": "src/greet.ts exists and exports greet(name: string): string returning `Hello, ${name}!`.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export function greet(name: string): string"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "return `Hello, ${name}!`;"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-11-1789386791022-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T7-two-files-e5-e6",
+  "at": 1789386811337
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789386811335",
+   "actionId": "T7-two-files-e5-a-T7-two-files-e5-e3",
+   "sessionId": "fs-session-11-1789386791022",
+   "capabilityId": "fs.write",
+   "attemptedOperation": "fs.write",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/greet.ts",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-9LO00X/ws/src/greet.ts",
+     "byteLength": 76,
+     "mtimeMs": 1789386811337,
+     "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789386811336",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789386791022",
+      "sessionRevision": 0,
+      "capturedAt": 1789386811336,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789386811337
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789386811335,
+   "completedAt": 1789386811336
+  },
+  "id": "T7-two-files-e5-e7",
+  "at": 1789386811341
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e5-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e5-e8",
+  "at": 1789386811345
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-11-1789386791022-2",
+   "sessionId": "fs-session-11-1789386791022",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789386819964,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file src/greet.ts, 76 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/greet.ts",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T7-two-files-9LO00X/ws/src/greet.ts",
+    "byteLength": 76,
+    "mtimeMs": 1789386811337,
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "binary": false,
+    "inline": true,
+    "content": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789386791022",
+    "observationId": "obs-fs-session-11-1789386791022-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789386819964,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T7-two-files-e5-e9",
+  "at": 1789386819965
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789386811335",
+   "actionId": "T7-two-files-e5-a-T7-two-files-e5-e3",
+   "verdict": "verified",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "export function greet(name: string): string",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "return `Hello, ${name}!`;",
+     "actual": "export function greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789386811336",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789386791022",
+      "sessionRevision": 0,
+      "capturedAt": 1789386811336,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+     "data": {
+      "path": "src/greet.ts",
+      "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+      "byteLength": 76,
+      "mtimeMs": 1789386811337
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789386811335:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-11-1789386791022",
+      "observationId": "obs-fs-session-11-1789386791022-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789386819972,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-11-1789386791022-2 at world revision 1, taken to verify fs.write",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-11-1789386791022-2",
+   "confidence": 0.9,
+   "decidedAt": 1789386819972
+  },
+  "id": "T7-two-files-e5-e10",
+  "at": 1789386819972
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789386811336",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789386791022",
+    "sessionRevision": 0,
+    "capturedAt": 1789386811336,
+    "source": "filesystem:post-write-stat"
+   },
+   "summary": "src/greet.ts is 76 bytes with digest sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+   "data": {
+    "path": "src/greet.ts",
+    "digest": "sha256:ddadb22209a4466c1f4c6075e56c0317cfe9a29fed48c6dacdb3241447368efc",
+    "byteLength": 76,
+    "mtimeMs": 1789386811337
+   },
+   "artifacts": []
+  },
+  "id": "T7-two-files-e5-e11",
+  "at": 1789386819977
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789386811335:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-11-1789386791022",
+    "observationId": "obs-fs-session-11-1789386791022-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789386819972,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-11-1789386791022-2 at world revision 1, taken to verify fs.write",
+   "artifacts": []
+  },
+  "id": "T7-two-files-e5-e12",
+  "at": 1789386819980
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T7-two-files-e5-e3",
+   "description": "Create the file src/greet.ts containing an exported greet function that returns a greeting for the given name.",
+   "status": "verified",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev-1-1789386811336",
+    "ev:receipt-2-1789386811335:1"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/greet.ts"
+   ]
+  },
+  "id": "T7-two-files-e5-e13",
+  "at": 1789386819985
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T7-two-files-e5-e14",
+   "goalId": "r1-T7-two-files-g",
+   "desiredEffect": "Create src/index.ts so that it re-exports greet from ./greet.",
+   "expected": {
+    "description": "src/index.ts exists and contains a re-export of greet from ./greet.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export { greet } from './greet';"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/index.ts",
+   "parameters": {
+    "path": "src/index.ts",
+    "content": "export { greet } from './greet';\n",
+    "createParents": true,
+    "overwrite": true
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:T7-two-files-e5-e3",
+     "because": "The re-export in src/index.ts is only valid once src/greet.ts exists and exports greet."
+    }
+   ],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789386830743
+  },
+  "id": "T7-two-files-e5-e15",
+  "at": 1789386830743
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "intent could not be compiled for the selected route fs.mkdir: invalid-args — content: not declared, and additionalProperties is false; createParents: not declared, and additionalProperties is false; overwrite: not declared, and additionalProperties is false",
+  "id": "T7-two-files-e5-e16",
+  "at": 1789386830748
+ }
+]

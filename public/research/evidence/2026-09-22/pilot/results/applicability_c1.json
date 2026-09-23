@@ -1,0 +1,24 @@
+[
+ {
+  "runtime": "openai-agents",
+  "version": "0.22.3",
+  "supports_human_approval_boundary": true,
+  "supports_post_approval_revalidation_seam": true,
+  "supported_resume_api": "RunResult.to_state() -> RunState.approve(item) -> Runner.run(agent, state)",
+  "declared_contract": "ToolExecutionConfig.pre_approval_tool_input_guardrails docstring: 'The same guardrails still run again immediately before tool execution after approval.'",
+  "persistence_backend": "RunState (in-process for round 1; no crash injected)",
+  "evidence": "SDK source: agents/run_config.py ToolExecutionConfig; agents/run_internal/tool_execution.py:2024 runs tool input guardrails unconditionally in _execute_single_tool_body, reached only once approval is True",
+  "verdict": "applicable"
+ },
+ {
+  "runtime": "pydantic-ai",
+  "version": "2.47.0",
+  "supports_human_approval_boundary": true,
+  "supports_post_approval_revalidation_seam": true,
+  "supported_resume_api": "Agent.run(message_history=..., deferred_tool_results=DeferredToolResults(approvals={call_id: ToolApproved()}))",
+  "declared_contract": "Tool(args_validator=...) docstring: 'validate tool arguments after schema validation has passed, before execution'; RunContext.tool_call_approved: 'Whether a tool call that required approval has now been approved.'",
+  "persistence_backend": "message_history (in-process for round 1; no crash injected)",
+  "evidence": "library source: pydantic_ai/tools.py args_validator; pydantic_ai/_run_context.py:192 tool_call_approved; pydantic_ai/tool_manager.py:349 sets tool_call_approved=approved",
+  "verdict": "applicable"
+ }
+]

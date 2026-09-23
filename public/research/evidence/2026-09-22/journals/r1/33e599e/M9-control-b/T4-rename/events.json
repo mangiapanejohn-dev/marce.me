@@ -1,0 +1,1835 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T4-rename-g",
+   "objective": "Rename notes.txt in the workspace root to archive.txt.",
+   "originalRequest": "Rename notes.txt in the workspace root to archive.txt.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T4-rename-e2-e1",
+  "at": 1789735110760
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789735110764
+  },
+  "id": "T4-rename-e2-e2",
+  "at": 1789735110765
+ },
+ {
+  "id": "T4-rename-e2-m1",
+  "at": 1789735110766,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m2",
+  "at": 1789735122997,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e2-e3",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Rename the workspace-root file notes.txt to archive.txt, preserving its content.",
+   "expected": {
+    "description": "After the move, archive.txt exists in the workspace root holding the former content of notes.txt, and notes.txt is gone.",
+    "assertions": [
+     {
+      "path": "to",
+      "operator": "contains",
+      "value": "archive.txt"
+     },
+     {
+      "path": "moved",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes.txt in the workspace root",
+   "parameters": {
+    "from": "notes.txt",
+    "to": "archive.txt",
+    "overwrite": false
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735123001
+  },
+  "id": "T4-rename-e2-e4",
+  "at": 1789735123002
+ },
+ {
+  "id": "T4-rename-e2-m3",
+  "at": 1789735123007,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m4",
+  "at": 1789735137286,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-4-1789735110753-1",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735137290,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "directory . with 1 entry",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws",
+    "entryCount": 1,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "notes.txt",
+      "path": "notes.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789735110753",
+    "observationId": "obs-fs-session-4-1789735110753-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789735137290,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e2-e5",
+  "at": 1789735137291
+ },
+ {
+  "id": "T4-rename-e2-m5",
+  "at": 1789735137295,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m6",
+  "at": 1789735145626,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T4-rename-e2-a-T4-rename-e2-e3",
+   "intentId": "T4-rename-e2-e3",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.move",
+   "operation": "fs.move",
+   "args": {
+    "from": "notes.txt",
+    "to": "archive.txt",
+    "overwrite": false
+   },
+   "expected": {
+    "description": "After the move, archive.txt exists in the workspace root holding the former content of notes.txt, and notes.txt is gone.",
+    "assertions": [
+     {
+      "path": "to",
+      "operator": "contains",
+      "value": "archive.txt"
+     },
+     {
+      "path": "moved",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-4-1789735110753-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T4-rename-e2-e6",
+  "at": 1789735145635
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-1-1789735145632",
+   "actionId": "T4-rename-e2-a-T4-rename-e2-e3",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.move",
+   "attemptedOperation": "fs.move",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": false,
+    "state": {
+     "from": "notes.txt",
+     "to": "archive.txt",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/archive.txt",
+     "kind": "file",
+     "byteLength": 9,
+     "mtimeMs": 1789735110673,
+     "exists": true
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789735145632,
+   "completedAt": 1789735145634
+  },
+  "id": "T4-rename-e2-e7",
+  "at": 1789735145637
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T4-rename-e2-e3",
+   "description": "Rename the workspace-root file notes.txt to archive.txt, preserving its content.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": []
+  },
+  "id": "T4-rename-e2-e8",
+  "at": 1789735145641
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-1-1789735145632",
+   "actionId": "T4-rename-e2-a-T4-rename-e2-e3",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "to",
+     "operator": "contains",
+     "expected": "archive.txt",
+     "actual": "archive.txt"
+    },
+    {
+     "status": "violated",
+     "path": "moved",
+     "operator": "exists"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev:receipt-1-1789735145632:1",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-4-1789735110753",
+      "capturedAt": 1789735145645,
+      "source": "result:fs.move"
+     },
+     "summary": "the provider result for fs.move decided 2 of 2 assertion(s)",
+     "data": {
+      "from": "notes.txt",
+      "to": "archive.txt",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/archive.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "exists": true
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-1-1789735145632",
+    "actionId": "T4-rename-e2-a-T4-rename-e2-e3",
+    "cause": "the effect landed incompletely: moved did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev:receipt-1-1789735145632:1",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-4-1789735110753",
+       "capturedAt": 1789735145645,
+       "source": "result:fs.move"
+      },
+      "summary": "the provider result for fs.move decided 2 of 2 assertion(s)",
+      "data": {
+       "from": "notes.txt",
+       "to": "archive.txt",
+       "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/archive.txt",
+       "kind": "file",
+       "byteLength": 9,
+       "mtimeMs": 1789735110673,
+       "exists": true
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:moved"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "moved"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.move",
+      "capabilityId": "fs.move"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.75,
+   "decidedAt": 1789735145645
+  },
+  "id": "T4-rename-e2-e9",
+  "at": 1789735145645
+ },
+ {
+  "id": "T4-rename-e2-m7",
+  "at": 1789735145649,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m8",
+  "at": 1789735160290,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e2-e10",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Read the workspace root listing with file contents so the rename can be confirmed: archive.txt present holding the former notes.txt content, and notes.txt gone.",
+   "expected": {
+    "description": "The directory listing shows a single file archive.txt whose content matches what notes.txt held (9 bytes, digest sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd), and contains no entry named notes.txt.",
+    "assertions": [
+     {
+      "path": "entries",
+      "operator": "contains",
+      "value": "archive.txt"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "entries",
+      "operator": "matches",
+      "value": "^(?!.*notes\\.txt).*$"
+     },
+     {
+      "path": "entries.0.digest",
+      "operator": "equals",
+      "value": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "workspace root directory",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735160294
+  },
+  "id": "T4-rename-e2-e11",
+  "at": 1789735160294
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-4-1789735110753-4",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735160299,
+   "worldRevision": 1,
+   "observationRevision": 4,
+   "semanticState": "directory . with 1 entry",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws",
+    "entryCount": 1,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "archive.txt",
+      "path": "archive.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789735110753",
+    "observationId": "obs-fs-session-4-1789735110753-4",
+    "sessionRevision": 1,
+    "capturedAt": 1789735160299,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e2-e12",
+  "at": 1789735160299
+ },
+ {
+  "id": "T4-rename-e2-m9",
+  "at": 1789735160303,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m10",
+  "at": 1789735176068,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e2-e13",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Read the workspace-root archive.txt so its content is on record as evidence that the rename preserved the file's bytes and that notes.txt is gone.",
+   "expected": {
+    "description": "archive.txt exists as a regular file of 9 bytes with digest sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd, and its text content is returned, confirming the content carried over from notes.txt intact. notes.txt is no longer present in the root.",
+    "assertions": [
+     {
+      "path": "kind",
+      "operator": "equals",
+      "value": "file"
+     },
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "digest",
+      "operator": "equals",
+      "value": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     },
+     {
+      "path": "byteLength",
+      "operator": "equals",
+      "value": 9
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "archive.txt in the workspace root",
+   "parameters": {
+    "path": "archive.txt",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735176076
+  },
+  "id": "T4-rename-e2-e14",
+  "at": 1789735176076
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-4-1789735110753-5",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735176081,
+   "worldRevision": 1,
+   "observationRevision": 5,
+   "semanticState": "file archive.txt, 9 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "archive.txt",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/archive.txt",
+    "byteLength": 9,
+    "mtimeMs": 1789735110673,
+    "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd",
+    "binary": false,
+    "inline": true,
+    "content": "the note\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "the note\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789735110753",
+    "observationId": "obs-fs-session-4-1789735110753-5",
+    "sessionRevision": 1,
+    "capturedAt": 1789735176081,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e2-e15",
+  "at": 1789735176082
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-4-1789735110753-5:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789735110753",
+    "observationId": "obs-fs-session-4-1789735110753-5",
+    "sessionRevision": 1,
+    "capturedAt": 1789735176086,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-4-1789735110753-5 at world revision 1, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T4-rename-e2-e16",
+  "at": 1789735176086
+ },
+ {
+  "id": "T4-rename-e2-m11",
+  "at": 1789735176091,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m12",
+  "at": 1789735186226,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows archive.txt containing \"the note\"; it says nothing about whether notes.txt still exists or what its former content was.",
+  "evidence": [
+   "ev:obs-fs-session-4-1789735110753-5:read"
+  ],
+  "id": "T4-rename-e2-e17",
+  "at": 1789735186231
+ },
+ {
+  "id": "T4-rename-e2-m13",
+  "at": 1789735186236,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m14",
+  "at": 1789735214240,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e2-e18",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Re-read the workspace root listing so the record shows, in one observation, that archive.txt is the only file present and that notes.txt is gone from the root.",
+   "expected": {
+    "description": "The root directory contains exactly one entry, archive.txt (9 bytes, digest sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd, content 'the note'), and no entry named notes.txt — confirming the rename completed and the source path no longer exists.",
+    "assertions": [
+     {
+      "path": "entryCount",
+      "operator": "equals",
+      "value": 1
+     },
+     {
+      "path": "entries.0.name",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "entries.0.digest",
+      "operator": "equals",
+      "value": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "(?s)^(?!.*notes\\.txt).*$"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the workspace root directory",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 1000
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735214245
+  },
+  "id": "T4-rename-e2-e19",
+  "at": 1789735214246
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-4-1789735110753-6",
+   "sessionId": "fs-session-4-1789735110753",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735214251,
+   "worldRevision": 1,
+   "observationRevision": 6,
+   "semanticState": "directory . with 1 entry",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws",
+    "entryCount": 1,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "archive.txt",
+      "path": "archive.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-4-1789735110753",
+    "observationId": "obs-fs-session-4-1789735110753-6",
+    "sessionRevision": 1,
+    "capturedAt": 1789735214251,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e2-e20",
+  "at": 1789735214253
+ },
+ {
+  "id": "T4-rename-e2-m15",
+  "at": 1789735214257,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e2-m16",
+  "at": 1789735248456,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e2-e21",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Confirm in a single reading that the workspace root now holds only archive.txt with the note's content, and that notes.txt is gone.",
+   "expected": {
+    "description": "The listing of the workspace root shows exactly one entry, archive.txt, carrying the former notes.txt content \"the note\", and contains no entry named notes.txt — establishing both halves of the rename.",
+    "assertions": [
+     {
+      "path": "entryCount",
+      "operator": "equals",
+      "value": 1
+     },
+     {
+      "path": "entries.0.name",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "entries.1",
+      "operator": "absent"
+     },
+     {
+      "path": "entries.0.content",
+      "operator": "contains",
+      "value": "the note"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the workspace root directory, listed with file contents",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 1000
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735248461
+  },
+  "id": "T4-rename-e2-e22",
+  "at": 1789735248461
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "T4-rename-e2-e23",
+  "at": 1789735248465
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T4-rename-g",
+   "objective": "Rename notes.txt in the workspace root to archive.txt.",
+   "originalRequest": "Rename notes.txt in the workspace root to archive.txt.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T4-rename-e5-e1",
+  "at": 1789735248534
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789735248538
+  },
+  "id": "T4-rename-e5-e2",
+  "at": 1789735248538
+ },
+ {
+  "id": "T4-rename-e5-m1",
+  "at": 1789735248541,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m2",
+  "at": 1789735261295,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e5-e3",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Rename the workspace-root file notes.txt to archive.txt, preserving its content.",
+   "expected": {
+    "description": "After the move, archive.txt exists in the workspace root holding what notes.txt held, and notes.txt is gone.",
+    "assertions": [
+     {
+      "path": "to",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "moved",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes.txt in the workspace root",
+   "parameters": {
+    "from": "notes.txt",
+    "to": "archive.txt",
+    "overwrite": false
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735261307
+  },
+  "id": "T4-rename-e5-e4",
+  "at": 1789735261307
+ },
+ {
+  "id": "T4-rename-e5-m3",
+  "at": 1789735261311,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m4",
+  "at": 1789735279251,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789735248530-1",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735279259,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "directory . with 1 entry",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws",
+    "entryCount": 1,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "archive.txt",
+      "path": "archive.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789735279259,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e5-e5",
+  "at": 1789735279260
+ },
+ {
+  "id": "T4-rename-e5-m5",
+  "at": 1789735279264,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m6",
+  "at": 1789735295185,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "T4-rename-e5-a-T4-rename-e5-e3",
+   "intentId": "T4-rename-e5-e3",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "fs.move",
+   "operation": "fs.move",
+   "args": {
+    "from": "notes.txt",
+    "to": "archive.txt",
+    "overwrite": false
+   },
+   "expected": {
+    "description": "After the move, archive.txt exists in the workspace root holding what notes.txt held, and notes.txt is gone.",
+    "assertions": [
+     {
+      "path": "to",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "moved",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-5-1789735248530-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "T4-rename-e5-e6",
+  "at": 1789735295200
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-1-1789735295198",
+   "actionId": "T4-rename-e5-a-T4-rename-e5-e3",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "fs.move",
+   "attemptedOperation": "fs.move",
+   "outcome": "refused",
+   "cancelled": false,
+   "failure": {
+    "class": "ActionRejected",
+    "disposition": "target_refused",
+    "code": "fs.move.eexist",
+    "format": "{to} already exists and overwrite is false",
+    "variables": {
+     "from": "notes.txt",
+     "to": "archive.txt"
+    },
+    "artifacts": [],
+    "evidence": []
+   },
+   "artifacts": [],
+   "evidence": [],
+   "startedAt": 1789735295198,
+   "completedAt": 1789735295199
+  },
+  "id": "T4-rename-e5-e7",
+  "at": 1789735295205
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T4-rename-e5-e3",
+   "description": "Rename the workspace-root file notes.txt to archive.txt, preserving its content.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": []
+  },
+  "id": "T4-rename-e5-e8",
+  "at": 1789735295210
+ },
+ {
+  "id": "T4-rename-e5-m7",
+  "at": 1789735295215,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m8",
+  "at": 1789735315969,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789735248530-4",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "repo.search",
+   "observedAt": 1789735315989,
+   "worldRevision": 0,
+   "observationRevision": 4,
+   "semanticState": "0 matches for \"notes\\\\.txt|archive\\\\.txt\" across 1 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "notes\\.txt|archive\\.txt",
+    "regex": true,
+    "root": ".",
+    "matches": [],
+    "filesScanned": 1,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-4",
+    "sessionRevision": 0,
+    "capturedAt": 1789735315989,
+    "source": "filesystem:search"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e5-e9",
+  "at": 1789735315990
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-1-1789735295198",
+   "actionId": "T4-rename-e5-a-T4-rename-e5-e3",
+   "verdict": "failed",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "to",
+     "operator": "equals",
+     "reason": "\"to\" is not covered by the state examined in observation obs-fs-session-5-1789735248530-4 structured state"
+    },
+    {
+     "status": "violated",
+     "path": "moved",
+     "operator": "exists"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev:receipt-1-1789735295198:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-5-1789735248530",
+      "observationId": "obs-fs-session-5-1789735248530-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789735315994,
+      "source": "observation:repo.search"
+     },
+     "summary": "observation obs-fs-session-5-1789735248530-4 at world revision 0, taken to verify fs.move",
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-1-1789735295198:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-5-1789735248530",
+      "capturedAt": 1789735315994,
+      "source": "refusal:fs.move"
+     },
+     "summary": "the provider refused fs.move",
+     "data": {
+      "from": "notes.txt",
+      "to": "archive.txt"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-5-1789735248530-4",
+   "diagnosis": {
+    "class": "ActionRejected",
+    "receiptId": "receipt-1-1789735295198",
+    "actionId": "T4-rename-e5-a-T4-rename-e5-e3",
+    "cause": "the environment declined the action itself: archive.txt already exists and overwrite is false",
+    "evidence": [
+     {
+      "id": "ev:receipt-1-1789735295198:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-5-1789735248530",
+       "observationId": "obs-fs-session-5-1789735248530-4",
+       "sessionRevision": 0,
+       "capturedAt": 1789735315994,
+       "source": "observation:repo.search"
+      },
+      "summary": "observation obs-fs-session-5-1789735248530-4 at world revision 0, taken to verify fs.move",
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-1-1789735295198:2",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-5-1789735248530",
+       "capturedAt": 1789735315994,
+       "source": "refusal:fs.move"
+      },
+      "summary": "the provider refused fs.move",
+      "data": {
+       "from": "notes.txt",
+       "to": "archive.txt"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "the target refused this operation; an identical retry refuses identically",
+      "expectedSuccess": 0.4,
+      "parameters": {}
+     },
+     {
+      "action": "REPLAN_FRONTIER",
+      "rationale": "the plan assumed an operation this target accepts",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     },
+     {
+      "action": "ASK_USER",
+      "rationale": "the refusal may encode a decision only the user can make",
+      "expectedSuccess": 0.2,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "ActionRejected",
+     "disposition": "target_refused",
+     "code": "fs.move.eexist",
+     "format": "{to} already exists and overwrite is false",
+     "variables": {
+      "from": "notes.txt",
+      "to": "archive.txt"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789735315994
+  },
+  "id": "T4-rename-e5-e10",
+  "at": 1789735315994
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:T4-rename-e5-e3",
+   "description": "Rename the workspace-root file notes.txt to archive.txt, preserving its content.",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [
+    "ev:receipt-1-1789735295198:1",
+    "ev:receipt-1-1789735295198:2"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": []
+  },
+  "id": "T4-rename-e5-e11",
+  "at": 1789735315999
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "ActionRejected",
+   "receiptId": "receipt-1-1789735295198",
+   "actionId": "T4-rename-e5-a-T4-rename-e5-e3",
+   "cause": "the environment declined the action itself: archive.txt already exists and overwrite is false",
+   "evidence": [
+    {
+     "id": "ev:receipt-1-1789735295198:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-5-1789735248530",
+      "observationId": "obs-fs-session-5-1789735248530-4",
+      "sessionRevision": 0,
+      "capturedAt": 1789735315994,
+      "source": "observation:repo.search"
+     },
+     "summary": "observation obs-fs-session-5-1789735248530-4 at world revision 0, taken to verify fs.move",
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-1-1789735295198:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-5-1789735248530",
+      "capturedAt": 1789735315994,
+      "source": "refusal:fs.move"
+     },
+     "summary": "the provider refused fs.move",
+     "data": {
+      "from": "notes.txt",
+      "to": "archive.txt"
+     },
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "the target refused this operation; an identical retry refuses identically",
+     "expectedSuccess": 0.4,
+     "parameters": {}
+    },
+    {
+     "action": "REPLAN_FRONTIER",
+     "rationale": "the plan assumed an operation this target accepts",
+     "expectedSuccess": 0.35,
+     "parameters": {}
+    },
+    {
+     "action": "ASK_USER",
+     "rationale": "the refusal may encode a decision only the user can make",
+     "expectedSuccess": 0.2,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "ActionRejected",
+    "disposition": "target_refused",
+    "code": "fs.move.eexist",
+    "format": "{to} already exists and overwrite is false",
+    "variables": {
+     "from": "notes.txt",
+     "to": "archive.txt"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "T4-rename-e5-e12",
+  "at": 1789735316004
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "CHANGE_CAPABILITY",
+  "rationale": "the target refused this operation; an identical retry refuses identically",
+  "id": "T4-rename-e5-e13",
+  "at": 1789735316007
+ },
+ {
+  "id": "T4-rename-e5-m9",
+  "at": 1789735316011,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m10",
+  "at": 1789735336771,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e5-e14",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Read archive.txt at the workspace root to confirm it holds the former notes.txt content, completing the evidence that the rename already took effect and notes.txt is gone.",
+   "expected": {
+    "description": "archive.txt exists as a regular file at the workspace root and its content is readable; combined with the directory listing showing archive.txt as the only entry, this establishes that notes.txt was renamed to archive.txt and no longer exists.",
+    "assertions": [
+     {
+      "path": "kind",
+      "operator": "equals",
+      "value": "file"
+     },
+     {
+      "path": "path",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "digest",
+      "operator": "contains",
+      "value": "6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "archive.txt in the workspace root",
+   "parameters": {
+    "path": "archive.txt",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735336781
+  },
+  "id": "T4-rename-e5-e15",
+  "at": 1789735336781
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789735248530-5",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735336787,
+   "worldRevision": 0,
+   "observationRevision": 5,
+   "semanticState": "file archive.txt, 9 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "archive.txt",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/archive.txt",
+    "byteLength": 9,
+    "mtimeMs": 1789735110673,
+    "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd",
+    "binary": false,
+    "inline": true,
+    "content": "the note\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "the note\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-5",
+    "sessionRevision": 0,
+    "capturedAt": 1789735336787,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e5-e16",
+  "at": 1789735336788
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-5-1789735248530-5:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-5",
+    "sessionRevision": 0,
+    "capturedAt": 1789735336792,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-5-1789735248530-5 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T4-rename-e5-e17",
+  "at": 1789735336792
+ },
+ {
+  "id": "T4-rename-e5-m11",
+  "at": 1789735336797,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m12",
+  "at": 1789735347788,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The evidence only shows archive.txt contains \"the note\"; nothing covers whether notes.txt still exists or what its former content was.",
+  "evidence": [
+   "ev:obs-fs-session-5-1789735248530-5:read"
+  ],
+  "id": "T4-rename-e5-e18",
+  "at": 1789735347803
+ },
+ {
+  "id": "T4-rename-e5-m13",
+  "at": 1789735347809,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m14",
+  "at": 1789735364882,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e5-e19",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Confirm directly that notes.txt is gone from the workspace root, so the rename is verifiably complete alongside archive.txt already holding the content \"the note\".",
+   "expected": {
+    "description": "Observing notes.txt should report that no such path exists in the workspace root, which together with the already-observed archive.txt (9 bytes, content \"the note\") establishes that the rename took effect.",
+    "assertions": [
+     {
+      "path": "exists",
+      "operator": "equals",
+      "value": false
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "notes.txt in the workspace root",
+   "parameters": {
+    "path": "notes.txt",
+    "depth": 1,
+    "includeContent": false,
+    "hashEntries": false
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735364888
+  },
+  "id": "T4-rename-e5-e20",
+  "at": 1789735364888
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "ActionRejected",
+   "actionId": "observe:T4-rename-e5-a-T4-rename-e5-e19",
+   "cause": "the environment declined the action itself: read failed with ENOENT: ENOENT: no such file or directory, stat '/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/notes.txt'",
+   "evidence": [],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "the target refused this operation; an identical retry refuses identically",
+     "expectedSuccess": 0.4,
+     "parameters": {}
+    },
+    {
+     "action": "REPLAN_FRONTIER",
+     "rationale": "the plan assumed an operation this target accepts",
+     "expectedSuccess": 0.35,
+     "parameters": {}
+    },
+    {
+     "action": "ASK_USER",
+     "rationale": "the refusal may encode a decision only the user can make",
+     "expectedSuccess": 0.2,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "ActionRejected",
+    "disposition": "permanent",
+    "code": "fs.read.enoent",
+    "format": "{operation} failed with {errno}: {message}",
+    "variables": {
+     "operation": "read",
+     "errno": "ENOENT",
+     "message": "ENOENT: no such file or directory, stat '/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws/notes.txt'"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "T4-rename-e5-e21",
+  "at": 1789735364895
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REPLAN_FRONTIER",
+  "rationale": "the plan assumed an operation this target accepts",
+  "id": "T4-rename-e5-e22",
+  "at": 1789735364899
+ },
+ {
+  "id": "T4-rename-e5-m15",
+  "at": 1789735364904,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m16",
+  "at": 1789735389371,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e5-e23",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Re-read the workspace root listing so the record shows exactly which files exist now — establishing that archive.txt is the sole entry and notes.txt is gone.",
+   "expected": {
+    "description": "The root listing enumerates exactly one entry, archive.txt (9 bytes, content \"the note\"), and contains no entry named notes.txt — showing the rename already took effect and notes.txt no longer exists.",
+    "assertions": [
+     {
+      "path": "entryCount",
+      "operator": "equals",
+      "value": 1
+     },
+     {
+      "path": "entries.0.name",
+      "operator": "equals",
+      "value": "archive.txt"
+     },
+     {
+      "path": "entries.1",
+      "operator": "absent"
+     },
+     {
+      "path": "entries.0.byteLength",
+      "operator": "equals",
+      "value": 9
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the workspace root directory",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 1000
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735389373
+  },
+  "id": "T4-rename-e5-e24",
+  "at": 1789735389373
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-5-1789735248530-7",
+   "sessionId": "fs-session-5-1789735248530",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789735389382,
+   "worldRevision": 0,
+   "observationRevision": 7,
+   "semanticState": "directory . with 1 entry",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T4-rename-w6H6Eu/ws",
+    "entryCount": 1,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "archive.txt",
+      "path": "archive.txt",
+      "kind": "file",
+      "byteLength": 9,
+      "mtimeMs": 1789735110673,
+      "digest": "sha256:6862e454af825d8f4699688b975c36559d3fe680dadfa889e0b5f79a10e735bd"
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-7",
+    "sessionRevision": 0,
+    "capturedAt": 1789735389382,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T4-rename-e5-e25",
+  "at": 1789735389383
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-5-1789735248530-7:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-5-1789735248530",
+    "observationId": "obs-fs-session-5-1789735248530-7",
+    "sessionRevision": 0,
+    "capturedAt": 1789735389388,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-5-1789735248530-7 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "T4-rename-e5-e26",
+  "at": 1789735389388
+ },
+ {
+  "id": "T4-rename-e5-m17",
+  "at": 1789735389392,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m18",
+  "at": 1789735402044,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "cannot-tell",
+  "because": "The directory listing confirms notes.txt is absent and archive.txt exists (9 bytes), but no evidence shows archive.txt's contents or notes.txt's former contents, so the content-preservation part cannot be checked.",
+  "evidence": [
+   "ev:obs-fs-session-5-1789735248530-7:read"
+  ],
+  "id": "T4-rename-e5-e27",
+  "at": 1789735402051
+ },
+ {
+  "id": "T4-rename-e5-m19",
+  "at": 1789735402055,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T4-rename-e5-m20",
+  "at": 1789735418843,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T4-rename-e5-e28",
+   "goalId": "r1-T4-rename-g",
+   "desiredEffect": "Re-read the workspace root and the file archive.txt together so the record shows, in one observation, that archive.txt holds the note text and that notes.txt is no longer present.",
+   "expected": {
+    "description": "The listing of the workspace root contains archive.txt with its text content 'the note' and contains no entry named notes.txt, demonstrating the rename preserved the file's content.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "archive.txt"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "the note"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "workspace root directory containing archive.txt",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 1000
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789735418847
+  },
+  "id": "T4-rename-e5-e29",
+  "at": 1789735418847
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "T4-rename-e5-e30",
+  "at": 1789735418852
+ }
+]

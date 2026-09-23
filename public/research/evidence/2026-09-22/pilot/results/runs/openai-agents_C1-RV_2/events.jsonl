@@ -1,0 +1,9 @@
+{"adapter": "openai-agents", "logical_run_id": "openai-agents:C1-RV:2", "phase": 1, "process_id": 68407, "ts": 1790085893.48772, "type": "phase.start"}
+{"after_mutation": false, "decision": "allow", "logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "protected": false, "seam": "tool_input_guardrail", "ts": 1790085893.492567, "type": "validation.invoked", "world_version": 1}
+{"call_id": "call-A", "logical_run_id": "openai-agents:C1-RV:2", "pending_interruptions": 1, "process_id": 68407, "proposal_id": "A", "ts": 1790085893.493459, "type": "proposal.presented"}
+{"logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "ts": 1790085893.493694, "type": "wait.entered"}
+{"by": "harness-third-party", "logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "resource": "target", "to_protected": true, "to_version": 2, "ts": 1790085893.494509, "type": "foreign.mutation"}
+{"for_call_id": "call-A", "granted_by": "harness-operator", "logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "ts": 1790085893.495192, "type": "approval.granted"}
+{"after_mutation": true, "decision": "deny", "logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "protected": true, "seam": "tool_input_guardrail", "ts": 1790085893.496782, "type": "validation.invoked", "world_version": 2}
+{"logical_run_id": "openai-agents:C1-RV:2", "process_id": 68407, "ts": 1790085893.4982889, "type": "run.finished"}
+{"logical_run_id": "openai-agents:C1-RV:2", "phase": 1, "process_id": 68407, "ts": 1790085893.498621, "type": "phase.end"}

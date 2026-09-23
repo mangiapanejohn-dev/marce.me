@@ -1,0 +1,11 @@
+{"adapter": "langgraph", "logical_run_id": "langgraph:C3-W:3", "phase": 1, "process_id": 33355, "ts": 1790083970.802419, "type": "phase.start"}
+{"logical_run_id": "langgraph:C3-W:3", "ordinal_global": 1, "process_id": 33355, "response_id": "A", "ts": 1790083970.80889, "type": "model.call"}
+{"logical_run_id": "langgraph:C3-W:3", "process_id": 33355, "proposal_id": "A", "ts": 1790083970.809103, "type": "proposal.presented"}
+{"logical_run_id": "langgraph:C3-W:3", "process_id": 33355, "ts": 1790083970.809699, "type": "wait.entered"}
+{"fault_point": "AT_WAIT", "process_id": 33355, "ts": 1790083970.810134, "type": "faultpoint.reached"}
+{"for_proposal_id": "A", "granted_by": "harness-operator", "logical_run_id": "langgraph:C3-W:3", "process_id": 33348, "ts": 1790083970.826985, "type": "approval.granted"}
+{"adapter": "langgraph", "logical_run_id": "langgraph:C3-W:3", "phase": 2, "process_id": 33356, "ts": 1790083971.1306171, "type": "phase.start"}
+{"logical_run_id": "langgraph:C3-W:3", "process_id": 33356, "ts": 1790083971.134544, "type": "wait.entered"}
+{"effect_id": "langgraph:C3-W:3:e1", "logical_run_id": "langgraph:C3-W:3", "process_id": 33356, "proposal_id": "A", "ts": 1790083971.137127, "type": "effect.committed"}
+{"logical_run_id": "langgraph:C3-W:3", "process_id": 33356, "ts": 1790083971.137683, "type": "run.finished"}
+{"logical_run_id": "langgraph:C3-W:3", "phase": 2, "process_id": 33356, "ts": 1790083971.137899, "type": "phase.end"}

@@ -1,0 +1,1986 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-4-independent-g",
+   "objective": "Two things: correct every \"recieve\" to \"receive\" in docs/guide.md, and release version 1.4.3 — set the version in package.json and add a \"## 1.4.3\" section to the top of CHANGELOG.md with the line \"- Correct spelling in the guide.\"",
+   "originalRequest": "Two things: correct every \"recieve\" to \"receive\" in docs/guide.md, and release version 1.4.3 — set the version in package.json and add a \"## 1.4.3\" section to the top of CHANGELOG.md with the line \"- Correct spelling in the guide.\"",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "version 1.4.3 is set in package.json and described in CHANGELOG.md",
+     "kind": "observable",
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-4-independent-e2-e1",
+  "at": 1789808840637
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789808840641
+  },
+  "id": "R2-4-independent-e2-e2",
+  "at": 1789808840641
+ },
+ {
+  "id": "R2-4-independent-e2-m1",
+  "at": 1789808840644,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m2",
+  "at": 1789808850031,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e3",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Read the current contents of docs/guide.md so I can locate every occurrence of the misspelling \"recieve\" before correcting it.",
+   "expected": {
+    "description": "The file docs/guide.md exists and its text content is returned, showing where \"recieve\" appears.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789808850034
+  },
+  "id": "R2-4-independent-e2-e4",
+  "at": 1789808850034
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-1",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808850038,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file docs/guide.md, 187 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/docs/guide.md",
+    "byteLength": 187,
+    "mtimeMs": 1789808840569,
+    "digest": "sha256:a81102015200033be8d3a2058c7a1e1667b767a8c18f00fc8e1154c054041d9d",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789808850038,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e5",
+  "at": 1789808850039
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-15-1789808840632-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789808850043,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-15-1789808840632-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-4-independent-e2-e6",
+  "at": 1789808850043
+ },
+ {
+  "id": "R2-4-independent-e2-m3",
+  "at": 1789808850047,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m4",
+  "at": 1789808862284,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e7",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Correct both misspellings of \"recieve\" to \"receive\" in docs/guide.md",
+   "expected": {
+    "description": "docs/guide.md contains \"receive\" in both sentences and no longer contains the misspelling \"recieve\".",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "the endpoint you want to receive events from"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "docs/guide.md",
+   "parameters": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "the endpoint you want to recieve events from",
+      "replace": "the endpoint you want to receive events from",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "Each subscriber will recieve a copy",
+      "replace": "Each subscriber will receive a copy",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789808862291
+  },
+  "id": "R2-4-independent-e2-e8",
+  "at": 1789808862291
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-4-independent-e2-a-R2-4-independent-e2-e7",
+   "intentId": "R2-4-independent-e2-e7",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "docs/guide.md",
+    "edits": [
+     {
+      "find": "the endpoint you want to recieve events from",
+      "replace": "the endpoint you want to receive events from",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "Each subscriber will recieve a copy",
+      "replace": "Each subscriber will receive a copy",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "docs/guide.md contains \"receive\" in both sentences and no longer contains the misspelling \"recieve\".",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "the endpoint you want to receive events from"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "Each subscriber will receive a copy of every event published to its topic."
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-15-1789808840632-1",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-4-independent-e2-e9",
+  "at": 1789808862297
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-2-1789808862296",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e7",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "docs/guide.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/docs/guide.md",
+     "byteLength": 187,
+     "mtimeMs": 1789808862297,
+     "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 2,
+     "previousDigest": "sha256:a81102015200033be8d3a2058c7a1e1667b767a8c18f00fc8e1154c054041d9d",
+     "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-1-1789808862297",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 0,
+      "capturedAt": 1789808862297,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "docs/guide.md is 187 bytes with digest sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+     "data": {
+      "path": "docs/guide.md",
+      "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+      "byteLength": 187,
+      "mtimeMs": 1789808862297
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789808862296,
+   "completedAt": 1789808862297
+  },
+  "id": "R2-4-independent-e2-e10",
+  "at": 1789808862302
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-4-independent-e2-e7",
+   "description": "Correct both misspellings of \"recieve\" to \"receive\" in docs/guide.md",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "docs/guide.md"
+   ]
+  },
+  "id": "R2-4-independent-e2-e11",
+  "at": 1789808862306
+ },
+ {
+  "id": "R2-4-independent-e2-m5",
+  "at": 1789808862309,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m6",
+  "at": 1789808869643,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-2",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808869647,
+   "worldRevision": 1,
+   "observationRevision": 2,
+   "semanticState": "file docs/guide.md, 187 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "docs/guide.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/docs/guide.md",
+    "byteLength": 187,
+    "mtimeMs": 1789808862297,
+    "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+    "binary": false,
+    "inline": true,
+    "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789808869647,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e12",
+  "at": 1789808869647
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-2-1789808862296",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e7",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "the endpoint you want to receive events from",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "Each subscriber will receive a copy of every event published to its topic.",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "changed",
+     "expected": "# Getting started\n\nInstall the client, then configure the endpoint you want to recieve events from.\n\n## Events\n\nEach subscriber will recieve a copy of every event published to its topic.\n",
+     "actual": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-1-1789808862297",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 0,
+      "capturedAt": 1789808862297,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "docs/guide.md is 187 bytes with digest sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+     "data": {
+      "path": "docs/guide.md",
+      "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+      "byteLength": 187,
+      "mtimeMs": 1789808862297
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-2-1789808862296:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "observationId": "obs-fs-session-15-1789808840632-2",
+      "sessionRevision": 1,
+      "capturedAt": 1789808869651,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-15-1789808840632-2 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-15-1789808840632-2",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-2-1789808862296",
+    "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e7",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-1-1789808862297",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "sessionRevision": 0,
+       "capturedAt": 1789808862297,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "docs/guide.md is 187 bytes with digest sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+      "data": {
+       "path": "docs/guide.md",
+       "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+       "byteLength": 187,
+       "mtimeMs": 1789808862297
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-2-1789808862296:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "observationId": "obs-fs-session-15-1789808840632-2",
+       "sessionRevision": 1,
+       "capturedAt": 1789808869651,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-15-1789808840632-2 at world revision 1, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789808869651
+  },
+  "id": "R2-4-independent-e2-e13",
+  "at": 1789808869651
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-2-1789808862296:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-2",
+    "sessionRevision": 1,
+    "capturedAt": 1789808869651,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-15-1789808840632-2 at world revision 1, taken to verify fs.patch",
+   "artifacts": []
+  },
+  "id": "R2-4-independent-e2-e14",
+  "at": 1789808869654
+ },
+ {
+  "id": "R2-4-independent-e2-m7",
+  "at": 1789808869659,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m8",
+  "at": 1789808880565,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e15",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Read the current contents of package.json and CHANGELOG.md so I can set version 1.4.3 and prepend the new changelog section accurately.",
+   "expected": {
+    "description": "A listing of the project root in which package.json and CHANGELOG.md appear with their text content, showing the current version field and the existing changelog headings.",
+    "assertions": [
+     {
+      "path": "entries",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "version"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the project root listing, including package.json and CHANGELOG.md contents",
+   "parameters": {
+    "path": ".",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true,
+    "maxEntries": 200
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789808880571
+  },
+  "id": "R2-4-independent-e2-e16",
+  "at": 1789808880571
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-3",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808880576,
+   "worldRevision": 1,
+   "observationRevision": 3,
+   "semanticState": "directory . with 3 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws",
+    "entryCount": 3,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "CHANGELOG.md",
+      "path": "CHANGELOG.md",
+      "kind": "file",
+      "byteLength": 56,
+      "mtimeMs": 1789808840569,
+      "digest": "sha256:b2f736c8866f2f49d6088216941a3b5741ff619558399dc4a3c856439694b895",
+      "content": "# Changelog\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "docs",
+      "path": "docs",
+      "kind": "directory",
+      "byteLength": 96,
+      "mtimeMs": 1789808840568
+     },
+     {
+      "name": "package.json",
+      "path": "package.json",
+      "kind": "file",
+      "byteLength": 51,
+      "mtimeMs": 1789808840569,
+      "digest": "sha256:39b2b6abfda100bfed4b76f2f6e62df49751ca3eef52a6fe84b619dcae39ab4d",
+      "content": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.2\"\n}\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789808880576,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e17",
+  "at": 1789808880578
+ },
+ {
+  "id": "R2-4-independent-e2-m9",
+  "at": 1789808880581,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m10",
+  "at": 1789808887746,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c2",
+  "verdict": "not-established",
+  "because": "The observed package.json contains \"version\": \"1.4.2\" and CHANGELOG.md's latest entry is \"## 1.4.2\", with no 1.4.3 anywhere in the evidence.",
+  "evidence": [
+   "ev:obs-fs-session-15-1789808840632-3:read",
+   "obs-fs-session-15-1789808840632-2"
+  ],
+  "id": "R2-4-independent-e2-e18",
+  "at": 1789808887750
+ },
+ {
+  "id": "R2-4-independent-e2-m11",
+  "at": 1789808887754,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m12",
+  "at": 1789808896053,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e19",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Set the package version to 1.4.3 in package.json",
+   "expected": {
+    "description": "package.json declares version 1.4.3 instead of 1.4.2",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"version\": \"1.4.3\""
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "package.json",
+   "parameters": {
+    "path": "package.json",
+    "edits": [
+     {
+      "find": "\"version\": \"1.4.2\"",
+      "replace": "\"version\": \"1.4.3\"",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789808896058
+  },
+  "id": "R2-4-independent-e2-e20",
+  "at": 1789808896058
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-4-independent-e2-a-R2-4-independent-e2-e19",
+   "intentId": "R2-4-independent-e2-e19",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "package.json",
+    "edits": [
+     {
+      "find": "\"version\": \"1.4.2\"",
+      "replace": "\"version\": \"1.4.3\"",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "package.json declares version 1.4.3 instead of 1.4.2",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"version\": \"1.4.3\""
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-15-1789808840632-3",
+    "worldRevision": 1,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-4-independent-e2-e21",
+  "at": 1789808896064
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-4-1789808896062",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e19",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "package.json",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/package.json",
+     "byteLength": 51,
+     "mtimeMs": 1789808896064,
+     "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:39b2b6abfda100bfed4b76f2f6e62df49751ca3eef52a6fe84b619dcae39ab4d",
+     "content": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-3-1789808896064",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 1,
+      "capturedAt": 1789808896064,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "package.json is 51 bytes with digest sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+     "data": {
+      "path": "package.json",
+      "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+      "byteLength": 51,
+      "mtimeMs": 1789808896064
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789808896062,
+   "completedAt": 1789808896064
+  },
+  "id": "R2-4-independent-e2-e22",
+  "at": 1789808896069
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-4-independent-e2-e19",
+   "description": "Set the package version to 1.4.3 in package.json",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "package.json"
+   ]
+  },
+  "id": "R2-4-independent-e2-e23",
+  "at": 1789808896074
+ },
+ {
+  "id": "R2-4-independent-e2-m13",
+  "at": 1789808896079,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m14",
+  "at": 1789808904725,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-4",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808904733,
+   "worldRevision": 2,
+   "observationRevision": 4,
+   "semanticState": "file package.json, 51 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "package.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/package.json",
+    "byteLength": 51,
+    "mtimeMs": 1789808896064,
+    "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-4",
+    "sessionRevision": 2,
+    "capturedAt": 1789808904733,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e24",
+  "at": 1789808904734
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-4-1789808896062",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e19",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "\"version\": \"1.4.3\"",
+     "actual": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "changed",
+     "actual": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-3-1789808896064",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 1,
+      "capturedAt": 1789808896064,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "package.json is 51 bytes with digest sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+     "data": {
+      "path": "package.json",
+      "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+      "byteLength": 51,
+      "mtimeMs": 1789808896064
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-4-1789808896062:2",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "observationId": "obs-fs-session-15-1789808840632-4",
+      "sessionRevision": 2,
+      "capturedAt": 1789808904739,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-15-1789808840632-4 at world revision 2, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-15-1789808840632-4",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-4-1789808896062",
+    "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e19",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-3-1789808896064",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "sessionRevision": 1,
+       "capturedAt": 1789808896064,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "package.json is 51 bytes with digest sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+      "data": {
+       "path": "package.json",
+       "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+       "byteLength": 51,
+       "mtimeMs": 1789808896064
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-4-1789808896062:2",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "observationId": "obs-fs-session-15-1789808840632-4",
+       "sessionRevision": 2,
+       "capturedAt": 1789808904739,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-15-1789808840632-4 at world revision 2, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789808904739
+  },
+  "id": "R2-4-independent-e2-e25",
+  "at": 1789808904739
+ },
+ {
+  "id": "R2-4-independent-e2-m15",
+  "at": 1789808904744,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m16",
+  "at": 1789808922299,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e26",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Add a \"## 1.4.3\" release section at the top of the changelog, above the 1.4.2 entry, noting the guide spelling fix",
+   "expected": {
+    "description": "CHANGELOG.md begins with a \"## 1.4.3\" section containing \"- Correct spelling in the guide.\" placed above the existing 1.4.2 section, which is preserved.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## 1.4.3"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "- Correct spelling in the guide."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## 1.4.2"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "## 1\\.4\\.3[\\s\\S]*## 1\\.4\\.2"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "CHANGELOG.md",
+   "parameters": {
+    "path": "CHANGELOG.md",
+    "edits": [
+     {
+      "find": "# Changelog\n\n## 1.4.2",
+      "replace": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789808922305
+  },
+  "id": "R2-4-independent-e2-e27",
+  "at": 1789808922305
+ },
+ {
+  "id": "R2-4-independent-e2-m17",
+  "at": 1789808922311,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m18",
+  "at": 1789808928987,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-5",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808928994,
+   "worldRevision": 2,
+   "observationRevision": 5,
+   "semanticState": "file CHANGELOG.md, 56 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "CHANGELOG.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/CHANGELOG.md",
+    "byteLength": 56,
+    "mtimeMs": 1789808840569,
+    "digest": "sha256:b2f736c8866f2f49d6088216941a3b5741ff619558399dc4a3c856439694b895",
+    "binary": false,
+    "inline": true,
+    "content": "# Changelog\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Changelog\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-5",
+    "sessionRevision": 2,
+    "capturedAt": 1789808928994,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e28",
+  "at": 1789808928995
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-4-independent-e2-a-R2-4-independent-e2-e26",
+   "intentId": "R2-4-independent-e2-e26",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "CHANGELOG.md",
+    "edits": [
+     {
+      "find": "# Changelog\n\n## 1.4.2",
+      "replace": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "CHANGELOG.md begins with a \"## 1.4.3\" section containing \"- Correct spelling in the guide.\" placed above the existing 1.4.2 section, which is preserved.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## 1.4.3"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "- Correct spelling in the guide."
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## 1.4.2"
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "## 1\\.4\\.3[\\s\\S]*## 1\\.4\\.2"
+     },
+     {
+      "path": "content",
+      "operator": "changed"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-15-1789808840632-5",
+    "worldRevision": 2,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-4-independent-e2-e29",
+  "at": 1789808929000
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-6-1789808928999",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e26",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "CHANGELOG.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/CHANGELOG.md",
+     "byteLength": 100,
+     "mtimeMs": 1789808929000,
+     "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:b2f736c8866f2f49d6088216941a3b5741ff619558399dc4a3c856439694b895",
+     "content": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n"
+    },
+    "worldRevision": 3
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-5-1789808929000",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 2,
+      "capturedAt": 1789808929000,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "CHANGELOG.md is 100 bytes with digest sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+     "data": {
+      "path": "CHANGELOG.md",
+      "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+      "byteLength": 100,
+      "mtimeMs": 1789808929000
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 3,
+   "startedAt": 1789808928999,
+   "completedAt": 1789808929000
+  },
+  "id": "R2-4-independent-e2-e30",
+  "at": 1789808929002
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-4-independent-e2-e26",
+   "description": "Add a \"## 1.4.3\" release section at the top of the changelog, above the 1.4.2 entry, noting the guide spelling fix",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "CHANGELOG.md"
+   ]
+  },
+  "id": "R2-4-independent-e2-e31",
+  "at": 1789808929006
+ },
+ {
+  "id": "R2-4-independent-e2-m19",
+  "at": 1789808929010,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m20",
+  "at": 1789808938203,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-6",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808938210,
+   "worldRevision": 3,
+   "observationRevision": 6,
+   "semanticState": "directory . with 4 entries",
+   "structuredState": {
+    "kind": "directory",
+    "path": ".",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws",
+    "entryCount": 4,
+    "truncated": false,
+    "entries": [
+     {
+      "name": "CHANGELOG.md",
+      "path": "CHANGELOG.md",
+      "kind": "file",
+      "byteLength": 100,
+      "mtimeMs": 1789808929000,
+      "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+      "content": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "docs",
+      "path": "docs",
+      "kind": "directory",
+      "byteLength": 96,
+      "mtimeMs": 1789808840568
+     },
+     {
+      "name": "package.json",
+      "path": "package.json",
+      "kind": "file",
+      "byteLength": 51,
+      "mtimeMs": 1789808896064,
+      "digest": "sha256:d3ae3c4bbe0057a01370d034b3170076256eff8640c6189616511f81ae47c079",
+      "content": "{\n  \"name\": \"event-client\",\n  \"version\": \"1.4.3\"\n}\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     },
+     {
+      "name": "guide.md",
+      "path": "docs/guide.md",
+      "kind": "file",
+      "byteLength": 187,
+      "mtimeMs": 1789808862297,
+      "digest": "sha256:e4e1f0e30ead265ca1c8c71e311ffdb9ec19305c60ce577c35c77afd55b23b04",
+      "content": "# Getting started\n\nInstall the client, then configure the endpoint you want to receive events from.\n\n## Events\n\nEach subscriber will receive a copy of every event published to its topic.\n",
+      "contentAdvisory": {
+       "directiveShaped": false,
+       "signals": []
+      }
+     }
+    ]
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-6",
+    "sessionRevision": 3,
+    "capturedAt": 1789808938210,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e32",
+  "at": 1789808938212
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-6-1789808928999",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e26",
+   "verdict": "undetermined",
+   "assertions": [
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-15-1789808840632-6 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-15-1789808840632-6 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "contains",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-15-1789808840632-6 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "matches",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-15-1789808840632-6 structured state"
+    },
+    {
+     "status": "undecidable",
+     "path": "content",
+     "operator": "changed",
+     "reason": "\"content\" is not covered by the state examined in observation obs-fs-session-15-1789808840632-6 structured state"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-5-1789808929000",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 2,
+      "capturedAt": 1789808929000,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "CHANGELOG.md is 100 bytes with digest sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+     "data": {
+      "path": "CHANGELOG.md",
+      "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+      "byteLength": 100,
+      "mtimeMs": 1789808929000
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-6-1789808928999:3",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "observationId": "obs-fs-session-15-1789808840632-6",
+      "sessionRevision": 3,
+      "capturedAt": 1789808938215,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-15-1789808840632-6 at world revision 3, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-15-1789808840632-6",
+   "diagnosis": {
+    "class": "InsufficientEvidence",
+    "receiptId": "receipt-6-1789808928999",
+    "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e26",
+    "cause": "the state examined does not cover content, content, content, content, content, so the effect is neither confirmed nor refuted",
+    "evidence": [
+     {
+      "id": "ev-5-1789808929000",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "sessionRevision": 2,
+       "capturedAt": 1789808929000,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "CHANGELOG.md is 100 bytes with digest sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+      "data": {
+       "path": "CHANGELOG.md",
+       "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+       "byteLength": 100,
+       "mtimeMs": 1789808929000
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-6-1789808928999:3",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-15-1789808840632",
+       "observationId": "obs-fs-session-15-1789808840632-6",
+       "sessionRevision": 3,
+       "capturedAt": 1789808938215,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-15-1789808840632-6 at world revision 3, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "the question is answerable; nothing has answered it yet",
+      "expectedSuccess": 0.75,
+      "parameters": {
+       "wantPaths": [
+        "content",
+        "content",
+        "content",
+        "content",
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "CHANGE_CAPABILITY",
+      "rationale": "a capability that observes this state directly would settle it",
+      "expectedSuccess": 0.25,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "InsufficientEvidence",
+     "disposition": "retry_after_observe",
+     "code": "verification.insufficient-evidence",
+     "format": "not enough evidence to decide whether {operation} took effect",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789808938215
+  },
+  "id": "R2-4-independent-e2-e33",
+  "at": 1789808938215
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-4-independent-e2-e26",
+   "description": "Add a \"## 1.4.3\" release section at the top of the changelog, above the 1.4.2 entry, noting the guide spelling fix",
+   "status": "failed",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2"
+   ],
+   "dependsOnEvidence": [
+    "ev-5-1789808929000",
+    "ev:receipt-6-1789808928999:3"
+   ],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "CHANGELOG.md"
+   ]
+  },
+  "id": "R2-4-independent-e2-e34",
+  "at": 1789808938220
+ },
+ {
+  "type": "failure.diagnosed",
+  "diagnosis": {
+   "class": "InsufficientEvidence",
+   "receiptId": "receipt-6-1789808928999",
+   "actionId": "R2-4-independent-e2-a-R2-4-independent-e2-e26",
+   "cause": "the state examined does not cover content, content, content, content, content, so the effect is neither confirmed nor refuted",
+   "evidence": [
+    {
+     "id": "ev-5-1789808929000",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "sessionRevision": 2,
+      "capturedAt": 1789808929000,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "CHANGELOG.md is 100 bytes with digest sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+     "data": {
+      "path": "CHANGELOG.md",
+      "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+      "byteLength": 100,
+      "mtimeMs": 1789808929000
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-6-1789808928999:3",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-15-1789808840632",
+      "observationId": "obs-fs-session-15-1789808840632-6",
+      "sessionRevision": 3,
+      "capturedAt": 1789808938215,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-15-1789808840632-6 at world revision 3, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "invalidates": [],
+   "recovery": [
+    {
+     "action": "REOBSERVE",
+     "rationale": "the question is answerable; nothing has answered it yet",
+     "expectedSuccess": 0.75,
+     "parameters": {
+      "wantPaths": [
+       "content",
+       "content",
+       "content",
+       "content",
+       "content"
+      ]
+     }
+    },
+    {
+     "action": "CHANGE_CAPABILITY",
+     "rationale": "a capability that observes this state directly would settle it",
+     "expectedSuccess": 0.25,
+     "parameters": {}
+    }
+   ],
+   "confidence": 0.7,
+   "detail": {
+    "class": "InsufficientEvidence",
+    "disposition": "retry_after_observe",
+    "code": "verification.insufficient-evidence",
+    "format": "not enough evidence to decide whether {operation} took effect",
+    "variables": {
+     "operation": "fs.patch",
+     "capabilityId": "fs.patch"
+    },
+    "artifacts": [],
+    "evidence": []
+   }
+  },
+  "id": "R2-4-independent-e2-e35",
+  "at": 1789808938224
+ },
+ {
+  "type": "recovery.attempted",
+  "action": "REOBSERVE",
+  "rationale": "the question is answerable; nothing has answered it yet",
+  "id": "R2-4-independent-e2-e36",
+  "at": 1789808938227
+ },
+ {
+  "id": "R2-4-independent-e2-m21",
+  "at": 1789808938231,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m22",
+  "at": 1789808955382,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-4-independent-e2-e37",
+   "goalId": "r1-R2-4-independent-g",
+   "desiredEffect": "Re-read the changelog from disk so the current, post-edit content is on record and the stale 1.4.2-only reading is superseded.",
+   "expected": {
+    "description": "CHANGELOG.md now begins with a \"## 1.4.3\" section containing the line \"- Correct spelling in the guide.\", placed above the existing \"## 1.4.2\" entry.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "## 1.4.3"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "- Correct spelling in the guide."
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "# Changelog\\s+## 1\\.4\\.3\\s+- Correct spelling in the guide\\.\\s+## 1\\.4\\.2"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "CHANGELOG.md",
+   "parameters": {
+    "path": "CHANGELOG.md",
+    "includeContent": true,
+    "hashEntries": true,
+    "depth": 1
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789808955388
+  },
+  "id": "R2-4-independent-e2-e38",
+  "at": 1789808955388
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-15-1789808840632-7",
+   "sessionId": "fs-session-15-1789808840632",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789808955393,
+   "worldRevision": 3,
+   "observationRevision": 7,
+   "semanticState": "file CHANGELOG.md, 100 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "CHANGELOG.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-4-independent-ccbXuF/ws/CHANGELOG.md",
+    "byteLength": 100,
+    "mtimeMs": 1789808929000,
+    "digest": "sha256:bc54b6f0680d1175aa052b881285a11e62f7a783bb431e7c8582ddaa4ec5de5c",
+    "binary": false,
+    "inline": true,
+    "content": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# Changelog\n\n## 1.4.3\n\n- Correct spelling in the guide.\n\n## 1.4.2\n\n- Retry failed deliveries twice.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-7",
+    "sessionRevision": 3,
+    "capturedAt": 1789808955393,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-4-independent-e2-e39",
+  "at": 1789808955394
+ },
+ {
+  "id": "R2-4-independent-e2-m23",
+  "at": 1789808955399,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-4-independent-e2-m24",
+  "at": 1789808960638,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c2",
+  "verdict": "established",
+  "because": "package.json contains \"version\": \"1.4.3\" and CHANGELOG.md has a 1.4.3 section describing the change (\"Correct spelling in the guide.\").",
+  "evidence": [
+   "ev:obs-fs-session-15-1789808840632-7:read",
+   "obs-fs-session-15-1789808840632-6",
+   "obs-fs-session-15-1789808840632-4",
+   "obs-fs-session-15-1789808840632-2"
+  ],
+  "id": "R2-4-independent-e2-e40",
+  "at": 1789808960643
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-15-1789808840632-7:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-15-1789808840632",
+    "observationId": "obs-fs-session-15-1789808840632-7",
+    "sessionRevision": 3,
+    "capturedAt": 1789808955399,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-15-1789808840632-7 at world revision 3, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-4-independent-e2-e41",
+  "at": 1789808960647
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 16,
+   "enteredAt": 1789808960651
+  },
+  "id": "R2-4-independent-e2-e42",
+  "at": 1789808960651
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:receipt-2-1789808862296:1",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-15-1789808840632",
+        "observationId": "obs-fs-session-15-1789808840632-2",
+        "sessionRevision": 1,
+        "capturedAt": 1789808869651,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-15-1789808840632-2 at world revision 1, taken to verify fs.patch",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-15-1789808840632-7:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-15-1789808840632",
+        "observationId": "obs-fs-session-15-1789808840632-7",
+        "sessionRevision": 3,
+        "capturedAt": 1789808955399,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-15-1789808840632-7 at world revision 3, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789808960654
+  },
+  "id": "R2-4-independent-e2-e43",
+  "at": 1789808960654
+ }
+]

@@ -1,0 +1,7 @@
+task,crit,runs,orig_distinct,C_distinct,T_distinct,orig_decidable,C_decidable,T_decidable
+R2-2-module,c2,3,1,1,3,1.0,1.0,0.67
+R2-3-spec,c1,3,1,1,1,0.0,0.0,1.0
+R2-4-independent,c2,4,2,2,2,0.75,0.75,0.75
+R2-6-split,c1,4,2,2,2,0.25,0.75,0.5
+R2-6-split,c2,4,2,2,2,1.0,1.0,1.0
+T4-rename,c1,4,2,1,1,0.25,0.0,1.0

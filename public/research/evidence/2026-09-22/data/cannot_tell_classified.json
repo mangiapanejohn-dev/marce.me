@@ -1,0 +1,530 @@
+[
+ {
+  "id": "T4-rename-e2-e17",
+  "file": "r1/33e599e/M9-control-b/T4-rename/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence only shows archive.txt containing \"the note\"; it says nothing about whether notes.txt still exists or what its former content was."
+ },
+ {
+  "id": "T4-rename-e5-e18",
+  "file": "r1/33e599e/M9-control-b/T4-rename/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence only shows archive.txt contains \"the note\"; nothing covers whether notes.txt still exists or what its former content was."
+ },
+ {
+  "id": "T4-rename-e5-e27",
+  "file": "r1/33e599e/M9-control-b/T4-rename/events.json",
+  "label": "T_TRANSITION",
+  "because": "The directory listing confirms notes.txt is absent and archive.txt exists (9 bytes), but no evidence shows archive.txt's contents or notes.txt's former contents, so the content-preservation part cannot be checked."
+ },
+ {
+  "id": "T4-rename-e5-e17",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The directory listing establishes that archive.txt exists containing \"the note\\n\" and that notes.txt is absent, but no evidence records what notes.txt contained beforehand, so the content-preservation half of the criterion is uncovered."
+ },
+ {
+  "id": "T4-rename-e5-e21",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing confirms archive.txt exists containing \"the note\\n\" and that notes.txt is absent, but no evidence shows what notes.txt originally contained, so the content-preservation part of the criterion cannot be checked."
+ },
+ {
+  "id": "T4-rename-e5-e25",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing confirms archive.txt exists with content \"the note\\n\" and notes.txt is absent, but no evidence in this run records what notes.txt formerly contained, so the content-preservation half of the criterion is uncovered."
+ },
+ {
+  "id": "T4-rename-e5-e29",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing confirms notes.txt is absent and archive.txt exists containing \"the note\\n\", but no evidence in this run records notes.txt's former content, so the content-match half of the criterion is uncovered."
+ },
+ {
+  "id": "T4-rename-e5-e33",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing shows notes.txt absent and archive.txt present containing \"the note\\n\", but no evidence captures what notes.txt originally contained, so the content-preservation half of the criterion cannot be checked."
+ },
+ {
+  "id": "T4-rename-e2-e13",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing confirms notes.txt is absent and archive.txt holds \"the note\\n\", but no evidence records notes.txt's former content, so the content-preservation half of the criterion cannot be checked."
+ },
+ {
+  "id": "T4-rename-e2-e17",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The directory listing confirms archive.txt exists with content \"the note\\n\" and that notes.txt is absent, but no evidence shows what notes.txt originally contained, so the content-preservation part of the criterion is uncovered."
+ },
+ {
+  "id": "T4-rename-e5-e17",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The listing confirms archive.txt exists (content \"the note\\n\") and notes.txt is absent, but no evidence records what notes.txt originally contained, so the content-preservation part cannot be checked."
+ },
+ {
+  "id": "T4-rename-e5-e21",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The directory listing confirms archive.txt exists with content \"the note\\n\" and that notes.txt is absent, but no evidence in this run shows what notes.txt contained beforehand, so the content-preservation part cannot be checked."
+ },
+ {
+  "id": "T4-rename-e2-e13",
+  "file": "r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json",
+  "label": "T_TRANSITION",
+  "because": "The single directory listing confirms notes.txt is absent and archive.txt holds \"the note\\n\", but no evidence records what notes.txt originally contained, so the content-preservation half of the criterion cannot be checked."
+ },
+ {
+  "id": "R2-5-replan-e2-e10",
+  "file": "r2/33e599e/M9-judge-b/R2-5-replan/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows service.yaml stating that settings moved to config/service.yaml; the contents of that actual config file, including any replicas value, were never read."
+ },
+ {
+  "id": "R2-5-replan-e5-e10",
+  "file": "r2/33e599e/M9-judge-b/R2-5-replan/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows service.yaml stating settings moved to config/service.yaml; the contents of that actual config file, including any replicas value, were never read."
+ },
+ {
+  "id": "R2-5-replan-e5-e15",
+  "file": "r2/33e599e/M9-judge-b/R2-5-replan/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows config/service.yaml contains replicas: 3, but nothing in it establishes that config/service.yaml is the file the service actually reads its settings from."
+ },
+ {
+  "id": "R2-5-replan-e5-e21",
+  "file": "r2/33e599e/M9-judge-b/R2-5-replan/events.json",
+  "label": "S_SHAPE",
+  "because": "The search only reveals that the real settings file is config/service.yaml (the root service.yaml is stale) and shows no contents of config/service.yaml, so the replicas value is not covered by the evidence."
+ },
+ {
+  "id": "R2-6-split-e2-e7",
+  "file": "r2/33e599e/M9-judge-b/R2-6-split/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows the contents of the old notes.md (sections Onboarding, Releases, On-call) and contains no listing or read of the notes/ directory to show whether corresponding files exist."
+ },
+ {
+  "id": "R2-6-split-e2-e15",
+  "file": "r2/33e599e/M9-judge-b/R2-6-split/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence only shows one file, notes/onboarding.md, and its content; it does not show the old notes.md's sections nor a listing of notes/ to confirm every section became its own file."
+ },
+ {
+  "id": "R2-6-split-e2-e25",
+  "file": "r2/33e599e/M9-judge-b/R2-6-split/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence covers only the creation of notes/releases.md and contains nothing about the old notes.md's contents or sections, nor any listing of other files under notes/."
+ },
+ {
+  "id": "R2-6-split-e2-e35",
+  "file": "r2/33e599e/M9-judge-b/R2-6-split/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence only shows one file, notes/on-call.md, and its content; it does not show the old notes.md's sections nor the other files under notes/, so completeness of the split cannot be judged."
+ },
+ {
+  "id": "R2-6-split-e5-e7",
+  "file": "r2/33e599e/M9-judge-b/R2-6-split/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the rewritten notes.md containing three links; it does not show the old notes.md's sections nor the existence or contents of the files under notes/, so the one-section-per-file correspondence cannot be checked."
+ },
+ {
+  "id": "R2-1-rename-e2-e30",
+  "file": "r2/33e599e/M9-judge/R2-1-rename/events.json",
+  "label": "C_ABSENCE",
+  "because": "The evidence only shows the contents of src/users.js (which is free of fetchUser); it covers no other file in the workspace, so whether any other file still refers to fetchUser is unknown."
+ },
+ {
+  "id": "R2-4-independent-e2-e8",
+  "file": "r2/33e599e/M9-judge/R2-4-independent/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence is only a directory listing showing the existence of package.json and CHANGELOG.md; their contents were never read, so nothing shows the version value."
+ },
+ {
+  "id": "R2-2-module-e2-e25",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "Evidence [2] shows src/index.js exports slugify from './slugify.js', but no evidence covers modules.json or whether slugify is registered there."
+ },
+ {
+  "id": "R2-2-module-e2-e37",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "modules.json does list \"slugify\", but no evidence shows the contents of src/index.js, so the export from that file is uncovered."
+ },
+ {
+  "id": "R2-2-module-e2-e25",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows src/index.js contains `export { slugify } from './slugify.js'`, but contains nothing about modules.json or whether slugify is registered there."
+ },
+ {
+  "id": "R2-2-module-e2-e36",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows modules.json contains \"slugify\" in its modules array, but contains nothing about src/index.js or its exports."
+ },
+ {
+  "id": "R2-3-spec-e2-e20",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The final settings.ini shows all four SPEC changes present (port 9000, workers 4, cache enabled, format json), but the evidence contains no prior/original version of settings.ini, so whether the untouched keys (host, ttl, level) or anything else were altered cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e2-e33",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini in [3]/[4] does show all four SPEC.md changes applied, but the only account of the pre-edit file is the agent-authored narrative in settings.ini.evidence.md, which reconstructs the 'before' from its own claim about the edit rather than from any observed record of the original, so 'nothing else changed' is not covered by evidence."
+ },
+ {
+  "id": "R2-3-spec-e2-e40",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini does show all four SPEC.md values (port 9000, workers 4, cache enabled, format json), but the only account of the pre-edit file is the agent's own settings.ini.evidence.md, which reconstructs the \"before\" content by inverting its own claimed replacements rather than from any observation of the original file, so whether anything else changed is not covered by the evidence."
+ },
+ {
+  "id": "R2-3-spec-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The observed settings.ini does show all four SPEC.md items (port = 9000, workers = 4, enabled = true, format = json), but the only account of the file's pre-edit state is the agent's own self-authored settings.ini.evidence.md reconstruction — no independent record (observation of the original, backup, or version history) exists in the evidence to confirm that host, ttl, level and the rest were untouched."
+ },
+ {
+  "id": "R2-3-spec-e5-e10",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "S_SHAPE",
+  "because": "The evidence is only a directory listing showing file names, sizes and digests; the contents of SPEC.md and settings.ini were never read, so neither the required changes nor the absence of other changes can be assessed."
+ },
+ {
+  "id": "R2-3-spec-e5-e14",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The observed settings.ini does contain all four SPEC.md values (port = 9000, workers = 4, enabled = true, format = json), but the only account of the pre-edit file is the agent's own narrative in settings.ini.evidence.md — no independent observation of the original content (no backup, diff tool output, or VCS) — so whether anything else in the file changed cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e18",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "S_SHAPE",
+  "because": "The evidence is only a directory listing showing file names, sizes and digests; neither SPEC.md's listed changes nor settings.ini's contents (or its prior state) were read."
+ },
+ {
+  "id": "R2-3-spec-e5-e22",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence includes SPEC.md's contents and a directory listing, but never shows the contents of settings.ini (before or after), so neither the required changes nor the absence of other changes can be assessed."
+ },
+ {
+  "id": "R2-3-spec-e5-e26",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The final settings.ini does show all four SPEC changes (port 9000, workers 4, cache enabled, format json), but the evidence contains no prior/baseline version of the file, so whether host, ttl, level or anything else was altered cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e30",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini ([2]) does satisfy all four SPEC.md items ([3]), but the only account of the pre-edit state is the agent's own reconstruction in settings.ini.evidence.md ([1]), inverted from its claimed edit operations rather than from an observed original (no git or prior read), so whether anything else in the file changed cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e34",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini shows all four SPEC.md changes (port = 9000, workers = 4, enabled = true, format = json), but the only account of the file's pre-edit state is the agent's own reconstructed BEFORE block in settings.ini.evidence.md — no observation or backup of the original file exists in the evidence, so whether anything else changed cannot be checked."
+ },
+ {
+  "id": "R2-3-spec-e2-e20",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows the current settings.ini contains all four SPEC.md changes (port 9000, workers 4, cache enabled, format json), but contains no prior version or diff of the file, so whether host, ttl, or level were also altered cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence contains only SPEC.md's contents; settings.ini was never read, so nothing shows its current values or whether unrelated lines are unchanged."
+ },
+ {
+  "id": "R2-3-spec-e5-e10",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The observed settings.ini does show port 9000, workers 4, cache enabled, and format json as SPEC.md requires, but the evidence contains no prior/original version of settings.ini, so whether anything else in it changed cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e14",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The final settings.ini shows port 9000, workers 4, cache enabled, and format json as SPEC.md requires, but the evidence contains no prior/baseline version of settings.ini, so whether host, ttl, level or other lines were left untouched cannot be determined."
+ },
+ {
+  "id": "R2-4-independent-e2-e32",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The CHANGELOG.md content shows a 1.4.3 entry, but no evidence covers package.json's contents or version field."
+ },
+ {
+  "id": "R2-5-replan-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-5-replan/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The README identifies service.yaml as the settings file, but the evidence contains no read of service.yaml's contents, so the replicas value is unknown."
+ },
+ {
+  "id": "R2-5-replan-e2-e10",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-5-replan/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "service.yaml states the settings moved to config/service.yaml, and the evidence contains no read of config/service.yaml, so the replicas value in the file actually read is never shown."
+ },
+ {
+  "id": "R2-5-replan-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-5-replan/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The README only identifies service.yaml as the settings file; the evidence contains no read of service.yaml's contents, so the replicas value is unknown."
+ },
+ {
+  "id": "R2-5-replan-e2-e10",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-5-replan/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "service.yaml states the settings moved to config/service.yaml, and the evidence contains no read of config/service.yaml (nor any replicas value in either file shown), so the actual settings file's replicas setting is uncovered."
+ },
+ {
+  "id": "R2-6-split-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows the contents of notes.md (sections Onboarding, Releases, On-call); it contains no listing or reads of a notes/ directory, so whether corresponding files exist there is uncovered."
+ },
+ {
+  "id": "R2-6-split-e2-e14",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows only notes/onboarding.md written with the Onboarding section, while the old notes.md also contains Releases and On-call sections for which no corresponding files are shown."
+ },
+ {
+  "id": "R2-6-split-e2-e30",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows only notes/on-call.md was written, while notes.md contains three sections (Onboarding, Releases, On-call) and nothing in the evidence covers whether files for Onboarding and Releases exist under notes/."
+ },
+ {
+  "id": "R2-6-split-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the rewritten notes.md containing three links; it does not show the old notes.md's sections nor the existence or contents of notes/onboarding.md, notes/releases.md, or notes/on-call.md."
+ },
+ {
+  "id": "R2-6-split-e5-e12",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows three files in notes/ and the rewritten index notes.md, but contains no record of the old notes.md's original content, so there is no way to confirm every section it contained became its own file."
+ },
+ {
+  "id": "R2-6-split-e5-e16",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the post-edit state (notes.md as a three-link index and three matching files in notes/); the original notes.md content is never shown, so there is no way to confirm every section it contained became its own file."
+ },
+ {
+  "id": "R2-6-split-e5-e24",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows notes/ contains onboarding.md, releases.md and on-call.md matching the three links in the rewritten notes.md, but nothing in the evidence records the old notes.md's original content, so it cannot be confirmed that every section it contained became its own file."
+ },
+ {
+  "id": "R2-6-split-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows the contents of the old notes.md (sections Onboarding, Releases, On-call); it contains no listing or reads of the notes/ directory to show whether corresponding files exist."
+ },
+ {
+  "id": "R2-6-split-e2-e14",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "Evidence shows notes/onboarding.md written, but the old notes.md has three sections (Onboarding, Releases, On-call) and nothing in the evidence covers whether files for Releases and On-call exist under notes/."
+ },
+ {
+  "id": "R2-6-split-e2-e24",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "Evidence shows only notes/releases.md written, while the observed notes.md contains three sections (Onboarding, Releases, On-call) — nothing covers whether onboarding and on-call files exist under notes/."
+ },
+ {
+  "id": "R2-6-split-e2-e34",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows notes.md has three sections (Onboarding, Releases, On-call) and confirms notes/on-call.md exists with the On-call content, but says nothing about whether notes/onboarding.md and notes/releases.md were created."
+ },
+ {
+  "id": "R2-6-split-e2-e51",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The observation shows notes/ containing onboarding.md, releases.md and on-call.md plus a rewritten index notes.md, but the evidence contains no copy of the original notes.md, so there is no way to confirm its sections are exactly these three."
+ },
+ {
+  "id": "R2-6-split-e2-e61",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows the current state — notes/ holds one section per file (on-call.md, onboarding.md, releases.md) and notes.md is now an index — but nothing in it records the old notes.md's original content, so whether every former section became its own file cannot be checked."
+ },
+ {
+  "id": "R2-6-split-e2-e71",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows notes/ now holds three single-section files (onboarding, releases, on-call) and notes.md is an index, but no observation captures the original notes.md content, so whether those three were all its sections cannot be confirmed."
+ },
+ {
+  "id": "R2-6-split-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the rewritten notes.md containing three links; it does not show the old notes.md's sections nor the existence or contents of notes/onboarding.md, notes/releases.md, and notes/on-call.md."
+ },
+ {
+  "id": "R2-6-split-e5-e12",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows notes/ containing three section files and the rewritten notes.md index linking to them, but never shows the original notes.md content, so there is no basis to confirm its sections were exactly these three."
+ },
+ {
+  "id": "R2-6-split-e5-e16",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows notes/ containing onboarding.md, releases.md and on-call.md plus the rewritten index notes.md, but the original notes.md content is nowhere in the evidence, so there is no way to confirm those three are all of its sections."
+ },
+ {
+  "id": "R2-6-split-e5-e24",
+  "file": "r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence only shows the current state — notes.md as a three-link index and three section files in notes/ — with no record of the original notes.md contents (no git history or prior read), so whether every old section became its own file cannot be checked."
+ },
+ {
+  "id": "R2-2-module-e5-e24",
+  "file": "r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows src/index.js content exporting slugify from './slugify.js', but contains no read or write of modules.json, so the registration half of the criterion is uncovered."
+ },
+ {
+  "id": "R2-2-module-e5-e35",
+  "file": "r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows modules.json contains \"slugify\" in its modules array, but contains nothing about src/index.js or its exports."
+ },
+ {
+  "id": "R2-2-module-e5-e46",
+  "file": "r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows the export in src/index.js but contains no observation of modules.json, so registration there is uncovered."
+ },
+ {
+  "id": "R2-3-spec-e2-e20",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini matches all four SPEC.md changes (port 9000, workers 4, cache enabled, format json), but the evidence contains no prior version of the file, so whether host, ttl, level or anything else was left untouched cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e2-e24",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the current settings.ini contents (port 9000, workers 4, enabled true, format json, which match SPEC.md's four items) with no prior version or diff, so whether host, ttl, level or anything else was altered cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e2-e35",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The current settings.ini (evidence [3]/[4]) does satisfy all four SPEC changes (port 9000, workers 4, cache enabled, format json), but no evidence shows the file's prior state, so whether host, ttl, or level were left untouched cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The single observation shows settings.ini currently has port 9000, workers 4, enabled true and format json as SPEC.md requires, but no prior version of the file is in evidence, so whether host, ttl, level or anything else was also altered cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e10",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The single observation shows settings.ini now has port 9000, workers 4, cache enabled true, and format json — matching all four SPEC items — but there is no prior version or diff in the evidence, so whether other keys (host, ttl, level) were left untouched cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e14",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The final settings.ini does show all four SPEC changes (port 9000, workers 4, cache enabled, format json), but the evidence contains no prior/original version of settings.ini, so whether other keys such as host, ttl, or level were left untouched cannot be determined."
+ },
+ {
+  "id": "R2-3-spec-e5-e18",
+  "file": "r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows settings.ini now has port 9000, workers 4, cache enabled true, and format json as SPEC.md requires, but it contains no prior version or diff of settings.ini, so whether the untouched lines (host, ttl, level) are unchanged cannot be determined."
+ },
+ {
+  "id": "R2-4-independent-e2-e31",
+  "file": "r2/f9b27dd/P3-judge-run/R2-4-independent/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows CHANGELOG.md documents version 1.4.3, but contains no read of package.json to confirm the version set there."
+ },
+ {
+  "id": "R2-5-replan-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run/R2-5-replan/rep-1/events.json",
+  "label": "S_SHAPE",
+  "because": "The evidence only identifies service.yaml as the settings file via README.md; the contents of service.yaml, and thus its replicas value, are not shown."
+ },
+ {
+  "id": "R2-5-replan-e2-e10",
+  "file": "r2/f9b27dd/P3-judge-run/R2-5-replan/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "service.yaml states the real settings file is config/service.yaml, and the evidence contains no read of config/service.yaml, so its replicas value is unknown."
+ },
+ {
+  "id": "R2-6-split-e2-e6",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence only shows the contents of the old notes.md with its three sections; it contains no listing or read of the notes/ directory, so whether corresponding per-section files exist is uncovered."
+ },
+ {
+  "id": "R2-6-split-e2-e14",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows notes/onboarding.md written with the Onboarding section, but nothing about files for the other two sections of notes.md (Releases and On-call), so coverage of the full criterion is missing."
+ },
+ {
+  "id": "R2-6-split-e2-e24",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows notes.md has three sections (Onboarding, Releases, On-call) and confirms only notes/releases.md exists with the correct content; nothing covers whether files for Onboarding and On-call were created under notes/."
+ },
+ {
+  "id": "R2-6-split-e2-e34",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "A_MORE_LOOKING",
+  "because": "The evidence shows notes.md has three sections (Onboarding, Releases, On-call) and only confirms notes/on-call.md was written; it says nothing about files for the Onboarding and Releases sections."
+ },
+ {
+  "id": "R2-6-split-e2-e51",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows the post-split state — a notes.md index linking to notes/onboarding.md, notes/releases.md and notes/on-call.md, each existing with one `##` section — but never shows the original notes.md content, so there is no way to confirm those three were all of its sections."
+ },
+ {
+  "id": "R2-6-split-e2-e61",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows the current state — notes.md as a three-link index and three single-section files under notes/ — but contains no record of the old notes.md's original content, so there is no way to confirm every section it once had became its own file."
+ },
+ {
+  "id": "R2-6-split-e2-e70",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows three section files under notes/ (onboarding, releases, on-call) and the current index-only notes.md, but nothing in it records the original notes.md content, so whether every section of the old file became its own file cannot be determined."
+ },
+ {
+  "id": "R2-6-split-e5-e6",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "T_TRANSITION",
+  "because": "The evidence shows only the rewritten notes.md containing three links; it does not show the old notes.md's sections nor confirm that notes/onboarding.md, notes/releases.md and notes/on-call.md exist with that content."
+ },
+ {
+  "id": "R2-6-split-e5-e12",
+  "file": "r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json",
+  "label": "E_OTHER",
+  "because": "the judge was not answered: the claude CLI did not answer within 180000 ms and was killed"
+ }
+]

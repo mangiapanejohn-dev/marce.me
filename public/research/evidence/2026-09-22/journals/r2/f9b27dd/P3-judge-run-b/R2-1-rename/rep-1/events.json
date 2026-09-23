@@ -1,0 +1,3673 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-1-rename-g",
+   "objective": "Rename the function fetchUser to loadUser everywhere in the workspace: its definition, every place that imports or calls it, and the README.",
+   "originalRequest": "Rename the function fetchUser to loadUser everywhere in the workspace: its definition, every place that imports or calls it, and the README.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "no file in the workspace refers to fetchUser any more",
+     "kind": "observable",
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/users.js defines loadUser",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+async\\s+function\\s+loadUser"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-1-rename-e2-e1",
+  "at": 1789806863611
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789806863615
+  },
+  "id": "R2-1-rename-e2-e2",
+  "at": 1789806863615
+ },
+ {
+  "id": "R2-1-rename-e2-m1",
+  "at": 1789806863620,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m2",
+  "at": 1789806874531,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e2-e3",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Find every occurrence of the identifier fetchUser across the workspace so I know exactly which files and lines must be renamed.",
+   "expected": {
+    "description": "A cited list of every file and line containing fetchUser, including src/users.js's definition, its importers/callers, and the README.",
+    "assertions": [
+     {
+      "path": "matches",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "the whole workspace tree",
+   "parameters": {
+    "query": "fetchUser",
+    "path": ".",
+    "regex": false,
+    "ignoreCase": false,
+    "contextLines": 2,
+    "maxResults": 200
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789806874537
+  },
+  "id": "R2-1-rename-e2-e4",
+  "at": 1789806874537
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789806863603-1",
+   "sessionId": "fs-session-1-1789806863603",
+   "capabilityId": "repo.search",
+   "observedAt": 1789806874546,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "6 matches for \"fetchUser\" across 4 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "fetchUser",
+    "regex": false,
+    "root": ".",
+    "matches": [
+     {
+      "path": "README.md",
+      "line": 3,
+      "column": 2,
+      "lineText": "`fetchUser(id)` loads one user from the API.",
+      "matchText": "fetchUser",
+      "before": [
+       "# users",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "src/api.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "export async function profile(id) {"
+      ]
+     },
+     {
+      "path": "src/api.js",
+      "line": 4,
+      "column": 22,
+      "lineText": "  const user = await fetchUser(id)",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "after": [
+       "  return { name: user.name, email: user.email }",
+       "}"
+      ]
+     },
+     {
+      "path": "src/cli.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "const [, , id] = process.argv"
+      ]
+     },
+     {
+      "path": "src/cli.js",
+      "line": 4,
+      "column": 1,
+      "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "src/users.js",
+      "line": 1,
+      "column": 23,
+      "lineText": "export async function fetchUser(id) {",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "  const response = await fetch(`/api/users/${id}`)",
+       "  return response.json()"
+      ]
+     }
+    ],
+    "filesScanned": 4,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-1-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+     "data": {
+      "path": "README.md",
+      "line": 3,
+      "column": 2,
+      "lineText": "`fetchUser(id)` loads one user from the API.",
+      "matchText": "fetchUser",
+      "before": [
+       "# users",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-2-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+     "data": {
+      "path": "src/api.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-3-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+     "data": {
+      "path": "src/api.js",
+      "line": 4,
+      "column": 22,
+      "lineText": "  const user = await fetchUser(id)",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "after": [
+       "  return { name: user.name, email: user.email }",
+       "}"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-4-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+     "data": {
+      "path": "src/cli.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-5-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+     "data": {
+      "path": "src/cli.js",
+      "line": 4,
+      "column": 1,
+      "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "after": [
+       ""
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-6-1789806874546",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806874546,
+      "source": "filesystem:search"
+     },
+     "summary": "src/users.js:1:23: export async function fetchUser(id) {",
+     "data": {
+      "path": "src/users.js",
+      "line": 1,
+      "column": 23,
+      "lineText": "export async function fetchUser(id) {",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "  const response = await fetch(`/api/users/${id}`)",
+       "  return response.json()"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-1-rename-e2-e5",
+  "at": 1789806874550
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+   "data": {
+    "path": "README.md",
+    "line": 3,
+    "column": 2,
+    "lineText": "`fetchUser(id)` loads one user from the API.",
+    "matchText": "fetchUser",
+    "before": [
+     "# users",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e6",
+  "at": 1789806874555
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/api.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e7",
+  "at": 1789806874559
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+   "data": {
+    "path": "src/api.js",
+    "line": 4,
+    "column": 22,
+    "lineText": "  const user = await fetchUser(id)",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "after": [
+     "  return { name: user.name, email: user.email }",
+     "}"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e8",
+  "at": 1789806874563
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-4-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/cli.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e9",
+  "at": 1789806874567
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-5-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+   "data": {
+    "path": "src/cli.js",
+    "line": 4,
+    "column": 1,
+    "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e10",
+  "at": 1789806874571
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-6-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/users.js:1:23: export async function fetchUser(id) {",
+   "data": {
+    "path": "src/users.js",
+    "line": 1,
+    "column": 23,
+    "lineText": "export async function fetchUser(id) {",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "  const response = await fetch(`/api/users/${id}`)",
+     "  return response.json()"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e11",
+  "at": 1789806874575
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+   "data": {
+    "path": "README.md",
+    "line": 3,
+    "column": 2,
+    "lineText": "`fetchUser(id)` loads one user from the API.",
+    "matchText": "fetchUser",
+    "before": [
+     "# users",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e12",
+  "at": 1789806874579
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/api.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e13",
+  "at": 1789806874583
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+   "data": {
+    "path": "src/api.js",
+    "line": 4,
+    "column": 22,
+    "lineText": "  const user = await fetchUser(id)",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "after": [
+     "  return { name: user.name, email: user.email }",
+     "}"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e14",
+  "at": 1789806874586
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-4-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/cli.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e15",
+  "at": 1789806874590
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-5-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+   "data": {
+    "path": "src/cli.js",
+    "line": 4,
+    "column": 1,
+    "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e16",
+  "at": 1789806874594
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-6-1789806874546",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874546,
+    "source": "filesystem:search"
+   },
+   "summary": "src/users.js:1:23: export async function fetchUser(id) {",
+   "data": {
+    "path": "src/users.js",
+    "line": 1,
+    "column": 23,
+    "lineText": "export async function fetchUser(id) {",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "  const response = await fetch(`/api/users/${id}`)",
+     "  return response.json()"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e17",
+  "at": 1789806874598
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-1-1789806863603-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806874579,
+    "source": "observation:repo.search"
+   },
+   "summary": "observation obs-fs-session-1-1789806863603-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e18",
+  "at": 1789806874602
+ },
+ {
+  "id": "R2-1-rename-e2-m3",
+  "at": 1789806874607,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m4",
+  "at": 1789806886120,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "not-established",
+  "because": "The search for \"fetchUser\" returned six matches across README.md, src/api.js, src/cli.js, and src/users.js, so references still exist.",
+  "evidence": [
+   "ev-1-1789806874546",
+   "ev-2-1789806874546",
+   "ev-3-1789806874546",
+   "ev-4-1789806874546",
+   "ev-5-1789806874546",
+   "ev-6-1789806874546",
+   "ev:obs-fs-session-1-1789806863603-1:read"
+  ],
+  "id": "R2-1-rename-e2-e19",
+  "at": 1789806886127
+ },
+ {
+  "id": "R2-1-rename-e2-m5",
+  "at": 1789806886133,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m6",
+  "at": 1789806893993,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e2-e20",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Rename the exported function fetchUser to loadUser in its definition file src/users.js",
+   "expected": {
+    "description": "src/users.js now declares `export async function loadUser(id)` and no longer contains the token fetchUser",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export async function loadUser(id)"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/users.js",
+   "parameters": {
+    "path": "src/users.js",
+    "edits": [
+     {
+      "find": "export async function fetchUser(id) {",
+      "replace": "export async function loadUser(id) {",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2",
+    "c1"
+   ],
+   "createdAt": 1789806893999
+  },
+  "id": "R2-1-rename-e2-e21",
+  "at": 1789806893999
+ },
+ {
+  "id": "R2-1-rename-e2-m7",
+  "at": 1789806894006,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m8",
+  "at": 1789806900316,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789806863603-2",
+   "sessionId": "fs-session-1-1789806863603",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789806900323,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file src/users.js, 116 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/users.js",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/users.js",
+    "byteLength": 116,
+    "mtimeMs": 1789806863543,
+    "digest": "sha256:ca7336cdacbc876e853d2af8f5517948d0c70c1f624d535c767e31eedae46e77",
+    "binary": false,
+    "inline": true,
+    "content": "export async function fetchUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export async function fetchUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789806900323,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e2-e22",
+  "at": 1789806900327
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-1-rename-e2-a-R2-1-rename-e2-e20",
+   "intentId": "R2-1-rename-e2-e20",
+   "sessionId": "fs-session-1-1789806863603",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "src/users.js",
+    "edits": [
+     {
+      "find": "export async function fetchUser(id) {",
+      "replace": "export async function loadUser(id) {",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "src/users.js now declares `export async function loadUser(id)` and no longer contains the token fetchUser",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "export async function loadUser(id)"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-1-1789806863603-2",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-1-rename-e2-e23",
+  "at": 1789806900335
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-8-1789806900332",
+   "actionId": "R2-1-rename-e2-a-R2-1-rename-e2-e20",
+   "sessionId": "fs-session-1-1789806863603",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/users.js",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/users.js",
+     "byteLength": 115,
+     "mtimeMs": 1789806900335,
+     "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:ca7336cdacbc876e853d2af8f5517948d0c70c1f624d535c767e31eedae46e77",
+     "content": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-7-1789806900335",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "sessionRevision": 0,
+      "capturedAt": 1789806900335,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/users.js is 115 bytes with digest sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+     "data": {
+      "path": "src/users.js",
+      "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+      "byteLength": 115,
+      "mtimeMs": 1789806900335
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789806900332,
+   "completedAt": 1789806900335
+  },
+  "id": "R2-1-rename-e2-e24",
+  "at": 1789806900339
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-1-rename-e2-e20",
+   "description": "Rename the exported function fetchUser to loadUser in its definition file src/users.js",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c2",
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/users.js"
+   ]
+  },
+  "id": "R2-1-rename-e2-e25",
+  "at": 1789806900344
+ },
+ {
+  "id": "R2-1-rename-e2-m9",
+  "at": 1789806900350,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m10",
+  "at": 1789806908201,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789806863603-3",
+   "sessionId": "fs-session-1-1789806863603",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789806908206,
+   "worldRevision": 1,
+   "observationRevision": 3,
+   "semanticState": "file src/users.js, 115 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/users.js",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/users.js",
+    "byteLength": 115,
+    "mtimeMs": 1789806900335,
+    "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+    "binary": false,
+    "inline": true,
+    "content": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789806908206,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e2-e26",
+  "at": 1789806908206
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-8-1789806900332",
+   "actionId": "R2-1-rename-e2-a-R2-1-rename-e2-e20",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "export async function loadUser(id)",
+     "actual": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-7-1789806900335",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "sessionRevision": 0,
+      "capturedAt": 1789806900335,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/users.js is 115 bytes with digest sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+     "data": {
+      "path": "src/users.js",
+      "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+      "byteLength": 115,
+      "mtimeMs": 1789806900335
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-8-1789806900332:1",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-1-1789806863603",
+      "observationId": "obs-fs-session-1-1789806863603-3",
+      "sessionRevision": 1,
+      "capturedAt": 1789806908210,
+      "source": "observation:fs.observe"
+     },
+     "summary": "observation obs-fs-session-1-1789806863603-3 at world revision 1, taken to verify fs.patch",
+     "artifacts": []
+    }
+   ],
+   "basis": "fresh-observation",
+   "observationId": "obs-fs-session-1-1789806863603-3",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-8-1789806900332",
+    "actionId": "R2-1-rename-e2-a-R2-1-rename-e2-e20",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-7-1789806900335",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-1-1789806863603",
+       "sessionRevision": 0,
+       "capturedAt": 1789806900335,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/users.js is 115 bytes with digest sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+      "data": {
+       "path": "src/users.js",
+       "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+       "byteLength": 115,
+       "mtimeMs": 1789806900335
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-8-1789806900332:1",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-1-1789806863603",
+       "observationId": "obs-fs-session-1-1789806863603-3",
+       "sessionRevision": 1,
+       "capturedAt": 1789806908210,
+       "source": "observation:fs.observe"
+      },
+      "summary": "observation obs-fs-session-1-1789806863603-3 at world revision 1, taken to verify fs.patch",
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.9,
+   "decidedAt": 1789806908211
+  },
+  "id": "R2-1-rename-e2-e27",
+  "at": 1789806908211
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:receipt-8-1789806900332:1",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789806863603",
+    "observationId": "obs-fs-session-1-1789806863603-3",
+    "sessionRevision": 1,
+    "capturedAt": 1789806908210,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-1-1789806863603-3 at world revision 1, taken to verify fs.patch",
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e2-e28",
+  "at": 1789806908215
+ },
+ {
+  "id": "R2-1-rename-e2-m11",
+  "at": 1789806908220,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e2-m12",
+  "at": 1789806920679,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e2-e29",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Replace both remaining references to fetchUser in src/api.js with loadUser, in the import statement and the call site",
+   "expected": {
+    "description": "src/api.js imports and calls loadUser, and no longer mentions fetchUser anywhere.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "import { loadUser } from './users.js'"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "await loadUser(id)"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/api.js",
+   "parameters": {
+    "path": "src/api.js",
+    "edits": [
+     {
+      "find": "import { fetchUser } from './users.js'",
+      "replace": "import { loadUser } from './users.js'",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "const user = await fetchUser(id)",
+      "replace": "const user = await loadUser(id)",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [
+    {
+     "kind": "dependency-verified",
+     "subject": "task:R2-1-rename-e2-e20",
+     "because": "Callers should only be repointed to loadUser once the definition in src/users.js is confirmed renamed, otherwise the import would break."
+    }
+   ],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789806920684
+  },
+  "id": "R2-1-rename-e2-e30",
+  "at": 1789806920684
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "dispatch of R2-1-rename-e2-e29 is withheld and nothing can lift it: dependency-verified(task:R2-1-rename-e2-e20): task \"task:R2-1-rename-e2-e20\" is active, not verified",
+  "id": "R2-1-rename-e2-e31",
+  "at": 1789806920687
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-R2-1-rename-g",
+   "objective": "Rename the function fetchUser to loadUser everywhere in the workspace: its definition, every place that imports or calls it, and the README.",
+   "originalRequest": "Rename the function fetchUser to loadUser everywhere in the workspace: its definition, every place that imports or calls it, and the README.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "no file in the workspace refers to fetchUser any more",
+     "kind": "observable",
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "src/users.js defines loadUser",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "export\\s+async\\s+function\\s+loadUser"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "R2-1-rename-e5-e1",
+  "at": 1789806920760
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789806920763
+  },
+  "id": "R2-1-rename-e5-e2",
+  "at": 1789806920763
+ },
+ {
+  "id": "R2-1-rename-e5-m1",
+  "at": 1789806920766,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m2",
+  "at": 1789806936859,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e3",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Find every occurrence of the identifier fetchUser across the workspace so I know which files need renaming.",
+   "expected": {
+    "description": "A cited list of every file and line that mentions fetchUser, including src/users.js, its importers/callers, and the README.",
+    "assertions": [
+     {
+      "path": "matches",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "workspace files containing the identifier fetchUser",
+   "parameters": {
+    "query": "fetchUser",
+    "path": ".",
+    "regex": false,
+    "ignoreCase": false,
+    "contextLines": 2,
+    "maxResults": 200
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789806936863
+  },
+  "id": "R2-1-rename-e5-e4",
+  "at": 1789806936864
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-1",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "repo.search",
+   "observedAt": 1789806936870,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "5 matches for \"fetchUser\" across 4 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "fetchUser",
+    "regex": false,
+    "root": ".",
+    "matches": [
+     {
+      "path": "README.md",
+      "line": 3,
+      "column": 2,
+      "lineText": "`fetchUser(id)` loads one user from the API.",
+      "matchText": "fetchUser",
+      "before": [
+       "# users",
+       ""
+      ],
+      "after": [
+       ""
+      ]
+     },
+     {
+      "path": "src/api.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "export async function profile(id) {"
+      ]
+     },
+     {
+      "path": "src/api.js",
+      "line": 4,
+      "column": 22,
+      "lineText": "  const user = await fetchUser(id)",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "after": [
+       "  return { name: user.name, email: user.email }",
+       "}"
+      ]
+     },
+     {
+      "path": "src/cli.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "const [, , id] = process.argv"
+      ]
+     },
+     {
+      "path": "src/cli.js",
+      "line": 4,
+      "column": 1,
+      "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "after": [
+       ""
+      ]
+     }
+    ],
+    "filesScanned": 4,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "evidence": [
+    {
+     "id": "ev-1-1789806936870",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "observationId": "obs-fs-session-2-1789806920756-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806936870,
+      "source": "filesystem:search"
+     },
+     "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+     "data": {
+      "path": "README.md",
+      "line": 3,
+      "column": 2,
+      "lineText": "`fetchUser(id)` loads one user from the API.",
+      "matchText": "fetchUser",
+      "before": [
+       "# users",
+       ""
+      ],
+      "after": [
+       ""
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-2-1789806936870",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "observationId": "obs-fs-session-2-1789806920756-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806936870,
+      "source": "filesystem:search"
+     },
+     "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+     "data": {
+      "path": "src/api.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-3-1789806936870",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "observationId": "obs-fs-session-2-1789806920756-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806936870,
+      "source": "filesystem:search"
+     },
+     "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+     "data": {
+      "path": "src/api.js",
+      "line": 4,
+      "column": 22,
+      "lineText": "  const user = await fetchUser(id)",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "export async function profile(id) {"
+      ],
+      "after": [
+       "  return { name: user.name, email: user.email }",
+       "}"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-4-1789806936870",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "observationId": "obs-fs-session-2-1789806920756-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806936870,
+      "source": "filesystem:search"
+     },
+     "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+     "data": {
+      "path": "src/cli.js",
+      "line": 1,
+      "column": 10,
+      "lineText": "import { fetchUser } from './users.js'",
+      "matchText": "fetchUser",
+      "before": [],
+      "after": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev-5-1789806936870",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "observationId": "obs-fs-session-2-1789806920756-1",
+      "sessionRevision": 0,
+      "capturedAt": 1789806936870,
+      "source": "filesystem:search"
+     },
+     "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+     "data": {
+      "path": "src/cli.js",
+      "line": 4,
+      "column": 1,
+      "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+      "matchText": "fetchUser",
+      "before": [
+       "",
+       "const [, , id] = process.argv"
+      ],
+      "after": [
+       ""
+      ],
+      "query": "fetchUser"
+     },
+     "artifacts": []
+    }
+   ]
+  },
+  "id": "R2-1-rename-e5-e5",
+  "at": 1789806936873
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+   "data": {
+    "path": "README.md",
+    "line": 3,
+    "column": 2,
+    "lineText": "`fetchUser(id)` loads one user from the API.",
+    "matchText": "fetchUser",
+    "before": [
+     "# users",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e6",
+  "at": 1789806936877
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/api.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e7",
+  "at": 1789806936887
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+   "data": {
+    "path": "src/api.js",
+    "line": 4,
+    "column": 22,
+    "lineText": "  const user = await fetchUser(id)",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "after": [
+     "  return { name: user.name, email: user.email }",
+     "}"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e8",
+  "at": 1789806936891
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-4-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/cli.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e9",
+  "at": 1789806936896
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-5-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+   "data": {
+    "path": "src/cli.js",
+    "line": 4,
+    "column": 1,
+    "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e10",
+  "at": 1789806936899
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-1-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "README.md:3:2: `fetchUser(id)` loads one user from the API.",
+   "data": {
+    "path": "README.md",
+    "line": 3,
+    "column": 2,
+    "lineText": "`fetchUser(id)` loads one user from the API.",
+    "matchText": "fetchUser",
+    "before": [
+     "# users",
+     ""
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e11",
+  "at": 1789806936903
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-2-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/api.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e12",
+  "at": 1789806936907
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-3-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/api.js:4:22: const user = await fetchUser(id)",
+   "data": {
+    "path": "src/api.js",
+    "line": 4,
+    "column": 22,
+    "lineText": "  const user = await fetchUser(id)",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "export async function profile(id) {"
+    ],
+    "after": [
+     "  return { name: user.name, email: user.email }",
+     "}"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e13",
+  "at": 1789806936911
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-4-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:1:10: import { fetchUser } from './users.js'",
+   "data": {
+    "path": "src/cli.js",
+    "line": 1,
+    "column": 10,
+    "lineText": "import { fetchUser } from './users.js'",
+    "matchText": "fetchUser",
+    "before": [],
+    "after": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e14",
+  "at": 1789806936915
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev-5-1789806936870",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936870,
+    "source": "filesystem:search"
+   },
+   "summary": "src/cli.js:4:1: fetchUser(id).then((user) => console.log(user.name))",
+   "data": {
+    "path": "src/cli.js",
+    "line": 4,
+    "column": 1,
+    "lineText": "fetchUser(id).then((user) => console.log(user.name))",
+    "matchText": "fetchUser",
+    "before": [
+     "",
+     "const [, , id] = process.argv"
+    ],
+    "after": [
+     ""
+    ],
+    "query": "fetchUser"
+   },
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e15",
+  "at": 1789806936920
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789806920756-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789806936903,
+    "source": "observation:repo.search"
+   },
+   "summary": "observation obs-fs-session-2-1789806920756-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e16",
+  "at": 1789806936924
+ },
+ {
+  "id": "R2-1-rename-e5-m3",
+  "at": 1789806936928,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m4",
+  "at": 1789806946361,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "not-established",
+  "because": "The search for \"fetchUser\" returns five matches across README.md, src/api.js, and src/cli.js, so references still exist.",
+  "evidence": [
+   "ev-1-1789806936870",
+   "ev-2-1789806936870",
+   "ev-3-1789806936870",
+   "ev-4-1789806936870",
+   "ev-5-1789806936870",
+   "ev:obs-fs-session-2-1789806920756-1:read"
+  ],
+  "id": "R2-1-rename-e5-e17",
+  "at": 1789806946368
+ },
+ {
+  "id": "R2-1-rename-e5-m5",
+  "at": 1789806946374,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m6",
+  "at": 1789806958316,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e18",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Read the current contents of src/users.js so I can see how the function is defined before renaming it.",
+   "expected": {
+    "description": "The file src/users.js is read and its text content is returned, showing the definition of the function currently named fetchUser.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/users.js",
+   "parameters": {
+    "path": "src/users.js",
+    "depth": 1,
+    "includeContent": true,
+    "hashEntries": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c2"
+   ],
+   "createdAt": 1789806958321
+  },
+  "id": "R2-1-rename-e5-e19",
+  "at": 1789806958321
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-2",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789806958326,
+   "worldRevision": 0,
+   "observationRevision": 2,
+   "semanticState": "file src/users.js, 115 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/users.js",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/users.js",
+    "byteLength": 115,
+    "mtimeMs": 1789806900335,
+    "digest": "sha256:31a118fa6fc9eb54971c929b180e3cf2362cb80b3d5a288d54e153221369d3d3",
+    "binary": false,
+    "inline": true,
+    "content": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "export async function loadUser(id) {\n  const response = await fetch(`/api/users/${id}`)\n  return response.json()\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789806958326,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e5-e20",
+  "at": 1789806958328
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789806920756-2:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-2",
+    "sessionRevision": 0,
+    "capturedAt": 1789806958332,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789806920756-2 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e21",
+  "at": 1789806958332
+ },
+ {
+  "id": "R2-1-rename-e5-m7",
+  "at": 1789806958337,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m8",
+  "at": 1789806967998,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e22",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Replace both references to fetchUser in src/api.js with loadUser, in the import and the call site.",
+   "expected": {
+    "description": "src/api.js imports and calls loadUser, with no remaining occurrence of fetchUser in the file.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "import { loadUser } from './users.js'"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "await loadUser(id)"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/api.js",
+   "parameters": {
+    "path": "src/api.js",
+    "edits": [
+     {
+      "find": "import { fetchUser } from './users.js'",
+      "replace": "import { loadUser } from './users.js'",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "await fetchUser(id)",
+      "replace": "await loadUser(id)",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789806968002
+  },
+  "id": "R2-1-rename-e5-e23",
+  "at": 1789806968002
+ },
+ {
+  "id": "R2-1-rename-e5-m9",
+  "at": 1789806968007,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m10",
+  "at": 1789806977201,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-3",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789806977207,
+   "worldRevision": 0,
+   "observationRevision": 3,
+   "semanticState": "file src/api.js, 161 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/api.js",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/api.js",
+    "byteLength": 161,
+    "mtimeMs": 1789806863543,
+    "digest": "sha256:4d42ffca88856f22f5a915fd660d6eecc6ad1f902dd9445393105a1801261168",
+    "binary": false,
+    "inline": true,
+    "content": "import { fetchUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await fetchUser(id)\n  return { name: user.name, email: user.email }\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "import { fetchUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await fetchUser(id)\n  return { name: user.name, email: user.email }\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-3",
+    "sessionRevision": 0,
+    "capturedAt": 1789806977207,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e5-e24",
+  "at": 1789806977208
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-1-rename-e5-a-R2-1-rename-e5-e22",
+   "intentId": "R2-1-rename-e5-e22",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "src/api.js",
+    "edits": [
+     {
+      "find": "import { fetchUser } from './users.js'",
+      "replace": "import { loadUser } from './users.js'",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "await fetchUser(id)",
+      "replace": "await loadUser(id)",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "src/api.js imports and calls loadUser, with no remaining occurrence of fetchUser in the file.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "import { loadUser } from './users.js'"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "await loadUser(id)"
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-2-1789806920756-3",
+    "worldRevision": 0,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-1-rename-e5-e25",
+  "at": 1789806977213
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-7-1789806977212",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e22",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/api.js",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/api.js",
+     "byteLength": 159,
+     "mtimeMs": 1789806977213,
+     "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 2,
+     "previousDigest": "sha256:4d42ffca88856f22f5a915fd660d6eecc6ad1f902dd9445393105a1801261168",
+     "content": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+    },
+    "worldRevision": 1
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-6-1789806977213",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 0,
+      "capturedAt": 1789806977213,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/api.js is 159 bytes with digest sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+     "data": {
+      "path": "src/api.js",
+      "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+      "byteLength": 159,
+      "mtimeMs": 1789806977213
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 1,
+   "startedAt": 1789806977212,
+   "completedAt": 1789806977213
+  },
+  "id": "R2-1-rename-e5-e26",
+  "at": 1789806977217
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-1-rename-e5-e22",
+   "description": "Replace both references to fetchUser in src/api.js with loadUser, in the import and the call site.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/api.js"
+   ]
+  },
+  "id": "R2-1-rename-e5-e27",
+  "at": 1789806977223
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-7-1789806977212",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e22",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "import { loadUser } from './users.js'",
+     "actual": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "await loadUser(id)",
+     "actual": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-6-1789806977213",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 0,
+      "capturedAt": 1789806977213,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/api.js is 159 bytes with digest sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+     "data": {
+      "path": "src/api.js",
+      "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+      "byteLength": 159,
+      "mtimeMs": 1789806977213
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-7-1789806977212:1",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-2-1789806920756",
+      "capturedAt": 1789806977227,
+      "source": "result:fs.patch"
+     },
+     "summary": "the provider result for fs.patch decided 3 of 3 assertion(s)",
+     "data": {
+      "path": "src/api.js",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/api.js",
+      "byteLength": 159,
+      "mtimeMs": 1789806977213,
+      "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": false,
+      "encoding": "utf8",
+      "editsApplied": 2,
+      "previousDigest": "sha256:4d42ffca88856f22f5a915fd660d6eecc6ad1f902dd9445393105a1801261168",
+      "content": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-7-1789806977212",
+    "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e22",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-6-1789806977213",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-2-1789806920756",
+       "sessionRevision": 0,
+       "capturedAt": 1789806977213,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/api.js is 159 bytes with digest sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+      "data": {
+       "path": "src/api.js",
+       "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+       "byteLength": 159,
+       "mtimeMs": 1789806977213
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-7-1789806977212:1",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-2-1789806920756",
+       "capturedAt": 1789806977227,
+       "source": "result:fs.patch"
+      },
+      "summary": "the provider result for fs.patch decided 3 of 3 assertion(s)",
+      "data": {
+       "path": "src/api.js",
+       "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/api.js",
+       "byteLength": 159,
+       "mtimeMs": 1789806977213,
+       "digest": "sha256:a459e33c66f4d948e58b01ca3bbf60ef20b15c92cf4ec38099e77f90de82d300",
+       "binary": false,
+       "inline": true,
+       "exists": true,
+       "created": false,
+       "encoding": "utf8",
+       "editsApplied": 2,
+       "previousDigest": "sha256:4d42ffca88856f22f5a915fd660d6eecc6ad1f902dd9445393105a1801261168",
+       "content": "import { loadUser } from './users.js'\n\nexport async function profile(id) {\n  const user = await loadUser(id)\n  return { name: user.name, email: user.email }\n}\n"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.75,
+   "decidedAt": 1789806977227
+  },
+  "id": "R2-1-rename-e5-e28",
+  "at": 1789806977227
+ },
+ {
+  "id": "R2-1-rename-e5-m11",
+  "at": 1789806977232,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m12",
+  "at": 1789806986695,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e29",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Rename the remaining fetchUser references in src/cli.js to loadUser, in both the import statement and the call site.",
+   "expected": {
+    "description": "src/cli.js imports and calls loadUser, and contains no occurrence of fetchUser.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "import { loadUser } from './users.js'"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "loadUser(id).then("
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "src/cli.js",
+   "parameters": {
+    "path": "src/cli.js",
+    "edits": [
+     {
+      "find": "import { fetchUser } from './users.js'",
+      "replace": "import { loadUser } from './users.js'",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "fetchUser(id).then(",
+      "replace": "loadUser(id).then(",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789806986705
+  },
+  "id": "R2-1-rename-e5-e30",
+  "at": 1789806986705
+ },
+ {
+  "id": "R2-1-rename-e5-m13",
+  "at": 1789806986709,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m14",
+  "at": 1789806995171,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-4",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789806995177,
+   "worldRevision": 1,
+   "observationRevision": 4,
+   "semanticState": "file src/cli.js, 123 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "src/cli.js",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/cli.js",
+    "byteLength": 123,
+    "mtimeMs": 1789806863543,
+    "digest": "sha256:1f1bb9debfacb6e5d572b3772f9f9cb23750f9ee64e4e76e74e78f80822ae115",
+    "binary": false,
+    "inline": true,
+    "content": "import { fetchUser } from './users.js'\n\nconst [, , id] = process.argv\nfetchUser(id).then((user) => console.log(user.name))\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "import { fetchUser } from './users.js'\n\nconst [, , id] = process.argv\nfetchUser(id).then((user) => console.log(user.name))\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-4",
+    "sessionRevision": 1,
+    "capturedAt": 1789806995177,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e5-e31",
+  "at": 1789806995178
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-1-rename-e5-a-R2-1-rename-e5-e29",
+   "intentId": "R2-1-rename-e5-e29",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "src/cli.js",
+    "edits": [
+     {
+      "find": "import { fetchUser } from './users.js'",
+      "replace": "import { loadUser } from './users.js'",
+      "expectedOccurrences": 1
+     },
+     {
+      "find": "fetchUser(id).then(",
+      "replace": "loadUser(id).then(",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "src/cli.js imports and calls loadUser, and contains no occurrence of fetchUser.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "import { loadUser } from './users.js'"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "loadUser(id).then("
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-2-1789806920756-4",
+    "worldRevision": 1,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-1-rename-e5-e32",
+  "at": 1789806995184
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-9-1789806995182",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e29",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "src/cli.js",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/cli.js",
+     "byteLength": 121,
+     "mtimeMs": 1789806995184,
+     "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 2,
+     "previousDigest": "sha256:1f1bb9debfacb6e5d572b3772f9f9cb23750f9ee64e4e76e74e78f80822ae115",
+     "content": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+    },
+    "worldRevision": 2
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-8-1789806995184",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 1,
+      "capturedAt": 1789806995184,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/cli.js is 121 bytes with digest sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+     "data": {
+      "path": "src/cli.js",
+      "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+      "byteLength": 121,
+      "mtimeMs": 1789806995184
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 2,
+   "startedAt": 1789806995182,
+   "completedAt": 1789806995184
+  },
+  "id": "R2-1-rename-e5-e33",
+  "at": 1789806995189
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-1-rename-e5-e29",
+   "description": "Rename the remaining fetchUser references in src/cli.js to loadUser, in both the import statement and the call site.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "src/cli.js"
+   ]
+  },
+  "id": "R2-1-rename-e5-e34",
+  "at": 1789806995193
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-9-1789806995182",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e29",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "import { loadUser } from './users.js'",
+     "actual": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+    },
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "loadUser(id).then(",
+     "actual": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-8-1789806995184",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 1,
+      "capturedAt": 1789806995184,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "src/cli.js is 121 bytes with digest sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+     "data": {
+      "path": "src/cli.js",
+      "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+      "byteLength": 121,
+      "mtimeMs": 1789806995184
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-9-1789806995182:2",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-2-1789806920756",
+      "capturedAt": 1789806995198,
+      "source": "result:fs.patch"
+     },
+     "summary": "the provider result for fs.patch decided 3 of 3 assertion(s)",
+     "data": {
+      "path": "src/cli.js",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/cli.js",
+      "byteLength": 121,
+      "mtimeMs": 1789806995184,
+      "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": false,
+      "encoding": "utf8",
+      "editsApplied": 2,
+      "previousDigest": "sha256:1f1bb9debfacb6e5d572b3772f9f9cb23750f9ee64e4e76e74e78f80822ae115",
+      "content": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-9-1789806995182",
+    "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e29",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-8-1789806995184",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-2-1789806920756",
+       "sessionRevision": 1,
+       "capturedAt": 1789806995184,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "src/cli.js is 121 bytes with digest sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+      "data": {
+       "path": "src/cli.js",
+       "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+       "byteLength": 121,
+       "mtimeMs": 1789806995184
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-9-1789806995182:2",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-2-1789806920756",
+       "capturedAt": 1789806995198,
+       "source": "result:fs.patch"
+      },
+      "summary": "the provider result for fs.patch decided 3 of 3 assertion(s)",
+      "data": {
+       "path": "src/cli.js",
+       "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/src/cli.js",
+       "byteLength": 121,
+       "mtimeMs": 1789806995184,
+       "digest": "sha256:45f9b71c282f7ed918f9ed6b43be5ea4d801fd0a81ff1879d138b9e07c7533ab",
+       "binary": false,
+       "inline": true,
+       "exists": true,
+       "created": false,
+       "encoding": "utf8",
+       "editsApplied": 2,
+       "previousDigest": "sha256:1f1bb9debfacb6e5d572b3772f9f9cb23750f9ee64e4e76e74e78f80822ae115",
+       "content": "import { loadUser } from './users.js'\n\nconst [, , id] = process.argv\nloadUser(id).then((user) => console.log(user.name))\n"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.75,
+   "decidedAt": 1789806995198
+  },
+  "id": "R2-1-rename-e5-e35",
+  "at": 1789806995198
+ },
+ {
+  "id": "R2-1-rename-e5-m15",
+  "at": 1789806995202,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m16",
+  "at": 1789807008290,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e36",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Replace the remaining fetchUser reference in README.md with loadUser so no file in the workspace mentions the old name.",
+   "expected": {
+    "description": "README.md documents loadUser(id) instead of fetchUser(id); the workspace's last non-source reference to the old name is gone.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "`loadUser(id)` loads one user from the API."
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "README.md",
+   "parameters": {
+    "path": "README.md",
+    "edits": [
+     {
+      "find": "`fetchUser(id)`",
+      "replace": "`loadUser(id)`",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789807008294
+  },
+  "id": "R2-1-rename-e5-e37",
+  "at": 1789807008295
+ },
+ {
+  "id": "R2-1-rename-e5-m17",
+  "at": 1789807008299,
+  "purpose": "observe",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m18",
+  "at": 1789807015106,
+  "purpose": "observe",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-5",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789807015113,
+   "worldRevision": 2,
+   "observationRevision": 5,
+   "semanticState": "file README.md, 54 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "README.md",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/README.md",
+    "byteLength": 54,
+    "mtimeMs": 1789806863544,
+    "digest": "sha256:9eb81fd9a2f709c17f10026ef3f9d5cc0ab56fd3af30f9d19dea248d5a5b4698",
+    "binary": false,
+    "inline": true,
+    "content": "# users\n\n`fetchUser(id)` loads one user from the API.\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "# users\n\n`fetchUser(id)` loads one user from the API.\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-5",
+    "sessionRevision": 2,
+    "capturedAt": 1789807015113,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e5-e38",
+  "at": 1789807015114
+ },
+ {
+  "type": "action.dispatched",
+  "action": {
+   "id": "R2-1-rename-e5-a-R2-1-rename-e5-e36",
+   "intentId": "R2-1-rename-e5-e36",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "operation": "fs.patch",
+   "args": {
+    "path": "README.md",
+    "edits": [
+     {
+      "find": "`fetchUser(id)`",
+      "replace": "`loadUser(id)`",
+      "expectedOccurrences": 1
+     }
+    ],
+    "atomic": true
+   },
+   "expected": {
+    "description": "README.md documents loadUser(id) instead of fetchUser(id); the workspace's last non-source reference to the old name is gone.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "`loadUser(id)` loads one user from the API."
+     },
+     {
+      "path": "content",
+      "operator": "absent"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "semanticEffect": "filesystem-mutation",
+   "basis": {
+    "observationId": "obs-fs-session-2-1789806920756-5",
+    "worldRevision": 2,
+    "targets": [],
+    "freshness": "revalidate"
+   }
+  },
+  "id": "R2-1-rename-e5-e39",
+  "at": 1789807015120
+ },
+ {
+  "type": "effect.received",
+  "receipt": {
+   "id": "receipt-11-1789807015118",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e36",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "fs.patch",
+   "attemptedOperation": "fs.patch",
+   "outcome": "applied",
+   "cancelled": false,
+   "stateBearing": {
+    "claimsSufficient": true,
+    "state": {
+     "path": "README.md",
+     "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/README.md",
+     "byteLength": 53,
+     "mtimeMs": 1789807015120,
+     "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+     "binary": false,
+     "inline": true,
+     "exists": true,
+     "created": false,
+     "encoding": "utf8",
+     "editsApplied": 1,
+     "previousDigest": "sha256:9eb81fd9a2f709c17f10026ef3f9d5cc0ab56fd3af30f9d19dea248d5a5b4698",
+     "content": "# users\n\n`loadUser(id)` loads one user from the API.\n"
+    },
+    "worldRevision": 3
+   },
+   "artifacts": [],
+   "evidence": [
+    {
+     "id": "ev-10-1789807015120",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 2,
+      "capturedAt": 1789807015120,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "README.md is 53 bytes with digest sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+     "data": {
+      "path": "README.md",
+      "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+      "byteLength": 53,
+      "mtimeMs": 1789807015120
+     },
+     "artifacts": []
+    }
+   ],
+   "worldRevisionAfter": 3,
+   "startedAt": 1789807015118,
+   "completedAt": 1789807015120
+  },
+  "id": "R2-1-rename-e5-e40",
+  "at": 1789807015124
+ },
+ {
+  "type": "task.changed",
+  "task": {
+   "id": "task:R2-1-rename-e5-e36",
+   "description": "Replace the remaining fetchUser reference in README.md with loadUser so no file in the workspace mentions the old name.",
+   "status": "active",
+   "combinator": "AND",
+   "children": [],
+   "dependsOn": [],
+   "satisfies": [
+    "c1"
+   ],
+   "dependsOnEvidence": [],
+   "dependsOnBeliefs": [],
+   "dependsOnResources": [
+    "README.md"
+   ]
+  },
+  "id": "R2-1-rename-e5-e41",
+  "at": 1789807015128
+ },
+ {
+  "type": "verification.decided",
+  "result": {
+   "receiptId": "receipt-11-1789807015118",
+   "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e36",
+   "verdict": "partial",
+   "assertions": [
+    {
+     "status": "satisfied",
+     "path": "content",
+     "operator": "contains",
+     "expected": "`loadUser(id)` loads one user from the API.",
+     "actual": "# users\n\n`loadUser(id)` loads one user from the API.\n"
+    },
+    {
+     "status": "violated",
+     "path": "content",
+     "operator": "absent",
+     "actual": "# users\n\n`loadUser(id)` loads one user from the API.\n"
+    }
+   ],
+   "evidence": [
+    {
+     "id": "ev-10-1789807015120",
+     "provenance": {
+      "trust": "observed",
+      "sessionId": "fs-session-2-1789806920756",
+      "sessionRevision": 2,
+      "capturedAt": 1789807015120,
+      "source": "filesystem:post-write-stat"
+     },
+     "summary": "README.md is 53 bytes with digest sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+     "data": {
+      "path": "README.md",
+      "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+      "byteLength": 53,
+      "mtimeMs": 1789807015120
+     },
+     "artifacts": []
+    },
+    {
+     "id": "ev:receipt-11-1789807015118:3",
+     "provenance": {
+      "trust": "asserted",
+      "sessionId": "fs-session-2-1789806920756",
+      "capturedAt": 1789807015132,
+      "source": "result:fs.patch"
+     },
+     "summary": "the provider result for fs.patch decided 2 of 2 assertion(s)",
+     "data": {
+      "path": "README.md",
+      "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/README.md",
+      "byteLength": 53,
+      "mtimeMs": 1789807015120,
+      "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+      "binary": false,
+      "inline": true,
+      "exists": true,
+      "created": false,
+      "encoding": "utf8",
+      "editsApplied": 1,
+      "previousDigest": "sha256:9eb81fd9a2f709c17f10026ef3f9d5cc0ab56fd3af30f9d19dea248d5a5b4698",
+      "content": "# users\n\n`loadUser(id)` loads one user from the API.\n"
+     },
+     "artifacts": []
+    }
+   ],
+   "basis": "state-bearing-result",
+   "diagnosis": {
+    "class": "PartialEffect",
+    "receiptId": "receipt-11-1789807015118",
+    "actionId": "R2-1-rename-e5-a-R2-1-rename-e5-e36",
+    "cause": "the effect landed incompletely: content did not reach the expected state while other assertions held",
+    "evidence": [
+     {
+      "id": "ev-10-1789807015120",
+      "provenance": {
+       "trust": "observed",
+       "sessionId": "fs-session-2-1789806920756",
+       "sessionRevision": 2,
+       "capturedAt": 1789807015120,
+       "source": "filesystem:post-write-stat"
+      },
+      "summary": "README.md is 53 bytes with digest sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+      "data": {
+       "path": "README.md",
+       "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+       "byteLength": 53,
+       "mtimeMs": 1789807015120
+      },
+      "artifacts": []
+     },
+     {
+      "id": "ev:receipt-11-1789807015118:3",
+      "provenance": {
+       "trust": "asserted",
+       "sessionId": "fs-session-2-1789806920756",
+       "capturedAt": 1789807015132,
+       "source": "result:fs.patch"
+      },
+      "summary": "the provider result for fs.patch decided 2 of 2 assertion(s)",
+      "data": {
+       "path": "README.md",
+       "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-R2-1-rename-E8Fy6I/ws/README.md",
+       "byteLength": 53,
+       "mtimeMs": 1789807015120,
+       "digest": "sha256:c4a83981dc54acee237cd5937fc0dd6a4bb97b72e84f3a8a6946d440ec59e3a0",
+       "binary": false,
+       "inline": true,
+       "exists": true,
+       "created": false,
+       "encoding": "utf8",
+       "editsApplied": 1,
+       "previousDigest": "sha256:9eb81fd9a2f709c17f10026ef3f9d5cc0ab56fd3af30f9d19dea248d5a5b4698",
+       "content": "# users\n\n`loadUser(id)` loads one user from the API.\n"
+      },
+      "artifacts": []
+     }
+    ],
+    "invalidates": [
+     "expectation:content"
+    ],
+    "recovery": [
+     {
+      "action": "REOBSERVE",
+      "rationale": "establish exactly how much of the effect landed before touching it again",
+      "expectedSuccess": 0.7,
+      "parameters": {}
+     },
+     {
+      "action": "RETRY",
+      "rationale": "reattempt only the assertions that did not hold",
+      "expectedSuccess": 0.4,
+      "parameters": {
+       "remainingPaths": [
+        "content"
+       ]
+      }
+     },
+     {
+      "action": "ROLL_BACK",
+      "rationale": "undo the half-applied effect and re-run it whole",
+      "expectedSuccess": 0.35,
+      "parameters": {}
+     }
+    ],
+    "confidence": 0.7,
+    "detail": {
+     "class": "PartialEffect",
+     "disposition": "retry_after_observe",
+     "code": "verification.partial",
+     "format": "some assertions of {operation} held and others did not",
+     "variables": {
+      "operation": "fs.patch",
+      "capabilityId": "fs.patch"
+     },
+     "artifacts": [],
+     "evidence": []
+    }
+   },
+   "confidence": 0.75,
+   "decidedAt": 1789807015132
+  },
+  "id": "R2-1-rename-e5-e42",
+  "at": 1789807015132
+ },
+ {
+  "id": "R2-1-rename-e5-m19",
+  "at": 1789807015136,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m20",
+  "at": 1789807035851,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "R2-1-rename-e5-e43",
+   "goalId": "r1-R2-1-rename-g",
+   "desiredEffect": "Search the whole workspace for any remaining occurrence of the identifier fetchUser, to establish with fresh evidence whether the rename is complete or which files still need fixing.",
+   "expected": {
+    "description": "The search returns no matches anywhere in the workspace, showing that every reference to fetchUser — in src/users.js, src/api.js, src/cli.js and README.md — has been replaced by loadUser.",
+    "assertions": [
+     {
+      "path": "matches",
+      "operator": "absent"
+     },
+     {
+      "path": "totalMatches",
+      "operator": "equals",
+      "value": 0
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "the session root, all files",
+   "parameters": {
+    "query": "fetchUser",
+    "regex": false,
+    "ignoreCase": false,
+    "path": ".",
+    "contextLines": 1,
+    "maxResults": 100
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1"
+   ],
+   "createdAt": 1789807035855
+  },
+  "id": "R2-1-rename-e5-e44",
+  "at": 1789807035855
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789806920756-6",
+   "sessionId": "fs-session-2-1789806920756",
+   "capabilityId": "repo.search",
+   "observedAt": 1789807035860,
+   "worldRevision": 3,
+   "observationRevision": 6,
+   "semanticState": "0 matches for \"fetchUser\" across 4 file(s)",
+   "structuredState": {
+    "kind": "search",
+    "query": "fetchUser",
+    "regex": false,
+    "root": ".",
+    "matches": [],
+    "filesScanned": 4,
+    "filesSkipped": 0,
+    "skipReasons": {},
+    "truncated": false
+   },
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-6",
+    "sessionRevision": 3,
+    "capturedAt": 1789807035860,
+    "source": "filesystem:search"
+   },
+   "evidence": []
+  },
+  "id": "R2-1-rename-e5-e45",
+  "at": 1789807035863
+ },
+ {
+  "id": "R2-1-rename-e5-m21",
+  "at": 1789807035867,
+  "purpose": "judge",
+  "type": "model.call.started"
+ },
+ {
+  "id": "R2-1-rename-e5-m22",
+  "at": 1789807050062,
+  "purpose": "judge",
+  "type": "model.call.ended",
+  "outcome": "answered"
+ },
+ {
+  "type": "criterion.judged",
+  "criterionId": "c1",
+  "verdict": "established",
+  "because": "A non-truncated repo-wide search for \"fetchUser\" from root returned zero matches across all 4 files scanned with none skipped, and the observed src/users.js uses loadUser instead.",
+  "evidence": [
+   "ev:obs-fs-session-2-1789806920756-6:read",
+   "obs-fs-session-2-1789806920756-2"
+  ],
+  "id": "R2-1-rename-e5-e46",
+  "at": 1789807050068
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789806920756-6:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789806920756",
+    "observationId": "obs-fs-session-2-1789806920756-6",
+    "sessionRevision": 3,
+    "capturedAt": 1789807035867,
+    "source": "observation:repo.search"
+   },
+   "summary": "observation obs-fs-session-2-1789806920756-6 at world revision 3, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "R2-1-rename-e5-e47",
+  "at": 1789807050072
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 14,
+   "enteredAt": 1789807050075
+  },
+  "id": "R2-1-rename-e5-e48",
+  "at": 1789807050075
+ },
+ {
+  "type": "goal.completed",
+  "assessment": {
+   "criteria": [
+    {
+     "criterionId": "c1",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-2-1789806920756-6:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789806920756",
+        "observationId": "obs-fs-session-2-1789806920756-6",
+        "sessionRevision": 3,
+        "capturedAt": 1789807035867,
+        "source": "observation:repo.search"
+       },
+       "summary": "observation obs-fs-session-2-1789806920756-6 at world revision 3, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    },
+    {
+     "criterionId": "c2",
+     "satisfied": true,
+     "evidence": [
+      {
+       "id": "ev:obs-fs-session-2-1789806920756-2:read",
+       "provenance": {
+        "trust": "observed",
+        "sessionId": "fs-session-2-1789806920756",
+        "observationId": "obs-fs-session-2-1789806920756-2",
+        "sessionRevision": 0,
+        "capturedAt": 1789806958332,
+        "source": "observation:fs.observe"
+       },
+       "summary": "observation obs-fs-session-2-1789806920756-2 at world revision 0, the read the proposer asked for",
+       "artifacts": []
+      }
+     ]
+    }
+   ],
+   "loadBearingAssumptions": [],
+   "complete": true,
+   "confidence": 0.95,
+   "assessedAt": 1789807050081
+  },
+  "id": "R2-1-rename-e5-e49",
+  "at": 1789807050081
+ }
+]

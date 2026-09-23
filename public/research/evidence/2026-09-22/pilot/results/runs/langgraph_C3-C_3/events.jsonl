@@ -1,0 +1,8 @@
+{"adapter": "langgraph", "logical_run_id": "langgraph:C3-C:3", "phase": 1, "process_id": 33364, "ts": 1790083973.176127, "type": "phase.start"}
+{"logical_run_id": "langgraph:C3-C:3", "ordinal_global": 1, "process_id": 33364, "response_id": "A", "ts": 1790083973.182461, "type": "model.call"}
+{"decision": "A", "logical_run_id": "langgraph:C3-C:3", "process_id": 33364, "ts": 1790083973.182668, "type": "decision.recorded"}
+{"fault_point": "AFTER_CHECKPOINT_BEFORE_WAIT", "process_id": 33364, "ts": 1790083973.183258, "type": "faultpoint.reached"}
+{"adapter": "langgraph", "logical_run_id": "langgraph:C3-C:3", "phase": 2, "process_id": 33365, "ts": 1790083973.498206, "type": "phase.start"}
+{"decision": "A", "effect_id": "langgraph:C3-C:3:e1", "logical_run_id": "langgraph:C3-C:3", "process_id": 33365, "tool": "toolX", "ts": 1790083973.504129, "type": "branch.taken"}
+{"logical_run_id": "langgraph:C3-C:3", "process_id": 33365, "ts": 1790083973.505068, "type": "run.finished"}
+{"logical_run_id": "langgraph:C3-C:3", "phase": 2, "process_id": 33365, "ts": 1790083973.505298, "type": "phase.end"}

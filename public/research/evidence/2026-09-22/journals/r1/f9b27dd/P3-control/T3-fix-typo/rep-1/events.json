@@ -1,0 +1,192 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T3-fix-typo-g",
+   "objective": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "originalRequest": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T3-fix-typo-e2-e1",
+  "at": 1789760317124
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789760317129
+  },
+  "id": "T3-fix-typo-e2-e2",
+  "at": 1789760317129
+ },
+ {
+  "id": "T3-fix-typo-e2-m1",
+  "at": 1789760317131,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T3-fix-typo-e2-m2",
+  "at": 1789761353003,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "failed"
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "the proposer's reply could not be used: transport-failed — the claude CLI did not answer within 180000 ms and was killed (retryable)",
+  "id": "T3-fix-typo-e2-e3",
+  "at": 1789761353026
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T3-fix-typo-g",
+   "objective": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "originalRequest": "In docs/guide.md, correct every occurrence of the misspelling \"recieve\" to \"receive\". Change nothing else in the file.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "docs/guide.md no longer contains \"recieve\"",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "^(?![\\s\\S]*recieve)[\\s\\S]*receive"
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T3-fix-typo-e5-e1",
+  "at": 1789761353135
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789761353138
+  },
+  "id": "T3-fix-typo-e5-e2",
+  "at": 1789761353138
+ },
+ {
+  "id": "T3-fix-typo-e5-m1",
+  "at": 1789761353142,
+  "purpose": "propose",
+  "type": "model.call.started"
+ },
+ {
+  "id": "T3-fix-typo-e5-m2",
+  "at": 1789762095014,
+  "purpose": "propose",
+  "type": "model.call.ended",
+  "outcome": "failed"
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "the proposer's reply could not be used: transport-failed — the claude CLI did not answer within 180000 ms and was killed (retryable)",
+  "id": "T3-fix-typo-e5-e3",
+  "at": 1789762095042
+ }
+]

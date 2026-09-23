@@ -1,0 +1,418 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T2-edit-key-g",
+   "objective": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "originalRequest": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "every other setting in config.json is unchanged",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T2-edit-key-e2-e1",
+  "at": 1789313176470
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789313176474
+  },
+  "id": "T2-edit-key-e2-e2",
+  "at": 1789313176474
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e2-e3",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so the debug setting and every other setting are known before any change is made",
+   "expected": {
+    "description": "config.json exists and its content is returned, showing the current debug value and all other settings, which will serve as the baseline for an exact-match edit",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789313185052
+  },
+  "id": "T2-edit-key-e2-e4",
+  "at": 1789313185053
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789313176466-1",
+   "sessionId": "fs-session-2-1789313176466",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789313185062,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T2-edit-key-uXdF7j/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789313176402,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789313176466",
+    "observationId": "obs-fs-session-2-1789313176466-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789313185062,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T2-edit-key-e2-e5",
+  "at": 1789313185064
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e2-e6",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Read the current contents of config.json so the debug setting can be changed without disturbing any other setting",
+   "expected": {
+    "description": "config.json exists and its content is returned, showing the current debug value and all other settings to preserve",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789313192786
+  },
+  "id": "T2-edit-key-e2-e7",
+  "at": 1789313192787
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "T2-edit-key-e2-e8",
+  "at": 1789313192794
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T2-edit-key-g",
+   "objective": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "originalRequest": "In config.json in the workspace root, turn debug off (set it to false). Leave every other setting exactly as it is.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "every other setting in config.json is unchanged",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": [
+     "irreversible-action"
+    ]
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     },
+     {
+      "id": "write",
+      "scope": {
+       "effectClasses": [
+        "reversible-write"
+       ]
+      },
+      "verdict": "allow",
+      "because": "reversible changes in its own workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "T2-edit-key-e5-e1",
+  "at": 1789313192862
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789313192865
+  },
+  "id": "T2-edit-key-e5-e2",
+  "at": 1789313192865
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e5-e3",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Read the current contents of config.json so the exact text of the debug setting is known before any edit is made.",
+   "expected": {
+    "description": "config.json exists and its contents can be read, including a debug key. That gives a basis for an exact-match edit that changes only that value and leaves every other setting as it is.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\""
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789313201631
+  },
+  "id": "T2-edit-key-e5-e4",
+  "at": 1789313201631
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-3-1789313192857-1",
+   "sessionId": "fs-session-3-1789313192857",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789313201637,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1-T2-edit-key-uXdF7j/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789313176402,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-3-1789313192857",
+    "observationId": "obs-fs-session-3-1789313192857-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789313201637,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "T2-edit-key-e5-e5",
+  "at": 1789313201638
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "T2-edit-key-e5-e6",
+   "goalId": "r1-T2-edit-key-g",
+   "desiredEffect": "Read the current contents of config.json so the debug setting can be changed without disturbing anything else",
+   "expected": {
+    "description": "config.json exists and its content is returned, showing the current debug value and all other settings",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789313209984
+  },
+  "id": "T2-edit-key-e5-e7",
+  "at": 1789313209985
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "stuck",
+  "reason": "fs.observe was already read in this run with the same arguments, and the proposer asked for it again",
+  "id": "T2-edit-key-e5-e8",
+  "at": 1789313209992
+ }
+]

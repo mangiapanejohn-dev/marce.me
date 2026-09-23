@@ -1,0 +1,11 @@
+{"adapter": "correct-control", "logical_run_id": "correct-control:C1-RV:3", "phase": 1, "process_id": 68361, "ts": 1790085883.796701, "type": "phase.start"}
+{"logical_run_id": "correct-control:C1-RV:3", "ordinal_global": 1, "process_id": 68361, "response_id": "A", "ts": 1790085883.798497, "type": "model.call"}
+{"call_id": "call-A", "logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "proposal_id": "A", "ts": 1790085883.798699, "type": "proposal.presented"}
+{"after_mutation": false, "decision": "allow", "logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "protected": false, "ts": 1790085883.798899, "type": "validation.invoked", "world_version": 1}
+{"logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "ts": 1790085883.79909, "type": "wait.entered"}
+{"by": "harness-third-party", "logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "resource": "target", "to_protected": true, "to_version": 2, "ts": 1790085883.7998111, "type": "foreign.mutation"}
+{"for_call_id": "call-A", "granted_by": "harness-operator", "logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "ts": 1790085883.7999911, "type": "approval.granted"}
+{"after_mutation": true, "decision": "deny", "logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "protected": true, "ts": 1790085883.800182, "type": "validation.invoked", "world_version": 2}
+{"logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "reason": "deny", "ts": 1790085883.800363, "type": "effect.refused"}
+{"logical_run_id": "correct-control:C1-RV:3", "process_id": 68361, "ts": 1790085883.800548, "type": "run.finished"}
+{"logical_run_id": "correct-control:C1-RV:3", "phase": 1, "process_id": 68361, "ts": 1790085883.800767, "type": "phase.end"}

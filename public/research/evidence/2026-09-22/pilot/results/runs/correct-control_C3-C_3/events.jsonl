@@ -1,0 +1,8 @@
+{"adapter": "correct-control", "logical_run_id": "correct-control:C3-C:3", "phase": 1, "process_id": 33327, "ts": 1790083963.954123, "type": "phase.start"}
+{"logical_run_id": "correct-control:C3-C:3", "ordinal_global": 1, "process_id": 33327, "response_id": "A", "ts": 1790083963.9563992, "type": "model.call"}
+{"decision": "A", "logical_run_id": "correct-control:C3-C:3", "process_id": 33327, "ts": 1790083963.9570801, "type": "decision.recorded"}
+{"fault_point": "AFTER_CHECKPOINT_BEFORE_WAIT", "process_id": 33327, "ts": 1790083963.957271, "type": "faultpoint.reached"}
+{"adapter": "correct-control", "logical_run_id": "correct-control:C3-C:3", "phase": 2, "process_id": 33328, "ts": 1790083964.011042, "type": "phase.start"}
+{"decision": "A", "effect_id": "correct-control:C3-C:3:e1", "logical_run_id": "correct-control:C3-C:3", "process_id": 33328, "tool": "toolX", "ts": 1790083964.013504, "type": "branch.taken"}
+{"logical_run_id": "correct-control:C3-C:3", "process_id": 33328, "ts": 1790083964.01372, "type": "run.finished"}
+{"logical_run_id": "correct-control:C3-C:3", "phase": 2, "process_id": 33328, "ts": 1790083964.013899, "type": "phase.end"}

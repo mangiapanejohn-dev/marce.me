@@ -1,0 +1,107 @@
+jdir,id,criterionId,stmt,order,orig,armT3,nT3,gap
+r1/33e599e/M9-control-b/T4-rename/events.json,T4-rename-e2-e17,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",17,cannot-tell,established,4,True
+r1/33e599e/M9-control-b/T4-rename/events.json,T4-rename-e5-e18,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",18,cannot-tell,established,4,True
+r1/33e599e/M9-control-b/T4-rename/events.json,T4-rename-e5-e27,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",27,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,T4-rename-e5-e17,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",17,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,T4-rename-e5-e21,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",21,cannot-tell,cannot-tell,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,T4-rename-e5-e25,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",25,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,T4-rename-e5-e29,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",29,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-1/events.json,T4-rename-e5-e33,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",33,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,T4-rename-e2-e13,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",13,cannot-tell,established,3,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,T4-rename-e2-e17,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",17,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,T4-rename-e5-e17,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",17,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-2/events.json,T4-rename-e5-e21,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",21,cannot-tell,established,4,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json,T4-rename-e2-e13,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",13,cannot-tell,established,3,True
+r1/f9b27dd/P3-control-b/T4-rename/rep-3/events.json,T4-rename-e2-e17,c1,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",17,established,established,4,True
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e2-e7,c1,each section of the old notes.md is its own file under notes/,7,cannot-tell,cannot-tell,1,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e2-e8,c2,notes.md is an index linking the three files,8,not-established,not-established,1,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e2-e15,c1,each section of the old notes.md is its own file under notes/,15,cannot-tell,cannot-tell,1,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e2-e25,c1,each section of the old notes.md is its own file under notes/,25,cannot-tell,cannot-tell,1,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e2-e35,c1,each section of the old notes.md is its own file under notes/,35,cannot-tell,cannot-tell,1,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e5-e7,c1,each section of the old notes.md is its own file under notes/,7,cannot-tell,cannot-tell,2,False
+r2/33e599e/M9-judge-b/R2-6-split/events.json,R2-6-split-e5-e8,c2,notes.md is an index linking the three files,8,established,established,2,False
+r2/33e599e/M9-judge/R2-4-independent/events.json,R2-4-independent-e2-e8,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,8,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json,R2-2-module-e2-e7,c2,slugify is exported from src/index.js and registered in modules.json,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json,R2-2-module-e2-e25,c2,slugify is exported from src/index.js and registered in modules.json,25,cannot-tell,not-established,2,True
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json,R2-2-module-e2-e37,c2,slugify is exported from src/index.js and registered in modules.json,37,cannot-tell,cannot-tell,3,True
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-1/events.json,R2-2-module-e2-e44,c2,slugify is exported from src/index.js and registered in modules.json,44,established,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,R2-2-module-e2-e7,c2,slugify is exported from src/index.js and registered in modules.json,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,R2-2-module-e2-e25,c2,slugify is exported from src/index.js and registered in modules.json,25,cannot-tell,not-established,2,True
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,R2-2-module-e2-e36,c2,slugify is exported from src/index.js and registered in modules.json,36,cannot-tell,cannot-tell,2,True
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,R2-2-module-e2-e48,c2,slugify is exported from src/index.js and registered in modules.json,48,not-established,cannot-tell,3,True
+r2/f9b27dd/P3-judge-run-b/R2-2-module/rep-2/events.json,R2-2-module-e2-e52,c2,slugify is exported from src/index.js and registered in modules.json,52,established,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e20,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",20,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e33,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",33,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e40,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",40,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e10,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",10,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e14,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",14,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e18,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",18,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e22,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",22,cannot-tell,cannot-tell,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e26,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",26,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e30,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",30,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e34,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",34,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,R2-3-spec-e2-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,R2-3-spec-e2-e20,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",20,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,R2-3-spec-e5-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,R2-3-spec-e5-e10,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",10,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-3-spec/rep-2/events.json,R2-3-spec-e5-e14,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",14,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e18,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,18,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e32,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,32,cannot-tell,cannot-tell,3,True
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e39,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,39,established,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-2/events.json,R2-4-independent-e2-e18,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,18,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-4-independent/rep-2/events.json,R2-4-independent-e2-e40,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,40,established,established,3,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e2-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e2-e7,c2,notes.md is an index linking the three files,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e2-e14,c1,each section of the old notes.md is its own file under notes/,14,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e2-e30,c1,each section of the old notes.md is its own file under notes/,30,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e2-e37,c1,each section of the old notes.md is its own file under notes/,37,established,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e5-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e5-e7,c2,notes.md is an index linking the three files,7,established,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e5-e12,c1,each section of the old notes.md is its own file under notes/,12,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e5-e16,c1,each section of the old notes.md is its own file under notes/,16,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-1/events.json,R2-6-split-e5-e24,c1,each section of the old notes.md is its own file under notes/,24,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e7,c2,notes.md is an index linking the three files,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e14,c1,each section of the old notes.md is its own file under notes/,14,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e24,c1,each section of the old notes.md is its own file under notes/,24,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e34,c1,each section of the old notes.md is its own file under notes/,34,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e51,c1,each section of the old notes.md is its own file under notes/,51,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e52,c2,notes.md is an index linking the three files,52,established,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e61,c1,each section of the old notes.md is its own file under notes/,61,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e2-e71,c1,each section of the old notes.md is its own file under notes/,71,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e5-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e5-e7,c2,notes.md is an index linking the three files,7,established,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e5-e12,c1,each section of the old notes.md is its own file under notes/,12,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e5-e16,c1,each section of the old notes.md is its own file under notes/,16,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run-b/R2-6-split/rep-2/events.json,R2-6-split-e5-e24,c1,each section of the old notes.md is its own file under notes/,24,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,R2-2-module-e5-e6,c2,slugify is exported from src/index.js and registered in modules.json,6,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,R2-2-module-e5-e24,c2,slugify is exported from src/index.js and registered in modules.json,24,cannot-tell,not-established,2,True
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,R2-2-module-e5-e35,c2,slugify is exported from src/index.js and registered in modules.json,35,cannot-tell,cannot-tell,2,True
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,R2-2-module-e5-e46,c2,slugify is exported from src/index.js and registered in modules.json,46,cannot-tell,cannot-tell,3,True
+r2/f9b27dd/P3-judge-run/R2-2-module/rep-1/events.json,R2-2-module-e5-e51,c2,slugify is exported from src/index.js and registered in modules.json,51,established,established,2,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e20,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",20,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e24,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",24,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e2-e35,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",35,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e6,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",6,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e10,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",10,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e14,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",14,cannot-tell,established,3,False
+r2/f9b27dd/P3-judge-run/R2-3-spec/rep-1/events.json,R2-3-spec-e5-e18,c1,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",18,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e7,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e31,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,31,cannot-tell,cannot-tell,3,True
+r2/f9b27dd/P3-judge-run/R2-4-independent/rep-1/events.json,R2-4-independent-e2-e38,c2,version 1.4.3 is set in package.json and described in CHANGELOG.md,38,established,established,3,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e7,c2,notes.md is an index linking the three files,7,not-established,not-established,1,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e14,c1,each section of the old notes.md is its own file under notes/,14,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e24,c1,each section of the old notes.md is its own file under notes/,24,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e34,c1,each section of the old notes.md is its own file under notes/,34,cannot-tell,cannot-tell,1,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e51,c1,each section of the old notes.md is its own file under notes/,51,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e52,c2,notes.md is an index linking the three files,52,established,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e61,c1,each section of the old notes.md is its own file under notes/,61,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e62,c2,notes.md is an index linking the three files,62,established,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e2-e70,c1,each section of the old notes.md is its own file under notes/,70,cannot-tell,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e5-e6,c1,each section of the old notes.md is its own file under notes/,6,cannot-tell,cannot-tell,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e5-e7,c2,notes.md is an index linking the three files,7,established,established,2,False
+r2/f9b27dd/P3-judge-run/R2-6-split/rep-1/events.json,R2-6-split-e5-e12,c1,each section of the old notes.md is its own file under notes/,12,cannot-tell,cannot-tell,2,False

@@ -1,0 +1,498 @@
+[
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-ctrl-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "ctrl-e2-e1",
+  "at": 1789455577203
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789455577209
+  },
+  "id": "ctrl-e2-e2",
+  "at": 1789455577209
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "ctrl-e2-e3",
+   "goalId": "r1-T8-approved-rewrite-ctrl-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so its existing settings and debug value are known before rewriting it",
+   "expected": {
+    "description": "config.json exists and its content is returned. The content shows the current top-level keys and their values, including debug, so a sorted rewrite can keep every other setting unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "debug"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789455590507
+  },
+  "id": "ctrl-e2-e4",
+  "at": 1789455590508
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-1-1789455577197-1",
+   "sessionId": "fs-session-1-1789455577197",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789455590519,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-ctrl-BwoUEf/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789455577140,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789455577197",
+    "observationId": "obs-fs-session-1-1789455577197-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789455590519,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "ctrl-e2-e5",
+  "at": 1789455590522
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-1-1789455577197-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-1-1789455577197",
+    "observationId": "obs-fs-session-1-1789455577197-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789455590526,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-1-1789455577197-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "ctrl-e2-e6",
+  "at": 1789455590526
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789455590530
+  },
+  "id": "ctrl-e2-e7",
+  "at": 1789455590530
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "ctrl-e2-e8",
+   "goalId": "r1-T8-approved-rewrite-ctrl-g",
+   "desiredEffect": "Rewrite config.json with top-level keys sorted alphabetically and debug set to false, preserving all other settings.",
+   "expected": {
+    "description": "config.json now lists debug, features, name, owner, port in alphabetical order, with debug false and every other value unchanged.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^\\{\\s*\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"[\\s\\S]*\\}\\s*$"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789455604705
+  },
+  "id": "ctrl-e2-e9",
+  "at": 1789455604705
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "no-route",
+  "reason": "10 capability/capabilities were the right effect class but shared no term with the described need (fs.write, fs.patch, fs.delete, fs.mkdir, fs.move, repo.stage, repo.commit.create, repo.branch.create, repo.checkout, repo.push)",
+  "id": "ctrl-e2-e10",
+  "at": 1789455604712
+ },
+ {
+  "type": "goal.created",
+  "goal": {
+   "id": "r1-T8-approved-rewrite-ctrl-g",
+   "objective": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "originalRequest": "Rewrite config.json in the workspace root so that its top-level keys are in alphabetical order and debug is false.",
+   "interpretationNotes": [],
+   "successCriteria": [
+    {
+     "id": "c1",
+     "statement": "config.json has debug set to false",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"debug\"\\s*:\\s*false"
+     },
+     "required": true
+    },
+    {
+     "id": "c2",
+     "statement": "config.json keeps its other settings",
+     "kind": "observable",
+     "assertion": {
+      "path": "content",
+      "operator": "matches",
+      "value": "\"owner\"\\s*:\\s*\"platform-team\""
+     },
+     "required": true
+    }
+   ],
+   "evidenceRequirements": [],
+   "constraints": [],
+   "enforceableConstraints": [],
+   "termination": {
+    "userDecisionRequired": []
+   },
+   "authority": {
+    "principal": "the mission author",
+    "grants": [
+     {
+      "id": "read",
+      "scope": {
+       "effectClasses": [
+        "read"
+       ]
+      },
+      "verdict": "allow",
+      "because": "look at the workspace"
+     }
+    ],
+    "otherwise": "approve"
+   },
+   "protectedInvariants": [],
+   "createdAt": 0,
+   "revisedBecause": []
+  },
+  "id": "ctrl-e5-e1",
+  "at": 1789455604791
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "DELIBERATE",
+   "triggers": [
+    "insufficient-completion-evidence"
+   ],
+   "reason": "DELIBERATE: a required success criterion has no evidence",
+   "enteredAtRevision": 1,
+   "enteredAt": 1789455604795
+  },
+  "id": "ctrl-e5-e2",
+  "at": 1789455604795
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "ctrl-e5-e3",
+   "goalId": "r1-T8-approved-rewrite-ctrl-g",
+   "desiredEffect": "Read the current contents of config.json in the workspace root so the rewrite can preserve its existing settings.",
+   "expected": {
+    "description": "config.json exists and its content is returned, showing its current keys and values including debug.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "exists"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": false
+   },
+   "target": "config.json",
+   "parameters": {
+    "path": "config.json",
+    "includeContent": true
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789455617552
+  },
+  "id": "ctrl-e5-e4",
+  "at": 1789455617553
+ },
+ {
+  "type": "observation.received",
+  "observation": {
+   "id": "obs-fs-session-2-1789455604784-1",
+   "sessionId": "fs-session-2-1789455604784",
+   "capabilityId": "fs.observe",
+   "observedAt": 1789455617561,
+   "worldRevision": 0,
+   "observationRevision": 1,
+   "semanticState": "file config.json, 126 bytes, text",
+   "structuredState": {
+    "kind": "file",
+    "path": "config.json",
+    "absolutePath": "/var/folders/v5/cnxxdv915hg8kz83xztv2rl80000gn/T/r1p6-ctrl-BwoUEf/ws/config.json",
+    "byteLength": 126,
+    "mtimeMs": 1789455577140,
+    "digest": "sha256:6d14a47cd16d679ef8f25216aec99908cc4fc85f50667c33c8c5d9aa858d3efb",
+    "binary": false,
+    "inline": true,
+    "content": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+    "contentAdvisory": {
+     "directiveShaped": false,
+     "signals": []
+    }
+   },
+   "textState": "{\n  \"name\": \"demo-service\",\n  \"debug\": true,\n  \"port\": 8080,\n  \"features\": [\"search\", \"export\"],\n  \"owner\": \"platform-team\"\n}\n",
+   "artifacts": [],
+   "targets": [],
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789455604784",
+    "observationId": "obs-fs-session-2-1789455604784-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789455617561,
+    "source": "filesystem:stat"
+   },
+   "evidence": []
+  },
+  "id": "ctrl-e5-e5",
+  "at": 1789455617562
+ },
+ {
+  "type": "evidence.attached",
+  "evidence": {
+   "id": "ev:obs-fs-session-2-1789455604784-1:read",
+   "provenance": {
+    "trust": "observed",
+    "sessionId": "fs-session-2-1789455604784",
+    "observationId": "obs-fs-session-2-1789455604784-1",
+    "sessionRevision": 0,
+    "capturedAt": 1789455617566,
+    "source": "observation:fs.observe"
+   },
+   "summary": "observation obs-fs-session-2-1789455604784-1 at world revision 0, the read the proposer asked for",
+   "artifacts": []
+  },
+  "id": "ctrl-e5-e6",
+  "at": 1789455617566
+ },
+ {
+  "type": "depth.changed",
+  "depth": {
+   "depth": "REFLEX",
+   "triggers": [
+    "uncertainty-resolved"
+   ],
+   "reason": "no escalating condition holds; returning to REFLEX",
+   "enteredAtRevision": 3,
+   "enteredAt": 1789455617571
+  },
+  "id": "ctrl-e5-e7",
+  "at": 1789455617571
+ },
+ {
+  "type": "action.proposed",
+  "intent": {
+   "id": "ctrl-e5-e8",
+   "goalId": "r1-T8-approved-rewrite-ctrl-g",
+   "desiredEffect": "Rewrite config.json with its top-level keys in alphabetical order and debug set to false, keeping every other setting unchanged.",
+   "expected": {
+    "description": "config.json now lists debug, features, name, owner, port in that order, with debug false and the other values as before.",
+    "assertions": [
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"debug\": false"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"name\": \"demo-service\""
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"port\": 8080"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"features\": [\"search\", \"export\"]"
+     },
+     {
+      "path": "content",
+      "operator": "contains",
+      "value": "\"owner\": \"platform-team\""
+     },
+     {
+      "path": "content",
+      "operator": "matches",
+      "value": "^\\{\\s*\"debug\"[\\s\\S]*\"features\"[\\s\\S]*\"name\"[\\s\\S]*\"owner\"[\\s\\S]*\"port\"[\\s\\S]*\\}\\s*$"
+     }
+    ],
+    "reversible": true,
+    "satisfiableByResult": true
+   },
+   "target": "config.json in the workspace root",
+   "parameters": {
+    "path": "config.json",
+    "content": "{\n  \"debug\": false,\n  \"features\": [\"search\", \"export\"],\n  \"name\": \"demo-service\",\n  \"owner\": \"platform-team\",\n  \"port\": 8080\n}\n",
+    "overwrite": true,
+    "createParents": false
+   },
+   "preconditions": [],
+   "satisfies": [
+    "c1",
+    "c2"
+   ],
+   "createdAt": 1789455631558
+  },
+  "id": "ctrl-e5-e9",
+  "at": 1789455631558
+ },
+ {
+  "type": "goal.abandoned",
+  "stop": "no-route",
+  "reason": "10 capability/capabilities were the right effect class but shared no term with the described need (fs.write, fs.patch, fs.delete, fs.mkdir, fs.move, repo.stage, repo.commit.create, repo.branch.create, repo.checkout, repo.push)",
+  "id": "ctrl-e5-e10",
+  "at": 1789455631565
+ }
+]

@@ -29,7 +29,7 @@ ogImage: "@/assets/images/og-mobius-exploring.png"
 
 这篇文章的可信度只能来自这条链，而不是来自最后那个版本看起来多整齐。错误的预测、被撤回的判定、我们自己 harness 的 bug，都留在里面。
 
-**关于「我」和「研究负责人」。** 这段时间的大部分测量和文献归约，是我在 Claude Science 里跑的一个独立研究负责人 agent 做的；方向、杀死条件、何时停，是我定的。文中「我」指我自己，「研究负责人」指那个 agent。它的账本是几份文件：`RESEARCH_MAP.md`（§0–§40）、`TRACKS.md`、`INVARIANT_CARDS.md`、`PILOT_RESULTS.md`、`C1_RESULTS.md`、`C2NI_RESULTS.md`、`FTR_REDUCTION_GATE.md`，以及 pilot harness 的 `rows.jsonl`。MØBIUS 的实验 journal 在仓库的 `docs/research/evidence/`（104 个 `events.json`）。仓库目前是私有的，所以文中只给文件名、提交号与目录，不给链接。**文中的每一个数，我都为这篇文章从这些原始文件重新算过一遍**；重算与账本不一致的地方，正文里会直接说。
+**关于「我」和「研究负责人」。** 这段时间的大部分测量和文献归约，是我在 Claude Science 里跑的一个独立研究负责人 agent 做的；方向、杀死条件、何时停，是我定的。文中「我」指我自己，「研究负责人」指那个 agent。它的账本是几份文件：`RESEARCH_MAP.md`（§0–§40）、`TRACKS.md`、`INVARIANT_CARDS.md`、`PILOT_RESULTS.md`、`C1_RESULTS.md`、`C2NI_RESULTS.md`、`FTR_REDUCTION_GATE.md`，以及 pilot harness 的 `rows.jsonl`。MØBIUS 的实验 journal 在仓库的 `docs/research/evidence/`（104 个 `events.json`）。MØBIUS 仓库本身仍是私有的，但**这篇文章依据的证据已经打包公开**：[证据包](/research/evidence/2026-09-22/README.md) 里有探针 harness、逐行 ledger（含那份被归档的混合账本）、各张派生数据表、研究负责人的结果文档，以及那 104 个 journal。仓库里其余的文件，文中只给文件名与提交号。**文中的每一个数，我都为这篇文章从这些原始文件重新算过一遍**；重算与账本不一致的地方，正文里会直接说。
 
 外部文献与 API 契约，全部在 9 月 22 日重新打开原始记录核过：arXiv 页面、DOI、出版社页面、官方文档与安装包源码。核验深度标在文末参考文献里：`FULLTEXT`、`ABSTRACT-ONLY` 或 `UNVERIFIED-FULLTEXT`。
 
@@ -732,6 +732,12 @@ NO PRIMARY THESIS YET
 这几天没有一个方向活过来。但每一个没活过来的方向，现在都有一条写得清楚的死因。下一个候选出现的时候，它要先从这些死因中间走过去。
 
 ---
+
+<a class="resource-card" href="/research/evidence/2026-09-22/README.md">
+  <span class="rc-title">证据包 · 2026-09-22</span>
+  <span class="rc-desc">探针 harness 与逐行 ledger、正负对照、被归档的混合账本、派生数据表、研究负责人的结果文档，以及 104 个 MØBIUS run journal——本文每一个数都可以从这里重算。附 SHA256SUMS 与一个 tar.gz。</span>
+  <span class="rc-meta">374 个文件 · 7.3 MB · <a href="/research/evidence/2026-09-22/mobius-evidence-2026-09-22.tar.gz">tar.gz（549 KB）</a></span>
+</a>
 
 <p class="fig-note">图的源文件：数据图由 <code>scripts/research/rl-figures.py</code> 从上文列出的结果文件生成；Figure 7 的 Graphviz 源是 <code>scripts/research/mobius-rl-ftr-strong.dot</code>。上一篇与 FTR 形式化 PDF 见 <a href="/research/">研究页</a>。</p>
 

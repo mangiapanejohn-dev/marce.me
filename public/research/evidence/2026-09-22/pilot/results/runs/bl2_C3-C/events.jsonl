@@ -1,0 +1,6 @@
+{"logical_run_id": "bl2:C3-C", "ordinal_global": 1, "process_id": 33266, "response_id": "A", "ts": 1790083946.292125, "type": "model.call"}
+{"decision": "A", "logical_run_id": "bl2:C3-C", "process_id": 33266, "ts": 1790083946.2923388, "type": "decision.recorded"}
+{"fault_point": "AFTER_CHECKPOINT_BEFORE_WAIT", "process_id": 33266, "ts": 1790083946.2928152, "type": "faultpoint.skipped"}
+{"decision": "A", "effect_id": "bl2:C3-C:e1", "logical_run_id": "bl2:C3-C", "process_id": 33266, "tool": "toolX", "ts": 1790083946.294646, "type": "branch.taken"}
+{"logical_run_id": "bl2:C3-C", "process_id": 33266, "ts": 1790083946.29511, "type": "run.finished"}
+{"logical_run_id": "bl2:C3-C", "process_id": 33266, "ts": 1790083946.296364, "type": "run.finished"}
