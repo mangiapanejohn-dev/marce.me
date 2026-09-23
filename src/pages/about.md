@@ -27,13 +27,13 @@ title: "About"
     New posts, shipping stories, and nerdy links straight to your inbox.
   </p>
   <form action="mailto:mangiapanejohn@icloud.com?subject=Subscribe to Newsletter" method="post" enctype="text/plain" class="flex flex-col sm:flex-row gap-3">
-    <input type="text" name="name" placeholder="Your Name" class="flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <input type="email" name="email" placeholder="Your Email" required class="flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <button type="submit" class="px-6 py-2 bg-accent hover:bg-accent/90 rounded-md transition-colors font-medium whitespace-nowrap text-background">
+    <input type="text" name="name" placeholder="Your Name" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <input type="email" name="email" placeholder="Your Email" required class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <button type="submit" class="px-6 py-2 bg-accent-text hover:bg-accent-text/90 rounded-md transition-colors font-medium whitespace-nowrap text-background">
       Subscribe
     </button>
   </form>
-  <p class="text-xs text-foreground/50 mt-3">
+  <p class="text-xs text-foreground/65 mt-3">
     2× per month, pure signal, zero fluff.
   </p>
 </div>

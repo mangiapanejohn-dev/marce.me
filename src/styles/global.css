@@ -167,8 +167,10 @@ html[data-theme="dark"] .fig-dark {
      would take Tailwind Typography's slate body colour — nearly invisible on the dark ground. */
   color: var(--foreground);
 }
-/* On a phone a wide post table scrolls inside its own box instead of widening the page. */
-@media (max-width: 640px) {
+/* Below the desktop column width a wide post table scrolls inside its own box instead of widening
+   the page. At 640–767px the column is narrower still than on a phone held upright, so the rule
+   covers up to 767px, not only phones. */
+@media (max-width: 767px) {
   .app-prose table {
     display: block;
     overflow-x: auto;
