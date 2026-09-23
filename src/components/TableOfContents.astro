@@ -21,7 +21,7 @@ const t = useTranslations(lang);
 
 <!--
   Two renderings of one list. Below 1280px there is no room beside the column, so the contents sit
-  under the title, folded. From 1280px the list moves into the margin to the right of the column and
+  under the title, folded. From 1280px the list moves out to the left edge of the window and
   follows the reader down, marking the section they are in. The prose column does not move.
 -->
 <details class="toc-inline xl:hidden">
@@ -102,12 +102,14 @@ const t = useTranslations(lang);
     color: var(--accent-text);
   }
 
-  /* The aside spans the article's full height so the nav inside can stick for all of it. */
+  /* The aside spans the article's full height so the nav inside can stick for all of it. It sits at
+     the left edge of the window, not against the column: the column is centred in the page, and the
+     wrapper's left edge is half the spare width plus the 1rem gutter in from the window. */
   .toc-side {
     position: absolute;
     top: 0;
     bottom: 0;
-    inset-inline-start: calc(100% + 2.5rem);
+    inset-inline-start: calc(1.5rem - (100vw - 48rem) / 2 - 1rem);
     width: 13rem;
   }
   .toc-side nav {
