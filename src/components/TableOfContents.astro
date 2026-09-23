@@ -21,7 +21,7 @@ const t = useTranslations(lang);
 
 <!--
   Two renderings of one list. Below 1280px there is no room beside the column, so the contents sit
-  under the title, folded. From 1280px the list moves into the margin to the left of the column and
+  under the title, folded. From 1280px the list moves into the margin to the right of the column and
   follows the reader down, marking the section they are in. The prose column does not move.
 -->
 <details class="toc-inline xl:hidden">
@@ -107,7 +107,7 @@ const t = useTranslations(lang);
     position: absolute;
     top: 0;
     bottom: 0;
-    inset-inline-end: calc(100% + 2.5rem);
+    inset-inline-start: calc(100% + 2.5rem);
     width: 13rem;
   }
   .toc-side nav {
