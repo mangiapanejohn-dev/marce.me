@@ -1,0 +1,181 @@
+---
+import "@pagefind/default-ui/css/ui.css";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!--
+  Search without leaving the page. The header's search icon is still a link to /search, so the page
+  works with no JavaScript; with it, the icon and ⌘K / Ctrl+K open this dialog instead. Pagefind is
+  loaded the first time the dialog opens, not with the page.
+-->
+<dialog id="search-dialog" aria-label={t("nav.search")}>
+  <div id="search-dialog-ui"></div>
+  <p class="search-hint">
+    <kbd>Esc</kbd>
+    {t("search.close")}
+  </p>
+</dialog>
+
+<style>
+  #search-dialog {
+    width: min(40rem, calc(100vw - 2rem));
+    max-height: min(36rem, calc(100svh - 6rem));
+    margin: 12svh auto auto;
+    padding: 1rem 1rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--background);
+    color: var(--foreground);
+    box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.35);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  #search-dialog::backdrop {
+    background: rgb(0 0 0 / 0.3);
+  }
+  #search-dialog[open] {
+    animation: search-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes search-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+  }
+  .search-hint {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-align: end;
+  }
+  .search-hint kbd {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0 0.3rem;
+    font-family: inherit;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #search-dialog[open] {
+      animation: none;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Pagefind, in the dialog and on /search alike. */
+  #pagefind-search,
+  #search-dialog-ui {
+    --pagefind-ui-font: var(--font-app);
+    --pagefind-ui-text: var(--foreground);
+    --pagefind-ui-background: var(--background);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-tag: var(--background);
+    --pagefind-ui-border-radius: 0.375rem;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+
+    form::before {
+      background-color: var(--foreground);
+    }
+
+    input {
+      font-weight: 400;
+      border: 1px solid var(--border);
+    }
+
+    input:focus-visible {
+      outline: 1px solid var(--accent);
+    }
+
+    .pagefind-ui__result-title a {
+      color: var(--accent-text);
+      outline-offset: 1px;
+      outline-color: var(--accent);
+      text-decoration-style: dashed;
+      text-underline-offset: 4px;
+    }
+
+    .pagefind-ui__result-title a:focus-visible,
+    .pagefind-ui__search-clear:focus-visible {
+      text-decoration-line: none;
+      outline-width: 2px;
+      outline-style: dashed;
+    }
+
+    .pagefind-ui__result:last-of-type {
+      border-bottom: 0;
+    }
+
+    .pagefind-ui__result-nested .pagefind-ui__result-link:before {
+      font-family: system-ui;
+    }
+  }
+</style>
+
+<script>
+  let loaded = false;
+
+  async function openSearch() {
+    const dialog = document.querySelector<HTMLDialogElement>("#search-dialog");
+    if (!dialog || dialog.open) return;
+    dialog.showModal();
+
+    if (!loaded) {
+      loaded = true;
+      try {
+        // @ts-expect-error — Missing types for @pagefind/default-ui package.
+        const { PagefindUI } = await import("@pagefind/default-ui");
+        new PagefindUI({
+          element: "#search-dialog-ui",
+          showImages: false,
+          showSubResults: true,
+        });
+      } catch {
+        // A failed load (offline, a stale deploy) is retried on the next open.
+        loaded = false;
+      }
+    }
+    // The input exists once Pagefind has rendered; wait a frame for it on first open.
+    requestAnimationFrame(() =>
+      dialog.querySelector<HTMLInputElement>(".pagefind-ui__search-input")?.focus()
+    );
+  }
+
+  function bindSearch() {
+    // A view transition brings a fresh, empty dialog; Pagefind renders into it again on next open.
+    loaded = false;
+    const dialog = document.querySelector<HTMLDialogElement>("#search-dialog");
+    // A click on the backdrop lands on the dialog element itself.
+    dialog?.addEventListener("click", e => {
+      if (e.target === dialog) dialog.close();
+    });
+    // Following a result navigates; close first so the page underneath is not left inert.
+    dialog?.addEventListener("click", e => {
+      if ((e.target as Element).closest(".pagefind-ui__result-link")) dialog.close();
+    });
+
+    document
+      .querySelector<HTMLAnchorElement>("#search-link")
+      ?.addEventListener("click", e => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        openSearch();
+      });
+  }
+
+  bindSearch();
+  document.addEventListener("astro:after-swap", bindSearch);
+
+  // Bound once: the document outlives view transitions.
+  document.addEventListener("keydown", e => {
+    if (e.key.toLowerCase() === "k" && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      openSearch();
+    }
+  });
+</script>

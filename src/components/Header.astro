@@ -7,6 +7,7 @@ import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import LanguagePicker from "./LanguagePicker.astro";
+import SearchDialog from "./SearchDialog.astro";
 import { SITE } from "@/config";
 import { getLangFromUrl, useTranslations, localizePath } from "@/i18n/utils";
 
@@ -178,6 +179,7 @@ const l = (path: string) => localizePath(path, lang);
         }
         <li class="col-span-2 flex items-center justify-center">
           <LinkButton
+            id="search-link"
             href={l("/search")}
             class:list={[
               "focus-outline flex p-3 sm:p-1",
@@ -213,6 +215,8 @@ const l = (path: string) => localizePath(path, lang);
     </nav>
   </div>
 </header>
+
+<SearchDialog />
 
 <style>
   /* The hover underline: it grows from the middle rather than appearing all at once, which is the
