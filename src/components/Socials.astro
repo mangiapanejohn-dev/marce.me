@@ -3,6 +3,12 @@ import { SOCIALS } from "@/constants";
 import LinkButton from "./LinkButton.astro";
 ---
 
+<!--
+  Cloudflare, in front of the site, rewrites mailto: links and addresses unless they sit
+  between these comments, and its decoder does not run again after a view-transition
+  navigation, which left the link pointing at /cdn-cgi and the text reading "[email protected]".
+-->
+<!--email_off-->
 <div class="flex flex-wrap items-center gap-1">
   {
     SOCIALS.map(social => (
@@ -17,3 +23,4 @@ import LinkButton from "./LinkButton.astro";
     ))
   }
 </div>
+<!--/email_off-->

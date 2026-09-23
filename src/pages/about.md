@@ -26,6 +26,7 @@ title: "About"
   <p class="mt-0 mb-4 text-sm text-foreground/70">
     New posts, shipping stories, and nerdy links straight to your inbox.
   </p>
+  <!--email_off-->
   <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
     <a href="mailto:mangiapanejohn@icloud.com?subject=Subscribe%20to%20marc.me&body=Hi%20Marc%2C%0A%0APlease%20add%20me%20to%20your%20list.%0A%0A" class="sub-cta inline-block rounded-md bg-accent-text px-6 py-2 text-center font-medium whitespace-nowrap text-background no-underline transition-colors hover:bg-accent-text/90 hover:text-background">Email me to subscribe</a>
     <p class="m-0 text-sm text-foreground/70">
@@ -33,6 +34,7 @@ title: "About"
       <button type="button" data-copy="mangiapanejohn@icloud.com" data-copied="Copied" aria-live="polite" class="ms-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80 transition-colors hover:border-accent hover:text-accent-text">Copy</button>
     </p>
   </div>
+  <!--/email_off-->
   <p class="mt-3 mb-0 text-xs text-foreground/65">
     2× per month, pure signal, zero fluff.
   </p>

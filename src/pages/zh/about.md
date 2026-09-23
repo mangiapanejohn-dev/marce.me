@@ -26,6 +26,7 @@ title: "关于"
   <p class="mt-0 mb-4 text-sm text-foreground/70">
     新文章、上线故事和有意思的链接,直接发到你的邮箱。
   </p>
+  <!--email_off-->
   <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
     <a href="mailto:mangiapanejohn@icloud.com?subject=%E8%AE%A2%E9%98%85%20marc.me&body=Marc%20%E4%BD%A0%E5%A5%BD%EF%BC%8C%0A%0A%E6%83%B3%E8%AE%A2%E9%98%85%E4%BD%A0%E7%9A%84%E6%9B%B4%E6%96%B0%E3%80%82%0A%0A" class="sub-cta inline-block rounded-md bg-accent-text px-6 py-2 text-center font-medium whitespace-nowrap text-background no-underline transition-colors hover:bg-accent-text/90 hover:text-background">发邮件订阅</a>
     <p class="m-0 text-sm text-foreground/70">
@@ -33,6 +34,7 @@ title: "关于"
       <button type="button" data-copy="mangiapanejohn@icloud.com" data-copied="已复制" aria-live="polite" class="ms-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80 transition-colors hover:border-accent hover:text-accent-text">复制</button>
     </p>
   </div>
+  <!--/email_off-->
   <p class="mt-3 mb-0 text-xs text-foreground/65">
     每月两封,纯干货,不灌水。
   </p>

@@ -128,6 +128,8 @@ Google Sans Code，全站等宽，包括长文正文。长文的可读性靠行�
 - About 页"保持联系"：访客用自己设备上的邮箱给 Marc 发信。按钮打开预填好主题和正文的 `mailto:`，
   旁边显示地址并可一键复制（照顾没配置邮件应用的电脑）。**不接第三方邮件服务**（试过 Resend，Marc 不要）；
   也不要用 `<form action="mailto:">`，那种写法在很多浏览器里点了没反应。
+- 站点前面有 Cloudflare，它会把页面里的邮箱和 `mailto:` 改写成加密形式，还原脚本在无刷新页面切换后不会再跑。
+  **所有出现邮箱的地方都要包在 `<!--email_off-->` … `<!--/email_off-->` 里**（`Socials`、`ProfileCard`、About 页已包好）。
 - 所有动画都要有 reduced-motion 的替代。
 
 ## 性能
