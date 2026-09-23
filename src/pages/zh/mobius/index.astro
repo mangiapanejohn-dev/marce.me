@@ -6,6 +6,11 @@ import { SITE } from "@/config";
 import { versions } from "@/data/mobius/versions";
 import { formatStamp } from "@/utils/formatStamp";
 
+// The range in the masthead follows the log, so a new version never leaves the title behind.
+const numbered = versions.map(({ v }) => v).filter(v => /^V\d+$/.test(v));
+const earliest = numbered[0];
+const latest = numbered[numbered.length - 1];
+
 const title = `MØBIUS — 运行时日志 | ${SITE.title}`;
 const description =
   "一个没有进程的门面，变成了真实 codex 客户端能驱动的 daemon：它会造成真实副作用、每次动手前问人、能被叫停。二十三个提交，而它们找到的东西，大部分是测量抓住了它自己的作者。";
@@ -126,8 +131,9 @@ const limits = [
   <main id="mobius" class="mx-auto w-full max-w-3xl px-4 pb-24">
     <!-- MASTHEAD -->
     <header class="masthead">
-      <p class="eyebrow">MØBIUS · 运行时日志 · V23 → V34</p>
-      <h1>MØBIUS V23–V34</h1>
+      <p class="eyebrow">MØBIUS · 运行时日志 · {earliest} → {latest}</p>
+      <h1>MØBIUS</h1>
+      <p class="snapshot">下面的内容写于 V23–V34 阶段，数据是当时的快照。<a href="#log">版本日志</a>一直更新到 {latest}。</p>
       <p class="thesis">
         一个没有进程的门面，变成了真实 <em>codex</em> 客户端能驱动的 daemon
         ——它会造成真实副作用、每次动手前问人、能被叫停。二十三个提交，而它们找到的东西，大部分是<em
@@ -251,7 +257,7 @@ const limits = [
     </section>
 
     <!-- THE LOG -->
-    <section>
+    <section id="log">
       <h2>版本日志</h2>
       <div class="log">
         {
@@ -354,6 +360,17 @@ const limits = [
     line-height: 1.08;
     letter-spacing: -0.02em;
     font-weight: 700;
+  }
+  .snapshot {
+    font-size: 0.82rem;
+    color: color-mix(in srgb, var(--foreground) 72%, transparent);
+  }
+  .snapshot a {
+    text-decoration: underline dashed;
+    text-underline-offset: 3px;
+  }
+  .snapshot a:hover {
+    color: var(--accent-text);
   }
   .thesis {
     font-size: clamp(1.02rem, 2.2vw, 1.15rem);
