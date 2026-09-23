@@ -211,6 +211,14 @@ const loop =
     color: color-mix(in srgb, var(--foreground) 80%, transparent);
     font-variant-numeric: tabular-nums;
   }
+  /* The time left fits on one line; the longer "read it all" line may wrap rather than run into
+     the window edge. */
+  .rp-left {
+    max-width: 6.5rem;
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
   .rp-pct {
     font-size: 1.15rem;
     font-weight: 700;
