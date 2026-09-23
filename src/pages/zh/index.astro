@@ -20,27 +20,6 @@ const blogPosts = sortedPosts.filter(
   ({ data }) =>
     !data.featured && (data.category !== "research" || data.showInBlog)
 );
-
-const featuredProjects = [
-  {
-    name: "MØBIUS",
-    tagline: "一个实验性的 agent runtime —— 模型之外的那部分。",
-    img: "/mobius-card.svg",
-    href: "/zh/mobius",
-  },
-  {
-    name: "Offmap-X",
-    tagline: "黑客松基础设施 —— 以及跑在它上面的那场黑客松。",
-    img: "/offmap-chengdu.webp",
-    href: "/zh/posts/offmap-we-actually-ran-the-thing",
-  },
-  {
-    name: "QuotaLens",
-    tagline: "menu bar 里的一枚 Claude / Codex 额度表。",
-    img: "/quotalens-hero.png",
-    href: "/zh/posts/quotalens-small-tool",
-  },
-];
 ---
 
 <Layout>
@@ -88,35 +67,6 @@ const featuredProjects = [
     <div class="max-w-3xl mx-auto px-4">
       <hr class="border-border" aria-hidden="true" />
     </div>
-
-    <section id="featured-projects" class="pt-12">
-      <h2 class="text-2xl font-semibold tracking-wide">精选项目</h2>
-      <div class="mt-5 grid gap-4 sm:grid-cols-3">
-        {
-          featuredProjects.map(project => (
-            <a
-              href={project.href}
-              class="group block overflow-hidden rounded-xl border border-border bg-muted/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div class="aspect-[16/10] overflow-hidden">
-                <img
-                  src={project.img}
-                  alt={project.name}
-                  loading="lazy"
-                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div class="p-4">
-                <h3 class="font-semibold text-accent-text group-hover:underline">
-                  {project.name}
-                </h3>
-                <p class="mt-1 text-sm opacity-80">{project.tagline}</p>
-              </div>
-            </a>
-          ))
-        }
-      </div>
-    </section>
 
     <section id="recent" class="pt-12 pb-6">
       <div class="mb-4 flex items-center gap-5 border-b border-border pb-1" role="tablist" aria-label="最新文章">
