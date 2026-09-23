@@ -1,0 +1,647 @@
+---
+import type { MarkdownHeading } from "astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { doodleFor, doodles } from "./doodles";
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props;
+
+// Same split as the contents list: "2 · Completion judgement" → the title, for the hover hint and
+// for choosing the section's doodle.
+const items = headings.map(h => {
+  const m = h.text.match(/^(\S{1,4})\s+·\s+(.+)$/);
+  const title = m?.[2] ?? h.text;
+  return { slug: h.slug, title, doodle: doodles[doodleFor(title)] };
+});
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+/*
+ * A pencil line: vertical, 1000 units tall, wandering a pixel or two either side of centre. The
+ * wobble is seeded, so the same post always gets the same line and a rebuild does not redraw it.
+ */
+let seed = 7;
+const rand = () => {
+  seed = (seed * 16807) % 2147483647;
+  return (seed - 1) / 2147483646;
+};
+const points: [number, number][] = [];
+for (let y = 0; y <= 1000; y += 40) points.push([12 + (rand() - 0.5) * 3.2, y]);
+let line = `M${points[0][0].toFixed(2)} 0`;
+for (let i = 1; i < points.length; i++) {
+  const [x0, y0] = points[i - 1];
+  const [x1, y1] = points[i];
+  line += ` Q${x0.toFixed(2)} ${y0} ${((x0 + x1) / 2).toFixed(2)} ${(y0 + y1) / 2}`;
+}
+line += ` L${points[points.length - 1][0].toFixed(2)} 1000`;
+
+// A loop drawn in one stroke that overshoots where it started, the way a circle drawn by hand does.
+const loop =
+  "M15.2 4.6 C10.4 2.4 4.2 5 3.6 10.4 C3 15.8 8 18.6 12.6 17.4 C17.2 16.2 18.4 10.8 16.4 7.2 C15.2 5 12.4 3.6 9.6 4";
+---
+
+<!--
+  Reading progress, in the right-hand margin from 1280px. A pencil line fills in coral as the reader
+  goes down; each section is a hand-drawn loop on it, filled once read. It measures against the same
+  line as the contents list — a quarter of the way down the screen — so the two always agree on
+  which section is current.
+-->
+<aside
+  class="rp hidden xl:block"
+  aria-hidden="true"
+  data-rp-left={t("progress.left")}
+  data-rp-done={t("progress.done")}
+>
+  <div class="rp-inner">
+    <div class="rp-track">
+      <svg class="rp-line" viewBox="0 0 24 1000" preserveAspectRatio="none">
+        <path class="rp-base" d={line} vector-effect="non-scaling-stroke"
+        ></path>
+        <path
+          class="rp-fill"
+          d={line}
+          pathLength="1"
+          vector-effect="non-scaling-stroke"></path>
+      </svg>
+      {
+        items.map(h => (
+          <a
+            class="rp-mark"
+            href={`#${h.slug}`}
+            data-rp-mark={h.slug}
+            title={h.title}
+            tabindex="-1"
+          >
+            <svg viewBox="0 0 20 20">
+              <path d={loop} />
+            </svg>
+          </a>
+        ))
+      }
+      <span class="rp-slot">
+        {
+          items.map(h => (
+            <svg class="rp-doodle" viewBox="0 0 48 48" set:html={h.doodle} />
+          ))
+        }
+      </span>
+    </div>
+    <p class="rp-label">
+      <span class="rp-pct">0%</span>
+      <span class="rp-left"></span>
+    </p>
+  </div>
+</aside>
+
+<style>
+  /* Mirror of the contents list: the right edge of the window, clear of the centred column. */
+  .rp {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inset-inline-end: calc(1.5rem - (100vw - 48rem) / 2 - 1rem);
+    width: 6.5rem;
+  }
+  .rp-inner {
+    position: sticky;
+    top: 12svh;
+    height: 72svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rp-track {
+    position: relative;
+    flex: 1;
+    width: 28px;
+  }
+  .rp-line {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke-linecap: round;
+  }
+  .rp-base {
+    stroke: color-mix(in srgb, var(--foreground) 35%, transparent);
+    stroke-width: 2;
+    stroke-dasharray: 6 5;
+  }
+  .rp-fill {
+    stroke: var(--accent);
+    stroke-width: 3.5;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  /* One loop per section. Unread: an ink outline on paper. Read: coral outline on a coral wash.
+     Current: solid coral, a size up, with its title written beside it. */
+  .rp-mark {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    translate: -50% -50%;
+    transition: scale 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rp-mark svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: var(--background);
+    stroke: color-mix(in srgb, var(--foreground) 60%, transparent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    transition:
+      fill 0.2s ease,
+      stroke 0.2s ease;
+  }
+  .rp-mark[data-state="read"] svg {
+    fill: color-mix(in srgb, var(--accent) 22%, var(--background));
+    stroke: var(--accent);
+  }
+  .rp-mark[data-state="current"] {
+    scale: 1.45;
+  }
+  .rp-mark[data-state="current"] svg {
+    fill: var(--accent);
+    stroke: var(--accent-text);
+  }
+  .rp-mark:hover {
+    scale: 1.45;
+  }
+
+  /* The current section's doodle, beside its loop. Only one is shown; it loops while it is. */
+  .rp-slot {
+    position: absolute;
+    inset-inline-end: calc(100% + 0.6rem);
+    top: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    translate: 0 -50%;
+    pointer-events: none;
+    transition: top 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .rp-label {
+    margin-top: 1.1rem;
+    display: grid;
+    justify-items: center;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    color: color-mix(in srgb, var(--foreground) 80%, transparent);
+    font-variant-numeric: tabular-nums;
+  }
+  .rp-pct {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-text);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rp-mark,
+    .rp-mark svg,
+    .rp-slot {
+      transition: none;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Doodle inks and motions. Global because the drawings are injected with set:html. */
+  .rp-doodle {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    scale: 0.8;
+    transition:
+      opacity 0.3s ease,
+      scale 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rp-doodle[data-active] {
+    opacity: 1;
+    scale: 1;
+    /* A hand-drawn line never sits perfectly still: the whole drawing "boils" a fraction of a pixel. */
+    animation: d-boil 0.5s steps(1) infinite;
+  }
+  .rp-doodle .ink {
+    stroke: color-mix(in srgb, var(--foreground) 72%, transparent);
+  }
+  .rp-doodle .hot {
+    stroke: var(--accent);
+  }
+  .rp-doodle .thick {
+    stroke-width: 3;
+  }
+  .rp-doodle .hot-fill {
+    fill: var(--accent);
+    stroke: none;
+  }
+  .rp-doodle g,
+  .rp-doodle path,
+  .rp-doodle circle {
+    transform-box: view-box;
+  }
+
+  /* Motions run only on the doodle that is showing. */
+  .rp-doodle:not([data-active]) * {
+    animation-play-state: paused;
+  }
+  .rp-doodle .d-spin {
+    transform-origin: 24px 24px;
+    animation: d-spin 9s linear infinite;
+  }
+  .rp-doodle .d-draw {
+    stroke-dasharray: 1;
+    animation: d-draw 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .rp-doodle .d-draw-a,
+  .rp-doodle .d-draw-b {
+    stroke-dasharray: 1;
+    animation: d-draw-a 3.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .rp-doodle .d-draw-b {
+    animation-name: d-draw-b;
+  }
+  .rp-doodle .d-tilt {
+    transform-origin: 24px 14px;
+    animation: d-tilt 2.8s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-blink {
+    transform-origin: 24px 24px;
+    animation: d-blink 4s ease-in-out infinite;
+  }
+  .rp-doodle .d-look {
+    animation: d-look 3.2s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-orbit {
+    animation: d-orbit 3.6s ease-in-out infinite;
+  }
+  .rp-doodle .d-needle {
+    transform-origin: 24px 32px;
+    animation: d-needle 2.4s cubic-bezier(0.34, 1.3, 0.64, 1) infinite alternate;
+  }
+  .rp-doodle .d-lift {
+    transform-origin: 10px 20px;
+    animation: d-lift 3.4s ease-in-out infinite;
+  }
+  .rp-doodle .d-grow {
+    transform-origin: 24px 38px;
+    animation: d-grow 3s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-sway {
+    transform-origin: 24px 26px;
+    animation: d-sway 2.2s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-wave {
+    transform-origin: 15px 17px;
+    animation: d-wave 1.6s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-bob {
+    transform-origin: 24px 36px;
+    animation: d-bob 1.8s ease-in-out infinite alternate;
+  }
+  .rp-doodle .d-pulse {
+    transform-origin: 24px 36px;
+    animation: d-pulse 1.8s ease-in-out infinite;
+  }
+  .rp-doodle .d-nib {
+    transform-origin: 14px 36px;
+    animation: d-nib 1.4s ease-in-out infinite alternate;
+  }
+
+  @keyframes d-boil {
+    0% {
+      translate: 0 0;
+      rotate: 0deg;
+    }
+    33% {
+      translate: 0.3px -0.25px;
+      rotate: -0.6deg;
+    }
+    66% {
+      translate: -0.25px 0.3px;
+      rotate: 0.5deg;
+    }
+  }
+  @keyframes d-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes d-draw {
+    0% {
+      stroke-dashoffset: 1;
+      opacity: 1;
+    }
+    45%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes d-draw-a {
+    0% {
+      stroke-dashoffset: 1;
+      opacity: 1;
+    }
+    28%,
+    82% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes d-draw-b {
+    0%,
+    30% {
+      stroke-dashoffset: 1;
+      opacity: 1;
+    }
+    58%,
+    82% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes d-tilt {
+    from {
+      rotate: -7deg;
+    }
+    to {
+      rotate: 7deg;
+    }
+  }
+  @keyframes d-blink {
+    0%,
+    88%,
+    100% {
+      scale: 1 1;
+    }
+    93% {
+      scale: 1 0.12;
+    }
+  }
+  @keyframes d-look {
+    from {
+      translate: -3.5px 0;
+    }
+    to {
+      translate: 3.5px 0;
+    }
+  }
+  @keyframes d-orbit {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    25% {
+      translate: 3px -2px;
+    }
+    50% {
+      translate: 0 -4px;
+    }
+    75% {
+      translate: -3px -2px;
+    }
+  }
+  @keyframes d-needle {
+    from {
+      rotate: -58deg;
+    }
+    to {
+      rotate: 42deg;
+    }
+  }
+  @keyframes d-lift {
+    0%,
+    20% {
+      rotate: 0deg;
+    }
+    50%,
+    70% {
+      rotate: -38deg;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
+  @keyframes d-grow {
+    from {
+      scale: 0.86;
+    }
+    to {
+      scale: 1;
+    }
+  }
+  @keyframes d-sway {
+    from {
+      rotate: -6deg;
+    }
+    to {
+      rotate: 6deg;
+    }
+  }
+  @keyframes d-wave {
+    from {
+      transform: skewY(-3deg) scaleX(1);
+    }
+    to {
+      transform: skewY(4deg) scaleX(0.9);
+    }
+  }
+  @keyframes d-bob {
+    from {
+      translate: 0 0;
+      rotate: -4deg;
+    }
+    to {
+      translate: 0 -2.5px;
+      rotate: 4deg;
+    }
+  }
+  @keyframes d-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  @keyframes d-nib {
+    from {
+      rotate: -5deg;
+    }
+    to {
+      rotate: 4deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rp-doodle,
+    .rp-doodle[data-active],
+    .rp-doodle * {
+      animation: none !important;
+      transition: none;
+    }
+    .rp-doodle .d-draw,
+    .rp-doodle .d-draw-a,
+    .rp-doodle .d-draw-b {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+<script>
+  let controller: AbortController | undefined;
+
+  function trackProgress() {
+    controller?.abort();
+    const root = document.querySelector<HTMLElement>(".rp");
+    const article = document.querySelector<HTMLElement>("#article");
+    if (!root || !article) return;
+    controller = new AbortController();
+
+    const fill = root.querySelector<SVGPathElement>(".rp-fill");
+    const pct = root.querySelector<HTMLElement>(".rp-pct");
+    const left = root.querySelector<HTMLElement>(".rp-left");
+    const marks = [...root.querySelectorAll<HTMLElement>("[data-rp-mark]")];
+    const words = (article.innerText.match(/\S+/g) ?? []).length;
+
+    const track = root.querySelector<HTMLElement>(".rp-track");
+    const slot = root.querySelector<HTMLElement>(".rp-slot");
+    const doodles = [...root.querySelectorAll<SVGElement>(".rp-doodle")];
+
+    let top = 0;
+    let height = 1;
+    // Where each section starts, as a fraction of the article (`at`), and where its loop is drawn
+    // on the line (`shown`). Short sections would put loops on top of each other, so drawn loops
+    // keep a minimum gap; the fill is mapped through the same knots so it still meets each loop
+    // exactly when that section begins.
+    let at: number[] = [];
+    let shown: number[] = [];
+    const GAP = 24;
+
+    const measure = () => {
+      const box = article.getBoundingClientRect();
+      top = box.top + window.scrollY;
+      height = Math.max(box.height, 1);
+      at = marks.map(m => {
+        const h = document.getElementById(m.dataset.rpMark ?? "");
+        const y = h ? h.getBoundingClientRect().top + window.scrollY - top : 0;
+        return Math.min(Math.max(y / height, 0), 1);
+      });
+
+      const px = Math.max(track?.clientHeight ?? 1, 1);
+      const y = at.map(f => f * px);
+      for (let i = 1; i < y.length; i++) y[i] = Math.max(y[i], y[i - 1] + GAP);
+      for (let i = y.length - 1; i >= 0; i--) {
+        const ceiling = i === y.length - 1 ? px : y[i + 1] - GAP;
+        y[i] = Math.max(Math.min(y[i], ceiling), 0);
+      }
+      shown = y.map(v => v / px);
+      marks.forEach((m, i) => (m.style.top = `${shown[i] * 100}%`));
+    };
+
+    // Piecewise-linear from reading position to drawn position, through each section's knot.
+    const toLine = (p: number) => {
+      const xs = [0, ...at, 1];
+      const ys = [0, ...shown, 1];
+      for (let i = 1; i < xs.length; i++) {
+        if (p <= xs[i]) {
+          const span = xs[i] - xs[i - 1];
+          const f = span > 0 ? (p - xs[i - 1]) / span : 1;
+          return ys[i - 1] + f * (ys[i] - ys[i - 1]);
+        }
+      }
+      return 1;
+    };
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = window.scrollY + window.innerHeight * 0.25;
+      const p = Math.min(Math.max((line - top) / height, 0), 1);
+      if (fill) fill.style.strokeDashoffset = String(1 - toLine(p));
+
+      let current = -1;
+      at.forEach((y, i) => {
+        if (y <= p) current = i;
+      });
+      marks.forEach((m, i) => {
+        m.dataset.state = i < current ? "read" : i === current ? "current" : "";
+      });
+      doodles.forEach((d, i) =>
+        d.toggleAttribute("data-active", i === current)
+      );
+      if (slot && current >= 0) slot.style.top = `${shown[current] * 100}%`;
+
+      if (pct) pct.textContent = `${Math.round(p * 100)}%`;
+      if (left) {
+        const minutes = Math.ceil((words * (1 - p)) / 220);
+        left.textContent =
+          p >= 0.99
+            ? (root.dataset.rpDone ?? "")
+            : (root.dataset.rpLeft ?? "").replace("{n}", String(minutes));
+      }
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    measure();
+    update();
+    window.addEventListener("scroll", schedule, {
+      passive: true,
+      signal: controller.signal,
+    });
+    window.addEventListener(
+      "resize",
+      () => {
+        measure();
+        schedule();
+      },
+      { signal: controller.signal }
+    );
+    // Images and fonts arriving late change the article's height; measure again when they do.
+    const resized = new ResizeObserver(() => {
+      measure();
+      schedule();
+    });
+    resized.observe(article);
+    controller.signal.addEventListener("abort", () => resized.disconnect());
+  }
+
+  document.addEventListener("astro:page-load", trackProgress);
+  document.addEventListener("astro:before-swap", () => controller?.abort());
+</script>

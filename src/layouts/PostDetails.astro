@@ -13,6 +13,7 @@ import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
+import ReadingProgress from "@/components/ReadingProgress.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
@@ -164,6 +165,7 @@ const prevPost =
     }
     <div class="relative">
       {showToc && <TableOfContents headings={tocHeadings} />}
+      {showToc && <ReadingProgress headings={tocHeadings} />}
       <article
         id="article"
         class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
