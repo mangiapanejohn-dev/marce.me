@@ -66,16 +66,18 @@ const t = useTranslations(lang);
     display: block;
     width: 5rem;
     height: 1px;
-    margin-inline-start: 1.75rem;
+    margin-inline-start: calc(2.1em + 0.35rem);
     background: color-mix(in srgb, var(--foreground) 20%, transparent);
   }
   li a {
     display: grid;
-    grid-template-columns: 1.4rem 1fr;
+    /* Wide enough for two CJK numerals ("十一") on one line, the same for every row so titles align. */
+    grid-template-columns: 2.1em 1fr;
     column-gap: 0.35rem;
     padding-block: 0.45rem;
   }
   .toc-num {
+    white-space: nowrap;
     font-variant-numeric: tabular-nums;
     opacity: 0.55;
   }
@@ -190,6 +192,14 @@ const t = useTranslations(lang);
       signal: controller.signal,
     });
     window.addEventListener("resize", schedule, { signal: controller.signal });
+    // Late images above the fold push the headings down without a scroll event; follow them, as the
+    // progress rail does, so the two never disagree about the current section.
+    const article = document.querySelector("#article");
+    if (article) {
+      const resized = new ResizeObserver(schedule);
+      resized.observe(article);
+      controller.signal.addEventListener("abort", () => resized.disconnect());
+    }
     update();
   }
 

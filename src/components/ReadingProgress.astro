@@ -645,7 +645,14 @@ const loop =
     const pct = root.querySelector<HTMLElement>(".rp-pct");
     const left = root.querySelector<HTMLElement>(".rp-left");
     const marks = [...root.querySelectorAll<HTMLElement>("[data-rp-mark]")];
-    const words = (article.innerText.match(/\S+/g) ?? []).length;
+    // Reading time: Latin text by words (~220 a minute), Chinese by characters (~400 a minute) —
+    // Chinese has no spaces, so counting words alone made a long zh post read as one minute.
+    const text = article.innerText;
+    const cjk = (text.match(/[\u3400-\u9fff\uf900-\ufaff]/g) ?? []).length;
+    const latin = (
+      text.replace(/[\u3400-\u9fff\uf900-\ufaff]/g, " ").match(/\S+/g) ?? []
+    ).length;
+    const totalMinutes = latin / 220 + cjk / 400;
 
     const track = root.querySelector<HTMLElement>(".rp-track");
     const slot = root.querySelector<HTMLElement>(".rp-slot");
@@ -727,7 +734,7 @@ const loop =
 
       if (pct) pct.textContent = `${Math.round(p * 100)}%`;
       if (left) {
-        const minutes = Math.ceil((words * (1 - p)) / 220);
+        const minutes = Math.max(1, Math.ceil(totalMinutes * (1 - p)));
         left.textContent =
           p >= 0.99
             ? (root.dataset.rpDone ?? "")
