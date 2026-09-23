@@ -59,16 +59,21 @@ const t = useTranslations(lang);
 </aside>
 
 <style>
-  /* Shared by both renderings: number column, title beside it, a hairline between entries. */
-  li + li {
-    border-top: 1px solid var(--border);
+  /* Shared by both renderings: number column, title beside it, and between entries a short tick
+     that starts where the titles start — enough to separate, not a rule across the column. */
+  li + li::before {
+    content: "";
+    display: block;
+    width: 1.25rem;
+    height: 1px;
+    margin-inline-start: 1.75rem;
+    background: color-mix(in srgb, var(--foreground) 18%, transparent);
   }
   li a {
     display: grid;
     grid-template-columns: 1.4rem 1fr;
     column-gap: 0.35rem;
-    padding: 0.5rem;
-    border-radius: 6px;
+    padding-block: 0.45rem;
   }
   .toc-num {
     font-variant-numeric: tabular-nums;
@@ -89,11 +94,9 @@ const t = useTranslations(lang);
   .toc-inline summary {
     cursor: pointer;
     font-weight: 600;
-    padding-inline: 0.5rem;
   }
   .toc-inline ol {
-    margin-top: 0.5rem;
-    border-top: 1px solid var(--border);
+    margin-top: 0.4rem;
   }
   .toc-inline a:hover {
     color: var(--accent-text);
@@ -116,29 +119,23 @@ const t = useTranslations(lang);
     line-height: 1.45;
   }
   .toc-label {
-    margin-bottom: 0.5rem;
-    padding-inline: 0.5rem;
+    margin-bottom: 0.25rem;
     font-weight: 600;
     opacity: 0.7;
-  }
-  .toc-side ol {
-    border-block: 1px solid var(--border);
   }
   .toc-side a {
     opacity: 0.7;
     transition:
       opacity 0.15s ease,
-      color 0.15s ease,
-      background-color 0.15s ease;
+      color 0.15s ease;
   }
   .toc-side a:hover {
     opacity: 1;
   }
-  /* The section being read: full ink, accent title, the number picked out, a faint wash behind. */
+  /* The section being read: full ink in the accent, the number picked out. */
   .toc-side a[aria-current="true"] {
     opacity: 1;
     color: var(--accent-text);
-    background: color-mix(in srgb, var(--muted) 70%, transparent);
   }
   .toc-side a[aria-current="true"] .toc-num {
     opacity: 1;
