@@ -32,7 +32,10 @@ function setPreference(): void {
 function reflectPreference(): void {
   document.firstElementChild?.setAttribute("data-theme", themeValue);
 
-  document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
+  // The button is labelled "Toggle dark mode"; whether dark mode is on is its pressed state.
+  document
+    .querySelector("#theme-btn")
+    ?.setAttribute("aria-pressed", String(themeValue === DARK));
 
   // Get a reference to the body element
   const body = document.body;

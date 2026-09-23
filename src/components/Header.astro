@@ -67,6 +67,8 @@ const l = (path: string) => localizePath(path, lang);
         id="menu-btn"
         class="focus-outline self-end p-2 sm:hidden"
         aria-label={t("menu.open")}
+        data-label-open={t("menu.open")}
+        data-label-close={t("menu.close")}
         aria-expanded="false"
         aria-controls="menu-items"
       >
@@ -76,13 +78,14 @@ const l = (path: string) => localizePath(path, lang);
       <ul
         id="menu-items"
         class:list={[
-          "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
+          "grid grid-cols-[repeat(6,2.75rem)] justify-center gap-x-2 gap-y-1",
+          "max-sm:absolute max-sm:inset-x-0 max-sm:top-full max-sm:z-40 max-sm:border-b max-sm:border-border max-sm:bg-background max-sm:pt-2 max-sm:pb-4 max-sm:shadow-[0_12px_24px_-12px_rgb(0_0_0/0.18)]",
           "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:whitespace-nowrap [&>li>a]:hover:text-accent-text sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
           "hidden",
           "sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
         ]}
       >
-        <li class="col-span-2">
+        <li class="col-span-6">
           <a
             href={l("/posts")}
             class:list={["nav-link", { "active-nav": isActive("/posts") }]}
@@ -90,12 +93,17 @@ const l = (path: string) => localizePath(path, lang);
             {t("nav.posts")}
           </a>
         </li>
-        <li class="nav-group col-span-2">
+        <li class="nav-group col-span-6">
           <a
             href={l("/research")}
             class:list={[
               "nav-link",
-              { "active-nav": isActive("/research") || isActive("/papers") },
+              {
+                "active-nav":
+                  isActive("/research") ||
+                  isActive("/papers") ||
+                  isActive("/mobius"),
+              },
             ]}
             aria-haspopup="true"
           >
@@ -122,9 +130,17 @@ const l = (path: string) => localizePath(path, lang);
                 {t("nav.papers")}
               </a>
             </li>
+            <li>
+              <a
+                href={l("/mobius")}
+                class:list={["sub-link", { "sub-active": isActive("/mobius") }]}
+              >
+                {t("nav.mobius")}
+              </a>
+            </li>
           </ul>
         </li>
-        <li class="col-span-2">
+        <li class="col-span-6">
           <a
             href={l("/tags")}
             class:list={["nav-link", { "active-nav": isActive("/tags") }]}
@@ -132,7 +148,7 @@ const l = (path: string) => localizePath(path, lang);
             {t("nav.tags")}
           </a>
         </li>
-        <li class="col-span-2">
+        <li class="col-span-6">
           <a
             href={l("/about")}
             class:list={["nav-link", { "active-nav": isActive("/about") }]}
@@ -142,7 +158,7 @@ const l = (path: string) => localizePath(path, lang);
         </li>
         {
           SITE.showArchives && (
-            <li class="col-span-2">
+            <li class="col-span-6">
               <LinkButton
                 href={l("/archives")}
                 class:list={[
@@ -160,7 +176,7 @@ const l = (path: string) => localizePath(path, lang);
             </li>
           )
         }
-        <li class="col-span-1 flex items-center justify-center">
+        <li class="col-span-2 flex items-center justify-center">
           <LinkButton
             href={l("/search")}
             class:list={[
@@ -176,13 +192,13 @@ const l = (path: string) => localizePath(path, lang);
         </li>
         {
           SITE.lightAndDarkMode && (
-            <li class="col-span-1 flex items-center justify-center">
+            <li class="col-span-2 flex items-center justify-center">
               <button
                 id="theme-btn"
                 class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
-                title="Toggles light & dark"
-                aria-label="auto"
-                aria-live="polite"
+                title={t("theme.toggle")}
+                aria-label={t("theme.toggle")}
+                aria-pressed="false"
               >
                 <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
                 <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
@@ -190,7 +206,7 @@ const l = (path: string) => localizePath(path, lang);
             </li>
           )
         }
-        <li class="col-span-1 flex items-center justify-center">
+        <li class="col-span-2 flex items-center justify-center">
           <LanguagePicker />
         </li>
       </ul>
@@ -315,28 +331,46 @@ const l = (path: string) => localizePath(path, lang);
 </style>
 
 <script>
-  function toggleNav() {
-    const menuBtn = document.querySelector("#menu-btn");
+  function setMenuOpen(open: boolean) {
+    const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
     const menuItems = document.querySelector("#menu-items");
-    const menuIcon = document.querySelector("#menu-icon");
-    const closeIcon = document.querySelector("#close-icon");
+    if (!menuBtn || !menuItems) return;
 
-    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute(
+      "aria-label",
+      (open ? menuBtn.dataset.labelClose : menuBtn.dataset.labelOpen) ?? ""
+    );
+    menuItems.classList.toggle("hidden", !open);
+    document.querySelector("#menu-icon")?.classList.toggle("hidden", open);
+    document.querySelector("#close-icon")?.classList.toggle("hidden", !open);
+  }
 
-    menuBtn.addEventListener("click", () => {
-      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
+  const isMenuOpen = () =>
+    document.querySelector("#menu-btn")?.getAttribute("aria-expanded") === "true";
 
-      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
-      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
-
-      menuItems.classList.toggle("hidden");
-      menuIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-    });
+  function toggleNav() {
+    document
+      .querySelector("#menu-btn")
+      ?.addEventListener("click", () => setMenuOpen(!isMenuOpen()));
   }
 
   toggleNav();
 
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
+
+  // The phone menu floats over the page, so it closes the way an overlay does: Escape, or a tap
+  // anywhere outside it. Bound once on the document; the elements are looked up each time
+  // because a view transition replaces them.
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape" || !isMenuOpen()) return;
+    setMenuOpen(false);
+    document.querySelector<HTMLButtonElement>("#menu-btn")?.focus();
+  });
+  document.addEventListener("click", e => {
+    if (!isMenuOpen()) return;
+    if ((e.target as Element).closest("#nav-menu")) return;
+    setMenuOpen(false);
+  });
 </script>
