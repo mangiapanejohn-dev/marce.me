@@ -42,7 +42,7 @@ export const ui = {
     "post.share": "Share this post on:",
     "post.toc": "Contents",
     "progress.left": "~{n} min left",
-    "progress.done": "Done",
+    "progress.done": "Read it all. Onward!",
     "post.fallback":
       "This post isn't available in Chinese yet — showing the English original.",
     "breadcrumb.home": "Home",
@@ -77,7 +77,7 @@ export const ui = {
     "post.share": "分享到:",
     "post.toc": "目录",
     "progress.left": "约剩 {n} 分钟",
-    "progress.done": "读完了",
+    "progress.done": "读完啦，加油！",
     "post.fallback": "本文暂无中文版,以下为英文原文。",
     "breadcrumb.home": "首页",
     "lang.toggle": "Switch language",

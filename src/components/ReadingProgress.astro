@@ -1,7 +1,7 @@
 ---
 import type { MarkdownHeading } from "astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { doodleFor, doodles } from "./doodles";
+import { assignDoodles, cheer, doodles } from "./doodles";
 
 type Props = {
   headings: MarkdownHeading[];
@@ -11,11 +11,16 @@ const { headings } = Astro.props;
 
 // Same split as the contents list: "2 · Completion judgement" → the title, for the hover hint and
 // for choosing the section's doodle.
-const items = headings.map(h => {
+const titles = headings.map(h => {
   const m = h.text.match(/^(\S{1,4})\s+·\s+(.+)$/);
-  const title = m?.[2] ?? h.text;
-  return { slug: h.slug, title, doodle: doodles[doodleFor(title)] };
+  return m?.[2] ?? h.text;
 });
+const assigned = assignDoodles(titles);
+const items = headings.map((h, i) => ({
+  slug: h.slug,
+  title: titles[i],
+  doodle: doodles[assigned[i]],
+}));
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -88,6 +93,7 @@ const loop =
             <svg class="rp-doodle" viewBox="0 0 48 48" set:html={h.doodle} />
           ))
         }
+        <svg class="rp-doodle rp-cheer" viewBox="0 0 48 48" set:html={cheer} />
       </span>
     </div>
     <p class="rp-label">
@@ -325,6 +331,29 @@ const loop =
     transform-origin: 24px 36px;
     animation: d-pulse 1.8s ease-in-out infinite;
   }
+  .rp-doodle .d-glow {
+    animation: d-glow 1.6s ease-in-out infinite;
+  }
+  .rp-doodle .d-wobble {
+    transform-origin: 24px 24px;
+    animation: d-wobble 2.6s cubic-bezier(0.34, 1.4, 0.64, 1) infinite alternate;
+  }
+  .rp-doodle .d-flip {
+    transform-origin: 24px 24px;
+    animation: d-flip 4.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .rp-doodle .d-page {
+    transform-origin: 24px 24px;
+    animation: d-page 3.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .rp-doodle .d-pop {
+    transform-origin: 24px 24px;
+    animation: d-pop 1.8s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+  }
+  .rp-doodle .d-burst {
+    transform-origin: 24px 24px;
+    animation: d-burst 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
   .rp-doodle .d-nib {
     transform-origin: 14px 36px;
     animation: d-nib 1.4s ease-in-out infinite alternate;
@@ -500,6 +529,76 @@ const loop =
       opacity: 0.35;
     }
   }
+  @keyframes d-glow {
+    0%,
+    100% {
+      opacity: 0.25;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes d-wobble {
+    from {
+      rotate: -28deg;
+    }
+    to {
+      rotate: 22deg;
+    }
+  }
+  @keyframes d-flip {
+    0%,
+    70% {
+      rotate: 0deg;
+    }
+    90%,
+    100% {
+      rotate: 180deg;
+    }
+  }
+  @keyframes d-page {
+    0%,
+    25% {
+      scale: 1 1;
+    }
+    55%,
+    75% {
+      scale: -1 1;
+    }
+    100% {
+      scale: 1 1;
+    }
+  }
+  @keyframes d-pop {
+    0% {
+      scale: 0.8;
+      rotate: -8deg;
+    }
+    35% {
+      scale: 1.08;
+      rotate: 4deg;
+    }
+    60%,
+    100% {
+      scale: 1;
+      rotate: 0deg;
+    }
+  }
+  @keyframes d-burst {
+    0% {
+      scale: 0.6;
+      opacity: 0;
+    }
+    35% {
+      scale: 1;
+      opacity: 1;
+    }
+    80%,
+    100% {
+      scale: 1.2;
+      opacity: 0;
+    }
+  }
   @keyframes d-nib {
     from {
       rotate: -5deg;
@@ -543,6 +642,7 @@ const loop =
     const track = root.querySelector<HTMLElement>(".rp-track");
     const slot = root.querySelector<HTMLElement>(".rp-slot");
     const doodles = [...root.querySelectorAll<SVGElement>(".rp-doodle")];
+    const cheerMark = root.querySelector<SVGElement>(".rp-cheer");
 
     let top = 0;
     let height = 1;
@@ -593,7 +693,12 @@ const loop =
     const update = () => {
       frame = 0;
       const line = window.scrollY + window.innerHeight * 0.25;
-      const p = Math.min(Math.max((line - top) / height, 0), 1);
+      // The page can end before the article's last line reaches the reading line (a short post, a
+      // tall screen); reaching the bottom of the page counts as having read it all.
+      const atEnd =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 4;
+      const p = atEnd ? 1 : Math.min(Math.max((line - top) / height, 0), 1);
       if (fill) fill.style.strokeDashoffset = String(1 - toLine(p));
 
       let current = -1;
@@ -603,10 +708,14 @@ const loop =
       marks.forEach((m, i) => {
         m.dataset.state = i < current ? "read" : i === current ? "current" : "";
       });
+      // At the end the section's doodle gives way to the cheer, drawn at the foot of the line.
+      const done = p >= 0.99;
       doodles.forEach((d, i) =>
-        d.toggleAttribute("data-active", i === current)
+        d.toggleAttribute("data-active", done ? d === cheerMark : i === current)
       );
-      if (slot && current >= 0) slot.style.top = `${shown[current] * 100}%`;
+      if (slot && done) slot.style.top = "100%";
+      else if (slot && current >= 0)
+        slot.style.top = `${shown[current] * 100}%`;
 
       if (pct) pct.textContent = `${Math.round(p * 100)}%`;
       if (left) {
