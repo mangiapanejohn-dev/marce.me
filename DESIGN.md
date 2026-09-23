@@ -125,6 +125,9 @@ Google Sans Code，全站等宽，包括长文正文。长文的可读性靠行�
 - 首页 Blog/Research 是标准 tablist（方向键切换）；"Read more"带 `aria-expanded`。
 - 手机菜单是浮层：Esc、点外部都能关；文案都走 `src/i18n/ui.ts`。
 - 搜索：头部图标或 ⌘K / Ctrl+K 打开弹层（Pagefind，首次打开才加载）；没 JS 时图标仍链接到 `/search`。
+- About 页"保持联系"：访客用自己设备上的邮箱给 Marc 发信。按钮打开预填好主题和正文的 `mailto:`，
+  旁边显示地址并可一键复制（照顾没配置邮件应用的电脑）。**不接第三方邮件服务**（试过 Resend，Marc 不要）；
+  也不要用 `<form action="mailto:">`，那种写法在很多浏览器里点了没反应。
 - 所有动画都要有 reduced-motion 的替代。
 
 ## 性能

@@ -23,22 +23,17 @@ title: "About"
 ## Stay Connected
 
 <div class="bg-muted/30 border border-accent rounded-lg p-6 my-8">
-  <p class="text-sm text-foreground/70 mb-4">
+  <p class="mt-0 mb-4 text-sm text-foreground/70">
     New posts, shipping stories, and nerdy links straight to your inbox.
   </p>
-  <form action="/api/subscribe" method="post" data-subscribe class="flex flex-col sm:flex-row gap-3">
-    <input type="hidden" name="lang" value="en" />
-    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
-    <input type="text" name="name" autocomplete="name" maxlength="100" aria-label="Name" placeholder="Your Name" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <input type="email" name="email" autocomplete="email" required aria-label="Email" placeholder="Your Email" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <button type="submit" data-busy="Sending…" class="px-6 py-2 bg-accent-text hover:bg-accent-text/90 disabled:opacity-60 disabled:cursor-wait rounded-md transition-colors font-medium whitespace-nowrap text-background">
-      Subscribe
-    </button>
-  </form>
-  <p class="sub-status" role="status" aria-live="polite" hidden data-ok="Got it — thanks! I'll be in touch." data-invalid="That email doesn't look right." data-failed="Couldn't send that. Try again, or write to mangiapanejohn@icloud.com."></p>
-  <p id="subscribed" class="sub-anchor sub-ok">Got it — thanks! I'll be in touch.</p>
-  <p id="subscribe-failed" class="sub-anchor">Couldn't send that. Try again, or write to mangiapanejohn@icloud.com.</p>
-  <p class="text-xs text-foreground/65 mt-3">
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+    <a href="mailto:mangiapanejohn@icloud.com?subject=Subscribe%20to%20marc.me&body=Hi%20Marc%2C%0A%0APlease%20add%20me%20to%20your%20list.%0A%0A" class="sub-cta inline-block rounded-md bg-accent-text px-6 py-2 text-center font-medium whitespace-nowrap text-background no-underline transition-colors hover:bg-accent-text/90 hover:text-background">Email me to subscribe</a>
+    <p class="m-0 text-sm text-foreground/70">
+      or write to <span class="font-medium text-foreground">mangiapanejohn@icloud.com</span>
+      <button type="button" data-copy="mangiapanejohn@icloud.com" data-copied="Copied" aria-live="polite" class="ms-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80 transition-colors hover:border-accent hover:text-accent-text">Copy</button>
+    </p>
+  </div>
+  <p class="mt-3 mb-0 text-xs text-foreground/65">
     2× per month, pure signal, zero fluff.
   </p>
 </div>
@@ -47,60 +42,23 @@ title: "About"
 
 If you'd like to connect or have questions about my work, feel free to reach out through any of the links below.
 
-<style>
-  .sub-status,
-  .sub-anchor {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
-  }
-  .sub-status[data-state="ok"],
-  .sub-ok {
-    color: var(--accent-text);
-    font-weight: 600;
-  }
-  /* Without JavaScript the form posts, and the server sends the reader back to one of these. */
-  .sub-anchor {
-    display: none;
-  }
-  .sub-anchor:target {
-    display: block;
-  }
-</style>
-
 <script>
-  // Post the form in place and say how it went, instead of leaving the page. Bound once on the
-  // document: this inline script runs again after every view-transition navigation.
+  // Copy the address for readers without a mail app set up. Bound once on the document: this inline
+  // script runs again after every view-transition navigation.
   (() => {
-    if (window.__subscribeBound) return;
-    window.__subscribeBound = true;
-    document.addEventListener("submit", async event => {
-      const form = event.target.closest && event.target.closest("form[data-subscribe]");
-      if (!form) return;
-      event.preventDefault();
-      const button = form.querySelector("button[type=submit]");
-      const status = form.parentElement.querySelector(".sub-status");
-      const label = button.textContent;
-      button.disabled = true;
-      button.textContent = button.dataset.busy;
-      let result = { ok: false, error: "failed" };
+    if (window.__copyBound) return;
+    window.__copyBound = true;
+    document.addEventListener("click", async event => {
+      const button = event.target.closest && event.target.closest("button[data-copy]");
+      if (!button) return;
       try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
-        });
-        result = await res.json();
-      } catch (e) {}
-      status.hidden = false;
-      status.dataset.state = result.ok ? "ok" : "error";
-      status.textContent = result.ok
-        ? status.dataset.ok
-        : result.error === "invalid"
-          ? status.dataset.invalid
-          : status.dataset.failed;
-      button.disabled = false;
-      button.textContent = label;
-      if (result.ok) form.reset();
+        await navigator.clipboard.writeText(button.dataset.copy);
+      } catch (e) {
+        return;
+      }
+      const label = button.textContent;
+      button.textContent = button.dataset.copied;
+      setTimeout(() => (button.textContent = label), 1600);
     });
   })();
 </script>
