@@ -13,7 +13,7 @@ per cell, and the MØBIUS journals are a small corpus of experiment arms, not a 
 | path | what it is |
 |---|---|
 | `pilot/` | the cross-runtime probe harness as it ran: neutral harness (`world.py`, `oracle.py`, `fault.py`, `eventlog.py`, `stub_model.py`, `worker.py`, `run_pilot.py`) and thin adapters (`adapters/langgraph_adapter.py`, `openai_agents_adapter.py`, `pydantic_ai_adapter.py`, `broken_control.py`, `correct_control.py`) |
-| `pilot/results/rows.jsonl` | the clean C1 + C2-NI ledger (24 rows). Every table in the post is generated from rows like these, never hand-written |
+| `pilot/results/rows.jsonl` | the clean ledger rerun with the final harness: 24 C1 rows plus 6 C2-NI rows, 30 in total. Every table in the post is generated from rows like these, never hand-written |
 | `pilot/results/rows_c2c3.jsonl` | the C2/C3 ledger (33 rows), including the controls |
 | `pilot/results/rows_archive_mixed.jsonl` | the archived mixed ledger (60 rows). Kept append-only rather than edited: it still holds the three `NOT-CAPTURED` rows from the `socksio` import failure that made the cell `unstable` |
 | `pilot/results/runs/**` | per-run external audit event streams (`events.jsonl`), the external world SQLite, LangGraph checkpoint SQLite, fault markers, stderr |
