@@ -59,12 +59,23 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{css,js,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}"],
-        // Raise the precache limit so large images (e.g. 8.7 MB pawly-install.png)
-        // are precached too. Default is 2 MiB, which was failing the build.
-        maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
+        // Precache the shell only. Images used to be in this list, which made a first visit download
+        // every image on the site (~50 MB) in the background; they are cached on first view below.
+        globPatterns: ["**/*.{css,js,woff,woff2,ico}"],
         navigateFallback: null,
         runtimeCaching: [
+          {
+            // Images — cached the first time a page shows them
+            urlPattern: ({ request }) => request.destination === "image",
+            handler: "CacheFirst",
+            options: {
+              cacheName: "images-cache",
+              expiration: {
+                maxEntries: 120,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+            },
+          },
           {
             // HTML pages — serve cached, refresh in background
             urlPattern: ({ request }) => request.mode === "navigate",
