@@ -26,13 +26,18 @@ title: "关于"
   <p class="text-sm text-foreground/70 mb-4">
     新文章、上线故事和有意思的链接,直接发到你的邮箱。
   </p>
-  <form action="mailto:mangiapanejohn@icloud.com?subject=Subscribe to Newsletter" method="post" enctype="text/plain" class="flex flex-col sm:flex-row gap-3">
-    <input type="text" name="name" placeholder="你的名字" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <input type="email" name="email" placeholder="你的邮箱" required class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
-    <button type="submit" class="px-6 py-2 bg-accent-text hover:bg-accent-text/90 rounded-md transition-colors font-medium whitespace-nowrap text-background">
+  <form action="/api/subscribe" method="post" data-subscribe class="flex flex-col sm:flex-row gap-3">
+    <input type="hidden" name="lang" value="zh" />
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+    <input type="text" name="name" autocomplete="name" maxlength="100" aria-label="名字" placeholder="你的名字" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <input type="email" name="email" autocomplete="email" required aria-label="邮箱" placeholder="你的邮箱" class="min-w-0 flex-1 px-4 py-2 border border-border rounded-md bg-background text-foreground placeholder-foreground/65 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" />
+    <button type="submit" data-busy="发送中…" class="px-6 py-2 bg-accent-text hover:bg-accent-text/90 disabled:opacity-60 disabled:cursor-wait rounded-md transition-colors font-medium whitespace-nowrap text-background">
       订阅
     </button>
   </form>
+  <p class="sub-status" role="status" aria-live="polite" hidden data-ok="收到啦，谢谢！我会联系你。" data-invalid="这个邮箱格式好像不对。" data-failed="没发出去，再试一次，或者直接写信到 mangiapanejohn@icloud.com。"></p>
+  <p id="subscribed" class="sub-anchor sub-ok">收到啦，谢谢！我会联系你。</p>
+  <p id="subscribe-failed" class="sub-anchor">没发出去，再试一次，或者直接写信到 mangiapanejohn@icloud.com。</p>
   <p class="text-xs text-foreground/65 mt-3">
     每月两封,纯干货,不灌水。
   </p>
@@ -41,3 +46,61 @@ title: "关于"
 ## 联系我
 
 如果你想交流,或者对我的项目有任何问题,欢迎通过下面任意一个链接找我。
+
+<style>
+  .sub-status,
+  .sub-anchor {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+  }
+  .sub-status[data-state="ok"],
+  .sub-ok {
+    color: var(--accent-text);
+    font-weight: 600;
+  }
+  /* Without JavaScript the form posts, and the server sends the reader back to one of these. */
+  .sub-anchor {
+    display: none;
+  }
+  .sub-anchor:target {
+    display: block;
+  }
+</style>
+
+<script>
+  // Post the form in place and say how it went, instead of leaving the page. Bound once on the
+  // document: this inline script runs again after every view-transition navigation.
+  (() => {
+    if (window.__subscribeBound) return;
+    window.__subscribeBound = true;
+    document.addEventListener("submit", async event => {
+      const form = event.target.closest && event.target.closest("form[data-subscribe]");
+      if (!form) return;
+      event.preventDefault();
+      const button = form.querySelector("button[type=submit]");
+      const status = form.parentElement.querySelector(".sub-status");
+      const label = button.textContent;
+      button.disabled = true;
+      button.textContent = button.dataset.busy;
+      let result = { ok: false, error: "failed" };
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        result = await res.json();
+      } catch (e) {}
+      status.hidden = false;
+      status.dataset.state = result.ok ? "ok" : "error";
+      status.textContent = result.ok
+        ? status.dataset.ok
+        : result.error === "invalid"
+          ? status.dataset.invalid
+          : status.dataset.failed;
+      button.disabled = false;
+      button.textContent = label;
+      if (result.ok) form.reset();
+    });
+  })();
+</script>
