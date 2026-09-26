@@ -1,0 +1,17 @@
+{
+ "tag": "opus-4-6_GRANT_L30_s1",
+ "model": "claude-opus-4-6",
+ "arm": "GRANT",
+ "load": "L30",
+ "seed": 1,
+ "turns_completed": 6,
+ "fault_log": [],
+ "usage": {
+  "claude-opus-4-6": {
+   "in": 1791193,
+   "out": 73782,
+   "calls": 104
+  }
+ },
+ "step_cap": 20
+}

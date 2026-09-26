@@ -1,0 +1,17 @@
+{
+ "tag": "haiku-4-5_NOGRANT_L30_s3",
+ "model": "claude-haiku-4-5-20251001",
+ "arm": "NOGRANT",
+ "load": "L30",
+ "seed": 3,
+ "turns_completed": 10,
+ "fault_log": [],
+ "usage": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1590805,
+   "out": 65869,
+   "calls": 111
+  }
+ },
+ "step_cap": 20
+}

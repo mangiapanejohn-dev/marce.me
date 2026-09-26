@@ -1,0 +1,17 @@
+{
+ "tag": "opus-4-6_NOGRANT_L30_s1",
+ "model": "claude-opus-4-6",
+ "arm": "NOGRANT",
+ "load": "L30",
+ "seed": 1,
+ "turns_completed": 8,
+ "fault_log": [],
+ "usage": {
+  "claude-opus-4-6": {
+   "in": 1790683,
+   "out": 74960,
+   "calls": 110
+  }
+ },
+ "step_cap": 20
+}

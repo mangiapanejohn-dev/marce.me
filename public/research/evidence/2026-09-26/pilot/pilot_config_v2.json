@@ -1,0 +1,15 @@
+{
+ "model": "claude-sonnet-5",
+ "max_tokens": 16000,
+ "step_cap": 14,
+ "n_turns": 10,
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "arms": [
+  "GRANT",
+  "NOGRANT"
+ ]
+}

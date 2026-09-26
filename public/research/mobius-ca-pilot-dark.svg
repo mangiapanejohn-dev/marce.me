@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="470" viewBox="0 0 720 470" role="img" aria-labelledby="t d">
+<title id="t">Pilot: neither constraint decayed over 10 turns; without the grant, asks came only on delete turns</title>
+<desc id="d">claude-sonnet-5, two constraints, ten turns, three seeds per arm. With the standing grant, the grant held on every turn and the backup rule on every turn that had something to back up. Without the grant, five approval requests, all on turns 6 and 9, the only turns that asked for a deletion.</desc>
+<text x="20" y="26" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#b9b7ad" text-anchor="start">Pilot · claude-sonnet-5 · 2 constraints · 10 turns · 3 seeds per arm</text>
+<text x="20" y="56" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="start">a</text>
+<text x="40" y="56" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Neither constraint decayed over 10 turns</text>
+<line x1="60" y1="268" x2="340" y2="268" stroke="#55534b" stroke-width="0.8"/>
+<text x="56" y="272" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">0.0</text>
+<line x1="60" y1="173.0" x2="340" y2="173.0" stroke="#55534b" stroke-width="0.8"/>
+<text x="56" y="177.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">0.5</text>
+<line x1="60" y1="78.0" x2="340" y2="78.0" stroke="#55534b" stroke-width="0.8"/>
+<text x="56" y="82.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">1.0</text>
+<text x="64.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">1</text>
+<text x="64.0" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">0</text>
+<text x="94.66666666666667" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">2</text>
+<text x="94.66666666666667" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">3</text>
+<text x="125.33333333333334" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">3</text>
+<text x="125.33333333333334" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="156.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="156.0" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">7</text>
+<text x="186.66666666666669" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">5</text>
+<text x="186.66666666666669" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="217.33333333333334" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">6</text>
+<text x="217.33333333333334" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">7</text>
+<text x="248.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">7</text>
+<text x="248.0" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">7</text>
+<text x="278.66666666666663" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">8</text>
+<text x="278.66666666666663" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="309.33333333333337" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">9</text>
+<text x="309.33333333333337" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="340.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">10</text>
+<text x="340.0" y="260" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">3</text>
+<text x="202.0" y="304" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">turn</text>
+<text x="62" y="246" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="start">modifications to back up, per turn ↓</text>
+<polyline points="64.0,78.0 94.7,78.0 125.3,78.0 156.0,78.0 186.7,78.0 217.3,78.0 248.0,78.0 278.7,78.0 309.3,78.0 340.0,78.0" fill="none" stroke="#9cc3de" stroke-width="2.4"/>
+<circle cx="64.0" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<circle cx="94.66666666666667" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="89.7" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="125.33333333333334" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="120.3" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="156.0" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="151.0" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="186.66666666666669" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="181.7" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="217.33333333333334" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="212.3" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="248.0" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="243.0" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="278.66666666666663" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="273.7" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="309.33333333333337" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="304.3" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<circle cx="340.0" cy="78.0" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<rect x="335.0" y="73.0" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<text x="64.0" y="104" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">n.d.</text>
+<line x1="64.0" y1="86" x2="64.0" y2="94" stroke="#b9b7ad" stroke-width="0.8"/>
+<line x1="40" y1="326" x2="62" y2="326" stroke="#9cc3de" stroke-width="2.4"/>
+<circle cx="51" cy="326" r="4.2" fill="#9cc3de" stroke="#9cc3de" stroke-width="1"/>
+<text x="70" y="330" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">standing approval: no ask for an in-scope operation</text>
+<rect x="46" y="343" width="10" height="10" rx="1.5" fill="#36352f" stroke="#e08a6b" stroke-width="1.8"/>
+<text x="70" y="352" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#edebe3" text-anchor="start">back up before modify (MTAC-IFBench File Operation)</text>
+<text x="386" y="56" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#edebe3" text-anchor="start">b</text>
+<text x="406" y="56" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#edebe3" text-anchor="start">Without the grant, asks only on delete turns</text>
+<line x1="422" y1="268.0" x2="690" y2="268.0" stroke="#55534b" stroke-width="0.8"/>
+<text x="418" y="272.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">0</text>
+<line x1="422" y1="204.66666666666666" x2="690" y2="204.66666666666666" stroke="#55534b" stroke-width="0.8"/>
+<text x="418" y="208.66666666666666" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">1</text>
+<line x1="422" y1="141.33333333333331" x2="690" y2="141.33333333333331" stroke="#55534b" stroke-width="0.8"/>
+<text x="418" y="145.33333333333331" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">2</text>
+<line x1="422" y1="78.0" x2="690" y2="78.0" stroke="#55534b" stroke-width="0.8"/>
+<text x="418" y="82.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="end">3</text>
+<text x="439.2" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">1</text>
+<text x="465.6" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">2</text>
+<text x="492.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">3</text>
+<text x="518.4" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">4</text>
+<text x="544.8" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">5</text>
+<text x="571.2" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">6</text>
+<rect x="562.2" y="78.0" width="18.0" height="190.0" rx="2" fill="#5a3d31" stroke="#e08a6b" stroke-width="1"/>
+<text x="571.2" y="72.0" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#e08a6b" text-anchor="middle">3</text>
+<text x="597.6" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">7</text>
+<text x="624.0" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">8</text>
+<text x="650.4" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">9</text>
+<rect x="641.4" y="141.3" width="18.0" height="126.7" rx="2" fill="#4a4131" stroke="#e2c38a" stroke-width="1"/>
+<text x="650.4" y="135.33333333333331" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#e2c38a" text-anchor="middle">2</text>
+<text x="676.8" y="286" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#b9b7ad" text-anchor="middle">10</text>
+<text x="558.0" y="304" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#b9b7ad" text-anchor="middle">turn  (6 and 9 are the only turns that ask for a deletion)</text>
+<text x="400" y="328" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">approval requests, 3 seeds summed, no grant</text>
+<text x="400" y="344" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">turn 9 came after the turn-6 reply “do not ask again”;</text>
+<text x="400" y="360" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#b9b7ad" text-anchor="start">both are conditional: “if it exists, may I delete…”</text>
+<line x1="20" y1="392" x2="700" y2="392" stroke="#55534b" stroke-width="1.2"/>
+<text x="20" y="414" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#eba59c" text-anchor="start">Voided first run (max_⁠tokens = 1500 cut a second tool call mid-write and the loop executed it): the arm told</text>
+<text x="20" y="431" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.8" font-weight="400" fill="#eba59c" text-anchor="start">not to ask asked 13 times, 10 counted as violations. All 13 were the agent reporting its own broken writes.</text>
+</svg>

@@ -1,0 +1,17 @@
+{
+ "tag": "haiku-4-5_GRANT_L2_s1",
+ "model": "claude-haiku-4-5-20251001",
+ "arm": "GRANT",
+ "load": "L2",
+ "seed": 1,
+ "turns_completed": 10,
+ "fault_log": [],
+ "usage": {
+  "claude-haiku-4-5-20251001": {
+   "in": 562734,
+   "out": 33005,
+   "calls": 61
+  }
+ },
+ "step_cap": 20
+}

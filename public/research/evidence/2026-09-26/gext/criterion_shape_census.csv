@@ -1,0 +1,43 @@
+system,text,label,cat3
+MOBIUS,config.json has debug set to false,STATE,STATE
+MOBIUS,config.json keeps its other settings,STATE,STATE
+MOBIUS,"notes.txt contains the line ""hello from the mission""",STATE,STATE
+MOBIUS,every other setting in config.json is unchanged,STATE,STATE
+MOBIUS,"docs/guide.md no longer contains ""recieve""",STATE,STATE
+MOBIUS,"archive.txt exists with the former content of notes.txt, and notes.txt no longer exists",ACCOMPLISH,EVENT
+MOBIUS,src/greet.ts exports greet,STATE,STATE
+MOBIUS,src/index.ts re-exports greet from ./greet,STATE,STATE
+MOBIUS,the file the service reads its settings from sets replicas to 3,STATE,STATE
+MOBIUS,each section of the old notes.md is its own file under notes/,STATE,STATE
+MOBIUS,notes.md is an index linking the three files,STATE,STATE
+MOBIUS,no file in the workspace refers to fetchUser any more,STATE,STATE
+MOBIUS,src/users.js defines loadUser,ACCOMPLISH,STATE
+MOBIUS,src/slugify.js exports slugify,STATE,STATE
+MOBIUS,slugify is exported from src/index.js and registered in modules.json,STATE,STATE
+MOBIUS,"settings.ini reflects every change SPEC.md lists, and nothing else in it changed",STATE,STATE
+MOBIUS,version 1.4.3 is set in package.json and described in CHANGELOG.md,STATE,STATE
+BROWSERUSE,"Denver, CO added to locations. Cybersecurity added to industries. Palantir FDE Intern (job",STATE,EVENT
+BROWSERUSE,"Both 'Boston, MA' and 'Denver, CO' found in preferred locations: ['San Francisco, CA', 'Ne",STATE,STATE
+BROWSERUSE,Both workshop events RSVP'd. JPMorgan Chase followed (hosts the only Panel event).,ACCOMPLISH,EVENT
+BROWSERUSE,"Successfully paid the minimum amount due ($35) on PayPal Credit: credit balance decreased,",ACCOMPLISH,EVENT
+BROWSERUSE,All 4 active repeating invoices now use Professional Services theme.,STATE,EVENT
+BROWSERUSE,Invoice INV-0054 (Sapphire Bay Resort) has been voided successfully.,STATE,EVENT
+BROWSERUSE,Read receipts are disabled.,STATE,STATE
+BROWSERUSE,API key 'Admin' created and both auto-assign settings enabled.,STATE,EVENT
+BROWSERUSE,Quote QU-0026 (Horizon Media) has been deleted successfully.,STATE,EVENT
+BROWSERUSE,Meta ML Engineer Intern (job_07) has been removed from saved jobs.,STATE,EVENT
+BROWSERUSE,Professional Branding appointment scheduled with Michael Okafor (discovered from approved ,STATE,EVENT
+BROWSERUSE,Spell check is disabled,STATE,STATE
+BROWSERUSE,Successfully converted 200 EUR to JPY. EUR balance decreased and JPY balance increased.,ACCOMPLISH,EVENT
+BROWSERUSE,Tom Bradley's email updated to 'tom@newrealty.com' and job title to 'Senior Agent'.,STATE,EVENT
+BROWSERUSE,"Losartan (ARB) discontinued with cancellation, Lisinopril (ACE) retained",ACCOMPLISH,EVENT
+BROWSERUSE,"CVS refills approved, non-CVS refills denied with transfer reason",STATE,EVENT
+BROWSERUSE,Anthropic event RSVP'd (highest-paid internship employer). Jordan Taylor's anti-FAANG post,STATE,EVENT
+BROWSERUSE,Removed US Bank 7823 (least recently used confirmed bank account).,ACCOMPLISH,EVENT
+BROWSERUSE,Template 'Virtual Care Standard' (id=tmpl_100) created as duplicate of POS '02' template. ,ACCOMPLISH,EVENT
+BROWSERUSE,"All themes: tax number enabled, payment advice disabled on those that had it.",STATE,STATE
+BROWSERUSE,Action Items has fade-in animation and is locked,STATE,STATE
+BROWSERUSE,Brand Assets 2025 library has been removed,STATE,EVENT
+BROWSERUSE,Custom sig 'Take 2 tablets by mouth once daily' deleted successfully; 23 sigs remain,STATE,EVENT
+BROWSERUSE,QU-0028 accepted and invoice INV-0067 created for Metro Fabrication.,STATE,EVENT
+BROWSERUSE,Default font set to Roboto and default size set to 14.,STATE,STATE

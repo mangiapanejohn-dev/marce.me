@@ -1,0 +1,18 @@
+{
+ "tag": "opus-4-6_GRANT_L30_s2",
+ "model": "claude-opus-4-6",
+ "arm": "GRANT",
+ "load": "L30",
+ "seed": 2,
+ "turns_completed": 7,
+ "fault_log": [],
+ "usage": {
+  "claude-opus-4-6": {
+   "in": 1812131,
+   "out": 73916,
+   "calls": 106
+  }
+ },
+ "step_cap": 20,
+ "note": "out_opus-4-6_GRANT_L30_s2/{rows,steps}.jsonl were appended-to rather than overwritten because an earlier attempt in this session died mid-run (daemon-restart kernel loss) after completing turns 1-5 in the same outdir. The saved rows_*/steps_* files here were filtered to keep only the final complete run (turns 1-7, 106 steps), dropping the stale duplicate entries from the killed attempt."
+}
