@@ -49,6 +49,11 @@ export type MobiusEssay = {
 
 export const essays: MobiusEssay[] = [
   {
+    slug: "mobius-the-model-can-the-runtime-never-said-no",
+    span: "Research record · 22–23 Sep",
+    spanZh: "研究记录 · 9 月 22–23 日",
+  },
+  {
     slug: "mobius-each-time-we-thought-we-found-something",
     span: "Research record · 18–22 Sep",
     spanZh: "研究记录 · 9 月 18–22 日",
