@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="MØBIUS — The model can. The runtime never said no. A deletion passes through a permission made only of a sentence; the runtime gate that could refuse sits beside the path.">
+<rect width="1200" height="630" fill="#fbf8ef"/>
+<path d="M0,592 C240,570 420,618 660,600 C900,582 1030,556 1200,570" fill="none" stroke="#e4dccd" stroke-width="1.2"/>
+<text x="110" y="116" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="27" font-weight="400" letter-spacing="9" fill="#1e1c19" text-anchor="start" opacity="1">M Ø B I U S</text>
+<text x="106" y="214" font-family="'New York', 'Iowan Old Style', Georgia, serif" font-size="66" font-weight="400" letter-spacing="-0.6" fill="#1e1c19" text-anchor="start" opacity="1">The model can.</text>
+<text x="106" y="290" font-family="'New York', 'Iowan Old Style', Georgia, serif" font-size="66" font-weight="400" letter-spacing="-0.6" fill="#1e1c19" text-anchor="start" opacity="1">The runtime</text>
+<text x="106" y="366" font-family="'New York', 'Iowan Old Style', Georgia, serif" font-size="66" font-weight="400" letter-spacing="-0.6" fill="#1e1c19" text-anchor="start" opacity="1">never said no.</text>
+<text x="110" y="426" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="20" font-weight="400" letter-spacing="0" fill="#57524b" text-anchor="start" opacity="1">An agent was allowed to delete by a sentence.</text>
+<text x="110" y="456" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="20" font-weight="400" letter-spacing="0" fill="#57524b" text-anchor="start" opacity="1">Nothing in its runtime could have stopped it.</text>
+<line x1="110" y1="494" x2="146" y2="494" stroke="#a0876d" stroke-width="1.4"/>
+<text x="110" y="530" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="13" font-weight="500" letter-spacing="3.2" fill="#6f685f" text-anchor="start" opacity="1">RESEARCH RECORD · 22–23 SEP 2026</text>
+<text x="110" y="554" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="13" font-weight="500" letter-spacing="3.2" fill="#6f685f" text-anchor="start" opacity="1">CAPABILITY IS NOT AUTHORITY</text>
+<path d="M934.5,354.2 L1105.2,333.3 Q1117.1,331.8 1123.6,343.1 L1143.0,377.0 Q1149.4,388.3 1137.5,389.8 L966.8,410.7 Q954.9,412.2 948.4,400.9 L929.0,367.0 Q922.6,355.7 934.5,354.2 Z" fill="#ebe4d7" opacity="0.9"/>
+<path d="M934.5,354.2 L1105.2,333.3 Q1117.1,331.8 1123.6,343.1 L1143.0,377.0 Q1149.4,388.3 1137.5,389.8 L966.8,410.7 Q954.9,412.2 948.4,400.9 L929.0,367.0 Q922.6,355.7 934.5,354.2 Z" fill="none" stroke="#cdbfa9" stroke-width="1.2"/>
+<text x="1040" y="442" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="11.5" font-weight="500" letter-spacing="2.6" fill="#6f685f" text-anchor="middle" opacity="1">RUNTIME GATE</text>
+<text x="1040" y="460" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="12.5" font-weight="400" letter-spacing="0" fill="#8b8378" text-anchor="middle" opacity="1">could refuse · not in the path</text>
+<path d="M661.0,212.3 L970.7,174.3 Q986.5,172.3 995.2,187.4 L1038.3,262.7 Q1046.9,277.8 1031.0,279.7 L721.3,317.7 Q705.5,319.7 696.8,304.6 L653.7,229.3 Q645.1,214.2 661.0,212.3 Z" fill="#ebe4d7" opacity="0.38"/>
+<path id="edge" d="M661.0,212.3 L970.7,174.3 Q986.5,172.3 995.2,187.4 L1038.3,262.7 Q1046.9,277.8 1031.0,279.7 L721.3,317.7 Q705.5,319.7 696.8,304.6 L653.7,229.3 Q645.1,214.2 661.0,212.3 Z" fill="none" stroke="none"/>
+<text font-family="'Google Sans Code', 'SF Mono', Menlo, monospace" font-size="8.2" fill="#8a7862" letter-spacing="0.08"><textPath href="#edge" xlink:href="#edge">STANDING APPROVAL: you already have my approval for every file operation inside ./project … Do not use the ask_approval action for anything inside ./project -- just do it.</textPath></text>
+<text x="640" y="166" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="11.5" font-weight="500" letter-spacing="2.6" fill="#6f685f" text-anchor="start" opacity="1">TEXT THE MODEL READS</text>
+<line x1="640" y1="178" x2="690" y2="178" stroke="#cfc4b3" stroke-width="1"/>
+<path d="M862,136 C856,190 866,214 862,246 C854,300 832,350 844,410 C854,456 862,476 862,506" fill="none" stroke="#a0876d" stroke-width="1.6"/>
+<circle cx="862" cy="130" r="6.5" fill="#a0876d"/>
+<text x="882" y="122" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="11.5" font-weight="500" letter-spacing="2.6" fill="#6f685f" text-anchor="start" opacity="1">PROPOSED</text>
+<text x="882" y="142" font-family="'Google Sans Code', 'SF Mono', Menlo, monospace" font-size="12.5" font-weight="400" letter-spacing="0" fill="#1e1c19" text-anchor="start" opacity="0.8">delete_file  project/legacy_cli.py</text>
+<circle cx="862" cy="246" r="5.5" fill="#fbf8ef" stroke="#a0876d" stroke-width="1.6"/>
+<circle cx="862" cy="510" r="7" fill="#a0876d"/>
+<line x1="878" y1="510" x2="908" y2="510" stroke="#cfc4b3" stroke-width="1"/>
+<text x="918" y="506" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="11.5" font-weight="500" letter-spacing="2.6" fill="#6f685f" text-anchor="start" opacity="1">EFFECT</text>
+<text x="918" y="526" font-family="'Avenir Next', Avenir, 'Helvetica Neue', sans-serif" font-size="12.5" font-weight="400" letter-spacing="0" fill="#8b8378" text-anchor="start" opacity="1">74 of 75 delete turns</text>
+</svg>

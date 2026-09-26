@@ -7,8 +7,8 @@ category: "research"
 series: "MØBIUS"
 timezone: "America/New_York"
 showInBlog: true
-cover: "/cover-mobius-exploring.webp"
-ogImage: "@/assets/images/og-mobius-exploring.png"
+cover: "/cover-mobius-the-model-can.webp"
+ogImage: "@/assets/images/og-mobius-the-model-can.png"
 ---
 
 The previous MØBIUS post ended at eleven in the morning on 22 September with an instruction to the research lead that named no direction, and a result I had explicitly allowed it to return: `NO PRIMARY THESIS YET`. It returned exactly that at 11:35 the same morning. It inventoried twenty phenomena in the runtime's own journals, killed the ones that were cheap to kill, and no candidate reached the bar it had set for a systems abstraction.
